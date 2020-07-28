@@ -12,23 +12,18 @@ class ColourSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('brands')->insert([
-            'brand_name'  => 'Volkswagen'
+        DB::table('colours')->insert([
+            'colour_name'  => 'Negro'
         ]);
-        DB::table('brands')->insert([
-            'brand_name'  => 'Chevrolet'
+        DB::table('colours')->insert([
+            'colour_name'  => 'Rojo'
         ]);
-        DB::table('brands')->insert([
-            'brand_name'  => 'Toyota',
+        DB::table('colours')->insert([
+            'colour_name'  => 'Azul',
         ]);
-        DB::table('brands')->insert([
-            'brand_name'  => 'Hyundai',
+        DB::table('colours')->insert([
+            'colour_name'  => 'Beige',
         ]);
-        DB::table('brands')->insert([
-            'brand_name'  => 'Mercedes-Benz',
-        ]);
-        DB::table('brands')->insert([
-            'brand_name'  => 'Ford',
-        ]);
+       
     }
 }

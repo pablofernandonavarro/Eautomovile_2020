@@ -13,7 +13,7 @@ class ProductManagementTest extends TestCase
     /** @test */
     public function a_product_can_be_create()
     {
-
+    
         $this->withoutExceptionHandling();
         
         $response = $this->post('/products',[
@@ -24,18 +24,18 @@ class ProductManagementTest extends TestCase
            'description_large'  =>'safasfasfasfasfasfasfasf',
            'data_interest'      =>'asfasfasfasfasfas',
            'spec'               =>'afasfasfasf',
-           'brand_id'           =>'1',
-           'pattern_id'         =>'1',
-           'category_id'        =>'1',
-           'colour_id'          =>'1',
-           'date_start'         =>'2000',
-           'date_finish'         =>'2010',
-           'quantity'           =>'4',
-           'price'              =>'100',
-           'discount_rate'      =>'10',
+           'brand_id'           =>1,
+           'pattern_id'         =>2,
+           'category_id'        =>1,
+           'colour_id'          =>1,
+           'date_start'         =>2000,
+           'date_finish'         =>2010,
+           'quantity'           =>4,
+           'price'              =>100,
+           'discount_rate'      =>10,
            'active'             =>'si',
-           'visit'              =>'100',
-           'count_sale'         =>'10',
+           'visit'              =>100,
+           'count_sale'         =>10,
            'slider'             =>'si',
         ]);
 
