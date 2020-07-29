@@ -31,5 +31,9 @@ class Product extends Model
      
     ];
     
+    public function pictures()
+    {
+        return $this->morphMany('App\Picture', 'pictureable');
+    }
     
 }

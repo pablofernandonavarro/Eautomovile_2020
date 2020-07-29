@@ -5,17 +5,22 @@
 use App\Model;
 use Faker\Generator as Faker;
 use App\Product;
+use Illuminate\Support\Str;
 
 $factory->define(Product::class, function (Faker $faker) {
+
+    $description_short = $faker->text;
+    $slug = Str::slug($description_short, '-');
+
     return [
 
         'sku'                => $faker->unique()->numberBetween(1,200),
-        'slug'               => $faker->text,
-        'description_short'  => $faker->text,
+        'slug'               => $slug,
+        'description_short'  => $description_short,
         'description_large'  => $faker->text,
         'data_interest'      => $faker->text,
         'spec'               => $faker->text,
-        'brand_id'           => rand(1,3),
+        'brand_id'           => rand(1,4),
         'pattern_id'         => rand(1,3),
         'category_id'        => rand(1,3),
         'colour_id'          => rand(1,3),
