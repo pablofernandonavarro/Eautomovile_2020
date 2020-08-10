@@ -22,11 +22,14 @@ class NoteController extends Controller
     public function store(Request $request){
 
         $this->validate($request,[
-        'description'=> 'required'
+
+        'description'=> 'required',
+
         ]);
+
         Note::create($request->all());
 
-        
+        return ;
     }
 
     public function edit($id){

@@ -1,12 +1,11 @@
 @extends('admin.layout')
 
 @section('content')
-<div id="app">
 
+   
+@include('admin.create_note')
     <note-component>
-
+       
     </note-component>
 
-
-</div>
 @endsection

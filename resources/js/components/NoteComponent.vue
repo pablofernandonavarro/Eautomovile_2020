@@ -1,15 +1,20 @@
+
+
+
+
 <template>
+
+
     <div id="app">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1 class="page-header">Tarea a recordar</h1>
-                </div>
-
                 <div class="col-md-7">
-                    <a href class="btn btn-primary float-right" data-toggle="modal" data-target="#create_note">Nueva
-                        tarea</a>
-
+                    <h1 class="page-header">Tarea a recordar</h1>
+                        <a href class="btn btn-primary float-right mb-4" data-toggle="modal" data-target="#create_note">
+                            Nueva tarea
+                        </a>
+                </div>
+                <div class="col-md-7">
                     <table class="table table-hover table-spriped">
                         <thead>
                             <tr>
@@ -32,11 +37,11 @@
                             </tr>
                         </tbody>
                     </table>
-
+  
                 </div>
                 <div class="col-md-5 bg-white">
                     <pre>
-                           {{ notes}}
+                           {{ $data}}
                 </pre>
                 </div>
             </div>
@@ -44,6 +49,7 @@
     </div>
 
 </template>
+
 <script>
     import toastr from "toastr";
 
@@ -80,14 +86,14 @@ export default {
         var urlnotes = 'notes';
         axios.post(urlnotes,{
             note : this.new_note
-        }).then(Response =>{
+        }).then(response =>{
             this.getnote();
             this.new_note = '',
             this.errors = [],
             $('#create_note').modal('hide');
-            toastr.success('nueva tarea creada con exito');        
+            toastr.success('Nueva tarea creada con exito');        
         }).catch(error => {
-            this.errors = erro.response.data;
+            this.errors = error.response.data;
         });
     }
   }
