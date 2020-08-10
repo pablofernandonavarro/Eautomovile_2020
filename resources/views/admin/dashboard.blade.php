@@ -1,5 +1,12 @@
 @extends('admin.layout')
 
 @section('content')
-<note-component></note-component>
+<div id="app">
+
+    <note-component>
+
+    </note-component>
+
+
+</div>
 @endsection

@@ -12,7 +12,7 @@ Route::get('dashboard', function(){
     return View('admin.dashboard');
 });
 
-Route::resource('notes', 'NoteController',['except' =>'show']);
+Route::resource('notes', 'NoteController',['except' =>'show','create','edit']);
 
 
 //  /ROUTE ADMIN

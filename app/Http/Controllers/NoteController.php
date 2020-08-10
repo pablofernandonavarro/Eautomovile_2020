@@ -15,16 +15,17 @@ class NoteController extends Controller
         
     }
 
-    public function create(){
-
-     
-      
-        
-    }
+   
 
 
 
     public function store(Request $request){
+
+        $this->validate($request,[
+        'description'=> 'required'
+        ]);
+        Note::create($request->all());
+
         
     }
 
