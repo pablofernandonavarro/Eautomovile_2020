@@ -38,6 +38,18 @@ class NoteController extends Controller
         ///formulario
         return $notes;
     }
+    public function update(Request $request ,$id){
+
+        $this->validate($request,[
+
+          'description'=> 'required',
+        ]);
+
+        Note::find($id)->update($request->all());
+        return;
+
+
+    }
 
     public function destroy($id){
        

@@ -1995,13 +1995,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       notes: [],
-      new_note: '',
-      errors: []
+      newnote: "",
+      errors: [],
+      fillnote: {
+        'id': '',
+        'description': ''
+      }
     };
   },
   created: function created() {
@@ -2016,29 +2070,50 @@ __webpack_require__.r(__webpack_exports__);
         _this.notes = response.data;
       });
     },
-    deletenote: function deletenote(note) {
+    editnote: function editnote(note) {
+      this.fillnote.id = note.id;
+      this.fillnote.description = note.description;
+      $('#editnote').modal('show');
+    },
+    updatenote: function updatenote(id) {
       var _this2 = this;
+
+      var url = 'notes/' + id;
+      axios.put(url, this.fillnote).then(function (response) {
+        _this2.getnote();
+
+        _this2.fillnote = {
+          'id': '',
+          'description': ''
+        };
+        _this2.errors = [];
+        $('#editnote').modal('hide');
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('La edicion fue realizada')["catch"](function (error) {
+          _this2.errors = error.response.data;
+        });
+      });
+    },
+    deletenote: function deletenote(note) {
+      var _this3 = this;
 
       var urlnotes = "notes/" + note.id;
       axios["delete"](urlnotes).then(function (response) {
-        _this2.getnote();
+        _this3.getnote();
 
-        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('La tarea fue eliminada con exito');
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("La tarea fue eliminada con exito");
       });
     },
     createnote: function createnote() {
-      var _this3 = this;
+      var _this4 = this;
 
-      var urlnotes = 'notes';
+      var urlnotes = "notes";
       axios.post(urlnotes, {
-        note: this.new_note
+        description: this.newnote
       }).then(function (response) {
-        _this3.getnote();
-
-        _this3.new_note = '', _this3.errors = [], $('#create_note').modal('hide');
-        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('Nueva tarea creada con exito');
+        _this4.getnote(), _this4.newnote = "", _this4.errors = [], $("#createnote").modal("hide");
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Nueva tarea creada con exito");
       })["catch"](function (error) {
-        _this3.errors = error.response.data;
+        _this4.errors = error.response.data;
       });
     }
   }
@@ -38176,7 +38251,26 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(note.description))]),
                   _vm._v(" "),
-                  _vm._m(2, true),
+                  _c("td", { attrs: { width: "10px" } }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-warning btn-sm",
+                        attrs: {
+                          href: "#",
+                          "data-toggle": "modal",
+                          "data-target": "#editnote"
+                        },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.editnote(note)
+                          }
+                        }
+                      },
+                      [_vm._v("\n                                 Editar")]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", { attrs: { width: "10px" } }, [
                     _c(
@@ -38191,7 +38285,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("eliminar")]
+                      [_vm._v("Eliminar")]
                     )
                   ])
                 ])
@@ -38209,7 +38303,111 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { method: "POST" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.createnote($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "modal fade", attrs: { id: "createnote" } }, [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("label", { attrs: { for: "note" } }, [
+                  _vm._v("Nueva Tarea")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newnote,
+                      expression: "newnote"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "note" },
+                  domProps: { value: _vm.newnote },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.newnote = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { method: "POST" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.updatenote(_vm.fillnote.id)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "modal fade", attrs: { id: "editnote" } }, [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("label", { attrs: { for: "note" } }, [
+                  _vm._v("Actualizar nueva tarea")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fillnote.description,
+                      expression: "fillnote.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "note" },
+                  domProps: { value: _vm.fillnote.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fillnote, "description", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -38227,10 +38425,10 @@ var staticRenderFns = [
           attrs: {
             href: "",
             "data-toggle": "modal",
-            "data-target": "#create_note"
+            "data-target": "#createnote"
           }
         },
-        [_vm._v("\n                        Nueva tarea\n                    ")]
+        [_vm._v("Nueva\n                    tarea")]
       )
     ])
   },
@@ -38252,10 +38450,56 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { attrs: { width: "10px" } }, [
-      _c("a", { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } }, [
-        _vm._v("editar")
-      ])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h4", [_vm._v("Crear")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("span", [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c("input", {
+        staticClass: "btn btn-primary",
+        attrs: { type: "submit", value: "Guardar" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h4", [_vm._v("Editar ")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("span", [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c("input", {
+        staticClass: "btn btn-primary",
+        attrs: { type: "submit", value: "Actualizar" }
+      })
     ])
   }
 ]
@@ -50681,8 +50925,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
