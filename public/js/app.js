@@ -38237,7 +38237,7 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-7" }, [
+        _c("div", { staticClass: "col-md-12 align-center" }, [
           _c("table", { staticClass: "table table-hover table-spriped" }, [
             _vm._m(1),
             _vm._v(" "),
@@ -38291,14 +38291,6 @@ var render = function() {
                 ])
               }),
               0
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-5 bg-white" }, [
-          _c("pre", [
-            _vm._v(
-              "                       " + _vm._s(_vm.$data) + "\n            "
             )
           ])
         ])
@@ -38415,7 +38407,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7" }, [
+    return _c("div", { staticClass: "col-md-12" }, [
       _c("h1", { staticClass: "page-header" }, [_vm._v("Tarea a recordar")]),
       _vm._v(" "),
       _c(
@@ -50925,8 +50917,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
