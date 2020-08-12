@@ -2,12 +2,12 @@
     <div id="app">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                     <h1 class="page-header">Tarea a recordar</h1>
                     <a href class="btn btn-primary float-right mb-4" data-toggle="modal" data-target="#createnote">Nueva
                         tarea</a>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-12 align-center">
                     <table class="table table-hover table-spriped">
                         <thead>
                             <tr>
@@ -35,11 +35,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-5 bg-white">
+                <!--<div class="col-md-5 bg-white">
                     <pre>
                            {{ $data }}
                 </pre>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -102,7 +102,7 @@
 
 <script>
     import toastr from "toastr";
-
+   
     export default {
         data() {
             return {
