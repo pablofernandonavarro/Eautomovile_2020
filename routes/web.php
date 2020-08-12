@@ -6,6 +6,16 @@ use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
 
 
+
+
+
+
+
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
+
+
+
 //  ROUTE ADMIN
 
 Route::get('dashboard', function(){
@@ -17,16 +27,12 @@ Route::resource('notes', 'NoteController',['except' =>'show','create','edit']);
 
 //  /ROUTE ADMIN
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::resource('products', 'productController');
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
