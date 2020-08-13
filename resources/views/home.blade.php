@@ -16,6 +16,9 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <div>
+                    <a href="admin/dashboard" class="btn btn-primary">Administracion</a>
+                </div>
             </div>
         </div>
     </div>

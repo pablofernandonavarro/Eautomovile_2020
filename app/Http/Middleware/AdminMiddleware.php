@@ -17,9 +17,14 @@ class AdminMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
-        if(Auth::check()&& Auth::user()->email=="pablofernandonavarro@gmail.com")
-        return $next($request);
-        redirect('/');
+    {   
+       if(! auth()->check())
+       return redirect('/login');
+
+        if(auth()->user()->role != "admin")
+        return redirect('/home');
+        
+         return $next($request);
+        
     }
 }
