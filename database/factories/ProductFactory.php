@@ -23,7 +23,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'brand_id'           => rand(1,4),
         'pattern_id'         => rand(1,3),
         'category_id'        => rand(1,3),
-        'colour_id'          => rand(1,3),
+        'color_id'           => rand(1,3),
         'date_start'         => $faker->dateTime,
         'date_finish'        => $faker->datetime,
         'quantity'           => $faker->randomDigit,

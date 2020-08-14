@@ -187,7 +187,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <!-- Tareas a realizar-->
                             <li class="nav-item">
-                                <a href="notes" class="nav-link">
+                                <a href="dashboard" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
                                     <p>
                                         Tareas a Realizar
@@ -198,6 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- /Tareas a realizar-->
               
                     
+
                         <!-- /Products nav-bar-->
                             <li class="nav-item has-treeview menu-close">
                                 <a href="#" class="nav-link active">
@@ -215,7 +216,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="{{url('admin/products/create')}}" class="nav-link active">
                                             <i class="far  nav-icon"></i>
                                             <p>Crear </p>
                                         </a>
@@ -237,123 +238,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- /Product nav-bar-->
 
                     <!-- Category nav-bar-->
-                    <li class="nav-item has-treeview menu-close">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas "></i>
+                    <li class="nav-item has-treeview">
+                        <a href="category_crud" class="nav-link active">
+                            <i class="nav-icon active"></i>
                             <p>
                                 Categorias
-                                <i class="right fas fa-angle-left"></i>
+                                <i class="right fas"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far  nav-icon"></i>
-                                    <p>Ver </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far  nav-icon"></i>
-                                    <p>Crear</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far nav-icon"></i>
-                                    <p>Editar</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far  nav-icon bi bi-tag-fill"></i>
-                                    <p>Borar</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-
-
-
-            <!-- /Category nav-bar-->
+                    <!-- /Category nav-bar-->
 
 
 
             <!-- Brand nav-bar-->
-            <li class="nav-item has-treeview menu-close">
-                <a href="#" class="nav-link active">
-                    <i class="nav-icon fas "></i>
+            <li class="nav-item has-treeview">
+                <a href="brand_crud" class="nav-link active">
+                    <i class="nav-icon active"></i>
                     <p>
-                        Marcas
-                        <i class="right fas fa-angle-left"></i>
+                        Marca automotor
+                        <i class="right fas"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Ver </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Crear</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far nav-icon"></i>
-                            <p>Editar</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon bi bi-tag-fill"></i>
-                            <p>Borar</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
+          
             <!-- Brand nav-bar-->
 
 
              <!-- Color nav-bar-->
-             <li class="nav-item has-treeview menu-close">
-                <a href="#" class="nav-link active">
-                    <i class="nav-icon fas "></i>
+            <li class="nav-item has-treeview">
+                <a href="color_crud" class="nav-link active">
+                    <i class="nav-icon active"></i>
                     <p>
                         Colores
-                        <i class="right fas fa-angle-left"></i>
+                        <i class="right fas"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Ver </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Crear</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far nav-icon"></i>
-                            <p>Editar</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon bi bi-tag-fill"></i>
-                            <p>Borar</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            </li> 
             <!-- /color nav-bar-->
 
 

@@ -4,7 +4,8 @@
 
 
 
-<note-component></note-component>
+<category-component>
 
+<category-component>
 
 @endsection

@@ -33,4 +33,7 @@ class productcontroller extends Controller
          Product::create($data);
 
     }
+    public function create(){
+        return "pablo";
+    }
 }

@@ -4,7 +4,8 @@
 
 
 
-<note-component></note-component>
+<color-component>
 
+<color-component>
 
 @endsection

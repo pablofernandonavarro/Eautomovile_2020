@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Colour;
+use App\Color;
 use Faker\Generator as Faker;
 
-$factory->define(Colour::class, function (Faker $faker) {
+$factory->define(Color::class, function (Faker $faker) {
     return [
         //
     ];

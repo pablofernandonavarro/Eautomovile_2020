@@ -4,7 +4,8 @@
 
 
 
-<note-component></note-component>
+<brand-component>
 
+<brand-component>
 
 @endsection
