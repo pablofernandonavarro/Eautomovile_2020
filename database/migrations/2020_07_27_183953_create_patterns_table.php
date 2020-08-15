@@ -15,7 +15,8 @@ class CreatePatternsTable extends Migration
     {
         Schema::create('patterns', function (Blueprint $table) {
             $table->id();
-            $table->string('pattern_name');
+            $table->string('pattern_name', 100);
+            $table->foreignId('brand_id')->nullable()->constrained()->cascadeOnDelete('set null');
             $table->timestamps();
         });
     }

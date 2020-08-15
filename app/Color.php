@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\This;
 
 class Color extends Model
 {
@@ -11,5 +12,9 @@ class Color extends Model
     protected $fillable = [
         'color_name', 
     ];
+    
+    public function colors(){
+        return $this->hasMany('App\Color');
+    }
 
 }

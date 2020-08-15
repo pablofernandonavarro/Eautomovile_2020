@@ -163,8 +163,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="home" class="brand-link">
-                    <img src="{{asset('storage/admin_picture/Logotipo.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
-                        style="opacity: .8">
+                    <img src="{{asset('storage/admin_picture/Logotipo.png')}}" alt="AdminLTE Logo"
+                        class="brand-image  elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">.</span>
                 </a>
 
@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
 
-                        <!-- Tareas a realizar-->
+                            <!-- Tareas a realizar-->
                             <li class="nav-item">
                                 <a href="dashboard" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
@@ -195,11 +195,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </p>
                                 </a>
                             </li>
-                        <!-- /Tareas a realizar-->
-              
-                    
+                            <!-- /Tareas a realizar-->
 
-                        <!-- /Products nav-bar-->
+
+
+                            <!-- /Products nav-bar-->
                             <li class="nav-item has-treeview menu-close">
                                 <a href="#" class="nav-link active">
                                     <i class="nav-icon fas "></i>
@@ -235,95 +235,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </li>
                                 </ul>
                             </li>
-                    <!-- /Product nav-bar-->
+                            <!-- /Product nav-bar-->
 
-                    <!-- Category nav-bar-->
-                    <li class="nav-item has-treeview">
-                        <a href="category_crud" class="nav-link active">
-                            <i class="nav-icon active"></i>
-                            <p>
-                                Categorias
-                                <i class="right fas"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- /Category nav-bar-->
-
-
-
-            <!-- Brand nav-bar-->
-            <li class="nav-item has-treeview">
-                <a href="brand_crud" class="nav-link active">
-                    <i class="nav-icon active"></i>
-                    <p>
-                        Marca automotor
-                        <i class="right fas"></i>
-                    </p>
-                </a>
-            </li>
-          
-            <!-- Brand nav-bar-->
-
-
-             <!-- Color nav-bar-->
-            <li class="nav-item has-treeview">
-                <a href="color_crud" class="nav-link active">
-                    <i class="nav-icon active"></i>
-                    <p>
-                        Colores
-                        <i class="right fas"></i>
-                    </p>
-                </a>
-            </li> 
-            <!-- /color nav-bar-->
+                            <!-- Category nav-bar-->
+                            <li class="nav-item has-treeview">
+                                <a href="category_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Categorias
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+                            <!-- /Category nav-bar-->
 
 
 
+                            <!-- Brand nav-bar-->
+                            <li class="nav-item has-treeview">
+                                <a href="brand_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Marca automotor
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
 
-            <!-- Pattern nav-bar-->
-            <li class="nav-item has-treeview menu-close">
-                <a href="#" class="nav-link active">
-                    <i class="nav-icon fas "></i>
-                    <p>
-                        Modelos
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Ver </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon"></i>
-                            <p>Crear</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far nav-icon"></i>
-                            <p>Editar</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="far  nav-icon bi bi-tag-fill"></i>
-                            <p>Borar</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- /Pattern nav-bar-->
+                            <!-- Brand nav-bar-->
+
+
+                            <!-- Color nav-bar-->
+                            <li class="nav-item has-treeview">
+                                <a href="color_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Colores
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+                            <!-- /color nav-bar-->
 
 
 
 
-                            
-        </ul>
-    </nav>
+                            <!-- Pattern nav-bar-->
+
+                            <li class="nav-item has-treeview">
+                                <a href="pattern_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Modelos
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!-- /Pattern nav-bar-->
+
+
+
+
+
+                        </ul>
+                    </nav>
                     <!-- /.sidebar-menu -->
                 </div>
                 <!-- /.sidebar -->
@@ -362,7 +338,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             </footer>
         </div>
-       
+
     </div>
     <!-- ./wrapper -->
 
