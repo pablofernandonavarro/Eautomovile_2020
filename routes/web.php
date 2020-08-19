@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
+Route::get('/',function (){return view('index');});
+
 Route::get('/index',function (){return view('index');});
-
-
 
 
 //  ROUTE ADMIN

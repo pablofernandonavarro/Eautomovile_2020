@@ -1,25 +1,10 @@
-@include('layouts.partials.head')
-@include('layouts.partials.nav-header')
 
+  @extends('plantilla')
+  @section('content')
+  <div class="container bg-light mt-3">
+   
+    <h1>hola</h1>
+  </div>
 
-<body>
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
+  @endsection
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
-
-</body>
-
-
-
-</html>
