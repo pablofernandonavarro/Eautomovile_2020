@@ -14,7 +14,11 @@ class Pattern extends Model
         'brand_id',
     ];
 
+    public function products(){
+        return $this->hasMany('App\Product');
+    }
+
     public function brand(){
-        $this->belongsTo('App\Brand');
+        return $this->belongsTo('App\Brand');
     }
 }

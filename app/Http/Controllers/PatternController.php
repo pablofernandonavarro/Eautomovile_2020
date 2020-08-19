@@ -10,8 +10,9 @@ class PatternController extends Controller
 {
     public function index(){
 
-        $patterns= Pattern::get();
-        $brands= Brand::get();
+         $patterns= Pattern::get();
+         $brands= Brand::get();
+       
          
         return $patterns;
         

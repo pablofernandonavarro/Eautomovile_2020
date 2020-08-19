@@ -99,7 +99,7 @@
                         </div>
                             <div class="modal-body">
                                 <label for="brand">Marca al que pertenece el Modelo</label>
-                                    <select v-model="select_brand" class="form-control" id="brand">
+                                    <select v-model="fillpattern.brand_id" class="form-control" id="brand">
                                         <option v-for="brand in brands" :value="brand.id">{{brand.brand_name}}</option>
                                     </select>
                         </div>
@@ -165,7 +165,7 @@
                var url = 'patterns/' + id;
                axios.put(url, this.fillpattern).then(response =>{
                    this.getpattern();
-                   this.fillpattern = {'id':'','pattern_name': ''};
+                   this.fillpattern = {'id':'','pattern_name': '','brand_id':''};
                    this.errors = [];
                    $('#editpattern').modal('hide');
                    toastr.success('La edicion fue realizada').catch(error => {

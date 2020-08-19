@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Pattern;
+use App\Product;
 
 class Brand extends Model
 {
@@ -15,7 +16,7 @@ class Brand extends Model
     
     public function products()
     {
-        return $this->hasMany('App\product');
+        return $this->hasMany('App\Product');
     }
 
     public function pattern()
