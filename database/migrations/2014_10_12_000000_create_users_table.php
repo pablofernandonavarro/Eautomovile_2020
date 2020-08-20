@@ -17,6 +17,14 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('domicilio')->nullable($value = true);
+            $table->string('localidad')->nullable($value = true);
+            $table->string('provincia')->nullable($value = true);
+            $table->string('codigopostal')->nullable($value = true);
+           
+            $table->string('avatar')->nullable($value = true);;
+            $table->string('telefono')->nullable($value = true);;
+            $table->string('razonsocial')->nullable($value = true);;  
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user');

@@ -36,19 +36,16 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
     
     
 });
-
-
-
-Route::get('test', function(){
-    $pattern = Pattern::all();
-    $relation = $pattern->brand();
-    return  $relation;
-});
-
-
-
-
 //  /ROUTE ADMIN
+
+Route::resource('users', 'UserController');
+
+
+
+
+
+
+
 
 
 

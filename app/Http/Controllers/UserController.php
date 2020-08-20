@@ -4,57 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class Usercontroller extends Controller
 {
-     public function index(){
+  
+  function edit($id){
+    $user= User::findOrfail($id);
+    return view('users.edit',compact('user'));
+   }
+ 
 
-        $users= User::get();
-
-        return $users;
-        
-    }
+public function update(Request $request, $id) {
 
    
+    $user = User::findOrFail($id);
+    $user->name  = $request->name;
+    $user->email = $request->email;
+    $user->domicilio  = $request->domicilio;
+    $user->localidad=$request->localidad;
+    $user->provincia=$request->provincia;
+    $user->codigopostal=$request->codigopostal;
+    $user->password=$request->password;
+    $user->avatar=$request->avatar;
+    $user->telefono=$request->telefono;
+    $user->razonsocial=$request->razonsocial;
+    $user->save();
+  return view('users.edit',compact ('user'));
 
 
 
-    public function store(Request $request){
-
-        $this->validate($request,[
-
-        'User_name'=> 'required',
-
-        ]);
-
-        User::create($request->all());
-
-        return ;
-    }
-
-    public function edit($id){
-       
-        $users = User::findOrFail($id);
-        ///formulario
-        return $users;
-    }
-    public function update(Request $request ,$id){
-
-        $this->validate($request,[
-
-          'User_name'=> 'required',
-        ]);
-
-        User::find($id)->update($request->all());
-        return;
-
-
-    }
-
-    public function destroy($id){
-       
-        $users = User::findOrFail($id);
-        $users->delete();
-        return $users;
-    }
 }
+
+
+  
+
+   
+}
+
+
+
+
+
+    
