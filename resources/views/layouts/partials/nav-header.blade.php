@@ -1,4 +1,5 @@
 <header>
+ 
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top">
             <div class="container">
@@ -40,7 +41,8 @@
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     v-pre>
                                     <img width="40px" style="border-radius:40%"
-                                        src="{{asset('storage/avatars/'.Auth::user()->avatar)}}" alt="">
+                                        src="{{asset('/storage/avatars/butaca_bebe.jpg')}}" alt="">
+                                       
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
