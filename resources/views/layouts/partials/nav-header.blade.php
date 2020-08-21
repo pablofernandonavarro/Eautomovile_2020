@@ -1,5 +1,5 @@
 <header>
- 
+
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top">
             <div class="container">
@@ -40,10 +40,12 @@
                                 <a id="navbarDropdown" class="nav-item dropdown-toggle text-light" href="#"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     v-pre>
-                                    <img width="40px" style="border-radius:40%"
-                                        src="{{asset('/storage/avatars/butaca_bebe.jpg')}}" alt="">
-                                       
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+
+
+                                    <span>{{ Auth::user()->name }} <span class="caret"></span>
+
+                                        <img width="40px" style="border-radius:100%"
+                                            src="{{Storage::url($user->url_avatar)}}" alt="" width="30px">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

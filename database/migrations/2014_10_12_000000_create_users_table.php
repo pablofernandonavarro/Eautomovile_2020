@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('localidad')->nullable($value = true);
             $table->string('provincia')->nullable($value = true);
             $table->string('codigopostal')->nullable($value = true);
-           
-            $table->string('avatar')->nullable($value = true);;
+            $table->string('url_avatar')->default('default.gif');;
             $table->string('telefono')->nullable($value = true);;
             $table->string('razonsocial')->nullable($value = true);;  
             $table->timestamp('email_verified_at')->nullable();

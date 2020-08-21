@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::get('/',function (){return view('index');});
 
-Route::get('/index',function (){return view('index');});
+Route::get('/index','indexController@view_user');
 
 
 //  ROUTE ADMIN
@@ -36,7 +36,6 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
     
     
 });
-//  /ROUTE ADMIN
 
 Route::resource('users', 'UserController');
 
@@ -45,7 +44,7 @@ Route::resource('users', 'UserController');
 
 
 
-
+//  /ROUTE ADMIN
 
 
 
