@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
-Route::get('/',function (){return view('index');});
+Route::get('/','indexController@view_user');
 
 Route::get('/index','indexController@view_user');
 
@@ -22,7 +22,7 @@ Route::get('/index','indexController@view_user');
 
 
 Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
-    Route::get('dashboard', function (){return view('admin.dashboard');});
+   
     Route::get('color_crud',function (){return view('admin.color_crud');});
     Route::get('category_crud',function (){return view('admin.category_crud');});
     Route::get('brand_crud',function (){return view('admin.brand_crud');});

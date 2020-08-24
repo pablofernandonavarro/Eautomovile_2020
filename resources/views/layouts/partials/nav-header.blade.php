@@ -24,6 +24,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">{{ __('Carrito')}}</a></li>
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
+
                     </ul>
 
                     @endif
@@ -68,6 +69,7 @@
 
                 </div>
                 @endguest
+
         </nav>
     </div>
 </header>

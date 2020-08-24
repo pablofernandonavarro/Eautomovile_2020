@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="col-md-12 p-5">
-        <div class="card-header ">
+        <div class="card-header mt-4 ">
             <h1 class="d-flex justify-content-center mt-4">Edita tu Perfil</h1>
         </div>
 
@@ -14,31 +14,30 @@
             <!-- ACCOUNT DATA  -->
 
             <h3 class="car-title mt-3">Datos de tu cuenta:</h3>
-            <div class="card p-4">
+            <div class="card p-4 shadow-lg">
                 <div class="row">
                     <div class="col-sm-4 ">
-                        <label>Nombre de usuario:</label>
+                        <label>Nombre:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-user-tag"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="user_name" value='{{$user->user_name}}'
-                                placeholder="nombre de usuario a eleccion">
+                            <input class="form-control" type="text" name="name" value='{{$user->name}}'
+                                placeholder="Ingrese su nombre ">
                         </div>
                     </div>
                     <div class=" col-sm-4 ">
-                        <label>Nombre y apellido:</label>
+                        <label>Apellido:</label>
                         <div class=" input-group">
-
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="name" value='{{$user->name}}'
-                                placeholder="Ingrese su nombre">
+                            <input class="form-control" type="text" name="user_lastName"
+                                value='{{$user->user_lastName}}' placeholder="Ingrese su Apellido">
                         </div>
                     </div>
                     <div class="col-sm-4 ">
@@ -61,8 +60,8 @@
                                     <i class="fas fa-file-invoice-dollar"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="user_name" value='{{$user->cuit_cuil}}'
-                                placeholder="numero de cuit o cuil">
+                            <input class="form-control" type="text" name="user_cuit" value='{{$user->user_cuit}}'
+                                placeholder="Ingrese su numero de cuit o cuil">
                         </div>
                     </div>
                     <div class=" col-sm-4 mt-4">
@@ -73,8 +72,8 @@
                                     <i class="fas fa-building"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="razonsocial" value='{{$user->razonsocial}}'
-                                placeholder="Ingrese razon social">
+                            <input class="form-control" type="text" name="user_businessName"
+                                value='{{$user->user_businessName}}' placeholder="(no obligatorio)">
                         </div>
                     </div>
                     <div class=" col-sm-4 mt-4">
@@ -85,7 +84,7 @@
                                     <i class="fas fa-phone"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="razonsocial" value='{{$user->phone}}'
+                            <input class="form-control" type="text" name="user_phone" value='{{$user->user_phone}}'
                                 placeholder="Ingrese su numero de telefono">
                         </div>
                     </div>
@@ -99,17 +98,17 @@
             <!-- FISCAL DATA  -->
 
             <h3 class="car-title mt-3">Datos Fiscales:</h3>
-            <div class="card p-4">
+            <div class="card p-4 shadow-lg">
                 <div class="row">
                     <div class="col-sm-4 ">
                         <label>Tipo de contribuyente:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user-tag"></i>
+                                    <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="user_name" value='{{$user->user_type_cuit}}'
+                            <input class="form-control" type="text" name="user_ivaType" value='{{$user->user_ivaType}}'
                                 placeholder="Tipo de contribuyente">
                         </div>
                     </div>
@@ -122,8 +121,8 @@
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="name" value='{{$user->user_iva_off}}'
-                                placeholder="Exclusion de I.V.A.">
+                            <input class="form-control" type="text" name="user_ivaExclusion"
+                                value='{{$user->user_ivaExclusion}}' placeholder="Exclusion de I.V.A.">
                         </div>
                     </div>
                 </div>
@@ -133,18 +132,18 @@
             <!-- I.B.-->
 
             <h3 class="car-title mt-3">Datos Ingreso Brutos:</h3>
-            <div class="card p-4">
+            <div class="card p-4 shadow-lg">
                 <div class="row">
                     <div class="col-sm-4 ">
                         <label>Regimen:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user-tag"></i>
+                                    <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="user_name" value='{{$user->user_ib_type}}'
-                                placeholder="Tipo de contribuyente">
+                            <input class="form-control" type="text" name="user_ibRegiment"
+                                value='{{$user->user_ibRegiment}}' placeholder="Tipo de regimen I.B.">
                         </div>
                     </div>
                     <div class=" col-sm-4 ">
@@ -156,8 +155,8 @@
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="name" value='{{$user->user_ib_number}}'
-                                placeholder="Exclusion de I.V.A.">
+                            <input class="form-control" type="text" name="user_ibNumber"
+                                value='{{$user->user_ibNumber}}' placeholder="Numero I.B.">
                         </div>
                     </div>
                     <div class=" col-sm-4 ">
@@ -166,11 +165,11 @@
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="name" value='{{$user->user_ib_state}}'
-                                placeholder="Exclusion de I.V.A.">
+                            <input class="form-control" type="text" name="user_ibProvince"
+                                value='{{$user->user_ibProvince}}' placeholder="Provincias inscripta en I.B.">
                         </div>
                     </div>
                 </div>
@@ -181,18 +180,18 @@
             <!-- CURRIER -->
 
             <h3 class="car-title mt-3">Domicilios:</h3>
-            <div class="card p-4">
+            <div class="card p-4 shadow-lg">
                 <div class="row">
                     <div class="col-sm-4 ">
                         <label>Domicilio de entrega:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user-tag"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="domicilio" value='{{$user->domicilio}}'
-                                placeholder="Domicilio de entrega">
+                            <input class="form-control" type="text" name="user_deliveryAddress"
+                                value='{{$user->user_deliveryAddress}}' placeholder="Domicilio de entrega">
                         </div>
                     </div>
                     <div class=" col-sm-4 ">
@@ -201,11 +200,11 @@
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="localidad" value='{{$user->localidad}}'
-                                placeholder="Localidad de entrega">
+                            <input class="form-control" type="text" name="user_deliveryAddressLocation"
+                                value='{{$user->user_deliveryAddressLocation}}' placeholder="Localidad de entrega">
                         </div>
                     </div>
                     <div class=" col-sm-4 ">
@@ -214,25 +213,25 @@
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="name" value='{{$user->provincia}}'
-                                placeholder="Provincia">
+                            <input class="form-control" type="text" name="user_deliveryAddressProvince"
+                                value='{{$user->user_deliveryAddressProvince}}' placeholder="Provincia">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4 mt-4 ">
+                    <div class="col-sm-4 mt-4">
                         <label>Codigo Postal:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user-tag"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="codigopostal" value='{{$user->codigopostal}}'
-                                placeholder="Codigo postal">
+                            <input class="form-control" type="text" name="user_deliveryAddressPostalCode"
+                                value='{{$user->user_deliveryAddressPostalCode}}' placeholder="Codigo postal">
                         </div>
                     </div>
                     <div class=" col-sm-8 mt-4">
@@ -241,11 +240,12 @@
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="localidad" value='{{$user->localidad}}'
-                                placeholder="Localidad de entrega">
+                            <input class="form-control" type="text" name="user_deliveryAddressRef"
+                                value='{{$user->user_deliveryAddressRef}}'
+                                placeholder="ej: esquina san martin (porton rojo)">
                         </div>
                     </div>
 
@@ -255,18 +255,102 @@
 
             <!-- /CURRIER -->
 
-    </div>
-    <div class="mt-2 d-flex justify-content-center">
+            <!-- CARDS    -->
+            <h3 class="car-title mt-3">Tarjetas:</h3>
+            <div class="card p-4 shadow-lg">
+                <div class="row">
+                    <div class="col-md-5 ">
+                        <label>Ingrese numero de tarjeta:</label>
+                        <div class=" input-group mb-2">
 
-        <img class="col-sm-2 d-flex " src="{{Storage::url($user->url_avatar)}}" alt="" width="50px"
-            style="border-radius:100%">
-        <input class="form-control col-sm-4 align-items-end" type="file" name="url_avatar"
-            value='{{$user->url_avatar}}'>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" name="" value=''
+                                placeholder="Ingrese numero de tarjeta">
+                        </div>
+                        <label>Ingrese nombre y apellido:</label>
+                        <div class=" input-group mb-2">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" name="" value=''
+                                placeholder="Ingrese nombre y apellido del titular">
+                        </div>
+                        <label>fecha expiracion:</label>
+                        <div class=" input-group mb-2">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" name="" value=''
+                                placeholder="Ingrese fecha de expiracion">
+                        </div>
+                        <label>Ingrese codigo de seguridad:</label>
+                        <div class=" input-group mb-2">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" name="" value=''
+                                placeholder="Ingrese codigo de seguridad">
+                        </div>
+                        <label>DNI titular de la tarjeta:</label>
+                        <div class=" input-group mb-2">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" name="" value=''
+                                placeholder="Ingrese numero DNI del titular">
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 p-5">
+                        <img src="{{Storage::url('picture_app/tarjetas anverso y reverso.png')}}" alt="">
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <a href="" class="ml-auto btn btn-primary">Agregar tarjeta</a>
+                </div>
+            </div>
+            <!-- / CARDS    -->
+
+            <!-- IMAGE AVATAR    -->
+
+            <div class="mt-2 d-flex justify-content-center">
+
+                <img class="col-sm-2 d-flex " src="{{Storage::url($user->url_avatar)}}" alt="" width="50px"
+                    style="border-radius:100%">
+                <input class="form-control col-sm-4 align-items-end" type="file" name="url_avatar"
+                    value='{{$user->url_avatar}}'>
+            </div>
+
+            <!-- /IMAGE AVATAR    -->
+
+            <!-- BUTTON SUBMIT    -->
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="col-md-12 mt-4 mb-4 btn btn-success btn-lg">Enviar datos para
+                    actualizar</button>
+            </div>
+
+            <!-- /BUTTON SUBMIT    -->
+        </form>
     </div>
-    <div class="mt-4">
-        <button type="submit" class="mt-4 mb-4 btn btn-success text-align-center btn-lg btn-block">Enviar</button>
-    </div>
-    </form>
+</div>
 
 
-    @endsection
+@endsection

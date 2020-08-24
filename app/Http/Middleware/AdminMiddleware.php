@@ -17,14 +17,12 @@ class AdminMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
-       if(! auth()->check())
-       return redirect('/login');
-
-        if(auth()->user()->role != "admin")
-        return redirect('/home');
-        
-         return $next($request);
-        
+    {
+        if (Auth::check() && Auth::user()->user_role == "admin") 
+            return next($request);
+        return redirect('/');    
     }
+
+        
+    
 }
