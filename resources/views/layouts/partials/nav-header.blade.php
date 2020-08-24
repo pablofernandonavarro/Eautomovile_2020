@@ -11,7 +11,7 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#NavBar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+               
                 @guest
                 <div class="collapse navbar-collapse" id="NavBar">
                     <ul class="navbar-nav ml-auto">
@@ -68,6 +68,9 @@
 
 
                 </div>
+                @if(Auth::check() && Auth::user()->user_role == "admin")
+                <a href="dashboard"class="btn btn-warning btn-sm">Administracion</a>
+                @endif
                 @endguest
 
         </nav>

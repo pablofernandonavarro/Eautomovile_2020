@@ -9,17 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {   
- 
-   public function __construct()
-  {
-      $this->middleware('admin');
-  }
 
+ 
 
 
     public function view_user(){
       $user = Auth::user();
-      $role =  Auth::all();
+      $role =  Auth::user()->user_role;
     
       
       return view('index',compact('user','role'));
