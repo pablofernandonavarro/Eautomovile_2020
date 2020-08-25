@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Pattern;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
@@ -23,10 +24,13 @@ Route::get('/index','indexController@view_user');
 
 Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
    
-    Route::get('color_crud',function (){return view('admin.color_crud');});
-    Route::get('category_crud',function (){return view('admin.category_crud');});
-    Route::get('brand_crud',function (){return view('admin.brand_crud');});
-    Route::get('pattern_crud',function (){return view('admin.pattern_crud');});
+    Route::get('dashboard','DashboardController@index');
+    Route::get('note_crud','DashboardController@view_note');
+    Route::get('color_crud','DashboardController@view_color');
+    Route::get('category_crud','DashboardController@view_category');
+    Route::get('brand_crud','DashboardController@view_brand');
+    Route::get('pattern_crud','DashboardController@view_pattern');
+    
     Route::resource('notes', 'NoteController',['except' =>'show','create','edit']);
     Route::resource('colors', 'ColorController',['except' =>'show','create','edit']);
     Route::resource('categories', 'CategoryController',['except' =>'show','create','edit']);

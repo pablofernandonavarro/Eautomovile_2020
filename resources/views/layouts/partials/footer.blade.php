@@ -1,50 +1,52 @@
+<footer class="page-footer bg-primary">
 
- 
-<footer>
-    
-<div class="container-fluid bg-primary ">
-    <div class="footer_social var_socil row text-center text-white">
-        <div class="link col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
-            <a href="https://www.instagram.com/e.automovile/">
-                <ion-icon class="text-white" name="logo-instagram">
-            </a>
-            Instagram
-        </div>
-        <div class="link col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="bg-primary">
+        <div class="container">
+            <div class="row py4 d-flex align-items-center">
+                <div class="col-md-12 text-center">
+                    <a href="https://www.facebook.com/e.automoviledevoto/?ref=bookmarks"><i
+                            class="fab fa-facebook text-white mr-4"></i></a>
+                    <a href=""><i class="fab fa-google-plus-g text-white mr-4"></i></a>
+                    <a href="https://www.instagram.com/e.automovile/"><i
+                            class="fab fa-instagram-square text-white mr-4"></i></a>
 
-            <a href="https://api.whatsapp.com/send?phone=541169975132&text=Hola!!!!">
-                <ion-icon class="text-white" name="logo-whatsapp">
-            </a>
-            Whatsapp
-        </div>
-        <div class="link col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <a href="https://goo.gl/maps/rMX8QGyCKNsfnYem9">
-                <ion-icon class="text-white" name="locate"></ion-icon>
-            </a>
-            Ubicacion
-        </div>
-        <div class="link col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <a href="https://www.facebook.com/e.automoviledevoto/?ref=bookmarks">
-                <ion-icon class="text-white" name="logo-facebook"></ion-icon>
-            </a>
-            Facebook
+                    <a href="https://api.whatsapp.com/send?phone=541169975132&text=Hola!!!!"><i
+                            class="fab fa-whatsapp text-white mr-4"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="footer row ">
-        <div class="footer col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-11">
-            <span>
-            <em>
-            copyright © 2019 e-AUTOMOVILE. Todos los derechos reservados.
-            El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de
-            Privacidad de E-automovile.
-            Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la
-            verificación de stock. Precios sujeto a cambios sin previo aviso.
-        </em>
-    </span>
-        </div>
-        <div class="qr_afip col-1 rounded float-right text-align-end">
-            <img src=" {{ asset('imagenes/datafiscal.jpg') }}" alt="qr afip" width="40">
+    <div class="container text-center text-md-left mt-5">
+        <div class="row">
+            <div class="col-md-3 mx-auto mb-4">
+                <div class="text-uppercase font-weight-bold">veremos</div>
+                <hr class="bg-warning mb-4 mt-0  d-inline-block mx-0 " style="width: 125px ; heigth: 2px">
+                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni magnam fugiat non qui
+                    odio porro modi. Nisi repellat laboriosam et.
+
+                </p>
+            </div>
+
+
+            <div class="col-md-3 mx-auto mb-4">
+                <div class="text-uppercase font-weight-bold">veremos</div>
+                <hr class="bg-warning mb-4 mt-0  d-inline-block mx-0 " style="width: 125px ; heigth: 2px">
+                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni magnam fugiat non qui
+                    odio porro modi. Nisi repellat laboriosam et.
+
+                </p>
+            </div>
+
+
+            <div class="col-md-3 mx-auto mb-4">
+                <div class="text-uppercase font-weight-bold">veremos</div>
+                <hr class="bg-warning mb-4 mt-0  d-inline-block mx-0 " style="width: 125px ; heigth: 3px">
+                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni magnam fugiat non qui
+                    odio porro modi. Nisi repellat laboriosam et.
+
+                </p>
+            </div>
+
         </div>
     </div>
-</div>
 </footer>

@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Color;
-
+use Illuminate\Support\Facades\Auth;
 class ColorController extends Controller
 {
     public function index(){
 
         $colors= Color::get();
+        $user = Auth::user();
 
         return $colors;
         

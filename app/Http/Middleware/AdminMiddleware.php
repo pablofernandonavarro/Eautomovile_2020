@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use Closure;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminMiddleware
 {
@@ -18,11 +19,17 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_role == "admin") 
-            return next($request);
-        return redirect('/');    
-    }
-
+        $user_log = \Auth::user();
         
+        if (isset($user_log)) {
+            if ($user_log->user_role != "admin") {
+                return redirect('sin acceso');
+            }
+        } else {
+            return redirect('admin/dashboard');
+        }
+        
+        return $next($request);
+    }
     
 }
