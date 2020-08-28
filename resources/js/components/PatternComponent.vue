@@ -21,7 +21,7 @@
                             <tr v-for="pattern in patterns">
                                 <td width="10px">{{ pattern.id }}</td>
                                 <td>{{ pattern.pattern_name }}</td>
-                                <td>{{ pattern.brand_id}}</td>
+                                <td>{{ brand[pattern.brand_id]}}</td>
                             
                                 <td width="10px">
                                     <a href="#" class="btn btn-warning btn-sm"
@@ -41,6 +41,7 @@
               <div class="col-md-5 bg-white">
                     <pre>
                            {{ $data }}
+
                     </pre>
                 </div>   
             </div>
@@ -67,7 +68,7 @@
                         <div class="modal-body">
                             <label for="brand">Marca al que pertenece el Modelo</label>
                                 <select v-model="select_brand" class="form-control" id="brand">
-                                    <option v-for="brand in brands" :value="brand.id">{{brand.brand_name}}</option>
+                                    <option v-for="brands in brand" :value="brand.id">{{brands.brand_name}}</option>
                                 </select>
                         </div>
                         <div class="modal-footer">
@@ -124,9 +125,10 @@
             return {
                 patterns: [],
                 select_brand: {},
+                brand:[],
                 newpattern: "",
                 errors: [],
-                brands:[],
+                brand_name:'',
                 fillpattern: {'id':'','pattern_name': '','brand_id':''},
             };
         },
@@ -134,6 +136,8 @@
         created: function () {
             this.getpattern();
             this.getbrand();
+            this.getbrand_name();
+
         },
 
         // created: function () {
@@ -151,12 +155,21 @@
             getbrand: function () {
                 var urlpatterns= "brands";
                 axios.get(urlpatterns).then(response => {
-                    this.brands = response.data;
+                    this.brand_name = response.data;
+                });
+            },
+            
+            getbrand_name: function () {
+                var urlpatterns = "patterns";
+                axios.get(urlpatterns).then(response => {
+                    this.patterns = response.data;
                 });
             },
 
+
             editpattern: function(pattern){
                 this.fillpattern.id = pattern.id;
+
                 this.fillpattern.pattern_name = pattern.pattern_name;
                 $('#editpattern').modal('show');
             },

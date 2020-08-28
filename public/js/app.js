@@ -2784,15 +2784,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       patterns: [],
       select_brand: {},
+      brand: [],
       newpattern: "",
       errors: [],
-      brands: [],
       fillpattern: {
         'id': '',
         'pattern_name': '',
@@ -2821,7 +2822,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var urlpatterns = "brands";
       axios.get(urlpatterns).then(function (response) {
-        _this2.brands = response.data;
+        _this2.brand = response.data;
       });
     },
     editpattern: function editpattern(pattern) {
@@ -40311,7 +40312,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(pattern.brand_id))]),
+                  _c("td", [_vm._v(_vm._s(_vm.brand[pattern.brand_id]))]),
                   _vm._v(" "),
                   _c("td", { attrs: { width: "10px" } }, [
                     _c(
@@ -40362,7 +40363,7 @@ var render = function() {
             _vm._v(
               "                       " +
                 _vm._s(_vm.$data) +
-                "\n                "
+                "\n\n                "
             )
           ])
         ])
@@ -40451,10 +40452,12 @@ var render = function() {
                         }
                       }
                     },
-                    _vm._l(_vm.brands, function(brand) {
-                      return _c("option", { domProps: { value: brand.id } }, [
-                        _vm._v(_vm._s(brand.brand_name))
-                      ])
+                    _vm._l(_vm.brand, function(brands) {
+                      return _c(
+                        "option",
+                        { domProps: { value: _vm.brand.id } },
+                        [_vm._v(_vm._s(brands.brand_name))]
+                      )
                     }),
                     0
                   )
@@ -53695,8 +53698,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
