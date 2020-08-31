@@ -2390,6 +2390,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2399,7 +2402,8 @@ __webpack_require__.r(__webpack_exports__);
       errors: [],
       fillcolor: {
         'id': '',
-        'color_name': ''
+        'color_name': '',
+        'slug': ''
       }
     };
   },
@@ -2418,6 +2422,7 @@ __webpack_require__.r(__webpack_exports__);
     editcolor: function editcolor(color) {
       this.fillcolor.id = color.id;
       this.fillcolor.color_name = color.color_name;
+      this.fillcolor.slug = color.slug;
       $('#editcolor').modal('show');
     },
     updatecolor: function updatecolor(id) {
@@ -2429,12 +2434,15 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.fillcolor = {
           'id': '',
-          'color_name': ''
+          'color_name': '',
+          'slug': ''
         };
         _this2.errors = [];
         $('#editcolor').modal('hide');
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('La edicion fue realizada')["catch"](function (error) {
-          _this2.errors = error.response.data;
+          if (error.response.status == 422) {
+            _this2.errors = error.response.data.errors;
+          }
         });
       });
     },
@@ -2451,6 +2459,7 @@ __webpack_require__.r(__webpack_exports__);
     createcolor: function createcolor() {
       var _this4 = this;
 
+      this.errors = [];
       var urlnotes = "colors";
       axios.post(urlnotes, {
         color_name: this.newcolor
@@ -2458,7 +2467,9 @@ __webpack_require__.r(__webpack_exports__);
         _this4.getcolor(), _this4.newcolor = "", _this4.errors = [], $("#createcolor").modal("hide");
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Nueva tarea creada con exito");
       })["catch"](function (error) {
-        _this4.errors = error.response.data;
+        if (error.response.status == 422) {
+          _this4.errors = error.response.data.errors;
+        }
       });
     }
   }
@@ -39736,7 +39747,7 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.colors, function(color) {
-                return _c("tr", [
+                return _c("tr", _vm._b({}, "tr", _vm.colors, false), [
                   _c("td", { attrs: { width: "10px" } }, [
                     _vm._v(_vm._s(color.id))
                   ]),
@@ -39831,7 +39842,13 @@ var render = function() {
                       _vm.newcolor = $event.target.value
                     }
                   }
-                })
+                }),
+                _vm._v(" "),
+                _vm.errors.color_name
+                  ? _c("span", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.color_name[0]))
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _vm._m(3)
@@ -39883,7 +39900,13 @@ var render = function() {
                       _vm.$set(_vm.fillcolor, "color_name", $event.target.value)
                     }
                   }
-                })
+                }),
+                _vm._v(" "),
+                _vm.errors.color_name
+                  ? _c("span", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.errors.color_name[0]))
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _vm._m(5)

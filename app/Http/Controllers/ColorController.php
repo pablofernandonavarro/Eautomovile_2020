@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Color;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RequestColor;
+use Illuminate\Support\Str;
 class ColorController extends Controller
 {
     public function index(){
@@ -12,7 +14,7 @@ class ColorController extends Controller
         $colors= Color::get();
         $user = Auth::user();
 
-        return $colors;
+        return $colors ;
         
     }
 
@@ -20,15 +22,14 @@ class ColorController extends Controller
 
 
 
-    public function store(Request $request){
+    public function store(RequestColor $request){
 
-        $this->validate($request,[
 
-        'color_name'=> 'required',
-
+        
+        Color::create([
+           'slug'=>Str::slug($request->input('color_name')),
+           'color_name'=> $request->input(('color_name'))
         ]);
-
-        Color::create($request->all());
 
         return ;
     }
@@ -36,17 +37,18 @@ class ColorController extends Controller
     public function edit($id){
        
         $Colors = Color::findOrFail($id);
-        ///formulario
+        
         return $Colors;
     }
-    public function update(Request $request ,$id){
+    public function update(RequestColor $request ,$id){
 
-        $this->validate($request,[
+       
 
-          'color_name'=> 'required',
-        ]);
-
-        Color::find($id)->update($request->all());
+        // Color::find($id)->update($request->all());
+        Color::finf($id)->update([
+            'slug'=>Str::slug($request->input('color_name')),
+            'color_name'=> $request->input(('color_name'))
+         ]);
         return;
 
 
