@@ -17,7 +17,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="color in colors">
+                            <tr v-for="color in colors" v-bind="colors">
                                 <td width="10px">{{ color.id }}</td>
                                 <td>{{ color.color_name }}</td>
                                 <td width="10px">
@@ -60,6 +60,8 @@
                         <div class="modal-body">
                             <label for="color">Nuevo color</label>
                             <input type="text" name="color" class="form-control" v-model="newcolor" >
+                            
+                            <span v-if="errors.color_name" class="text-danger">{{errors.color_name[0]}}</span>
                         </div>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Guardar" />
@@ -87,6 +89,7 @@
                         <div class="modal-body">
                             <label for="color">Actualizar color</label>
                             <input type="text" name="color" class="form-control" v-model="fillcolor.color_name" >
+                             <span v-if="errors.color_name" class="text-danger">{{errors.color_name[0]}}</span>
                         </div>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Actualizar" />
@@ -109,7 +112,7 @@
                 colors: [],
                 newcolor: "",
                 errors: [],
-                fillcolor : {'id':'','color_name': ''},
+                fillcolor : {'id':'','color_name': '','slug':''},
             };
         },
 
@@ -128,6 +131,7 @@
             editcolor: function(color){
                 this.fillcolor.id = color.id;
                 this.fillcolor.color_name = color.color_name;
+                this.fillcolor.slug       = color.slug;
                 $('#editcolor').modal('show');
             },
 
@@ -135,11 +139,15 @@
                var url = 'colors/' + id;
                axios.put(url, this.fillcolor).then(response =>{
                    this.getcolor();
-                   this.fillcolor = {'id':'','color_name': ''};
+                   this.fillcolor = {'id':'','color_name': '','slug':''};
                    this.errors = [];
                    $('#editcolor').modal('hide');
                    toastr.success('La edicion fue realizada').catch(error => {
-                    this.errors = error.response.data;
+                        if(error.response.status == 422 ){
+                        this.errors = error.response.data.errors;
+                    
+                    }
+                    
                    });
 
 
@@ -155,9 +163,11 @@
             },
 
             createcolor: function () {
+                this.errors = [];
                 var urlnotes = "colors";
                 axios.post(urlnotes, {
                     color_name: this.newcolor,
+                 
                 }).then(response => {
                     this.getcolor(),
                     this.newcolor = "",
@@ -165,7 +175,12 @@
                     $("#createcolor").modal("hide");
                     toastr.success("Nueva tarea creada con exito");
                 }).catch(error => {
-                    this.errors = error.response.data;
+                    if(error.response.status == 422 ){
+                    this.errors = error.response.data.errors;
+                    
+                    }
+
+
                 });
             }
         }
