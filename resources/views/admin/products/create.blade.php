@@ -1,27 +1,28 @@
-@extends('plantilla.admin')
+@extends('admin.layout')
+
+@section('content')
 
 
-@section('titulo', 'Crear Producto')
-
-@section('breadcrumb')
-  <li class="breadcrumb-item"><a href="{{route('admin.product.index')}}">Productos</a></li>
+<h1 class="h1"> Crear Producto:</h1>
+{{-- @section('breadcrumb')
+  <li class="breadcrumb-item"><a href="{{route('admin.products')}}">Productos</a></li>
   <li class="breadcrumb-item active">@yield('titulo')</li>
-@endsection
+@endsection --}}
 
 
 @section('estilos')
   <!-- Select2 -->
- <link rel="stylesheet" href="/adminlte/plugins/select2/css/select2.min.css">
- <link rel="stylesheet" href="/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+ <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
+ <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 @endsection
 
 @section('scripts')
   
  <!-- Select2 -->
-<script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
+<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
 
-<script src="/adminlte/ckeditor/ckeditor.js"></script>
+<script src="{{asset('adminlte/ckeditor/ckeditor.js')}}"></script>
 
 <script>
   $(function () {
@@ -39,7 +40,7 @@
 @endsection
 
 
-@section('contenido')
+
 
  
 <div id="apiproduct">
@@ -47,7 +48,7 @@
 
 
 
-<form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" >
+<form action="{{ route('admin/products.store') }}" method="POST" enctype="multipart/form-data" >
 @csrf
 
   <!-- Main content -->
@@ -133,26 +134,13 @@
               <div class="col-md-6">
                 <div class="form-group">
 
-                  <label>Nombre</label>
-                  <input 
-
-                   v-model="nombre"     
-                   @blur="getProduct" 
-                   @focus = "div_aparecer= false"
-                  
-                  class="form-control" type="text" id="nombre" name="nombre">
+                  <label>Sku</label>
+                  <input class="form-control" type="text" id="nombre" name="sku">
 
                   <label>Slug</label>
-                  <input 
-                  readonly 
-                  v-model="generarSLug"  
-                  
-                  class="form-control" type="text" id="slug" name="slug" >
+                  <input class="form-control" type="text" id="slug" name="slug" >
 
-                  <div v-if="div_aparecer" v-bind:class="div_clase_slug">
-                    @{{ div_mensajeslug }}
-                 </div>
-                 <br v-if="div_aparecer">
+                 
                  
                 </div>
                 <!-- /.form-group -->
@@ -167,19 +155,19 @@
 
                   <label>Categoria</label>
                   <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
-                    @foreach($categorias as $categoria)
+                    @foreach($categories as $category)
                     
                      @if ($loop->first)
-                        <option value="{{ $categoria->id }}" selected="selected">{{ $categoria->nombre }}</option>
+                        <option value="{{ $category->id }}" selected="selected">{{ $category->category_name }}</option>
                      @else
-                        <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                      @endif
                     @endforeach
 
 
                   </select>
                   <label>Cantidad</label>
-                  <input class="form-control" type="number" id="cantidad" name="cantidad" value="0">
+                  <input class="form-control" type="number" id="cantidad" name="quantity" value="0">
                 </div>
                 <!-- /.form-group -->
     
@@ -437,18 +425,18 @@
 
                   <label>Estado</label>
                   <select name="estado" id="estado" class="form-control " style="width: 100%;">
-                    @foreach($estados_productos as $estado)
+                    {{-- @foreach($estados_productos as $estado)
                     
                      @if ($estado == 'Nuevo')
                         <option value="{{ $estado }}" selected="selected">{{ $estado }}</option>
                      @else
                         <option value="{{ $estado }}">{{ $estado }}</option>
                      @endif
-                    @endforeach
+                    @endforeach --}}
                   </select>
 
 
-                </div>
+                </div> -
                 <!-- /.form-group -->
                 
               </div>
@@ -484,7 +472,7 @@
               <div class="col-md-12">
                 <div class="form-group">
 
-                   <a class="btn btn-danger" href="{{ route('cancelar','admin.product.index') }}">Cancelar</a>
+                   <a class="btn btn-danger" href="#">Cancelar</a>
                    <input    
                    :disabled = "deshabilitar_boton==1"
                                  
@@ -493,7 +481,7 @@
                 </div>
                 <!-- /.form-group -->
                 
-              </div>
+              </div> 
               <!-- /.col -->
 
 
