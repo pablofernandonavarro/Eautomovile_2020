@@ -31,10 +31,10 @@ class CreateProductsTable extends Migration
             $table->bigInteger('quantity')->unsigned()->default(0);  
             $table->decimal('price',12,2)->default(0);
             $table->integer('discount_rate')->unsigned()->default(0);
-            $table->char('active',2);
+            $table->char('active',3)->nullable()->default('on');
             $table->integer('visit')->unsigned()->default(0);
             $table->integer('count_sale')->unsigned()->default(0);
-            $table->char('slider',2);
+            $table->char('slider',3)->nullable()->default('off');;
 
             
             
