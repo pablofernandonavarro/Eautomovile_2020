@@ -9,17 +9,17 @@ use Illuminate\Support\Str;
 
 $factory->define(Product::class, function (Faker $faker) {
 
-    $description_short = $faker->text;
+    $description_short = $faker->sentence;
     $slug = Str::slug($description_short, '-');
 
     return [
 
-        'sku'                => $faker->unique()->numberBetween(1,200),
+        'sku'                => $faker->unique()->numberBetween(1,100),
         'slug'               => $slug,
         'description_short'  => $description_short,
-        'description_large'  => $faker->text,
-        'data_interest'      => $faker->text,
-        'spec'               => $faker->text,
+        'description_large'  => $faker->sentence,
+        'data_interest'      => $faker->sentence,
+        'spec'               => $faker->sentence,
         'brand_id'           => rand(1,4),
         'pattern_id'         => rand(1,3),
         'category_id'        => rand(1,3),
@@ -29,10 +29,10 @@ $factory->define(Product::class, function (Faker $faker) {
         'quantity'           => $faker->randomDigit,
         'price'              => $faker->randomDigit,
         'discount_rate'      => $faker->randomDigit,
-        'active'             => 'si',
+        'active'             => 'off',
         'visit'              => $faker->randomDigit,
         'count_sale'         => $faker->randomDigit,
-        'slider'             => 'si',
+        'slider'             => 'off',
 
 
 

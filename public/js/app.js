@@ -2805,6 +2805,7 @@ __webpack_require__.r(__webpack_exports__);
       brand: [],
       newpattern: "",
       errors: [],
+      brand_name: '',
       fillpattern: {
         'id': '',
         'pattern_name': '',
@@ -2815,6 +2816,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getpattern();
     this.getbrand();
+    this.getbrand_name();
   },
   // created: function () {
   //     this.getbrand();
@@ -2833,7 +2835,15 @@ __webpack_require__.r(__webpack_exports__);
 
       var urlpatterns = "brands";
       axios.get(urlpatterns).then(function (response) {
-        _this2.brand = response.data;
+        _this2.brand_name = response.data;
+      });
+    },
+    getbrand_name: function getbrand_name() {
+      var _this3 = this;
+
+      var urlpatterns = "patterns";
+      axios.get(urlpatterns).then(function (response) {
+        _this3.patterns = response.data;
       });
     },
     editpattern: function editpattern(pattern) {
@@ -2842,46 +2852,46 @@ __webpack_require__.r(__webpack_exports__);
       $('#editpattern').modal('show');
     },
     updatepattern: function updatepattern(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       var url = 'patterns/' + id;
       axios.put(url, this.fillpattern).then(function (response) {
-        _this3.getpattern();
+        _this4.getpattern();
 
-        _this3.fillpattern = {
+        _this4.fillpattern = {
           'id': '',
           'pattern_name': '',
           'brand_id': ''
         };
-        _this3.errors = [];
+        _this4.errors = [];
         $('#editpattern').modal('hide');
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('La edicion fue realizada')["catch"](function (error) {
-          _this3.errors = error.response.data;
+          _this4.errors = error.response.data;
         });
       });
     },
     deletepattern: function deletepattern(pattern) {
-      var _this4 = this;
+      var _this5 = this;
 
       var urlnotes = "patterns/" + pattern.id;
       axios["delete"](urlnotes).then(function (response) {
-        _this4.getpattern();
+        _this5.getpattern();
 
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("el pattern fue eliminada con exito");
       });
     },
     createpattern: function createpattern() {
-      var _this5 = this;
+      var _this6 = this;
 
       var urlnotes = "patterns";
       axios.post(urlnotes, {
         pattern_name: this.newpattern,
         brand_id: this.select_brand
       }).then(function (response) {
-        _this5.getpattern(), _this5.newpattern = "", _this5.errors = [], $("#createpattern").modal("hide");
+        _this6.getpattern(), _this6.newpattern = "", _this6.errors = [], $("#createpattern").modal("hide");
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success("Nueva tarea creada con exito");
       })["catch"](function (error) {
-        _this5.errors = error.response.data;
+        _this6.errors = error.response.data;
       });
     }
   }
@@ -53721,8 +53731,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

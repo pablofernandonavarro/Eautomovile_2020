@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
          $this->call(ColorSeeder::class);
          $this->call(ProductSeeder::class);
          $this->call(NoteSeeder::class);
+         $this->call(Color_ProductSeeder::class);
         
     }
 }

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Product extends Model
 {
     protected $table = 'products';
@@ -34,6 +35,10 @@ class Product extends Model
     public function pictures()
     {
         return $this->morphMany('App\Picture', 'pictureable');
+    }
+
+    public function colors(){
+        return $this->belongsToMany(Product::class);
     }
     
 }

@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product;
 use phpDocumentor\Reflection\Types\This;
+
 
 class Color extends Model
 {
@@ -13,8 +15,9 @@ class Color extends Model
         'color_name', 'slug',
     ];
     
-    public function colors(){
-        return $this->hasMany('App\Color');
+  
+    public function products(){
+        return $this->belongsToMany(Color::class);
     }
 
 }

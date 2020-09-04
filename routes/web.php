@@ -36,7 +36,7 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
     Route::resource('categories', 'CategoryController',['except' =>'show','create','edit']);
     Route::resource('brands', 'BrandController',['except' =>'show','create','edit']);
     Route::resource('patterns', 'PatternController',['except' =>'show','create','edit']);
-    Route::resource('products', 'productController');
+    Route::resource('products', 'ProductController');
     
     
 });

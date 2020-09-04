@@ -202,39 +202,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- /Products nav-bar-->
                             <li class="nav-item has-treeview menu-close">
-                                <a href="" class="nav-link active">
-                                    <i class="nav-icon fas "></i>
-                                    <p>
-                                        Productos
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link active">
-                                            <i class="far  nav-icon"></i>
-                                            <p>ver </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{url('admin/products/create')}}" class="nav-link active">
-                                            <i class="far  nav-icon"></i>
-                                            <p>Crear </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link active">
-                                            <i class="far nav-icon"></i>
-                                            <p>Editar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link active">
-                                            <i class="far  nav-icon bi bi-tag-fill"></i>
-                                            <p>Borar</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                                {{-- <a href="{{url('admin/products/create')}}" class="nav-link active"> --}}
+                                <i class="nav-icon fas "></i>
+                                <p class="nav-link active">
+                                    Productos
+                                    <i class="right fas fa-angle-left"></i>
+                                    {{-- </p>--}}
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{route('admin/products.index')}}" class="nav-link active">
+                                                <i class="far  nav-icon"></i>
+                                                <p>Listado Articulos </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url('admin/products/create')}}" class="nav-link active">
+                                                <i class="far  nav-icon"></i>
+                                                <p>Crear </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link active">
+                                                <i class="far nav-icon"></i>
+                                                <p>Editar</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link active">
+                                                <i class="far  nav-icon bi bi-tag-fill"></i>
+                                                <p>Borar</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                             </li>
                             <!-- /Product nav-bar-->
 

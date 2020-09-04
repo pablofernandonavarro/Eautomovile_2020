@@ -12,8 +12,19 @@ use App\Pattern;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
-class productcontroller extends Controller
-{ 
+class Productcontroller extends Controller
+{  public function show(){
+
+    $user = Auth::user(); 
+    $categories = Category::all();
+    $brands = Brand::all();
+    $patterns = Pattern::all();
+    $colors = Color::all();
+    $products= Product::find('4');
+    dd($products->colors);
+
+    return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
+}
    
 
     public function store(ProductRequest $request){
@@ -60,7 +71,31 @@ class productcontroller extends Controller
 
         return view('admin.products.create',compact('categories','user','brands','patterns','colors'));
     }
+
+
     public function index(){
-        return view('admin.product');
+
+        $user = Auth::user(); 
+        $categories = Category::all();
+        $brands = Brand::all();
+        $patterns = Pattern::all();
+        $colors = Color::all();
+        $products= Product::all();
+     
+
+        return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
     }
+    public function delete(){
+        $user = Auth::user();
+        $categories = Category::all();
+        $brands = Brand::all();
+        $patterns = Pattern::all();
+        $colors = Color::all();
+        $products= Product::all();
+
+     
+
+        return view('admin.products.delete', compact('products', 'categories', 'user', 'brands', 'patterns', 'colors'));
+    }
+
 }
