@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('brand_id')->nullable()->constrained('brands')->cascadeOnDelete('set null');
             $table->foreignId('pattern_id')->nullable()->constrained('patterns')->cascadeOnDelete('set null');
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete('set null');
-            $table->foreignId('color_id')->nullable()->constrained('colors')->cascadeOnDelete('set null');
+            // $table->foreignId('color_id')->nullable()->constrained('colors')->cascadeOnDelete('set null');
             $table->date('date_start');
             $table->date('date_finish');
             $table->bigInteger('quantity')->unsigned()->default(0);  

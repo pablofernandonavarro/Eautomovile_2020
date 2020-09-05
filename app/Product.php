@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
+
 class Product extends Model
 {
     protected $table = 'products';
@@ -37,8 +38,11 @@ class Product extends Model
         return $this->morphMany('App\Picture', 'pictureable');
     }
 
-    public function colors(){
-        return $this->belongsToMany(Product::class);
+    // public function colors(){
+    //     return $this->belongsToMany('App\Color', 'color_product','color_id','product_id')->withTimestamps();
+    // }
+
+    public function colors () {
+        return $this->belongsToMany('App\Color')->withTimestamps();
     }
-    
 }

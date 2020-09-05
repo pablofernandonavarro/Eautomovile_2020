@@ -6,6 +6,7 @@ use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
+use App\Product;
 
 
 
@@ -42,6 +43,12 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
 });
 
 Route::resource('users', 'UserController');
+
+Route::get('/test', function(){
+    $product= Product::find(1);
+    return $product->colors;
+});
+   
 
 
 

@@ -64,7 +64,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    @foreach ($products as $product)
+
 
 
                     <div class="row">
@@ -144,11 +144,13 @@
                                 <input class="form-control" type="text" id="slug" name="slug"
                                     value="{{ $product->slug}}">
                                 <label>Color</label>
-
-                                <input name="color_id" id="color_id" class="form-control "
-                                    value="{{ $product->colors->color_name}}">
+                                @foreach ($product->colors as $color)
 
 
+                                <input type="checkbox" name="color_id" id="color_id" class="form-control"
+                                    value="{{ $color->color_name}}">
+
+                                @endforeach
 
 
                             </div>
@@ -577,7 +579,7 @@
 
 
 
-    @endforeach
+
 </div>
 
 @endsection

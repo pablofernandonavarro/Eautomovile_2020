@@ -13,25 +13,26 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class Productcontroller extends Controller
-{  public function show(){
+{  public function show($id){
 
     $user = Auth::user(); 
     $categories = Category::all();
     $brands = Brand::all();
     $patterns = Pattern::all();
-    $colors = Color::all();
-    $products= Product::find('4');
-    dd($products->colors);
+    $color = Color::find($id);
+    $product= Product::find($id);
+    
 
-    return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
+    return view('admin.products.show',compact('product','categories','user','brands','patterns','color'));
 }
    
 
     public function store(ProductRequest $request){
-
-        
-
+        $colors_id = $request->input('color_id');
+        // dd($colors_id);
+       
          $product = new Product();
+
          $product->sku               = $request->input('sku'); 
          $product->slug              = $request->input('slug');
          $product->description_short = $request->input('description_short'); 
@@ -51,8 +52,13 @@ class Productcontroller extends Controller
          $product->visit             = $request->input('visit');
          $product->count_sale        = $request->input('count_sale');
          $product->slider            = $request->input('slider');
-
          $product->save(); 
+         
+
+          $product->colors()->sync($request->get('colors'));
+        
+      
+        
        
 
 
@@ -68,7 +74,7 @@ class Productcontroller extends Controller
         $brands = Brand::all();
         $patterns = Pattern::all();
         $colors = Color::all();
-
+       
         return view('admin.products.create',compact('categories','user','brands','patterns','colors'));
     }
 

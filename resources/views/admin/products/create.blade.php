@@ -141,22 +141,21 @@
                   <input class="form-control" type="text" id="slug" name="slug">
                   <label>Color</label>
 
-                  <select name="color_id" id="color_id" class="form-control " style="width: 100%;">
+
+
+                  <div class="row">
                     @foreach($colors as $color)
-
-                    @if ($loop->first)
-                    <option value="{{ $color->id }}" selected="selected">{{ $color->color_name }}</option>
-                    @else
-                    <option value="{{ $color->id }}">{{ $color->color_name }}</option>
-                    @endif
+                    <div class="form-check p-3">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="color_id[]" id="" value="{{$color->id}}">
+                        {{ $color->color_name }}
+                      </label>
+                    </div>
                     @endforeach
-                  </select>
+                  </div>
 
-
-
+                  <!-- /.form-group -->
                 </div>
-                <!-- /.form-group -->
-
               </div>
               <div class="col-md-6">
                 <div class="form-group">
