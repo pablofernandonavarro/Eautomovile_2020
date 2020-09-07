@@ -201,41 +201,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- /Products nav-bar-->
-                            <li class="nav-item has-treeview menu-close">
-                                {{-- <a href="{{url('admin/products/create')}}" class="nav-link active"> --}}
-                                <i class="nav-icon fas "></i>
-                                <p class="nav-link active">
-                                    Productos
-                                    <i class="right fas fa-angle-left"></i>
-                                    {{-- </p>--}}
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="{{route('admin/products.index')}}" class="nav-link active">
-                                                <i class="far  nav-icon"></i>
-                                                <p>Listado Articulos </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{url('admin/products/create')}}" class="nav-link active">
-                                                <i class="far  nav-icon"></i>
-                                                <p>Crear </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link active">
-                                                <i class="far nav-icon"></i>
-                                                <p>Editar</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link active">
-                                                <i class="far  nav-icon bi bi-tag-fill"></i>
-                                                <p>Borar</p>
-                                            </a>
-                                        </li>
-                                    </ul>
+
+                            <li class="nav-item has-treeview">
+                                <a href="{{route('admin/products.index')}}" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Productos
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
                             </li>
+
                             <!-- /Product nav-bar-->
 
                             <!-- Category nav-bar-->
@@ -268,7 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Color nav-bar-->
                             <li class="nav-item has-treeview">
-                                <a href="color_crud" class="nav-link active">
+                                <a href="/admin/color_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Colores

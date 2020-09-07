@@ -147,7 +147,8 @@
                     @foreach($colors as $color)
                     <div class="form-check p-3">
                       <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="color_id[]" id="" value="{{$color->id}}">
+                        <input type="checkbox" class="form-check-input" name="color_id[]" id="" value="{{$color->id}}"
+                          checked>
                         {{ $color->color_name }}
                       </label>
                     </div>

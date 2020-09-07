@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Product;
 
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class DashboardController extends Controller
    public function view_color(){
 
       $user = Auth::user();
-      return view('admin.color_crud',compact('user'));
+      $product = Product::All();
+      return view('admin.color_crud',compact('user','product'));
       
   }
   public function view_category(){

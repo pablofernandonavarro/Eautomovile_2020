@@ -12,6 +12,7 @@ use App\Pattern;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
+
 class Productcontroller extends Controller
 {  public function show($id){
 
@@ -28,11 +29,13 @@ class Productcontroller extends Controller
    
 
     public function store(ProductRequest $request){
-        $colors_id = $request->input('color_id');
-        // dd($colors_id);
-       
-         $product = new Product();
 
+        
+       
+        
+         $product = new Product();
+        
+         
          $product->sku               = $request->input('sku'); 
          $product->slug              = $request->input('slug');
          $product->description_short = $request->input('description_short'); 
@@ -42,7 +45,6 @@ class Productcontroller extends Controller
          $product->brand_id          = $request->input('brand_id'); 
          $product->pattern_id        = $request->input('pattern_id'); 
          $product->category_id       = $request->input('category_id');
-         $product->color_id          = $request->input('color_id');
          $product->date_start        = $request->input('date_start');
          $product->date_finish       = $request->input('date_finish');
          $product->quantity          = $request->input('quantity');
@@ -53,9 +55,18 @@ class Productcontroller extends Controller
          $product->count_sale        = $request->input('count_sale');
          $product->slider            = $request->input('slider');
          $product->save(); 
+      
+        $product->colors()->sync($request->get('color_id'));
+        
+        
+        
+
+
+
+         
          
 
-          $product->colors()->sync($request->get('colors'));
+          
         
       
         
@@ -64,7 +75,7 @@ class Productcontroller extends Controller
 
       
          
-         return redirect('/');
+         return back();
 
     }
     public function create(){

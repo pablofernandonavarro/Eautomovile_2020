@@ -45,7 +45,7 @@ class ColorController extends Controller
        
 
         // Color::find($id)->update($request->all());
-        Color::finf($id)->update([
+        Color::findOrFail($id)->update([
             'slug'=>Str::slug($request->input('color_name')),
             'color_name'=> $request->input(('color_name'))
          ]);
