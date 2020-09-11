@@ -19,13 +19,12 @@ class CreateProductsTable extends Migration
             $table->string('sku',10)->unique();
             $table->string('slug')->unique();
             $table->string('description_short',100);
-            $table->string('description_large');
-            $table->string('data_interest');
-            $table->string('spec');
+            $table->string('description_large')->nullable();
+            $table->string('data_interest')->nulable();
+            $table->string('spec')->nullable();
             $table->foreignId('brand_id')->nullable()->constrained('brands')->cascadeOnDelete('set null');
             $table->foreignId('pattern_id')->nullable()->constrained('patterns')->cascadeOnDelete('set null');
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete('set null');
-            // $table->foreignId('color_id')->nullable()->constrained('colors')->cascadeOnDelete('set null');
             $table->date('date_start');
             $table->date('date_finish');
             $table->bigInteger('quantity')->unsigned()->default(0);  

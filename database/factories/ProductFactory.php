@@ -15,7 +15,7 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
 
         'sku'                => $faker->unique()->numberBetween(1,100),
-        'slug'               => $slug,
+        
         'description_short'  => $description_short,
         'description_large'  => $faker->sentence,
         'data_interest'      => $faker->sentence,

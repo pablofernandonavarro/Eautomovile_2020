@@ -6,13 +6,8 @@ use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
-use App\Product;
-
-
-
-
-
-
+use App\Brand;
+use Doctrine\Inflector\Rules\Patterns;
 
 Auth::routes();
 Route::get('/','indexController@view_user');
@@ -45,8 +40,9 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
 Route::resource('users', 'UserController');
 
 Route::get('/test', function(){
-    $product= Product::find(1);
-    return $product->colors;
+    $patterns = Pattern::find(2);
+    $brand= Brand::find(1);
+    return $patterns->brand;
 });
    
 

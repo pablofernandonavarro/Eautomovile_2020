@@ -4,10 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+use Cviebrock\EloquentSluggable\Sluggable;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class Product extends Model
 {
+    use Sluggable;
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'description_short'
+            ]
+        ];
+    }
     protected $table = 'products';
     
     protected $fillable = [

@@ -30,8 +30,7 @@ class Productcontroller extends Controller
 
     public function store(ProductRequest $request){
 
-        
-       
+   
         
          $product = new Product();
         
@@ -75,7 +74,7 @@ class Productcontroller extends Controller
 
       
          
-         return back();
+        return back()->with('status','Datos cargados correctamente');
 
     }
     public function create(){
@@ -89,7 +88,7 @@ class Productcontroller extends Controller
         return view('admin.products.create',compact('categories','user','brands','patterns','colors'));
     }
 
-
+   
     public function index(){
 
         $user = Auth::user(); 

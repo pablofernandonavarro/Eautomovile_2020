@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 class PatternController extends Controller
 {
     public function index(){
-
-         $patterns= Pattern::get();
-         $brands= Brand::get();
        
+        $patterns = Pattern::with("brand")->where("id",">",0)->get();
+      
+        // //  $patterns= Pattern::get();
+        //  $patterns = Pattern::with('brand')->get();
+     
          
         return $patterns;
         

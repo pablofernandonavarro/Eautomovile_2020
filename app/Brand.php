@@ -19,8 +19,8 @@ class Brand extends Model
         return $this->hasMany('App\Product');
     }
 
-    public function pattern()
+    public function patterns()
     {
-        return $this->belongsTo("App\Pattern");
+        return $this->hasMany(Pattern::class);
     }
 }

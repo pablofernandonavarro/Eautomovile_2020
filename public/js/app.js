@@ -40345,7 +40345,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(_vm.brand[pattern.brand_id]))]),
+                  _c("td", [_vm._v(_vm._s(pattern.brand_id))]),
                   _vm._v(" "),
                   _c("td", { attrs: { width: "10px" } }, [
                     _c(
@@ -40485,12 +40485,10 @@ var render = function() {
                         }
                       }
                     },
-                    _vm._l(_vm.brand, function(brands) {
-                      return _c(
-                        "option",
-                        { domProps: { value: _vm.brand.id } },
-                        [_vm._v(_vm._s(brands.brand_name))]
-                      )
+                    _vm._l(_vm.brand_name, function(brand) {
+                      return _c("option", { domProps: { value: brand.id } }, [
+                        _vm._v(_vm._s(_vm.brand_name.brand_name))
+                      ])
                     }),
                     0
                   )
@@ -40591,7 +40589,7 @@ var render = function() {
                       }
                     }
                   },
-                  _vm._l(_vm.brands, function(brand) {
+                  _vm._l(_vm.brand_name, function(brand) {
                     return _c("option", { domProps: { value: brand.id } }, [
                       _vm._v(_vm._s(brand.brand_name))
                     ])
