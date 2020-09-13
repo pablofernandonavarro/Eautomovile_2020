@@ -32,8 +32,8 @@ class ProductRequest extends FormRequest
             // 'pattern_id'         => 'required',
             // 'brand_id'           => 'required',
             // 'category_id'        => 'required',
-            'date_start'         => 'required',
-            'date_finish'        => 'required',
+            'date_start'         => 'required|before_or_equal:date_finish',
+            'date_finish'        => 'required||after_or_equal:date_start',
             'quantity'           => 'required|numeric|min:0|not_in:0',
             'price'              => 'required|numeric|min:0|not_in:0',
             'discount_rate'      => 'required',
@@ -42,7 +42,7 @@ class ProductRequest extends FormRequest
             // 'data_interest'      => 'required',
             // 'spec'               => 'required',
              
-            
+          
             
         ];
     }
@@ -65,8 +65,8 @@ class ProductRequest extends FormRequest
             'price.not_in'                  => 'El precio debe ser mayor a cero',
             'discount_rate.required'        => 'La descuento debe ser un dato numerico y mayor a cero',
             'description_short.required'    => 'La descripcion es requerida',
-
-
+            'date_finish.after_or_equal'    => 'El dato tiene que ser posterior a la fecha de fabricacion del modelo',
+            'date_start.before_or_equal'   => 'El dato tiene que ser anterior a la fecha de  finalizacion de fabricacion del modelo',
             
            
             

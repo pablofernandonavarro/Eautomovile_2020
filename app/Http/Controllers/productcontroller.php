@@ -11,10 +11,12 @@ use App\Http\Requests\ProductRequest;
 use App\Pattern;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-
+use Image;
+use Illuminate\Support\Facades\Storage;
 
 class Productcontroller extends Controller
-{  public function show($id){
+{ 
+     public function show($id){
 
     $user = Auth::user(); 
     $categories = Category::all();
@@ -29,8 +31,32 @@ class Productcontroller extends Controller
    
 
     public function store(ProductRequest $request){
+        
+        
+        $sku = $request->sku;
+        $url_picture=[];
+        if ($request->hasfile('url_picture')) {
+            $pictures = $request->file('url_picture');
 
-   
+            foreach ($pictures as $i =>  $picture) {
+                $name = $sku."#".($i+1).'.jpg';
+                
+                $img = Image::make($pictures[$i]);
+                $img->encode('webp');
+                $img->resize(360, 220, function ($c) {
+                    $c->aspectRatio();
+                });
+              
+                $img->save("storage/pictures/".$name);
+                
+
+            //    dd($name,$img);
+              
+                $url_picture[]['url_picture'] = "pictures/".$sku."/".$name;
+            }
+        }
+
+
         
          $product = new Product();
         
@@ -56,7 +82,8 @@ class Productcontroller extends Controller
          $product->save(); 
       
         $product->colors()->sync($request->get('color_id'));
-        
+        $product->pictures()->createMany($url_picture);
+
         
         
 
@@ -84,8 +111,9 @@ class Productcontroller extends Controller
         $brands = Brand::all();
         $patterns = Pattern::all();
         $colors = Color::all();
+        $products = Product::all();
        
-        return view('admin.products.create',compact('categories','user','brands','patterns','colors'));
+        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors'));
     }
 
    

@@ -77,7 +77,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Visitas</label>
-                  <input class="form-control" type="number" id="visit" name="visit">
+                  <input class="form-control" type="number" id="visit" name="visit" value="{{old('visit')}}">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('visit','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -94,7 +94,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Ventas</label>
-                  <input class="form-control" type="number" id="ventas" name="count_sale">
+                  <input class="form-control" type="number" id="ventas" name="count_sale" value="{{old('count_sale')}}">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('count_sale','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -144,7 +144,7 @@
 
                 <div class="form-group">
                   <label>Sku</label>
-                  <input class="form-control" type="text" id="nombre" name="sku">
+                  <input class="form-control" type="text" id="nombre" name="sku" value="{{old('sku')}}">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('sku','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -180,8 +180,10 @@
                   <div class="form-check p-3">
                     <label class="form-check-label p-2 ml-1">
                       <input type="checkbox" class="form-check-input" name="color_id[]" id="" value="{{$color->id}}"
-                        checked>
+                        {{(is_array(old('color_id')) && in_array($color->id,old('color_id')) ) ?  'checked ' : '' }} />
                       {{ $color->color_name }}
+
+
                     </label>
                   </div>
                   @endforeach
@@ -194,13 +196,13 @@
 
                 <div class="form-group">
                   <label>Modelo</label>
-                  <select name="patter_id" id="pattern_id" class="form-control " style="width: 100%;">
+                  <select name="pattern_id" id="pattern_id" class="form-control " style="width: 100%;">
                     @foreach($patterns as $pattern)
 
-                    @if ($loop->first)
-                    <option value="{{ $pattern->id }}" selected="selected">{{ $pattern->pattern_name }}</option>
+                    @if (old('pattern_id') == $pattern->id)
+                    <option value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}} </option>
                     @else
-                    <option value="{{ $pattern->id }}">{{ $pattern->pattern_name }}</option>
+                    <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
                     @endif
                     @endforeach
                   </select>
@@ -215,10 +217,10 @@
                 <select name="brand_id" id="brand_id" class="form-control " style="width: 100%;">
                   @foreach($brands as $brand)
 
-                  @if ($loop->first)
-                  <option value="{{ $brand->id }}" selected="selected">{{ $brand->brand_name }}</option>
+                  @if (old('brand_id') == $brand->id)
+                  <option value="{{ $brand->id }}" selected>{{$brand->brand_name}} </option>
                   @else
-                  <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                  <option value="{{ ($brand->id) }}">{{$brand->brand_name}} </option>
                   @endif
                   @endforeach
                 </select>
@@ -233,10 +235,10 @@
                 <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                   @foreach($categories as $category)
 
-                  @if ($loop->first)
-                  <option value="{{ $category->id }}" selected="selected">{{ $category->category_name }}</option>
+                  @if (old('category_id') == $category->id)
+                  <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
                   @else
-                  <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                  <option value="{{ ($category->id) }}">{{$category->category_name}} </option>
                   @endif
                   @endforeach
                 </select>
@@ -249,7 +251,8 @@
 
                 <div class="form-group">
                   <label>Fecha de inicio fabricacion del Modelo</label>
-                  <input type="date" name="date_start" id="" class="form-control " style="width: 100%;">
+                  <input type="date" name="date_start" id="" class="form-control " style="width: 100%;"
+                    value="{{old('date_start')}}">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('date_start','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -265,7 +268,8 @@
 
                 <div class="form-group">
                   <label>Fecha de finalizacion fabricacion del Modelo</label>
-                  <input type="date" name="date_finish" id="category_id" class="form-control " style="width: 100%;">
+                  <input type="date" name="date_finish" id="category_id" class="form-control " style="width: 100%; "
+                    value="{{old('date_finish')}}">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -281,7 +285,7 @@
                 <div class="form-group">
                   <label>cantidad</label>
                   <input type="number" name="quantity" id="quantity" class="form-control " style="width: 100%;" min="0"
-                    value="0" step="1">
+                    value="{{old('quantity')}}" step="1">
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('quantity','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -327,7 +331,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input class="form-control" type="number" id="price" name="price" min="0" value="0" step="1">
+                    <input class="form-control" type="number" id="price" name="price" min="0" value="{{old('price')}}"
+                      step="1">
 
                   </div>
                   <br>
@@ -409,7 +414,7 @@
 
                   <label>Descripción corta:</label>
                   <textarea class="form-control ckeditor" name="description_short" id="description_short"
-                    rows="3"></textarea>
+                    rows="3">{{old('description_short')}}</textarea>
                   <br>
                   <div class="col-md-12">
                     {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
@@ -425,7 +430,7 @@
 
                   <label>Descripción larga:</label>
                   <textarea class="form-control ckeditor" name="description_large" id="descripcion_larga"
-                    rows="5"></textarea>
+                    rows="5">{{old('description_large')}}</textarea>
                   <br>
                   <div class="col-md-12">
                     {!!$errors->first('description_large','<small class="alert alert-danger col-md-12"
@@ -463,7 +468,7 @@
                 <div class="form-group">
                   <label>Especificaciones:</label>
 
-                  <textarea class="form-control ckeditor" name="spec" id="epec" rows="3"></textarea>
+                  <textarea class="form-control ckeditor" name="spec" id="epec" rows="3">{{old('spec')}}</textarea>
 
                 </div>
                 <div class="col-md-12">
@@ -476,7 +481,8 @@
                 <div class="form-group">
                   <label>Datos de interes:</label>
 
-                  <textarea class="form-control ckeditor" name="data_interest" id="datos_interest" rows="5"></textarea>
+                  <textarea class="form-control ckeditor" name="data_interest" id="datos_interest"
+                    rows="5">{{old('data_interest')}}</textarea>
 
                 </div>
                 <div class="col-md-12">
@@ -521,7 +527,8 @@
 
               <label for="imagenes">Añadir imágenes</label>
 
-              <input type="file" class="form-control-file" name="pictures[]" id="pictures[]" multiple accept="image/*">
+              <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
+                accept="image/*">
 
               <div class="description">
                 Un número ilimitado de archivos pueden ser cargados en este campo.

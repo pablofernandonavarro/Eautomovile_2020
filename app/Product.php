@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-
+use App\Picture;
 class Product extends Model
 {
     use Sluggable;

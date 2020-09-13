@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Picture extends Model
 {
     protected $fillable = [
-        'url_image',
+        'url_picture',
     ];
     
     public function pictureable()
