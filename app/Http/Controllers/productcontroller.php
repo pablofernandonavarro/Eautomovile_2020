@@ -20,17 +20,20 @@ class Productcontroller extends Controller
 { 
      public function show($id){
 
-    $user = Auth::user(); 
-    $categories = Category::all();
-    $brands = Brand::all();
-    $patterns = Pattern::all();
-    $colors = Color::find($id);
     $products= Product::find($id);
-   
+    
+    return view('admin.products.show',[
+        'products'     => Product::find($id),
+        'categories'   => Category::all(),
+        'user'         => Auth::user(), 
+        'brands'       => Brand::all(),
+        'patterns'     => Pattern::all(),
+        'colors'       => Color::find($id),
+     ]);
    
     
 
-    return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
+    // return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
 }
    
 
@@ -45,18 +48,17 @@ class Productcontroller extends Controller
             foreach ($pictures as $i =>  $picture) {
                 
                 $name = $sku."_".($i+1).'.jpg';
-                $url = public_path().'/pictures/'.$sku.'/';
                 $img = Image::make($pictures[$i]);
                 $img->encode('webp');
                 $img->resize(360, 220, function ($c) {
                     $c->aspectRatio();
                 });
                 
-                // $picture->move($url,$name);
+            
           
                  $img->save("storage/pictures/".$name);
                
-            //    dd($n);
+           
               
                 $url_picture[]['url_picture'] = "pictures/".$name;
             }
