@@ -7,12 +7,14 @@ use App\Product;
 use App\category;
 use App\Brand;
 use App\Color;
+use App\Picture;
 use App\Http\Requests\ProductRequest;
 use App\Pattern;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class Productcontroller extends Controller
 { 
@@ -22,11 +24,13 @@ class Productcontroller extends Controller
     $categories = Category::all();
     $brands = Brand::all();
     $patterns = Pattern::all();
-    $color = Color::find($id);
-    $product= Product::find($id);
+    $colors = Color::find($id);
+    $products= Product::find($id);
+   
+   
     
 
-    return view('admin.products.show',compact('product','categories','user','brands','patterns','color'));
+    return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
 }
    
 
@@ -39,24 +43,26 @@ class Productcontroller extends Controller
             $pictures = $request->file('url_picture');
 
             foreach ($pictures as $i =>  $picture) {
-                $name = $sku."#".($i+1).'.jpg';
                 
+                $name = $sku."_".($i+1).'.jpg';
+                $url = public_path().'/pictures/'.$sku.'/';
                 $img = Image::make($pictures[$i]);
                 $img->encode('webp');
                 $img->resize(360, 220, function ($c) {
                     $c->aspectRatio();
                 });
-              
-                $img->save("storage/pictures/".$name);
                 
-
-            //    dd($name,$img);
+                // $picture->move($url,$name);
+          
+                 $img->save("storage/pictures/".$name);
+               
+            //    dd($n);
               
-                $url_picture[]['url_picture'] = "pictures/".$sku."/".$name;
+                $url_picture[]['url_picture'] = "pictures/".$name;
             }
         }
 
-
+       
         
          $product = new Product();
         
@@ -112,8 +118,9 @@ class Productcontroller extends Controller
         $patterns = Pattern::all();
         $colors = Color::all();
         $products = Product::all();
+        $pictures = Picture::all();
        
-        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors'));
+        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures'));
     }
 
    

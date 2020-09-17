@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Picture;
+use PhpParser\Node\Stmt\Return_;
+
 class Product extends Model
 {
     use Sluggable;
+    
     public function sluggable()
     {
         return [
@@ -55,4 +58,16 @@ class Product extends Model
     public function colors () {
         return $this->belongsToMany('App\Color')->withTimestamps();
     }
+
+    public function pattern(){
+        return $this->belongsTo('App\Pattern');
+    }
+    public function brand(){
+        return $this->belongsTo('App\Brand');
+    }
+
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
 }

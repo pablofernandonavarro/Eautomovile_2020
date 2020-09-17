@@ -8,6 +8,7 @@ use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
 use App\Brand;
 use Doctrine\Inflector\Rules\Patterns;
+use App\Product;
 
 Auth::routes();
 Route::get('/','indexController@view_user');
@@ -40,9 +41,10 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
 Route::resource('users', 'UserController');
 
 Route::get('/test', function(){
-    $patterns = Pattern::find(2);
-    $brand= Brand::find(1);
-    return $patterns->brand;
+    
+    $products = Product::find(80);
+    
+    return $products->brand;
 });
    
 

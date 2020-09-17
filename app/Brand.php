@@ -23,4 +23,5 @@ class Brand extends Model
     {
         return $this->hasMany(Pattern::class);
     }
+    
 }
