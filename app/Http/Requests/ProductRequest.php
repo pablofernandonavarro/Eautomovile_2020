@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
 
             //  'visit'              => '',
             //  'count_sale'         => '',
-            'sku'                => 'required|unique:products',
+            'sku'                => 'required|unique:products|max:20',
             // 'slug'               => 'required|unique:products',
             // 'color_id'           => 'required',
             // 'pattern_id'         => 'required',
@@ -51,6 +51,7 @@ class ProductRequest extends FormRequest
         return [
             'sku.required'                  => 'El sku es requerido',
             'sku.unique'                    => 'El sku ingresado esta en uso',
+            'sku.max'                      => 'El sku debe tener menos de 21 caracteres',
             'color_id.required'             => 'El color del producto es requerido',
             'pattern_id.required'           => 'El modelo del producto es requerido',
             'brand_id.required'             => 'La marca del producto es requerida',

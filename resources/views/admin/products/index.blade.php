@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+@include('admin.messages')
 
 
 @section('titulo', 'Administración de productos')
@@ -33,7 +34,7 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Sección de productos</h3>
-
+                @include('admin.messages')
                 <div class="card-tools">
 
                     <form>
@@ -82,7 +83,7 @@
                                     src="{{Storage::url($user->url_avatar)}}" class="rounded-circle">
                                     @else
                                     <img style="height: 100px;    width: 100px;"
-                                        src="{{ $product->pictures->random()->url }}" class="img">
+                                        src="{{ '/storage/'.$product->pictures[0]->url_picture }}" class="img">
                                     @endif
                             </td>
                             <td> {{$product->description_short}} </td>
@@ -96,7 +97,7 @@
                             </td>
 
                             <td> <a class="btn btn-info"
-                                    href="{{ route('admin/products.index',$product->id) }}">Editar</a>
+                                    href="{{ route('admin/products.edit',$product->id) }}">Editar</a>
                             </td>
 
 

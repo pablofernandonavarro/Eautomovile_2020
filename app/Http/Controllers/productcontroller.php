@@ -8,9 +8,8 @@ use App\category;
 use App\Brand;
 use App\Color;
 use App\Picture;
-use App\Http\Requests\ProductRequest;
 use App\Pattern;
-use Illuminate\Support\Str;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +19,8 @@ class Productcontroller extends Controller
 { 
      public function show($id){
 
-    $products= Product::find($id);
+    $products      = Product::find($id);
+    $users         = Auth::user();
     
     return view('admin.products.show',[
         'products'     => Product::find($id),
@@ -28,18 +28,17 @@ class Productcontroller extends Controller
         'user'         => Auth::user(), 
         'brands'       => Brand::all(),
         'patterns'     => Pattern::all(),
-        'colors'       => Color::find($id),
+        'colors'       => $products->colors,
      ]);
    
     
 
-    // return view('admin.products.show',compact('products','categories','user','brands','patterns','colors'));
 }
    
 
     public function store(ProductRequest $request){
         
-        
+      
         $sku = $request->sku;
         $url_picture=[];
         if ($request->hasfile('url_picture')) {
@@ -54,13 +53,8 @@ class Productcontroller extends Controller
                     $c->aspectRatio();
                 });
                 
-            
-          
-                 $img->save("storage/pictures/".$name);
-               
-           
-              
-                $url_picture[]['url_picture'] = "pictures/".$name;
+            $img->save("storage/pictures/".$name);
+            $url_picture[]['url_picture'] = "pictures/".$name;
             }
         }
 
@@ -92,24 +86,7 @@ class Productcontroller extends Controller
         $product->colors()->sync($request->get('color_id'));
         $product->pictures()->createMany($url_picture);
 
-        
-        
-
-
-
-         
-         
-
-          
-        
-      
-        
-       
-
-
-      
-         
-        return back()->with('status','Datos cargados correctamente');
+    return back()->with('messages_create_ok','El producto fue creado con exito');
 
     }
     public function create(){
@@ -121,23 +98,24 @@ class Productcontroller extends Controller
         $colors = Color::all();
         $products = Product::all();
         $pictures = Picture::all();
-       
+      
         return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures'));
     }
 
    
     public function index(){
-
+        
         $user = Auth::user(); 
         $categories = Category::all();
         $brands = Brand::all();
         $patterns = Pattern::all();
         $colors = Color::all();
-        $products= Product::all();
+        $products= Product::orderby('id','DESC')->paginate('10');
      
 
         return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
     }
+
     public function delete(){
         $user = Auth::user();
         $categories = Category::all();
@@ -145,10 +123,12 @@ class Productcontroller extends Controller
         $patterns = Pattern::all();
         $colors = Color::all();
         $products= Product::all();
-
-     
-
         return view('admin.products.delete', compact('products', 'categories', 'user', 'brands', 'patterns', 'colors'));
+    }
+
+    public function edit($id){
+
+        return view('admin.product.edit');
     }
 
 }

@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-
+@include('admin.messages')
 
 <h1 class="h1 text-center col-md-12"> Crear Producto:</h1>
 @section('breadcrumb')
@@ -528,7 +528,7 @@
               <label for="imagenes">Añadir imágenes</label>
 
               <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
-                accept="image/*">
+                accept="image/*" value="{{old ('url_picture[]')}}">
 
               <div class="description">
                 Un número ilimitado de archivos pueden ser cargados en este campo.
@@ -561,28 +561,6 @@
           <div class="card-body">
 
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-
-                  <label>Estado</label>
-                  <select name="active" id="estado" class="form-control " style="width: 100%;">
-                    {{-- @foreach($estados_productos as $estado)
-                    
-                     @if ($estado == 'Nuevo')
-                        <option value="{{ $estado }}" selected="selected">{{ $estado }}</option>
-                    @else
-                    <option value="{{ $estado }}">{{ $estado }}</option>
-                    @endif
-                    @endforeach --}}
-                  </select>
-
-
-                </div> -
-                <!-- /.form-group -->
-
-              </div>
-              <!-- /.col -->
               <div class="col-sm-6">
                 <!-- checkbox -->
                 <div class="form-group clearfix">
