@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-@include('admin.messages')
+{{-- @include('admin.messages') --}}
 
 <h1 class="h1 text-center col-md-12"> Editar Producto:</h1>
 @section('breadcrumb')
@@ -48,8 +48,9 @@
 
 
 
-    <form action="{{ route('admin/products.edit') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin/products.update'),$product->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <!-- Main content -->
         <section class="content">
@@ -78,7 +79,7 @@
                                 <div class="form-group">
                                     <label>Visitas</label>
                                     <input class="form-control" type="number" id="visit" name="visit"
-                                        value="{{old('visit')}}">
+                                        value="{{$product->visit}}">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('visit','<small class="alert alert-danger col-md-12"
@@ -97,7 +98,7 @@
                                 <div class="form-group">
                                     <label>Ventas</label>
                                     <input class="form-control" type="number" id="ventas" name="count_sale"
-                                        value="{{old('count_sale')}}">
+                                        value="{{$product->count_sale}}">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('count_sale','<small class="alert alert-danger col-md-12"
@@ -149,7 +150,7 @@
                                 <div class="form-group">
                                     <label>Sku</label>
                                     <input class="form-control" type="text" id="nombre" name="sku"
-                                        value="{{old('sku')}}">
+                                        value="{{$product->sku}}">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('sku','<small class="alert alert-danger col-md-12"
@@ -243,10 +244,11 @@
                                 <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                                     @foreach($categories as $category)
 
-                                    @if (old('category_id') == $category->id)
-                                    <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
+                                    @if ($category->category_name == $product->category->category_name)
+                                    <option value="{{ $category->id }}" selected="selected">
+                                        {{ $category->category_name }}</option>
                                     @else
-                                    <option value="{{ ($category->id) }}">{{$category->category_name}} </option>
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                     @endif
                                     @endforeach
                                 </select>
@@ -260,7 +262,7 @@
                                 <div class="form-group">
                                     <label>Fecha de inicio fabricacion del Modelo</label>
                                     <input type="date" name="date_start" id="" class="form-control "
-                                        style="width: 100%;" value="{{old('date_start')}}">
+                                        style="width: 100%;" value="{{$product->date_start}}">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('date_start','<small class="alert alert-danger col-md-12"
@@ -278,7 +280,7 @@
                                 <div class="form-group">
                                     <label>Fecha de finalizacion fabricacion del Modelo</label>
                                     <input type="date" name="date_finish" id="category_id" class="form-control "
-                                        style="width: 100%; " value="{{old('date_finish')}}">
+                                        style="width: 100%; " value="{{$product->date_finish}}">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12"
@@ -295,7 +297,7 @@
                                 <div class="form-group">
                                     <label>cantidad</label>
                                     <input type="number" name="quantity" id="quantity" class="form-control "
-                                        style="width: 100%;" min="0" value="{{old('quantity')}}" step="1">
+                                        style="width: 100%;" min="0" value="{{$product->quantity}}" step="1">
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('quantity','<small class="alert alert-danger col-md-12"
@@ -343,7 +345,7 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <input class="form-control" type="number" id="price" name="price" min="0"
-                                            value="{{old('price')}}" step="1">
+                                            value="{{$product->price}}" step="1">
 
                                     </div>
                                     <br>
@@ -427,7 +429,7 @@
 
                                     <label>Descripción corta:</label>
                                     <textarea class="form-control ckeditor" name="description_short"
-                                        id="description_short" rows="3">{{old('description_short')}}</textarea>
+                                        id="description_short" rows="3">{{$product->description_short}}</textarea>
                                     <br>
                                     <div class="col-md-12">
                                         {!!$errors->first('description_short','<small
@@ -443,7 +445,7 @@
 
                                     <label>Descripción larga:</label>
                                     <textarea class="form-control ckeditor" name="description_large"
-                                        id="descripcion_larga" rows="5">{{old('description_large')}}</textarea>
+                                        id="descripcion_larga" rows="5">{{$product->description_large}}</textarea>
                                     <br>
                                     <div class="col-md-12">
                                         {!!$errors->first('description_large','<small
@@ -482,7 +484,7 @@
                                     <label>Especificaciones:</label>
 
                                     <textarea class="form-control ckeditor" name="spec" id="epec"
-                                        rows="3">{{old('spec')}}</textarea>
+                                        rows="3">{{$product->spec}}</textarea>
 
                                 </div>
                                 <div class="col-md-12">
@@ -497,7 +499,7 @@
                                     <label>Datos de interes:</label>
 
                                     <textarea class="form-control ckeditor" name="data_interest" id="datos_interest"
-                                        rows="5">{{old('data_interest')}}</textarea>
+                                        rows="5">{{$product->data_interest}}</textarea>
 
                                 </div>
                                 <div class="col-md-12">
@@ -541,20 +543,13 @@
 
                         <div class="form-group">
 
-                            <label for="imagenes">Añadir imágenes</label>
 
-                            <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]"
-                                multiple accept="image/*" value="{{old ('url_picture[]')}}">
+                            @foreach ($product->pictures as $picture)
 
-                            <div class="description">
-                                Un número ilimitado de archivos pueden ser cargados en este campo.
-                                <br>
-                                Límite de 2048 MB por imagen.
-                                <br>
-                                Tipos permitidos: jpeg, png, jpg, gif, svg.
-                                <br>
-                            </div>
+                            <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200"
+                                class="img-fluid mb-2">
 
+                            @endforeach
                         </div>
 
 
@@ -578,10 +573,12 @@
 
                         <div class="row">
                             <div class="col-sm-6">
+
                                 <!-- checkbox -->
                                 <div class="form-group clearfix">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="activo" name="active">
+                                        <input type="checkbox" class="custom-control-input" id="activo" name="active"
+                                            @if($product->active == 'on') checked @endif>
                                         <label class="custom-control-label" for="activo">Activo</label>
                                     </div>
 
@@ -589,7 +586,8 @@
 
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="slider" name="slider">
+                                        <input type="checkbox" class="custom-control-input" id="slider" name="slider"
+                                            @if($product->slider == 'on') checked @endif>
                                         <label class="custom-control-label" for="slider">Aparece en el Slider
                                             principal</label>
                                     </div>
@@ -610,8 +608,7 @@
                                 <div class="form-group">
 
                                     <a class="btn btn-danger" href="#">Cancelar</a>
-                                    <input :disabled="deshabilitar_boton==1" type="submit" value="Guardar"
-                                        class="btn btn-primary">
+                                    <input type="submit" value="Guardar" class="btn btn-primary">
 
                                 </div>
                                 <!-- /.form-group -->

@@ -80,7 +80,8 @@
 
                             <td>
                                 @if ($product->pictures->count()<=0 ) <img style="height: 100px;    width: 100px;"
-                                    src="{{Storage::url($user->url_avatar)}}" class="rounded-circle">
+                                    src="{{ asset('storage/picture_app/product_picture_default.jpg')}}"
+                                    class="rounded-circle">
                                     @else
                                     <img style="height: 100px;    width: 100px;"
                                         src="{{ '/storage/'.$product->pictures[0]->url_picture }}" class="img">

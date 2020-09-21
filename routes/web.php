@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
 use App\Brand;
+use App\Http\Controllers\Productcontroller;
 use Doctrine\Inflector\Rules\Patterns;
 use App\Product;
 
@@ -34,7 +35,7 @@ Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
     Route::resource('brands', 'BrandController',['except' =>'show','create','edit']);
     Route::resource('patterns', 'PatternController',['except' =>'show','create','edit']);
     Route::resource('products', 'ProductController');
-    
+   
     
 });
 
