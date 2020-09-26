@@ -48,7 +48,7 @@
 
 
 
-    <form action="{{ route('admin/products.update'),$product->id }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url( 'admin/products/'.$product->id )}}" method="POST">
         @csrf
         @method('PUT')
 
@@ -206,12 +206,14 @@
                                     <label>Modelo</label>
                                     <select name="pattern_id" id="pattern_id" class="form-control "
                                         style="width: 100%;">
-                                        @foreach($patterns as $pattern)
+                                        @foreach($product->pattern as $patterns)
 
-                                        @if (old('pattern_id') == $pattern->id)
-                                        <option value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}} </option>
+                                        @if ($product->pattern_id == $patterns)
+                                        <option value="{{ $patterns}}" selected>{{$patterns}}
+                                        </option>
                                         @else
-                                        <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
+                                        <option value="{{ $patterns }}">{{$product->pattern->}}
+                                        </option> --}}
                                         @endif
                                         @endforeach
                                     </select>
@@ -226,8 +228,8 @@
                                 <select name="brand_id" id="brand_id" class="form-control " style="width: 100%;">
                                     @foreach($brands as $brand)
 
-                                    @if (old('brand_id') == $brand->id)
-                                    <option value="{{ $brand->id }}" selected>{{$brand->brand_name}} </option>
+                                    @if (old('brand_id') == $product->brand->id)
+                                    <option value="{{ $product->brand->id }}" selected>{{$brand->brand_name}} </option>
                                     @else
                                     <option value="{{ ($brand->id) }}">{{$brand->brand_name}} </option>
                                     @endif

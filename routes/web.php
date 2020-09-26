@@ -20,7 +20,7 @@ Route::get('/index','indexController@view_user');
 //  ROUTE ADMIN
 
 
-Route::prefix('admin')->middleware('admin')->name('admin/')->group( function(){
+Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
    
     Route::get('dashboard','DashboardController@index');
     Route::get('note_crud','DashboardController@view_note');

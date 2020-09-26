@@ -48,7 +48,7 @@
 
 
 
-    <form action="{{ route('admin/products.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- Main content -->
@@ -605,7 +605,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <a href="{{route('admin/products.index')}}" class="btn btn-success">volver a listado de
+                            <a href="{{route('admin.products.index')}}" class="btn btn-success">volver a listado de
                                 productos</a>
                         </div>
                         <!-- /.form-group -->

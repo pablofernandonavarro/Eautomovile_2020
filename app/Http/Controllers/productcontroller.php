@@ -10,6 +10,7 @@ use App\Color;
 use App\Picture;
 use App\Pattern;
 use App\Http\Requests\ProductRequest;
+use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
@@ -86,7 +87,7 @@ class Productcontroller extends Controller
         $product->colors()->sync($request->get('color_id'));
         $product->pictures()->createMany($url_picture);
 
-        return redirect()->route('admin.product.index')->with('messages_create_ok','El producto fue creado con exito');
+        return redirect('admin/products')->with('messages_create_ok','El producto fue creado con exito');
 
     }
 
@@ -106,12 +107,12 @@ class Productcontroller extends Controller
    
     public function index(){
         
-        $user = Auth::user(); 
+        $user       = Auth::user(); 
         $categories = Category::all();
-        $brands = Brand::all();
-        $patterns = Pattern::all();
-        $colors = Color::all();
-        $products= Product::orderby('id','DESC')->paginate('10');
+        $brands     = Brand::all();
+        $patterns   = Pattern::all();
+        $colors     = Color::all();
+        $products   = Product::orderby('id','DESC')->paginate('10');
      
 
         return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
@@ -127,18 +128,18 @@ class Productcontroller extends Controller
         $patterns   = Pattern::all();
         $colors     = Color::all();
         $product    = Product::findOrFail($id);
-        $pictures = Picture::all();
+        $pictures   = Picture::all();
       
         $url_picture=[];  
       
         return view('admin.products.edit',compact('product','categories','user','brands','patterns','colors','pictures','url_picture'));
     }
 
-    public function update(ProductRequest $request,$id){
-        
+    public function update(Request $request,$id){
       
-        $sku = $request->sku;
-        $url_picture=[];
+      
+        $sku         = $request->sku;
+        $url_picture =[];
         if ($request->hasfile('url_picture')) {
             $pictures = $request->file('url_picture');
 
@@ -170,6 +171,7 @@ class Productcontroller extends Controller
          $product->brand_id          = $request->input('brand_id'); 
          $product->pattern_id        = $request->input('pattern_id'); 
          $product->category_id       = $request->input('category_id');
+        
          $product->date_start        = $request->input('date_start');
          $product->date_finish       = $request->input('date_finish');
          $product->quantity          = $request->input('quantity');
@@ -179,34 +181,23 @@ class Productcontroller extends Controller
          $product->visit             = $request->input('visit');
          $product->count_sale        = $request->input('count_sale');
          $product->slider            = $request->input('slider');
-         $product->save(); 
+         $product->update(); 
       
         $product->colors()->sync($request->get('color_id'));
         $product->pictures()->createMany($url_picture);
         
-        return view('admin.products.edit',compact('product','categories','user','brands','patterns','colors','pictures','url_picture'));
+        return redirect('admin/products')->with('messages_create_ok','El producto fue editado con exito');
 
     }
 
     public function destroy($id){
-
-        
-      
-
-        $product = Product::with('pictures')->findOrFail($id);
-
-        foreach($product->pictures as $picture) {
-            
-            $archivo = substr($picture->url_picture,1);
-
-             File::delete($archivo);
-    
-            $picture->delete();
-        }
-
-        //return $prod;
-        $product->delete();
-        return redirect()->route('admin.products.index')->with('messages_delete','Registro eliminado correctamente!');
+        $products = Product::with('pictures')->findOrFail($id);
+            foreach($products->pictures as $picture) {
+            unlink(public_path('/storage/'.$picture->url_picture));
+            $picture -> delete();
+    }
+    $products->delete();
+    return redirect('admin/products')->with('messages_delete','Registro eliminado correctamente!');
 }
 
 }

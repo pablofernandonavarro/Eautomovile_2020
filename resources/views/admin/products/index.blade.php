@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-@include('admin.messages')
+{{-- @include('admin.messages') --}}
 
 
 @section('titulo', 'Administración de productos')
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div>
-                <a class=" m-2 float-right btn btn-primary" href="{{ route('admin/products.create') }}">Crear</a>
+                <a class=" m-2 float-right btn btn-primary" href="{{ route('admin.products.create') }}">Crear</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive mt-2 ">
@@ -94,16 +94,21 @@
 
                             <td> {{$product->sku}} </td>
                             <td> <a class="btn btn-default"
-                                    href="{{ route('admin/products.show',$product->id) }}">Ver</a>
+                                    href="{{ route('admin.products.show',$product->id) }}">Ver</a>
                             </td>
 
                             <td> <a class="btn btn-info"
-                                    href="{{ route('admin/products.edit',$product->id) }}">Editar</a>
+                                    href="{{ route('admin.products.edit',$product->id) }}">Editar</a>
                             </td>
 
 
-                            <td> <a class="btn btn-danger"
-                                    href="{{ route('admin/products.destroy',$product->id) }}">Eliminar</a>
+                            <td>
+                                <form action="{{route('admin.products.destroy',$product->id)}}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
                             </td>
 
                         </tr>
