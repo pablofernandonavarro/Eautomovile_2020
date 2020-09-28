@@ -121,18 +121,22 @@ class Productcontroller extends Controller
  
 
     public function edit($id){
-
-        $user       = Auth::user(); 
-        $categories = Category::all();
-        $brands     = Brand::all();
-        $patterns   = Pattern::all();
-        $colors     = Color::all();
-        $product    = Product::findOrFail($id);
-        $pictures   = Picture::all();
+        
       
+       
         $url_picture=[];  
       
-        return view('admin.products.edit',compact('product','categories','user','brands','patterns','colors','pictures','url_picture'));
+        return view('admin/products/edit', [
+        'product'      =>  Product::find($id),
+        'categories'   => Category::all(),
+        'user'         => Auth::user(), 
+        'brands'       => Brand::all(),
+        'patterns'     => Pattern::all(),
+        'colors'       => Color::all(),
+        'pictures'     => Picture::all(),
+         
+     ]);
+
     }
 
     public function update(Request $request,$id){
@@ -162,7 +166,7 @@ class Productcontroller extends Controller
          $product = Product::findOrFail($id);;
         
          
-         $product->sku               = $request->input('sku'); 
+         $product->sku               = $product->sku;
          $product->slug              = $request->input('slug');
          $product->description_short = $request->input('description_short'); 
          $product->description_large = $request->input('description_large'); 

@@ -48,7 +48,7 @@
 
 
 
-    <form action="{{ url( 'admin/products/'.$product->id )}}" method="POST">
+    <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -147,11 +147,11 @@
                             <div class="sku col-md-6">
                                 <!--sku -->
 
-                                <div class="form-group">
+                                <div class="form-group bg-light">
                                     <label>Sku</label>
-                                    <input class="form-control" type="text" id="nombre" name="sku"
-                                        value="{{$product->sku}}">
+                                    <label class="form-control bg-secondary" type="text" id="nombre" name="sku">{{$product->sku}}</label>
                                 </div>
+                                <span class="font-weight-light text-red">El sku no puede ser editado </span>
                                 <div class="col-md-12">
                                     {!!$errors->first('sku','<small class="alert alert-danger col-md-12"
                                         role="alert">:message
@@ -206,14 +206,12 @@
                                     <label>Modelo</label>
                                     <select name="pattern_id" id="pattern_id" class="form-control "
                                         style="width: 100%;">
-                                        @foreach($product->pattern as $patterns)
+                                        @foreach($patterns as $pattern)
 
-                                        @if ($product->pattern_id == $patterns)
-                                        <option value="{{ $patterns}}" selected>{{$patterns}}
-                                        </option>
+                                        @if (old('pattern_id') == $pattern->id)
+                                        <option value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}} </option>
                                         @else
-                                        <option value="{{ $patterns }}">{{$product->pattern->}}
-                                        </option> --}}
+                                        <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
                                         @endif
                                         @endforeach
                                     </select>
@@ -228,8 +226,8 @@
                                 <select name="brand_id" id="brand_id" class="form-control " style="width: 100%;">
                                     @foreach($brands as $brand)
 
-                                    @if (old('brand_id') == $product->brand->id)
-                                    <option value="{{ $product->brand->id }}" selected>{{$brand->brand_name}} </option>
+                                    @if (old('brand_id') == $brand->id)
+                                    <option value="{{ $brand->id }}" selected>{{$brand->brand_name}} </option>
                                     @else
                                     <option value="{{ ($brand->id) }}">{{$brand->brand_name}} </option>
                                     @endif

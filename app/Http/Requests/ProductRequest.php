@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use phpDocumentor\Reflection\Types\This;
 use Illuminate\Support\Str;
+use App\Product;
 
 class ProductRequest extends FormRequest
 {
@@ -21,13 +22,14 @@ class ProductRequest extends FormRequest
     }
 
     public function rules()
-    {
+    {  
+        
         return [
 
             //  'visit'              => '',
             //  'count_sale'         => '',
-            'sku'                => 'required|unique:products|max:20',
-            // 'slug'               => 'required|unique:products',
+            'sku'                    => 'required|unique:products,sku|max:20'.$this->Product()->id,
+            'slug'                   => 'required|unique:products',
             // 'color_id'           => 'required',
             // 'pattern_id'         => 'required',
             // 'brand_id'           => 'required',
