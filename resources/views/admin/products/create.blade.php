@@ -179,7 +179,8 @@
                   @foreach($colors as $color)
                   <div class="form-check p-3">
                     <label class="form-check-label p-2 ml-1">
-                      <input type="checkbox" class="form-check-input" name="color_id[]" id="" value="{{$color->id}}"
+                      <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
+                        value="{{$color->id}} "
                         {{(is_array(old('color_id')) && in_array($color->id,old('color_id')) ) ?  'checked ' : '' }} />
                       {{ $color->color_name }}
 

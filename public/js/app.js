@@ -40338,53 +40338,59 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.patterns, function(pattern) {
-                return _c("tr", [
-                  _c("td", { attrs: { width: "10px" } }, [
-                    _vm._v(_vm._s(pattern.id))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(pattern.brand_id))]),
-                  _vm._v(" "),
-                  _c("td", { attrs: { width: "10px" } }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-warning btn-sm",
-                        attrs: {
-                          href: "#",
-                          "data-toggle": "modal",
-                          "data-target": "#editpattern"
+                return _c(
+                  "tr",
+                  [
+                    _c("td", { attrs: { width: "10px" } }, [
+                      _vm._v(_vm._s(pattern.id))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
+                    _vm._v(" "),
+                    _vm._l(_vm.patterns.brand.id, function(brand) {
+                      return _c("td", [_vm._v(_vm._s(brand))])
+                    }),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "10px" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-warning btn-sm",
+                          attrs: {
+                            href: "#",
+                            "data-toggle": "modal",
+                            "data-target": "#editpattern"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.editpattern(pattern)
+                            }
+                          }
                         },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.editpattern(pattern)
+                        [_vm._v("\n                                 Editar")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "10px" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deletepattern(pattern)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                                 Editar")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { attrs: { width: "10px" } }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-danger btn-sm",
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.deletepattern(pattern)
-                          }
-                        }
-                      },
-                      [_vm._v("Eliminar")]
-                    )
-                  ])
-                ])
+                        },
+                        [_vm._v("Eliminar")]
+                      )
+                    ])
+                  ],
+                  2
+                )
               }),
               0
             )

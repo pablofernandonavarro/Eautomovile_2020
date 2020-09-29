@@ -147,9 +147,10 @@
                             <div class="sku col-md-6">
                                 <!--sku -->
 
-                                <div class="form-group bg-light">
+                                <div class="form-group">
                                     <label>Sku</label>
-                                    <label class="form-control bg-secondary" type="text" id="nombre" name="sku">{{$product->sku}}</label>
+                                    <label class="form-control bg-secondary" type="text" id="nombre"
+                                        name="sku">{{$product->sku}}</label>
                                 </div>
                                 <span class="font-weight-light text-red">El sku no puede ser editado </span>
                                 <div class="col-md-12">

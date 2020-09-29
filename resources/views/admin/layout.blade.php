@@ -244,7 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Color nav-bar-->
                             <li class="nav-item has-treeview">
-                                <a href="/admin.color_crud" class="nav-link active">
+                                <a href="color_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Colores

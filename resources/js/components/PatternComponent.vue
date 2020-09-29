@@ -21,7 +21,7 @@
                             <tr v-for="pattern in patterns">
                                 <td width="10px">{{ pattern.id }}</td>
                                 <td>{{ pattern.pattern_name }}</td>
-                                <td>{{ pattern.brand_id}}</td>
+                                <td v-for="brand in patterns.brand.id">{{ brand}}</td>
                             
                                 <td width="10px">
                                     <a href="#" class="btn btn-warning btn-sm"

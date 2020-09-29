@@ -21,14 +21,14 @@ class ProductRequest extends FormRequest
              ]);
     }
 
-    public function rules()
+    public function rules(Product $product)
     {  
-        
+       
         return [
 
             //  'visit'              => '',
             //  'count_sale'         => '',
-            'sku'                    => 'required|unique:products,sku|max:20'.$this->Product()->id,
+            'sku'                    => 'required|unique:products,sku|max:20'.$this->product,
             'slug'                   => 'required|unique:products',
             // 'color_id'           => 'required',
             // 'pattern_id'         => 'required',
