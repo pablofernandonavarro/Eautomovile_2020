@@ -21,7 +21,7 @@
                             <tr v-for="pattern in patterns">
                                 <td width="10px">{{ pattern.id }}</td>
                                 <td>{{ pattern.pattern_name }}</td>
-                                <td v-for="brand in patterns.brand.id">{{ brand}}</td>
+                                <td>{{pattern.brand.brand_name}}</td>
                             
                                 <td width="10px">
                                     <a href="#" class="btn btn-warning btn-sm"
@@ -38,12 +38,12 @@
                         </tbody>
                     </table>
                 </div>
-              <div class="col-md-5 bg-white">
+              <!-- <div class="col-md-5 bg-white">
                     <pre>
                            {{ $data }}
 
                     </pre>
-                </div>   
+                </div>    -->
             </div>
         </div>
 
@@ -68,7 +68,8 @@
                         <div class="modal-body">
                             <label for="brand">Marca al que pertenece el Modelo</label>
                                 <select v-model="select_brand" class="form-control" id="brand">
-                                    <option v-for="brand in brand_name" :value="brand.id">{{brand_name.brand_name}}</option>
+                                    <option v-for="brand in brand_name" :value="brand.id">{{brand.brand_name}}</option>
+                                    
                                 </select>
                         </div>
                         <div class="modal-footer">

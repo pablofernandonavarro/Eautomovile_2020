@@ -215,16 +215,7 @@
                 <!-- brand -->
 
                 <label>Marca</label>
-                <select name="brand_id" id="brand_id" class="form-control " style="width: 100%;">
-                  @foreach($brands as $brand)
-
-                  @if (old('brand_id') == $brand->id)
-                  <option value="{{ $brand->id }}" selected>{{$brand->brand_name}} </option>
-                  @else
-                  <option value="{{ ($brand->id) }}">{{$brand->brand_name}} </option>
-                  @endif
-                  @endforeach
-                </select>
+                <input type="text" class="form-control" id="brand" name="brand_id">
               </div>
 
               <!-- /brand -->
@@ -636,5 +627,16 @@
 
   </form>
 </div>
+<script type="text/javascript">
+  let model = document.getElementById('pattern_id');
+  let brand = document.getElementById('brand');
+  model.addEventListener('change',(e) => {
+    fetch(`http://localhost:8000/api-brands/${e.target.value}`)
+    .then(response => response.json())
+    .then(data => brand.value = data.brand_name)
+    
+    .catch(error => console.log(error))
+  });
+</script>
 
 @endsection

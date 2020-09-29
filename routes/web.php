@@ -40,12 +40,13 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
 });
 
 Route::resource('users', 'UserController');
+Route::get('/api-brands/{id}', 'ApiController@brand');
 
 Route::get('/test', function(){
     
-    $products = Product::find(80);
-    
-    return $products->brand;
+  
+        
+    return Pattern::findOrFail(2)->brand->toJson();
 });
    
 

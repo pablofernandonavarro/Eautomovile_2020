@@ -78,7 +78,7 @@
                                 <div class="form-group">
                                     <label>Visitas</label>
                                     <input class="form-control" type="number" id="visit" name="visit"
-                                        value="{{$products->visit}}">
+                                        value="{{$products->visit}}" disabled>
 
                                 </div>
                                 <div class="col-md-12">
@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <label>Ventas</label>
                                     <input class="form-control" type="number" id="ventas" name="count_sale"
-                                        value="{{$products->count_sale}}">
+                                        value="{{$products->count_sale}}" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('count_sale','<small class="alert alert-danger col-md-12"
@@ -150,7 +150,7 @@
                                 <div class="form-group">
                                     <label>Sku</label>
                                     <input class="form-control" type="text" id="nombre" name="sku"
-                                        value="{{$products->sku}}">
+                                        value="{{$products->sku}}" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('sku','<small class="alert alert-danger col-md-12"
@@ -168,7 +168,7 @@
                                 <div class="form-group">
                                     <label>Slug</label>
                                     <input class="form-control" type="text" id="slug" name="slug"
-                                        value="{{$products->slug}}">
+                                        value="{{$products->slug}}" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('slug','<small class="alert alert-danger col-md-12"
@@ -206,7 +206,7 @@
                                 <div class="form-group">
                                     <label>Modelo</label>
                                     <input name="pattern_id" id="pattern_id" class="form-control " style="width: 100%;"
-                                        value="{{$products->pattern->pattern_name}}">
+                                        value="{{$products->pattern->pattern_name}}" disabled>
 
 
                                 </div>
@@ -218,7 +218,7 @@
 
                                 <label>Marca</label>
                                 <input name="brand_id" id="brand_id" class="form-control " style="width: 100%;"
-                                    value="{{$products->brand->brand_name}}">
+                                    value="{{$products->brand->brand_name}}" disabled>
 
 
                             </div>
@@ -230,7 +230,7 @@
 
                                 <label>Categoria</label>
                                 <input name="category_id" id="category_id" class="form-control " style="width: 100%;"
-                                    value="{{$products->category->category_name}}">
+                                    value="{{$products->category->category_name}}" disabled>
 
                             </div>
 
@@ -242,7 +242,7 @@
                                 <div class="form-group">
                                     <label>Fecha de inicio fabricacion del Modelo</label>
                                     <input type="date" name="date_start" id="" class="form-control "
-                                        style="width: 100%;" value="{{$products->date_start}}">
+                                        style="width: 100%;" value="{{$products->date_start}}" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('date_start','<small class="alert alert-danger col-md-12"
@@ -260,7 +260,7 @@
                                 <div class="form-group">
                                     <label>Fecha de finalizacion fabricacion del Modelo</label>
                                     <input type="date" name="date_finish" id="category_id" class="form-control "
-                                        style="width: 100%; " value="{{$products->date_finish}}">
+                                        style="width: 100%; " value="{{$products->date_finish}}" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12"
@@ -277,7 +277,7 @@
                                 <div class="form-group">
                                     <label>cantidad</label>
                                     <input type="number" name="quantity" id="quantity" class="form-control "
-                                        style="width: 100%;" min="0" value="{{$products->quantity}}" step="1">
+                                        style="width: 100%;" min="0" value="{{$products->quantity}}" step="1" disabled>
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('quantity','<small class="alert alert-danger col-md-12"
@@ -325,7 +325,7 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <input class="form-control" type="number" id="price" name="price" min="0"
-                                            value="{{$products->price}}" step="1">
+                                            value="{{$products->price}}" step="1" disabled>
 
                                     </div>
                                     <br>
@@ -358,7 +358,7 @@
                                     <div class="input-group">
                                         <input class="form-control" type="number" id="discount_rate"
                                             name="discount_rate" step="any" min="0" max="100"
-                                            value="{{$products->discount_rate}}">
+                                            value="{{$products->discount_rate}}" disabled>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">%</span>
                                         </div>
@@ -410,7 +410,7 @@
 
                                     <label>Descripción corta:</label>
                                     <textarea class="form-control ckeditor" name="description_short"
-                                        id="description_short" rows="3">{{$products->description_short}}</textarea>
+                                        id="description_short" rows="3">{{$products->description_short}} </textarea>
                                     <br>
                                     <div class="col-md-12">
                                         {!!$errors->first('description_short','<small

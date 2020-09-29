@@ -10,13 +10,7 @@ class PatternController extends Controller
 {
     public function index(){
        
-        $patterns = Pattern::with("brand")->where("id",">",0)->get();
-      
-        // //  $patterns= Pattern::get();
-        //  $patterns = Pattern::with('brand')->get();
-     
-         
-        return $patterns;
+     return Pattern::with("brand")->where("id",">",0)->get();;
         
     }
 

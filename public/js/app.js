@@ -2796,6 +2796,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -40338,71 +40339,55 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.patterns, function(pattern) {
-                return _c(
-                  "tr",
-                  [
-                    _c("td", { attrs: { width: "10px" } }, [
-                      _vm._v(_vm._s(pattern.id))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
-                    _vm._v(" "),
-                    _vm._l(_vm.patterns.brand.id, function(brand) {
-                      return _c("td", [_vm._v(_vm._s(brand))])
-                    }),
-                    _vm._v(" "),
-                    _c("td", { attrs: { width: "10px" } }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-warning btn-sm",
-                          attrs: {
-                            href: "#",
-                            "data-toggle": "modal",
-                            "data-target": "#editpattern"
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.editpattern(pattern)
-                            }
-                          }
+                return _c("tr", [
+                  _c("td", { attrs: { width: "10px" } }, [
+                    _vm._v(_vm._s(pattern.id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(pattern.pattern_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(pattern.brand.brand_name))]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "10px" } }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-warning btn-sm",
+                        attrs: {
+                          href: "#",
+                          "data-toggle": "modal",
+                          "data-target": "#editpattern"
                         },
-                        [_vm._v("\n                                 Editar")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { width: "10px" } }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-danger btn-sm",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.deletepattern(pattern)
-                            }
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.editpattern(pattern)
                           }
-                        },
-                        [_vm._v("Eliminar")]
-                      )
-                    ])
-                  ],
-                  2
-                )
+                        }
+                      },
+                      [_vm._v("\n                                 Editar")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "10px" } }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger btn-sm",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.deletepattern(pattern)
+                          }
+                        }
+                      },
+                      [_vm._v("Eliminar")]
+                    )
+                  ])
+                ])
               }),
               0
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-5 bg-white" }, [
-          _c("pre", [
-            _vm._v(
-              "                       " +
-                _vm._s(_vm.$data) +
-                "\n\n                "
             )
           ])
         ])
@@ -40493,7 +40478,7 @@ var render = function() {
                     },
                     _vm._l(_vm.brand_name, function(brand) {
                       return _c("option", { domProps: { value: brand.id } }, [
-                        _vm._v(_vm._s(_vm.brand_name.brand_name))
+                        _vm._v(_vm._s(brand.brand_name))
                       ])
                     }),
                     0

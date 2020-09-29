@@ -39,7 +39,9 @@ class Productcontroller extends Controller
 
     public function store(ProductRequest $request){
         
-      
+    
+        $pattern = Pattern::find($request->input('pattern_id'));
+        $brand = $pattern->brand;
         $sku = $request->sku;
         $url_picture=[];
         if ($request->hasfile('url_picture')) {
@@ -70,7 +72,7 @@ class Productcontroller extends Controller
          $product->description_large = $request->input('description_large'); 
          $product->data_interest     = $request->input('data_interest'); 
          $product->spec              = $request->input('spec'); 
-         $product->brand_id          = $request->input('brand_id'); 
+         $product->brand_id          = $brand->id; 
          $product->pattern_id        = $request->input('pattern_id'); 
          $product->category_id       = $request->input('category_id');
          $product->date_start        = $request->input('date_start');
@@ -122,7 +124,6 @@ class Productcontroller extends Controller
 
     public function edit($id){
         
-      
        
         $url_picture=[];  
       
@@ -141,7 +142,9 @@ class Productcontroller extends Controller
 
     public function update(Request $request,$id){
       
-      
+        $pattern = Pattern::find($request->input('pattern_id'));
+        $brand = $pattern->brand;
+       
         $sku         = $request->sku;
         $url_picture =[];
         if ($request->hasfile('url_picture')) {
@@ -172,7 +175,7 @@ class Productcontroller extends Controller
          $product->description_large = $request->input('description_large'); 
          $product->data_interest     = $request->input('data_interest'); 
          $product->spec              = $request->input('spec'); 
-         $product->brand_id          = $request->input('brand_id'); 
+         $product->brand_id          = $brand->id; 
          $product->pattern_id        = $request->input('pattern_id'); 
          $product->category_id       = $request->input('category_id');
         
