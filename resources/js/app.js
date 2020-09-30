@@ -25,7 +25,7 @@ Vue.component('color-component', require('./components/ColorComponent.vue').defa
 Vue.component('pattern-component', require('./components/PatternComponent.vue').default);
 Vue.component('user-component', require('./components/UserComponent.vue').default);
 Vue.component('note-component', require('./components/NoteComponent.vue').default);
-
+Vue.component('picture-component', require('./components/PictureComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,4 +35,9 @@ Vue.component('note-component', require('./components/NoteComponent.vue').defaul
 
 const app = new Vue({
     el: '#app',
+    
+});
+const picture = new Vue({
+    el: '#picture',
+    
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Brand;
 use App\Pattern;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -11,4 +12,5 @@ class ApiController extends Controller
          
          return Pattern::findOrFail($id)->brand->toJson();
     }
+   
 }

@@ -3,9 +3,9 @@
 @section('content')
 
 
+<div id="app">
+    <pattern-component>
 
-<pattern-component>
-
-</pattern-component>
-
+    </pattern-component>
+</div>
 @endsection

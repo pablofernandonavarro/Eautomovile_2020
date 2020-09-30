@@ -383,7 +383,7 @@
                                     <div id="barraprogreso" class="progress-bar" role="progressbar"
                                         v-bind:style="{width: porcentajededescuento+'%'}" aria-valuenow="0"
                                         aria-valuemin="0" aria-valuemax="100">
-                                        @{{ porcentajededescuento }}%</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -524,36 +524,13 @@
             <!-- /.row -->
 
 
+            <div id="picture">
 
+                <picture-component>
 
-            <div class="card card-warning">
-                <div class="card-header">
-                    <h3 class="card-title">Imágenes</h3>
-
-
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-
-                    <div class="form-group">
-
-
-                        @foreach ($product->pictures as $picture)
-
-                        <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" class="img-fluid mb-2">
-
-                        @endforeach
-                    </div>
-
-
-                </div>
-
-
-                <!-- /.card-body -->
-                <div class="card-footer">
-
-                </div>
+                </picture-component>
             </div>
+
             <!-- /.card -->
 
 

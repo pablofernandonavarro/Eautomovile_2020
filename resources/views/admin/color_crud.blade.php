@@ -3,9 +3,9 @@
 @section('content')
 
 
+<div id="app">
+    <color-component>
 
-<color-component>
-
-<color-component>
-
+        <color-component>
+</div>
 @endsection

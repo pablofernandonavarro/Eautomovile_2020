@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Picture;
 use Illuminate\Http\Request;
+use App\Product;
 
 class PictureController extends Controller
 {
@@ -14,7 +15,10 @@ class PictureController extends Controller
      */
     public function index()
     {
-        //
+        $pictures=Picture::get();
+        
+        return $pictures;
+      
     }
 
     /**
