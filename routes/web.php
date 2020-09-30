@@ -10,6 +10,7 @@ use App\Brand;
 use App\Http\Controllers\Productcontroller;
 use Doctrine\Inflector\Rules\Patterns;
 use App\Picture;
+use App\Product;
 
 Auth::routes();
 Route::get('/','indexController@view_user');
@@ -45,9 +46,8 @@ Route::resource('users', 'UserController');
 Route::get('/api-brands/{id}', 'ApiController@brand');
 
 Route::get('/test', function(){
-    
-    $pictures= Picture::get();
-        return $pictures;
+    $pictures =Picture::find(4)->get();
+    return $pictures;
  
 });
    

@@ -8,7 +8,7 @@
                 <!-- /.card-header -->
             <div class="card-body">
                 <div class="form-group">
-                    <!-- <img v-for="picture as pictures" src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" class="img-fluid mb-2"> -->
+                    <img v-for="pictures in picture" src="/storage/.pictures->url_picture" alt="foto" width="200" class="img-fluid mb-2"> 
                 </div>
             </div>
                 <!-- /.card-body -->
@@ -27,20 +27,20 @@
    export default {
         data() {
             return {
-                pictures:   [],
+                products: [],
                 errors: [],
                 
             };
         },
-         created: function () {
-             this.getpictures();
+         created: function ($id) {
+             this.getproducts();
          },
 
          methods: {
-            getpictures: function () {
-                var urlpictures = "pictures";
+            getproducts: function () {
+                var urlpictures = "/admin/pictures/";
                 axios.get(urlpictures).then(response => {
-                    this.pictures = response.data;
+                    this.products = response.data;
                 });
             },
          },

@@ -2937,20 +2937,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      pictures: [],
+      products: [],
       errors: []
     };
   },
-  created: function created() {
-    this.getpictures();
+  created: function created($id) {
+    this.getproducts();
   },
   methods: {
-    getpictures: function getpictures() {
+    getproducts: function getproducts() {
       var _this = this;
 
-      var urlpictures = "pictures";
+      var urlpictures = "/admin/pictures/";
       axios.get(urlpictures).then(function (response) {
-        _this.pictures = response.data;
+        _this.products = response.data;
       });
     }
   }
@@ -40773,7 +40773,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "picture" } }, [
     _c("div", { staticClass: "container col-md-12" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "card card-warning" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            _vm._l(_vm.picture, function(pictures) {
+              return _c("img", {
+                staticClass: "img-fluid mb-2",
+                attrs: {
+                  src: "/storage/.pictures->url_picture",
+                  alt: "foto",
+                  width: "200"
+                }
+              })
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-footer" })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-5 bg-white" }, [
         _c("pre", [
@@ -40788,16 +40810,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-warning" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _c("h3", { staticClass: "card-title" }, [_vm._v("Imágenes")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "form-group" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-footer" })
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Imágenes")])
     ])
   }
 ]
@@ -53902,8 +53916,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Git_hub\Eautomovile_2020_2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
