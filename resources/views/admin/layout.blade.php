@@ -70,8 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="dropdown-item">
                                 <!-- Message Start -->
                                 <div class="media">
-                                    <img src="" alt="User Avatar"
-                                        class="img-size-50 mr-3 img-circle">
+                                    <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                     <div class="media-body">
                                         <h3 class="dropdown-item-title">
                                             Brad Diesel
@@ -88,8 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="dropdown-item">
                                 <!-- Message Start -->
                                 <div class="media">
-                                    <img src="" alt="User Avatar"
-                                        class="img-size-50 img-circle mr-3">
+                                    <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                     <div class="media-body">
                                         <h3 class="dropdown-item-title">
                                             John Pierce
@@ -106,8 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="dropdown-item">
                                 <!-- Message Start -->
                                 <div class="media">
-                                    <img src="" alt="User Avatar"
-                                        class="img-size-50 img-circle mr-3">
+                                    <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                     <div class="media-body">
                                         <h3 class="dropdown-item-title">
                                             Nora Silvester
@@ -326,8 +323,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 4 -->
     {{-- <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
     <!-- AdminLTE App -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> --}}
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
     <script src="{{asset('js/app.js')}}"></script>

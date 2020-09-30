@@ -8,7 +8,8 @@
                 <!-- /.card-header -->
             <div class="card-body">
                 <div class="form-group">
-                    <img v-for="pictures in picture" src="/storage/.pictures->url_picture" alt="foto" width="200" class="img-fluid mb-2"> 
+                    <img :src="'/storage/pictures/sku10_1.jpg'" alt="foto" width="200" class="img-fluid mb-2"> 
+                     
                 </div>
             </div>
                 <!-- /.card-body -->
@@ -29,11 +30,12 @@
             return {
                 products: [],
                 errors: [],
-                
+                product_id: "",
             };
         },
          created: function ($id) {
              this.getproducts();
+             this.getid(products);
          },
 
          methods: {
@@ -43,6 +45,13 @@
                     this.products = response.data;
                 });
             },
-         },
+
+         }, getid: function(id){
+              var urlpictures = '/admin/pictures/.id./edit'
+                this.product_id = this.products.id;
+                
+              
+               
+            },
     };
 </script>

@@ -141,7 +141,7 @@ class Productcontroller extends Controller
     }
 
     public function update(Request $request,$id){
-      
+     
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
        
@@ -207,4 +207,19 @@ class Productcontroller extends Controller
     return redirect('admin/products')->with('messages_delete','Registro eliminado correctamente!');
 }
 
+
+public function deletepicture($id)
+{
+    
+    //return "se va a eliminar el registro ".$id;
+    $picture = Picture::find($id);
+
+    $archivo = substr($picture->url_picture,1);
+
+    $eliminar = File::delete($archivo);
+
+    $picture->delete();
+
+    return "eliminado id:".$id. ' '.$eliminar;
+}
 }

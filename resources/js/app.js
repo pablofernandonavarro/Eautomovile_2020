@@ -37,7 +37,4 @@ const app = new Vue({
     el: '#app',
     
 });
-const picture = new Vue({
-    el: '#picture',
-    
-});
+

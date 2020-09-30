@@ -10,7 +10,7 @@ class PictureController extends Controller
 {
 
     public function index()
-    {
+    {   
         return Product::with("pictures")->where("id",">",0)->get();
       
     }
@@ -34,9 +34,11 @@ class PictureController extends Controller
     }
 
     
-    public function edit(Picture $picture)
+    public function edit(Picture $picture,$id)
     {
-        return Picture::find($id)->get();
+        $pictures = Picture::findOrFail($id);
+        
+        return $pictures;
     }
 
     

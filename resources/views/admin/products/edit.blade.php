@@ -8,46 +8,8 @@
 <li class="breadcrumb-item"><a href="#">Productos</a></li>
 <li class="breadcrumb-item active">@yield('titulo')</li>
 @endsection
-
-
-@section('estilos')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-
-@endsection
-
-@section('scripts')
-
-<!-- Select2 -->
-<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
-
-<script src="{{asset('adminlte/ckeditor/ckeditor.js')}}"></script>
-
-<script>
-    $(function () {
-    //Initialize Select2 Elements
-    $('#category_id').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    });
-  });
-
-</script>
-
-@endsection
-
-
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<link rel="stylesheet" href="/adminlte/plugins/ekko-lightbox/ekko-lightbox.css">
 <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -161,21 +123,6 @@
                             <br>
                         </div>
 
-                        <!-- / sku-->
-
-                        {{-- <div class="slug col-md-6">
-                <!-- slug -->
-
-                <div class="form-group">
-                  <label>Slug</label>
-                  <input class="form-control" type="text" id="slug" name="slug">
-                </div>
-                <div class="col-md-12">
-                  {!!$errors->first('slug','<small class="alert alert-danger col-md-12" role="alert">:message
-                  </small>')!!}
-                </div>
-                <br>
-              </div> --}}
 
                         <!-- /slug -->
 
@@ -522,14 +469,79 @@
 
             </div>
             <!-- /.row -->
+            {{-- IMAGE  --}}
+
+            <div class="card card-info">
+                <!--card info-->
+
+                <div class="card-header">
+                    <!-- .card-header -->
+
+                    <h3 class="card-title">Agregar imagenes</h3>
+                </div>
 
 
-            <div id="picture">
+                <div class="card-body">
+                    <div class="form-group has-label">
+                        <label for="images">Añadir Imagenes</label>
+                        <input type="file" name="url_picture[]" id="url_picture[]" class="form-control" placeholder=""
+                            aria-describedby="helpId" multiple accept="image/*">
+                        <small id="helpId" class="text-muted">Puede Agregar hasta 8 imagenes por auto </small>
+                        <br>
+                        <small id="helpId" class="text-muted">El limite Puede ser 1024 mb por imagen</small>
+                        <br>
+                        <small id="helpId" class="text-muted">Puede Agregar archivos de tipo jpeg,png, jpg, gif</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <!-- card-footer-->
 
-                <picture-component>
-
-                </picture-component>
+                </div>
+                <!--  /card-footer-->
+                <!--/IMAGE -->
             </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="app">
+            <div class="container col-md-12">
+                <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Imágenes</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body row">
+
+                        @foreach ($product->pictures as $picture)
+                        <div id="idimagen-{{$picture->id}}" class="col-sm-2">
+                            <a href="{{'/storage/'.$picture->url_picture}}" data-toggle="lightbox"
+                                data-title="Id:{{ $picture->id }}" data-gallery="example-gallery" class="col-sm-4">
+                                <img style="width:150px; height:150px;" src={{'/storage/'.$picture->url_picture}}
+                                    class="img-fluid" />
+                            </a>
+                            <br>
+                            <a href="{{'/storage/'.$picture->url_picture}}"
+                                v-on:click.prevent="picturedelete({{$picture}})">
+                                <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
+                            </a>
+
+                        </div>
+                        @endforeach
+
+                    </div>
+
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                    </div>
+                </div>
+
+            </div>
+
 
             <!-- /.card -->
 
@@ -620,6 +632,12 @@
 
 </form>
 
+<script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
+
+<script src="/adminlte/plugins/ckeditor/ckeditor.js"></script>
+
+<script src="/adminlte/plugins/ekko-lightbox/ekko-lightbox.js"></script>
+
 <script type="text/javascript">
     let model = document.getElementById('pattern_id');
     let brand = document.getElementById('brand');
@@ -631,5 +649,26 @@
       .catch(error => console.log(error))
     });
 </script>
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('#category_id').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
+  
+
+    //uso de lightbox
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true,
+      });
+    });
+});
+</script>
+<script src="/js/apiproduct.js"></script>
 
 @endsection

@@ -29,7 +29,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::get('category_crud','DashboardController@view_category');
     Route::get('brand_crud','DashboardController@view_brand');
     Route::get('pattern_crud','DashboardController@view_pattern');
-    Route::get('picture_crud','DashboardController@view_pictures');
+    // Route::get('picture_crud','DashboardController@view_pictures');
     
     Route::resource('notes', 'NoteController',['except' =>'show','create','edit']);
     Route::resource('colors', 'ColorController',['except' =>'show','create','edit']);
