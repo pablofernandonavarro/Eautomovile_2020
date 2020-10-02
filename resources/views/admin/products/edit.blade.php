@@ -614,7 +614,7 @@
 
     </div>
 </div>
-@endsection
+
 
 
 <!-- /.card -->
@@ -673,3 +673,4 @@
 });
 </script>
 <script src="/js/apiproduct.js"></script>
+@endsection
