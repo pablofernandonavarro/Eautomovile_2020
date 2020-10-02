@@ -111,8 +111,8 @@
 
                             <div class="form-group">
                                 <label>Sku</label>
-                                <input class="form-control" type="text" id="nombre" name="sku" value="{{$product->sku}}"
-                                    disabled>
+                                <input class="form-control bg-light" type="text" id="sku" name="sku"
+                                    value="{{$product->sku}}">
                             </div>
                             <p class="font-weight-light text-red">El sku no puede ser editado </p>
                             <div class="col-md-12">
@@ -123,6 +123,10 @@
                             <br>
                         </div>
 
+
+                        <!-- slug -->
+
+                        {{-- lo genera slugleable --}}
 
                         <!-- /slug -->
 
@@ -297,12 +301,8 @@
                                 </div>
                                 <br>
 
-                                <br>
-                                <span id="descuento">
 
-                                    @{{ generardescuento }}
 
-                                </span>
                             </div>
                             <!-- /.form-group -->
 
@@ -325,20 +325,14 @@
 
                                 </div>
 
-                                <br>
-                                <div class="progress">
-                                    <div id="barraprogreso" class="progress-bar" role="progressbar"
-                                        v-bind:style="{width: porcentajededescuento+'%'}" aria-valuenow="0"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="col-md-12">
                                 {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12"
                                     role="alert">:message
                                 </small>')!!}
                             </div>
-                            <br>
+
 
                         </div>
                         <!-- /.col -->
@@ -555,7 +549,7 @@
                 <!--/IMAGE -->
             </div>
         </div>
-        <div class="row">
+        <div class="container-fluid row">
             <div class="col-md-12">
                 <div class="form-group">
 
@@ -646,6 +640,7 @@
 <script type="text/javascript">
     let model = document.getElementById('pattern_id');
     let brand = document.getElementById('brand');
+    brand.value = 'seleccione un modelo';
     model.addEventListener('change',(e) => {
       fetch(`http://localhost:8000/api-brands/${e.target.value}`)
       .then(response => response.json())
