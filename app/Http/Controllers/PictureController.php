@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Picture;
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\File;
 
 class PictureController extends Controller
 {
-
     public function index()
-    {   
-        return Product::with("pictures")->where("id",">",0)->get();
-      
+    {
+        return Product::with("pictures")->where("id", ">", 0)->get();
     }
 
    
@@ -34,7 +33,7 @@ class PictureController extends Controller
     }
 
     
-    public function edit(Picture $picture,$id)
+    public function edit(Picture $picture, $id)
     {
         $pictures = Picture::findOrFail($id);
         
@@ -49,8 +48,19 @@ class PictureController extends Controller
     }
 
   
-    public function destroy(Picture $picture)
+    public function destroy($id)
+
     {
-        //
+       $product = Product::with('pictures')->get()->$id;
+       dd($product);
+          $picture = $product->id;
+        
+        $archivo = substr($picture->url_picture, 1);
+    
+        $eliminar = File::delete($archivo);
+    
+        $picture->delete();
+    
+        return "eliminado id:".$id. ' '.$eliminar;
     }
 }

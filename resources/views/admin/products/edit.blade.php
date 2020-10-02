@@ -469,83 +469,6 @@
 
             </div>
             <!-- /.row -->
-            {{-- IMAGE  --}}
-
-            <div class="card card-info">
-                <!--card info-->
-
-                <div class="card-header">
-                    <!-- .card-header -->
-
-                    <h3 class="card-title">Agregar imagenes</h3>
-                </div>
-
-
-                <div class="card-body">
-                    <div class="form-group has-label">
-                        <label for="images">Añadir Imagenes</label>
-                        <input type="file" name="url_picture[]" id="url_picture[]" class="form-control" placeholder=""
-                            aria-describedby="helpId" multiple accept="image/*">
-                        <small id="helpId" class="text-muted">Puede Agregar hasta 8 imagenes por auto </small>
-                        <br>
-                        <small id="helpId" class="text-muted">El limite Puede ser 1024 mb por imagen</small>
-                        <br>
-                        <small id="helpId" class="text-muted">Puede Agregar archivos de tipo jpeg,png, jpg, gif</small>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <!-- card-footer-->
-
-                </div>
-                <!--  /card-footer-->
-                <!--/IMAGE -->
-            </div>
-        </div>
-
-
-
-
-
-
-
-        <div id="app">
-            <div class="container col-md-12">
-                <div class="card card-warning">
-                    <div class="card-header">
-                        <h3 class="card-title">Imágenes</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body row">
-
-                        @foreach ($product->pictures as $picture)
-                        <div id="idimagen-{{$picture->id}}" class="col-sm-2">
-                            <a href="{{'/storage/'.$picture->url_picture}}" data-toggle="lightbox"
-                                data-title="Id:{{ $picture->id }}" data-gallery="example-gallery" class="col-sm-4">
-                                <img style="width:150px; height:150px;" src={{'/storage/'.$picture->url_picture}}
-                                    class="img-fluid" />
-                            </a>
-                            <br>
-                            <a href="{{'/storage/'.$picture->url_picture}}"
-                                v-on:click.prevent="picturedelete({{$picture}})">
-                                <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
-                            </a>
-
-                        </div>
-                        @endforeach
-
-                    </div>
-
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                    </div>
-                </div>
-
-            </div>
-
-
-            <!-- /.card -->
-
-
             <div class="card card-danger">
                 <div class="card-header">
                     <h3 class="card-title">Administración</h3>
@@ -585,24 +508,7 @@
 
 
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
 
-                                <a class="btn btn-danger" href="#">Cancelar</a>
-                                <input type="submit" value="Guardar" class="btn btn-primary">
-
-                            </div>
-                            <!-- /.form-group -->
-
-                        </div>
-                        <!-- /.col -->
-
-
-
-
-
-                    </div>
                     <!-- /.row -->
 
 
@@ -617,20 +523,117 @@
 
                 </div>
             </div>
-            <!-- /.card -->
+            {{-- IMAGE  --}}
+
+            <div class="card card-info">
+                <!--card info-->
+
+                <div class="card-header">
+                    <!-- .card-header -->
+
+                    <h3 class="card-title">Agregar imagenes</h3>
+                </div>
 
 
+                <div class="card-body">
+                    <div class="form-group has-label">
+                        <label for="images">Añadir Imagenes</label>
+                        <input type="file" name="url_picture[]" id="url_picture[]" class="form-control" placeholder=""
+                            aria-describedby="helpId" multiple accept="image/*">
+                        <small id="helpId" class="text-muted">Puede Agregar hasta 8 imagenes por auto </small>
+                        <br>
+                        <small id="helpId" class="text-muted">El limite Puede ser 1024 mb por imagen</small>
+                        <br>
+                        <small id="helpId" class="text-muted">Puede Agregar archivos de tipo jpeg,png, jpg, gif</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <!-- card-footer-->
 
+                </div>
+                <!--  /card-footer-->
+                <!--/IMAGE -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
 
+                    <a class="btn btn-danger" href="#">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-primary">
 
-
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-
+                </div>
+            </div>
+        </div>
 
 
 </form>
+
+
+
+
+
+
+
+<div id="app">
+    <div class="container col-md-12">
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title">Imágenes</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body row">
+
+                @foreach ($product->pictures as $picture)
+                <form class="row" action="{{ url('admin/pictures/'.$picture->id)}}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+
+                    <div id="idimagen-{{$picture->id}}">
+                        <a href="{{'/storage/'.$picture->url_picture}}" data-toggle="lightbox"
+                            data-title="Id:{{ $picture->id }}" data-gallery="example-gallery" class="col-sm-4">
+                            <img style="width:150px; height:150px;" src={{'/storage/'.$picture->url_picture}}
+                                class="img-fluid" />
+                        </a>
+                        <br>
+                        <button typ="submit" class="btn btn danger">
+
+                            <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
+                        </button>
+
+                    </div>
+                    @endforeach
+
+            </div>
+
+            <!-- /.card-body -->
+            <div class="card-footer">
+            </div>
+        </div>
+
+    </div>
+</div>
+@endsection
+
+
+<!-- /.card -->
+
+
+
+<!-- /.card -->
+
+
+
+
+
+
+<!-- /.container-fluid -->
+
+<!-- /.content -->
+
+
+
 
 <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
 
@@ -670,5 +673,3 @@
 });
 </script>
 <script src="/js/apiproduct.js"></script>
-
-@endsection

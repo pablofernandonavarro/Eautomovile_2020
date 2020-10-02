@@ -49,7 +49,7 @@ class Productcontroller extends Controller
 
             foreach ($pictures as $i =>  $picture) {
                 
-                $name = $sku."_".($i+1).'.jpg';
+                $name = $sku."_".time().'_'.'.jpg';
                 $img = Image::make($pictures[$i]);
                 $img->encode('webp');
                 $img->resize(360, 220, function ($c) {
@@ -144,15 +144,15 @@ class Productcontroller extends Controller
      
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
-       
-        $sku         = $request->sku;
+        $product = Product::find($id);
+        $sku         = $product->sku;
         $url_picture =[];
         if ($request->hasfile('url_picture')) {
             $pictures = $request->file('url_picture');
 
             foreach ($pictures as $i =>  $picture) {
                 
-                $name = $sku."_".($i+1).'.jpg';
+                $name = $sku."_".time().'_'.'.jpg';
                 $img = Image::make($pictures[$i]);
                 $img->encode('webp');
                 $img->resize(360, 220, function ($c) {
@@ -169,7 +169,7 @@ class Productcontroller extends Controller
          $product = Product::findOrFail($id);;
         
          
-         $product->sku               = $product->sku;
+         $product->sku               = $sku;
          $product->slug              = $request->input('slug');
          $product->description_short = $request->input('description_short'); 
          $product->description_large = $request->input('description_large'); 
