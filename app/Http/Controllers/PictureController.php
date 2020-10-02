@@ -50,17 +50,17 @@ class PictureController extends Controller
   
     public function destroy($id)
 
-    {
-       $product = Product::with('pictures')->get()->$id;
-       dd($product);
-          $picture = $product->id;
+    { 
         
-        $archivo = substr($picture->url_picture, 1);
-    
-        $eliminar = File::delete($archivo);
-    
-        $picture->delete();
-    
-        return "eliminado id:".$id. ' '.$eliminar;
+       //return "se va a eliminar el registro ".$id;
+    $picture = Picture::find($id);
+
+    $archivo = substr($picture->url_picture,1);
+
+    $eliminar = File::delete($archivo);
+
+    $picture->delete();
+
+    return back()->with('messages_delete','Registro eliminado correctamente!');
     }
 }

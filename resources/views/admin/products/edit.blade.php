@@ -585,10 +585,11 @@
             <div class="card-body row">
 
                 @foreach ($product->pictures as $picture)
-                <form class="row" action="{{ url('admin/pictures/'.$picture->id)}}" method="POST"
+                <form class="row" action="{{ url('admin/pictures',$picture->id)}}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
-                    @method('DELETE')
+                    @method('Delete')
+
 
                     <div id="idimagen-{{$picture->id}}">
                         <a href="{{'/storage/'.$picture->url_picture}}" data-toggle="lightbox"
@@ -603,8 +604,9 @@
                         </button>
 
                     </div>
-                    @endforeach
 
+                </form>
+                @endforeach
             </div>
 
             <!-- /.card-body -->

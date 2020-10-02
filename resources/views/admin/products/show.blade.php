@@ -48,7 +48,7 @@
 
 
 
-    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.products.show') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- Main content -->
