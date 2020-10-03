@@ -26,6 +26,7 @@ Vue.component('pattern-component', require('./components/PatternComponent.vue').
 Vue.component('user-component', require('./components/UserComponent.vue').default);
 Vue.component('note-component', require('./components/NoteComponent.vue').default);
 Vue.component('picture-component', require('./components/PictureComponent.vue').default);
+Vue.component('supplier-component', require('./components/SupplierComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

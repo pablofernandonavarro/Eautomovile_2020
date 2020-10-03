@@ -119,7 +119,7 @@
 
           <!-- /card footer-->
         </div>
-        <!-- /.card success-->
+        <!-- /.card Datos del producto-->
 
 
 
@@ -153,36 +153,20 @@
                 <br>
               </div>
 
-              <!-- / sku-->
 
-              {{-- <div class="slug col-md-6">
-                <!-- slug -->
-
-                <div class="form-group">
-                  <label>Slug</label>
-                  <input class="form-control" type="text" id="slug" name="slug">
-                </div>
-                <div class="col-md-12">
-                  {!!$errors->first('slug','<small class="alert alert-danger col-md-12" role="alert">:message
-                  </small>')!!}
-                </div>
-                <br>
-              </div> --}}
-
-              <!-- /slug -->
 
               <div class="color col-md-6">
                 <!-- color -->
 
                 <div class="row ">
                   <label>Color</label>
-                  @foreach($colors as $color)
+                  @foreach($suppliers as $suplier)
                   <div class="form-check p-3">
                     <label class="form-check-label p-2 ml-1">
                       <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
-                        value="{{$color->id}} "
-                        {{(is_array(old('color_id')) && in_array($color->id,old('color_id')) ) ?  'checked ' : '' }} />
-                      {{ $color->color_name }}
+                        value="{{$suplier->id}} "
+                        {{(is_array(old('color_id')) && in_array($suplier->id,old('color_id')) ) ?  'checked ' : '' }} />
+                      {{ $suplier->color_name }}
 
 
                     </label>
@@ -288,334 +272,386 @@
 
               <!-- /quantuty-->
 
+
+              <!--/date start-->
+
+              <div class="date_finish col-md-6">
+                <!-- Supplier -->
+
+                <div class="form-group">
+                  @foreach($suppliers as $supplier)
+                  <div class="form-check p-3">
+                    <label class="form-check-label p-2 ml-1">
+                      <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
+                        value="{{$supplier->id}} "
+                        {{(is_array(old('color_id')) && in_array($suplier->id,old('color_id')) ) ?  'checked ' : '' }} />
+                      {{ $suplier->supplier_businessName }}
+
+
+                    </label>
+                  </div>
+                  @endforeach
+                </div>
+                <div class="col-md-12">
+                  {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12" role="alert">:message
+                  </small>')!!}
+                </div>
+                <br>
+              </div>
+
+              <!--/supplier-->
+
+              <div class="quantity col-md-6">
+                <!-- Supplier_code-->
+
+                <div class="form-group">
+                  <label>Codigo Proveedor</label>
+                  <input type="number" name="quantity" id="quantity" class="form-control " style="width: 100%;" min="0"
+                    value="{{old('quantity')}}" step="1">
+                </div>
+                <div class="col-md-12">
+                  {!!$errors->first('quantity','<small class="alert alert-danger col-md-12" role="alert">:message
+                  </small>')!!}
+                </div>
+                <br>
+              </div>
             </div>
+            <!-- /supplier_code-->
+
           </div>
-          <!--/card-body-->
-          <div class="card-footer">
-            <!-- card footer-->
-          </div>
+
+
+
+
+
+
+        </div>
+        <!--/card-body-->
+        <div class="card-footer">
           <!-- card footer-->
         </div>
-        <!-- /.card info-->
+        <!-- card footer-->
+      </div>
+      <!-- /.card info-->
 
 
 
-        <div class="card card-success">
-          <!-- card success -->
+      <div class="card card-success">
+        <!-- card success -->
 
-          <div class="card-header">
-            <!-- card-header -->
-            <h3 class="card-title">Sección de Precios</h3>
+        <div class="card-header">
+          <!-- card-header -->
+          <h3 class="card-title">Sección de Precios</h3>
 
 
-          </div>
-          <!-- /.card-header -->
+        </div>
+        <!-- /.card-header -->
 
-          <div class="card-body">
+        <div class="card-body">
 
-            <div class="row">
-              <!-- card-row -->
-              <div class="col-md-6">
-                <div class="form-group">
+          <div class="row">
+            <!-- card-row -->
+            <div class="col-md-6">
+              <div class="form-group">
 
-                  <label>Precio</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">$</span>
-                    </div>
-                    <input class="form-control" type="number" id="price" name="price" min="0" value="{{old('price')}}"
-                      step="1">
-
+                <label>Precio</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
                   </div>
-                  <br>
-                  <div class="col-md-12">
-                    {!!$errors->first('price','<small class="alert alert-danger col-md-12" role="alert">:message
-                    </small>')!!}
-                  </div>
-                  <br>
-
+                  <input class="form-control" type="number" id="price" name="price" min="0" value="{{old('price')}}"
+                    step="1">
 
                 </div>
-                <!-- /.form-group -->
-
-              </div>
-              <!-- /.col -->
-
-
-
-
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <label>Porcentaje de descuento</label>
-                  <div class="input-group">
-                    <input class="form-control" type="number" id="discount_rate" name="discount_rate" step="any" min="0"
-                      max="100" value="0">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">%</span>
-                    </div>
-
-                  </div>
-
-                  <br>
-
-                </div>
+                <br>
                 <div class="col-md-12">
-                  {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('price','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
                 <br>
 
-              </div>
-              <!-- /.col -->
 
+              </div>
+              <!-- /.form-group -->
 
             </div>
-            <!-- /.row -->
-
-
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Descripciones del producto</h3>
-              </div>
-              <div class="card-body ">
-                <!--product Description -->
-
-                <div class="form-group">
-                  <!-- Descriptin-short -->
-
-                  <label>Descripción corta:</label>
-                  <textarea class="form-control ckeditor" name="description_short" id="description_short"
-                    rows="3">{{old('description_short')}}</textarea>
-                  <br>
-                  <div class="col-md-12">
-                    {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
-                      role="alert">:message
-                    </small>')!!}
-                  </div>
-
-                </div>
-                <!-- / Description-short -->
-
-                <div class="form-group">
-                  <!-- Descriptin-large -->
-
-                  <label>Descripción larga:</label>
-                  <textarea class="form-control ckeditor" name="description_large" id="descripcion_larga"
-                    rows="5">{{old('description_large')}}</textarea>
-                  <br>
-                  <div class="col-md-12">
-                    {!!$errors->first('description_large','<small class="alert alert-danger col-md-12"
-                      role="alert">:message
-                    </small>')!!}
-                  </div>
-
-                </div>
-                <!-- /Descriptin-large -->
-
-              </div>
-              <!--product Description body -->
-
-              <div class="card-footer">
-
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-          </div>
-          <!-- /.col-md-6 prouct descripction-->
+            <!-- /.col -->
 
 
 
 
-          <div class="col-md-6">
+            <div class="col-md-6">
+              <div class="form-group">
 
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Especificaciones y otros datos</h3>
-              </div>
-              <div class="card-body">
-                <!-- Date dd/mm/yyyy -->
-                <div class="form-group">
-                  <label>Especificaciones:</label>
-
-                  <textarea class="form-control ckeditor" name="spec" id="epec" rows="3">{{old('spec')}}</textarea>
-
-                </div>
-                <div class="col-md-12">
-                  {!!$errors->first('spec','<small class="alert alert-danger col-md-12" role="alert">:message
-                  </small>')!!}
-                </div>
-                <br>
-                <!-- /.form group -->
-
-                <div class="form-group">
-                  <label>Datos de interes:</label>
-
-                  <textarea class="form-control ckeditor" name="data_interest" id="datos_interest"
-                    rows="5">{{old('data_interest')}}</textarea>
-
-                </div>
-                <div class="col-md-12">
-                  {!!$errors->first('data_interest','<small class="alert alert-danger col-md-12" role="alert">:message
-                  </small>')!!}
-                </div>
-                <br>
-
-              </div>
-              <!-- /.card-body -->
-
-              <div class="card-footer">
-                <!-- card-footer-->
-
-              </div>
-              <!--  /card-footer-->
-            </div>
-
-            <!-- /.card -->
-
-          </div>
-          <!-- /.col-md-6 -->
-
-
-
-        </div>
-        <!-- /.row -->
-
-
-
-
-        <div class="card card-warning">
-          <div class="card-header">
-            <h3 class="card-title">Imágenes</h3>
-
-
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-
-            <div class="form-group">
-
-              <label for="imagenes">Añadir imágenes</label>
-
-              <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
-                accept="image/*" value="{{old ('url_picture[]')}}">
-
-              <div class="description">
-                Un número ilimitado de archivos pueden ser cargados en este campo.
-                <br>
-                Límite de 2048 MB por imagen.
-                <br>
-                Tipos permitidos: jpeg, png, jpg, gif, svg.
-                <br>
-              </div>
-
-            </div>
-
-
-          </div>
-
-
-          <!-- /.card-body -->
-          <div class="card-footer">
-
-          </div>
-        </div>
-        <!-- /.card -->
-
-
-        <div class="card card-danger">
-          <div class="card-header">
-            <h3 class="card-title">Administración</h3>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- checkbox -->
-                <div class="form-group clearfix">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="activo" name="active">
-                    <label class="custom-control-label" for="activo">Activo</label>
+                <label>Porcentaje de descuento</label>
+                <div class="input-group">
+                  <input class="form-control" type="number" id="discount_rate" name="discount_rate" step="any" min="0"
+                    max="100" value="0">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">%</span>
                   </div>
 
                 </div>
 
-                <div class="form-group">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="slider" name="slider">
-                    <label class="custom-control-label" for="slider">Aparece en el Slider principal</label>
-                  </div>
-                </div>
+                <br>
 
               </div>
-
-
-
-            </div>
-            <!-- /.row -->
-
-
-
-
-            <div class="row">
               <div class="col-md-12">
-                <div class="form-group">
-
-                  <a class="btn btn-danger" href="#">Cancelar</a>
-                  <input :disabled="deshabilitar_boton==1" type="submit" value="Guardar" class="btn btn-primary">
-
-                </div>
-                <!-- /.form-group -->
-
+                {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12" role="alert">:message
+                </small>')!!}
               </div>
-              <!-- /.col -->
-
-
-
-
+              <br>
 
             </div>
-            <!-- /.row -->
-
-
+            <!-- /.col -->
 
 
           </div>
+          <!-- /.row -->
 
 
-
-          <!-- /.card-body -->
-          <div class="card-footer">
-
-          </div>
         </div>
-        <!-- /.card -->
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+      </div>
+      <!-- /.card -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Descripciones del producto</h3>
+            </div>
+            <div class="card-body ">
+              <!--product Description -->
+
+              <div class="form-group">
+                <!-- Descriptin-short -->
+
+                <label>Descripción corta:</label>
+                <textarea class="form-control ckeditor" name="description_short" id="description_short"
+                  rows="3">{{old('description_short')}}</textarea>
+                <br>
+                <div class="col-md-12">
+                  {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
+                    role="alert">:message
+                  </small>')!!}
+                </div>
+
+              </div>
+              <!-- / Description-short -->
+
+              <div class="form-group">
+                <!-- Descriptin-large -->
+
+                <label>Descripción larga:</label>
+                <textarea class="form-control ckeditor" name="description_large" id="descripcion_larga"
+                  rows="5">{{old('description_large')}}</textarea>
+                <br>
+                <div class="col-md-12">
+                  {!!$errors->first('description_large','<small class="alert alert-danger col-md-12"
+                    role="alert">:message
+                  </small>')!!}
+                </div>
+
+              </div>
+              <!-- /Descriptin-large -->
+
+            </div>
+            <!--product Description body -->
+
+            <div class="card-footer">
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col-md-6 prouct descripction-->
+
+
+
+
+        <div class="col-md-6">
+
+          <div class="card card-info">
+            <div class="card-header">
+              <h3 class="card-title">Especificaciones y otros datos</h3>
+            </div>
+            <div class="card-body">
+              <!-- Date dd/mm/yyyy -->
+              <div class="form-group">
+                <label>Especificaciones:</label>
+
+                <textarea class="form-control ckeditor" name="spec" id="epec" rows="3">{{old('spec')}}</textarea>
+
+              </div>
+              <div class="col-md-12">
+                {!!$errors->first('spec','<small class="alert alert-danger col-md-12" role="alert">:message
+                </small>')!!}
+              </div>
+              <br>
+              <!-- /.form group -->
+
+              <div class="form-group">
+                <label>Datos de interes:</label>
+
+                <textarea class="form-control ckeditor" name="data_interest" id="datos_interest"
+                  rows="5">{{old('data_interest')}}</textarea>
+
+              </div>
+              <div class="col-md-12">
+                {!!$errors->first('data_interest','<small class="alert alert-danger col-md-12" role="alert">:message
+                </small>')!!}
+              </div>
+              <br>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <!-- card-footer-->
+
+            </div>
+            <!--  /card-footer-->
+          </div>
+
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col-md-6 -->
+
+
+
+      </div>
+      <!-- /.row -->
+
+
+
+
+      <div class="card card-warning">
+        <div class="card-header">
+          <h3 class="card-title">Imágenes</h3>
+
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+          <div class="form-group">
+
+            <label for="imagenes">Añadir imágenes</label>
+
+            <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
+              accept="image/*" value="{{old ('url_picture[]')}}">
+
+            <div class="description">
+              Un número ilimitado de archivos pueden ser cargados en este campo.
+              <br>
+              Límite de 2048 MB por imagen.
+              <br>
+              Tipos permitidos: jpeg, png, jpg, gif, svg.
+              <br>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+      </div>
+      <!-- /.card -->
+
+
+      <div class="card card-danger">
+        <div class="card-header">
+          <h3 class="card-title">Administración</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- checkbox -->
+              <div class="form-group clearfix">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="activo" name="active">
+                  <label class="custom-control-label" for="activo">Activo</label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="slider" name="slider">
+                  <label class="custom-control-label" for="slider">Aparece en el Slider principal</label>
+                </div>
+              </div>
+
+            </div>
+
+
+
+          </div>
+          <!-- /.row -->
+
+
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+
+                <a class="btn btn-danger" href="#">Cancelar</a>
+                <input :disabled="deshabilitar_boton==1" type="submit" value="Guardar" class="btn btn-primary">
+
+              </div>
+              <!-- /.form-group -->
+
+            </div>
+            <!-- /.col -->
+
+
+
+
+
+          </div>
+          <!-- /.row -->
+
+
+
+
+        </div>
+
+
+
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+      </div>
+      <!-- /.card -->
 
 
 
 
 
 
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 
 
 
-  </form>
+</form>
 </div>
 <script type="text/javascript">
   let model = document.getElementById('pattern_id');

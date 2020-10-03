@@ -51,10 +51,6 @@ class Product extends Model
         return $this->morphMany('App\Picture', 'pictureable');
     }
 
-    // public function colors(){
-    //     return $this->belongsToMany('App\Color', 'color_product','color_id','product_id')->withTimestamps();
-    // }
-
     public function colors () {
         return $this->belongsToMany('App\Color')->withTimestamps();
     }
@@ -70,4 +66,7 @@ class Product extends Model
         return $this->belongsTo('App\Category');
     }
 
+     public function suppliers() {
+        return $this->belongsToMany('App\Supplier')->withTimestamps();
+    }
 }

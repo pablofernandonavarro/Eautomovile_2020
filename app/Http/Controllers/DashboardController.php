@@ -50,5 +50,12 @@ public function view_note(){
    return view('admin.note_crud',compact('user'));
    
 }
+public function view_supplier(){
+
+   $user = Auth::user();
+   
+   return view('admin.supplier_crud',compact('user'));
+   
+}
    
 }

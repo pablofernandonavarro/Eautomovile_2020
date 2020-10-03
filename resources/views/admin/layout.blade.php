@@ -194,12 +194,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <!-- /Tareas a realizar-->
-
+                            <button type="button" class="btn btn-secondary">Productos</button>
 
 
                             <!-- /Products nav-bar-->
 
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="{{route('admin.products.index')}}" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -212,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /Product nav-bar-->
 
                             <!-- Category nav-bar-->
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="category_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -226,7 +226,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- Brand nav-bar-->
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="brand_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -240,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- Color nav-bar-->
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="color_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -256,7 +256,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Pattern nav-bar-->
 
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="pattern_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -269,6 +269,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /Pattern nav-bar-->
 
 
+                            <p class="btn btn-danger mt-3 mb-0">Proveedores</p>
+                            <!-- Supplier nav-bar-->
+
+                            <li class="nav-item has-treeview bg-danger">
+                                <a href="supplier_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Proveedores
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!-- /Supplier nav-bar-->
+
+                            <!-- Supplier update nav-bar-->
+
+                            <li class="nav-item has-treeview bg-danger">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Actualizar Precios
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!-- Supplier update nav-bar-->
 
 
 

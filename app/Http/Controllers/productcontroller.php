@@ -179,7 +179,7 @@ class Productcontroller extends Controller
          $product = Product::findOrFail($id);;
         
          
-         $product->sku               = $request->input('sku');
+         $product->sku               = $sku;
          
          $product->description_short = $request->input('description_short'); 
          $product->description_large = $request->input('description_large'); 
@@ -203,8 +203,7 @@ class Productcontroller extends Controller
         $product->colors()->sync($request->get('color_id'));
         $product->pictures()->createMany($url_picture);
         
-        return redirect('admin/products')->with('messages_create_ok','El producto fue editado con exito');
-
+        return back()->with('messages_create_ok',"Los datos del $product->description_short  fueron editado correctamente!");
     }
 
     public function destroy($id){

@@ -25,7 +25,7 @@ class BrandSeeder extends Seeder
             'brand_name'  => 'Hyundai',
         ]);
         DB::table('brands')->insert([
-            'brand_name'  => 'Mercedes-Benz',
+            'brand_name'  => 'Renault',
         ]);
         DB::table('brands')->insert([
             'brand_name'  => 'Ford',
