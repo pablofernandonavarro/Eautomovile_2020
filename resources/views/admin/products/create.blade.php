@@ -160,13 +160,13 @@
 
                 <div class="row ">
                   <label>Color</label>
-                  @foreach($suppliers as $suplier)
+                  @foreach($colors as $color)
                   <div class="form-check p-3">
                     <label class="form-check-label p-2 ml-1">
                       <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
-                        value="{{$suplier->id}} "
-                        {{(is_array(old('color_id')) && in_array($suplier->id,old('color_id')) ) ?  'checked ' : '' }} />
-                      {{ $suplier->color_name }}
+                        value="{{$color->id}} "
+                        {{(is_array(old('color_id')) && in_array($color->id,old('color_id')) ) ?  'checked ' : '' }} />
+                      {{ $color->color_name }}
 
 
                     </label>
@@ -279,18 +279,17 @@
                 <!-- Supplier -->
 
                 <div class="form-group">
-                  @foreach($suppliers as $supplier)
-                  <div class="form-check p-3">
-                    <label class="form-check-label p-2 ml-1">
-                      <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
-                        value="{{$supplier->id}} "
-                        {{(is_array(old('color_id')) && in_array($suplier->id,old('color_id')) ) ?  'checked ' : '' }} />
-                      {{ $suplier->supplier_businessName }}
+                  <label>Proveedor</label>
+                  <select name="suppier" id="suppier" class="form-control " style="width: 100%;">
+                    @foreach($suppliers as $supplier)
 
-
-                    </label>
-                  </div>
-                  @endforeach
+                    @if (old('supplier') == $supplier->id)
+                    <option value="{{ $supplier->id }}" selected>{{$supplier->supplier_businessName}} </option>
+                    @else
+                    <option value="{{ ($supplier->id) }}">{{$supplier->supplier_businessName}} </option>
+                    @endif
+                    @endforeach
+                  </select>
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12" role="alert">:message

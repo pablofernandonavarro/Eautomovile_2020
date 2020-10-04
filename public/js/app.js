@@ -42059,33 +42059,41 @@ var render = function() {
                         _vm._v("Nombre o Razon social")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                      _c(
+                        "input",
+                        _vm._b(
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.fillsupplier.supplier_businessName,
-                            expression: "fillsupplier.supplier_businessName"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", name: "supplier" },
-                        domProps: {
-                          value: _vm.fillsupplier.supplier_businessName
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fillsupplier.supplier_businessName,
+                                expression: "fillsupplier.supplier_businessName"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "supplier" },
+                            domProps: {
+                              value: _vm.fillsupplier.supplier_businessName
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fillsupplier,
+                                  "supplier_businessName",
+                                  $event.target.value
+                                )
+                              }
                             }
-                            _vm.$set(
-                              _vm.fillsupplier,
-                              "supplier_businessName",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
+                          },
+                          "input",
+                          _vm.suppliers.supplier_businessName,
+                          false
+                        )
+                      ),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "supplier" } }, [
                         _vm._v("email")

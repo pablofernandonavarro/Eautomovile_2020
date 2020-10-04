@@ -142,7 +142,7 @@
                              <label for="supplier">Codigo Proveedor</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_code" >
                             <label for="supplier">Nombre o Razon social</label>
-                            <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_businessName" >
+                            <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_businessName" v-bind.value ="suppliers.supplier_businessName" >
                             <label for="supplier">email</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_email" >
                             <label for="supplier">Telefono</label>

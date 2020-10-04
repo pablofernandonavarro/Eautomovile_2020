@@ -9,6 +9,7 @@ use App\Brand;
 use App\Color;
 use App\Picture;
 use App\Pattern;
+use App\Supplier;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Auth;
 use Image;
@@ -29,6 +30,7 @@ class Productcontroller extends Controller
         'user'         => Auth::user(), 
         'brands'       => Brand::all(),
         'patterns'     => Pattern::all(),
+        'suppliers'    => Supplier::all(),
         'colors'       => $products->colors,
      ]);
    
@@ -102,8 +104,9 @@ class Productcontroller extends Controller
         $colors = Color::all();
         $products = Product::all();
         $pictures = Picture::all();
+        $suppliers = Supplier::all();
       
-        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures'));
+        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures','suppliers'));
     }
 
    
@@ -115,7 +118,7 @@ class Productcontroller extends Controller
         $patterns   = Pattern::all();
         $colors     = Color::all();
         $products   = Product::orderby('id','DESC')->paginate('10');
-     
+        $suppliers = Supplier::all();
 
         return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
     }
@@ -134,7 +137,7 @@ class Productcontroller extends Controller
         'patterns'     => Pattern::all(),
         'colors'       => Color::all(),
         'pictures'     => Picture::all(),
-         
+        'suppliers'    => Supplier::all(),
      ]);
 
     }
