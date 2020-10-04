@@ -49,7 +49,7 @@
         <form method="POST" v-on:submit.prevent="createsupplier">
 
             <div class="modal fade" id="createsupplier">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4>Crear</h4>
@@ -57,7 +57,10 @@
                                 <span>&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body ">
+                            <div class="container">
+                            <div class="row">
+                            <div class="col-md-6">
                             <label for="supplier">Codigo Proveedor</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_code" >
                             <label for="supplier">Nombre o Razon social</label>
@@ -78,6 +81,11 @@
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_web" >
                             <label for="supplier">C.U.I.T.</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_cuit" >
+                          
+                            
+                            
+                              </div>
+                              <div class="col-md-6">
                             <label for="supplier">Condicion I.V.A.</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_ivaType" >
                             <label for="supplier">I.V.A. exento</label>
@@ -90,17 +98,19 @@
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_ibProvince" >
                              <label for="supplier">Direccion de entrega</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_delivery_Address" >
-                             <label for="supplier">Localidad de direccion de entrega</label>
+                             <label for="supplier">Localidad de entrega</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_delivery_AddressLocation" >
-                             <label for="supplier">Provincia direccion de entrega</label>
+                             <label for="supplier">Provincia entrega</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_delivery_AddressProvince" >
-                             <label for="supplier">Codigo Postal direccion entrega</label>
+                             <label for="supplier">Codigo Postal entrega</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_delivery_AddressPostalCode" >
                             <label for="supplier">Descuento habitual</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_discount" >
                             <label for="supplier">Descuento Extra</label>
                             <input type="text" name="supplier" class="form-control" v-model="newsupplier.supplier_extra_discount" >
-
+                            </div>
+                            </div>
+                            </div>
 
                         </div>
                         <div class="modal-footer">
@@ -118,7 +128,7 @@
         <form method="POST" v-on:submit.prevent="updatesupplier(fillsupplier.id)">
 
             <div class="modal fade" id="editsupplier">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4>Editar </h4>
@@ -127,6 +137,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <div class="row">
+                            <div class="col-md-6">
                              <label for="supplier">Codigo Proveedor</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_code" >
                             <label for="supplier">Nombre o Razon social</label>
@@ -147,6 +159,8 @@
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_web" >
                             <label for="supplier">C.U.I.T.</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_cuit" >
+                            </div>
+                            <div class="col-md-6">
                             <label for="supplier">Condicion I.V.A.</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_ivaType" >
                             <label for="supplier">I.V.A. exento</label>
@@ -169,6 +183,8 @@
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_discount" >
                             <label for="supplier">Descuento Extra</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_extra_discount" >
+                            </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Actualizar" />
@@ -216,7 +232,8 @@
 
                     'supplier_discount':'',
                     'supplier_extra_discount':'',
-},
+                },
+
                 errors: [],
                 fillsupplier : {
                     'id' :'',
@@ -248,6 +265,7 @@
                     },
             };
         },
+       
 
         created: function () {
             this.getsupplier();

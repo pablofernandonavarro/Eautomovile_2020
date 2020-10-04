@@ -3162,6 +3162,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -41288,660 +41304,694 @@ var render = function() {
           "div",
           { staticClass: "modal fade", attrs: { id: "createsupplier" } },
           [
-            _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-dialog modal-lg" }, [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(2),
                 _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo Proveedor")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_code,
-                        expression: "newsupplier.supplier_code"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_code },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_code",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Nombre o Razon social")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_businessName,
-                        expression: "newsupplier.supplier_businessName"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_businessName },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_businessName",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("email")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_email,
-                        expression: "newsupplier.supplier_email"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_email",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Telefono")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_phone,
-                        expression: "newsupplier.supplier_phone"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_phone },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_phone",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Direccion")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_address,
-                        expression: "newsupplier.supplier_address"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_address",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Localidad")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_address_location,
-                        expression: "newsupplier.supplier_address_location"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_address_location
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_address_location",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_address_province,
-                        expression: "newsupplier.supplier_address_province"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_address_province
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_address_province",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo postal")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_address_postalCode,
-                        expression: "newsupplier.supplier_address_postalCode"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_address_postalCode
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_address_postalCode",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [_vm._v("web")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_web,
-                        expression: "newsupplier.supplier_web"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_web },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_web",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("C.U.I.T.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_cuit,
-                        expression: "newsupplier.supplier_cuit"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_cuit },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_cuit",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Condicion I.V.A.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_ivaType,
-                        expression: "newsupplier.supplier_ivaType"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_ivaType },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_ivaType",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("I.V.A. exento")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_ivaExclusion,
-                        expression: "newsupplier.supplier_ivaExclusion"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_ivaExclusion },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_ivaExclusion",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Ingreso Brutos condicion")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_ibRegiment,
-                        expression: "newsupplier.supplier_ibRegiment"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_ibRegiment },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_ibRegiment",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("numero I.B.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_ibNumber,
-                        expression: "newsupplier.supplier_ibNumber"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_ibNumber },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_ibNumber",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia ingresos brutos")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_ibProvince,
-                        expression: "newsupplier.supplier_ibProvince"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_ibProvince },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_ibProvince",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_delivery_Address,
-                        expression: "newsupplier.supplier_delivery_Address"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_delivery_Address
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_delivery_Address",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Localidad de direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.newsupplier.supplier_delivery_AddressLocation,
-                        expression:
-                          "newsupplier.supplier_delivery_AddressLocation"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_delivery_AddressLocation
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_delivery_AddressLocation",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.newsupplier.supplier_delivery_AddressProvince,
-                        expression:
-                          "newsupplier.supplier_delivery_AddressProvince"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_delivery_AddressProvince
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_delivery_AddressProvince",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo Postal direccion entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.newsupplier.supplier_delivery_AddressPostalCode,
-                        expression:
-                          "newsupplier.supplier_delivery_AddressPostalCode"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_delivery_AddressPostalCode
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_delivery_AddressPostalCode",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Descuento habitual")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_discount,
-                        expression: "newsupplier.supplier_discount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.newsupplier.supplier_discount },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_discount",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Descuento Extra")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newsupplier.supplier_extra_discount,
-                        expression: "newsupplier.supplier_extra_discount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.newsupplier.supplier_extra_discount
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.newsupplier,
-                          "supplier_extra_discount",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
+                _c("div", { staticClass: "modal-body " }, [
+                  _c("div", { staticClass: "container" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Codigo Proveedor")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_code,
+                              expression: "newsupplier.supplier_code"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_code },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_code",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Nombre o Razon social")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_businessName,
+                              expression: "newsupplier.supplier_businessName"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_businessName
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_businessName",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("email")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_email,
+                              expression: "newsupplier.supplier_email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Telefono")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_phone,
+                              expression: "newsupplier.supplier_phone"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_phone",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Direccion")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_address,
+                              expression: "newsupplier.supplier_address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_address",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Localidad")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_address_location,
+                              expression:
+                                "newsupplier.supplier_address_location"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_address_location
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_address_location",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Provincia")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_address_province,
+                              expression:
+                                "newsupplier.supplier_address_province"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_address_province
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_address_province",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Codigo postal")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value:
+                                _vm.newsupplier.supplier_address_postalCode,
+                              expression:
+                                "newsupplier.supplier_address_postalCode"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_address_postalCode
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_address_postalCode",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("web")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_web,
+                              expression: "newsupplier.supplier_web"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_web },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_web",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("C.U.I.T.")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_cuit,
+                              expression: "newsupplier.supplier_cuit"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_cuit },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_cuit",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Condicion I.V.A.")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_ivaType,
+                              expression: "newsupplier.supplier_ivaType"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: { value: _vm.newsupplier.supplier_ivaType },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_ivaType",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("I.V.A. exento")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_ivaExclusion,
+                              expression: "newsupplier.supplier_ivaExclusion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_ivaExclusion
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_ivaExclusion",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Ingreso Brutos condicion")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_ibRegiment,
+                              expression: "newsupplier.supplier_ibRegiment"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_ibRegiment
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_ibRegiment",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("numero I.B.")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_ibNumber,
+                              expression: "newsupplier.supplier_ibNumber"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_ibNumber
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_ibNumber",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Provincia ingresos brutos")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_ibProvince,
+                              expression: "newsupplier.supplier_ibProvince"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_ibProvince
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_ibProvince",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Direccion de entrega")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_delivery_Address,
+                              expression:
+                                "newsupplier.supplier_delivery_Address"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_delivery_Address
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_delivery_Address",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Localidad de entrega")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value:
+                                _vm.newsupplier
+                                  .supplier_delivery_AddressLocation,
+                              expression:
+                                "newsupplier.supplier_delivery_AddressLocation"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value:
+                              _vm.newsupplier.supplier_delivery_AddressLocation
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_delivery_AddressLocation",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Provincia entrega")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value:
+                                _vm.newsupplier
+                                  .supplier_delivery_AddressProvince,
+                              expression:
+                                "newsupplier.supplier_delivery_AddressProvince"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value:
+                              _vm.newsupplier.supplier_delivery_AddressProvince
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_delivery_AddressProvince",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Codigo Postal entrega")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value:
+                                _vm.newsupplier
+                                  .supplier_delivery_AddressPostalCode,
+                              expression:
+                                "newsupplier.supplier_delivery_AddressPostalCode"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value:
+                              _vm.newsupplier
+                                .supplier_delivery_AddressPostalCode
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_delivery_AddressPostalCode",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Descuento habitual")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_discount,
+                              expression: "newsupplier.supplier_discount"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_discount
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_discount",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "supplier" } }, [
+                          _vm._v("Descuento Extra")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newsupplier.supplier_extra_discount,
+                              expression: "newsupplier.supplier_extra_discount"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "supplier" },
+                          domProps: {
+                            value: _vm.newsupplier.supplier_extra_discount
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newsupplier,
+                                "supplier_extra_discount",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._m(3)
@@ -41968,661 +42018,683 @@ var render = function() {
           "div",
           { staticClass: "modal fade", attrs: { id: "editsupplier" } },
           [
-            _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-dialog modal-lg" }, [
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo Proveedor")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_code,
-                        expression: "fillsupplier.supplier_code"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_code },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Codigo Proveedor")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_code,
+                            expression: "fillsupplier.supplier_code"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_code },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_code",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_code",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Nombre o Razon social")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_businessName,
-                        expression: "fillsupplier.supplier_businessName"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_businessName },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Nombre o Razon social")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_businessName,
+                            expression: "fillsupplier.supplier_businessName"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_businessName
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_businessName",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_businessName",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("email")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_email,
-                        expression: "fillsupplier.supplier_email"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("email")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_email,
+                            expression: "fillsupplier.supplier_email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_email",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_email",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Telefono")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_phone,
-                        expression: "fillsupplier.supplier_phone"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_phone },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Telefono")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_phone,
+                            expression: "fillsupplier.supplier_phone"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_phone },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_phone",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_phone",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Direccion")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_address,
-                        expression: "fillsupplier.supplier_address"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Direccion")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_address,
+                            expression: "fillsupplier.supplier_address"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_address },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_address",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_address",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Localidad")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_address_location,
-                        expression: "fillsupplier.supplier_address_location"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_address_location
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Localidad")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_address_location,
+                            expression: "fillsupplier.supplier_address_location"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_address_location
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_address_location",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_address_location",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_address_province,
-                        expression: "fillsupplier.supplier_address_province"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_address_province
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Provincia")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_address_province,
+                            expression: "fillsupplier.supplier_address_province"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_address_province
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_address_province",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_address_province",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo postal")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_address_postalCode,
-                        expression: "fillsupplier.supplier_address_postalCode"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_address_postalCode
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Codigo postal")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_address_postalCode,
+                            expression:
+                              "fillsupplier.supplier_address_postalCode"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_address_postalCode
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_address_postalCode",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_address_postalCode",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [_vm._v("web")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_web,
-                        expression: "fillsupplier.supplier_web"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_web },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("web")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_web,
+                            expression: "fillsupplier.supplier_web"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_web },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_web",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_web",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("C.U.I.T.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_cuit,
-                        expression: "fillsupplier.supplier_cuit"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_cuit },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("C.U.I.T.")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_cuit,
+                            expression: "fillsupplier.supplier_cuit"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_cuit },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_cuit",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_cuit",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Condicion I.V.A.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_ivaType,
-                        expression: "fillsupplier.supplier_ivaType"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_ivaType },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Condicion I.V.A.")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_ivaType,
+                            expression: "fillsupplier.supplier_ivaType"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_ivaType },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_ivaType",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_ivaType",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("I.V.A. exento")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_ivaExclusion,
-                        expression: "fillsupplier.supplier_ivaExclusion"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_ivaExclusion },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("I.V.A. exento")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_ivaExclusion,
+                            expression: "fillsupplier.supplier_ivaExclusion"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_ivaExclusion
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_ivaExclusion",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_ivaExclusion",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Ingreso Brutos condicion")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_ibRegiment,
-                        expression: "fillsupplier.supplier_ibRegiment"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_ibRegiment },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Ingreso Brutos condicion")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_ibRegiment,
+                            expression: "fillsupplier.supplier_ibRegiment"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_ibRegiment
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_ibRegiment",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_ibRegiment",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("numero I.B.")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_ibNumber,
-                        expression: "fillsupplier.supplier_ibNumber"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_ibNumber },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("numero I.B.")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_ibNumber,
+                            expression: "fillsupplier.supplier_ibNumber"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_ibNumber },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_ibNumber",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_ibNumber",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia ingresos brutos")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_ibProvince,
-                        expression: "fillsupplier.supplier_ibProvince"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_ibProvince },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Provincia ingresos brutos")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_ibProvince,
+                            expression: "fillsupplier.supplier_ibProvince"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_ibProvince
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_ibProvince",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_ibProvince",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_delivery_Address,
-                        expression: "fillsupplier.supplier_delivery_Address"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_delivery_Address
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Direccion de entrega")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_delivery_Address,
+                            expression: "fillsupplier.supplier_delivery_Address"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_delivery_Address
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_delivery_Address",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_delivery_Address",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Localidad de direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.fillsupplier.supplier_delivery_AddressLocation,
-                        expression:
-                          "fillsupplier.supplier_delivery_AddressLocation"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_delivery_AddressLocation
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Localidad de direccion de entrega")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              _vm.fillsupplier
+                                .supplier_delivery_AddressLocation,
+                            expression:
+                              "fillsupplier.supplier_delivery_AddressLocation"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value:
+                            _vm.fillsupplier.supplier_delivery_AddressLocation
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_delivery_AddressLocation",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_delivery_AddressLocation",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Provincia direccion de entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.fillsupplier.supplier_delivery_AddressProvince,
-                        expression:
-                          "fillsupplier.supplier_delivery_AddressProvince"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_delivery_AddressProvince
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Provincia direccion de entrega")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              _vm.fillsupplier
+                                .supplier_delivery_AddressProvince,
+                            expression:
+                              "fillsupplier.supplier_delivery_AddressProvince"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value:
+                            _vm.fillsupplier.supplier_delivery_AddressProvince
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_delivery_AddressProvince",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_delivery_AddressProvince",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Codigo Postal direccion entrega")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value:
-                          _vm.fillsupplier.supplier_delivery_AddressPostalCode,
-                        expression:
-                          "fillsupplier.supplier_delivery_AddressPostalCode"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value:
-                        _vm.fillsupplier.supplier_delivery_AddressPostalCode
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Codigo Postal direccion entrega")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              _vm.fillsupplier
+                                .supplier_delivery_AddressPostalCode,
+                            expression:
+                              "fillsupplier.supplier_delivery_AddressPostalCode"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value:
+                            _vm.fillsupplier.supplier_delivery_AddressPostalCode
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_delivery_AddressPostalCode",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_delivery_AddressPostalCode",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Descuento habitual")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_discount,
-                        expression: "fillsupplier.supplier_discount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: { value: _vm.fillsupplier.supplier_discount },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Descuento habitual")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_discount,
+                            expression: "fillsupplier.supplier_discount"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: { value: _vm.fillsupplier.supplier_discount },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_discount",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_discount",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "supplier" } }, [
-                    _vm._v("Descuento Extra")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fillsupplier.supplier_extra_discount,
-                        expression: "fillsupplier.supplier_extra_discount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "supplier" },
-                    domProps: {
-                      value: _vm.fillsupplier.supplier_extra_discount
-                    },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "supplier" } }, [
+                        _vm._v("Descuento Extra")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_extra_discount,
+                            expression: "fillsupplier.supplier_extra_discount"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_extra_discount
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_extra_discount",
+                              $event.target.value
+                            )
+                          }
                         }
-                        _vm.$set(
-                          _vm.fillsupplier,
-                          "supplier_extra_discount",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
+                      })
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._m(5)
