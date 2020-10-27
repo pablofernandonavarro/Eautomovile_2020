@@ -213,7 +213,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Category nav-bar-->
                             <li class="nav-item has-treeview btn-secondary">
-                                <a href="category_crud" class="nav-link active">
+                                <a href="/admin/category_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Categorias
@@ -227,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Brand nav-bar-->
                             <li class="nav-item has-treeview btn-secondary">
-                                <a href="brand_crud" class="nav-link active">
+                                <a href="/admin/brand_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Marca automotor
@@ -241,7 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Color nav-bar-->
                             <li class="nav-item has-treeview btn-secondary">
-                                <a href="color_crud" class="nav-link active">
+                                <a href="/admin/color_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Colores
@@ -257,7 +257,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Pattern nav-bar-->
 
                             <li class="nav-item has-treeview btn-secondary">
-                                <a href="pattern_crud" class="nav-link active">
+                                <a href="/admin/pattern_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Modelos
@@ -273,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Supplier nav-bar-->
 
                             <li class="nav-item has-treeview bg-danger">
-                                <a href="supplier_crud" class="nav-link active">
+                                <a href="/admin/supplier_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Proveedores

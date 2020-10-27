@@ -13,13 +13,16 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Proveedor</th>
-                                <th colspan="2">&nbsp;</th>
+                                <th colspan="1">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="supplier in suppliers">
                                 <td width="10px">{{ supplier.id }}</td>
                                 <td>{{ supplier.supplier_businessName }}</td>
+                                <td width="10px">
+                                    <button @click="supplier_price" class="btn btn-success btn btn-sm">Precios</button>
+                                </td>
                                 <td width="10px">
                                     <a href="#" class="btn btn-warning btn-sm"
                                      data-toggle="modal"
@@ -31,6 +34,7 @@
                                     <a href="#" class="btn btn-danger btn-sm"
                                         v-on:click.prevent="deletesupplier(supplier)">Eliminar</a>
                                 </td>
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -142,7 +146,7 @@
                              <label for="supplier">Codigo Proveedor</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_code" >
                             <label for="supplier">Nombre o Razon social</label>
-                            <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_businessName" v-bind.value ="suppliers.supplier_businessName" >
+                            <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_businessName" >
                             <label for="supplier">email</label>
                             <input type="text" name="supplier" class="form-control" v-model="fillsupplier.supplier_email" >
                             <label for="supplier">Telefono</label>
@@ -272,6 +276,9 @@
         },
 
         methods: {
+            supplier_price(){
+                this.$router.push('/')
+            },
             getsupplier: function () {
                 var urlsuppliers = "suppliers";
                 axios.get(urlsuppliers).then(response => {
@@ -280,29 +287,31 @@
             },
 
             editsupplier: function(supplier){
-                id = supplier.id;
-                supplier_code = supplier.supplier_code;
-                supplier_businessName = supplier.supplier_businessName;
-                supplier_businessName = supplier.supplier_businessName;
-                supplier_address = supplier.supplier_address;
-                supplier_address_location = supplier.supplier_address_location;
-                supplier_address_province = supplier.supplier_address_province;
-                supplier_address_postalCode = supplier.supplier_address_postalCode;
-                supplier_web = supplier.supplier_web;
-                supplier_name = supplier.supplier_name;
-                supplier_cuit = supplier.supplier_cuit;
-                supplier_ivaType = supplier.supplier_ivaType;
-                supplier_ivaExclusion = supplier.supplier_ivaExclusion;
-                supplier_ibRegiment = supplier.supplier_ibRegiment;
-                supplier_ibNumber= supplier.supplier_ibNumber;
-                supplier_ibProvince = supplier.supplier_ibProvince;
-                supplier_delivery_Address= supplier.supplier_delivery_Address;
-                supplier_delivery_AddressLocation = supplier.supplier_delivery_AddressLocation;
-                supplier_name = supplier.supplier_name;
-                supplier_delivery_AddressProvince = supplier.supplier_delivery_AddressProvince;
-                supplier_delivery_AddressPostalCode = supplier.supplier_delivery_AddressPostalCode;
-                supplier_discount = supplier.supplier_discount;
-                supplier_extra_discount = supplier.supplier_extra_discount;
+               
+                this.fillsupplier.id = supplier.id;
+                this.fillsupplier.supplier_code = supplier.supplier_code;
+                this.fillsupplier.supplier_businessName = supplier.supplier_businessName;
+                this.fillsupplier.supplier_email = supplier.supplier_email;
+                this.fillsupplier.supplier_phone = supplier.supplier_phone;
+                this.fillsupplier.supplier_address = supplier.supplier_address;
+                this.fillsupplier.supplier_address_location = supplier.supplier_address_location;
+                this.fillsupplier.supplier_address_province = supplier.supplier_address_province;
+                this.fillsupplier.supplier_address_postalCode = supplier.supplier_address_postalCode;
+                this.fillsupplier.supplier_web = supplier.supplier_web;
+                this.fillsupplier.supplier_name = supplier.supplier_name;
+                this.fillsupplier.supplier_cuit = supplier.supplier_cuit;
+                this.fillsupplier.supplier_ivaType = supplier.supplier_ivaType;
+                this.fillsupplier.supplier_ivaExclusion = supplier.supplier_ivaExclusion;
+                this.fillsupplier.supplier_ibRegiment = supplier.supplier_ibRegiment;
+                this.fillsupplier.supplier_ibNumber= supplier.supplier_ibNumber;
+                this.fillsupplier.supplier_ibProvince = supplier.supplier_ibProvince;
+                this.fillsupplier.supplier_delivery_Address= supplier.supplier_delivery_Address;
+                this.fillsupplier.supplier_delivery_AddressLocation = supplier.supplier_delivery_AddressLocation;
+                this.fillsupplier.supplier_name = supplier.supplier_name;
+                this.fillsupplier.supplier_delivery_AddressProvince = supplier.supplier_delivery_AddressProvince;
+                this.fillsupplier.supplier_delivery_AddressPostalCode = supplier.supplier_delivery_AddressPostalCode;
+                this.fillsupplier.supplier_discount = supplier.supplier_discount;
+                this.fillsupplier.supplier_extra_discount = supplier.supplier_extra_discount;
 
 
 
@@ -317,7 +326,7 @@
                     'id' :'',
                     'supplier_code':'',
                     'supplier_businessName':'',
-                    'supplier_businessName':'',
+                    'supplier_email':'',
                     'supplier_phone':'',
                     'supplier_address':'',
                     'supplier_address_location':'',
