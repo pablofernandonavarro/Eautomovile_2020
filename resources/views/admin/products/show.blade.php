@@ -43,13 +43,12 @@
 
 
 
-<div id="apiproduct">
 
 
 
 
-    <form action="{{ route('admin.products.show') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+
+   
 
         <!-- Main content -->
         <section class="content">
@@ -620,7 +619,7 @@
 
 
 
-    </form>
-</div>
+  
+
 
 @endsection

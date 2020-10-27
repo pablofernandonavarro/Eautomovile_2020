@@ -297,12 +297,7 @@
                                 </div>
                                 <br>
 
-                                <br>
-                                <span id="descuento">
-
-                                    @{{ generardescuento }}
-
-                                </span>
+                               
                             </div>
                             <!-- /.form-group -->
 
@@ -325,13 +320,7 @@
 
                                 </div>
 
-                                <br>
-                                <div class="progress">
-                                    <div id="barraprogreso" class="progress-bar" role="progressbar"
-                                        v-bind:style="{width: porcentajededescuento+'%'}" aria-valuenow="0"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                    </div>
-                                </div>
+                               
                             </div>
                             <div class="col-md-12">
                                 {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12"
@@ -600,7 +589,7 @@
                         <br>
                         <button typ="submit" class="btn btn danger">
 
-                            <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
+                            <i class="fas fa-trash-alt" style="color:red"></i>Eliminar Id:{{ $picture->id }}
                         </button>
 
                     </div>

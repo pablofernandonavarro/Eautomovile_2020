@@ -69,7 +69,7 @@
 
                 </div>
                 @if(Auth::check() && Auth::user()->user_role == "admin")
-                <a href="admin/dashboard" class="btn btn-warning btn-sm">Administracion</a>
+                <a href="/admin/dashboard" class="btn btn-warning btn-sm">Administracion</a>
                 @endif
                 @endguest
 
