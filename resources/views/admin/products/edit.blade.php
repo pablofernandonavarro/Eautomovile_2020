@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-{{-- @include('admin.messages') --}}
+@include('admin.messages')
 
 <h1 class="h1 text-center col-md-12"> Editar Producto:</h1>
 @section('breadcrumb')
@@ -19,7 +19,7 @@
         <div class="container-fluid">
 
 
-            <div class="card card-success">
+            <div class="card card-warning">
                 <!-- card success-->
                 <div class="card-header">
                     <!-- card-header-->
@@ -111,8 +111,8 @@
 
                             <div class="form-group">
                                 <label>Sku</label>
-                                <input class="form-control" type="text" id="nombre" name="sku" value="{{$product->sku}}"
-                                    disabled>
+                                <input class="form-control bg-light" type="text" id="sku" name="sku"
+                                    value="{{$product->sku}}">
                             </div>
                             <p class="font-weight-light text-red">El sku no puede ser editado </p>
                             <div class="col-md-12">
@@ -123,6 +123,10 @@
                             <br>
                         </div>
 
+
+                        <!-- slug -->
+
+                        {{-- lo genera slugleable --}}
 
                         <!-- /slug -->
 
@@ -135,8 +139,10 @@
                                 <div class="form-check p-3">
                                     <label class="form-check-label p-2 ml-1">
                                         <input type="checkbox" class="form-check-input" name="color_id[]" id=""
-                                            value="{{$color->id}}" checked
-                                            {{(is_array(old('color_id')) && in_array($color->id,old('color_id')) ) ?  'checked ' : '' }} />
+                                            value="{{$color->id}}"
+                                            {{-- value="{{(is_array($color->id) && (in_array($color->id,$color->id)) ? 'checked' : '')}}"
+                                            --}}
+                                            {{(is_array(old('color_id')) && (in_array($color->id,(old('color_id')) )) ?  'checked ' : '' )}} />
                                         {{ $color->color_name }}
 
 
@@ -171,14 +177,15 @@
                             <!-- brand -->
 
                             <label>Marca</label>
-                            <input type="text" class="form-control" id="brand" name="brand_id" disabled>
+                            <input type="text" class="form-control" id="brand" name="brand_id" disabled
+                                value="{{$product->brand->brand_name}}">
 
 
                         </div>
 
                         <!-- /brand -->
 
-                        <div class="category col-md-6">
+                        <div class=" category col-md-6">
                             <!-- cayegory -->
 
                             <label>Categoria</label>
@@ -262,7 +269,7 @@
 
 
 
-            <div class="card card-success">
+            <div class="card card-info">
                 <!-- card success -->
 
                 <div class="card-header">
@@ -297,7 +304,8 @@
                                 </div>
                                 <br>
 
-                               
+
+
                             </div>
                             <!-- /.form-group -->
 
@@ -327,7 +335,7 @@
                                     role="alert">:message
                                 </small>')!!}
                             </div>
-                            <br>
+
 
                         </div>
                         <!-- /.col -->
@@ -347,7 +355,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Descripciones del producto</h3>
                         </div>
@@ -454,20 +462,18 @@
                 </div>
                 <!-- /.col-md-6 -->
 
-
+                <!-- Administratiion-->
 
             </div>
             <!-- /.row -->
-            <div class="card card-danger">
+            <div class="card card-secondary">
                 <div class="card-header">
                     <h3 class="card-title">Administración</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-
                     <div class="row">
                         <div class="col-sm-6">
-
                             <!-- checkbox -->
                             <div class="form-group clearfix">
                                 <div class="custom-control custom-checkbox">
@@ -475,9 +481,7 @@
                                         @if($product->active == 'on') checked @endif>
                                     <label class="custom-control-label" for="activo">Activo</label>
                                 </div>
-
                             </div>
-
                             <div class="form-group">
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" id="slider" name="slider"
@@ -486,35 +490,56 @@
                                         principal</label>
                                 </div>
                             </div>
-
                         </div>
-
-
-
                     </div>
-                    <!-- /.row -->
-
-
-
-
-
-                    <!-- /.row -->
-
-
-
 
                 </div>
-
-
-
-                <!-- /.card-body -->
                 <div class="card-footer">
-
                 </div>
             </div>
-            {{-- IMAGE  --}}
+            <!-- /Administratiion-->
 
-            <div class="card card-info">
+            <!-- Providers-->
+
+            <div class="card card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title">Proveedor :</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="text" class="custom-control-input" id="activo" name="active"
+                                        @if($product->active == 'on') checked @endif>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="slider" name="slider">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+
+
+
+
+
+            <!-- /Providers-->
+
+            <!-- IMAGE  -->
+
+            <div class="card card-warning">
                 <!--card info-->
 
                 <div class="card-header">
@@ -544,7 +569,7 @@
                 <!--/IMAGE -->
             </div>
         </div>
-        <div class="row">
+        <div class="container-fluid row">
             <div class="col-md-12">
                 <div class="form-group">
 
@@ -635,6 +660,7 @@
 <script type="text/javascript">
     let model = document.getElementById('pattern_id');
     let brand = document.getElementById('brand');
+  
     model.addEventListener('change',(e) => {
       fetch(`http://localhost:8000/api-brands/${e.target.value}`)
       .then(response => response.json())

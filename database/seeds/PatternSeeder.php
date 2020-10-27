@@ -13,16 +13,20 @@ class PatternSeeder extends Seeder
     public function run()
     {
         DB::table('patterns')->insert([
-            'pattern_name'  => 'Gol'
+            'pattern_name'  => 'Gol',
+            'brand_id'      => '1'
         ]);
         DB::table('patterns')->insert([
-            'pattern_name'  => 'Corsa'
+            'pattern_name'  => 'Corsa',
+            'brand_id'      => '2'
         ]);
         DB::table('patterns')->insert([
             'pattern_name'  => 'ka',
+            'brand_id'      => '6'
         ]);
         DB::table('patterns')->insert([
             'pattern_name'  => 'Megane',
+            'brand_id'      => '5'
         ]);
        
     }

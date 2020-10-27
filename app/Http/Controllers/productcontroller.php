@@ -9,13 +9,14 @@ use App\Brand;
 use App\Color;
 use App\Picture;
 use App\Pattern;
+use App\Supplier;
 use App\Http\Requests\ProductRequest;
-use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Validation\Rule;
+use Symfony\Component\HttpFoundation\Request;
 class Productcontroller extends Controller
 { 
      public function show($id){
@@ -29,6 +30,7 @@ class Productcontroller extends Controller
         'user'         => Auth::user(), 
         'brands'       => Brand::all(),
         'patterns'     => Pattern::all(),
+        'suppliers'    => Supplier::all(),
         'colors'       => $products->colors,
      ]);
    
@@ -67,7 +69,7 @@ class Productcontroller extends Controller
         
          
          $product->sku               = $request->input('sku'); 
-         $product->slug              = $request->input('slug');
+        
          $product->description_short = $request->input('description_short'); 
          $product->description_large = $request->input('description_large'); 
          $product->data_interest     = $request->input('data_interest'); 
@@ -102,8 +104,9 @@ class Productcontroller extends Controller
         $colors = Color::all();
         $products = Product::all();
         $pictures = Picture::all();
+        $suppliers = Supplier::all();
       
-        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures'));
+        return view('admin.products.create',compact('products','categories','user','brands','patterns','colors','pictures','suppliers'));
     }
 
    
@@ -115,7 +118,7 @@ class Productcontroller extends Controller
         $patterns   = Pattern::all();
         $colors     = Color::all();
         $products   = Product::orderby('id','DESC')->paginate('10');
-     
+        $suppliers = Supplier::all();
 
         return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
     }
@@ -124,9 +127,8 @@ class Productcontroller extends Controller
 
     public function edit($id){
         
-       
         $url_picture=[];  
-      
+       
         return view('admin/products/edit', [
         'product'      =>  Product::find($id),
         'categories'   => Category::all(),
@@ -135,17 +137,28 @@ class Productcontroller extends Controller
         'patterns'     => Pattern::all(),
         'colors'       => Color::all(),
         'pictures'     => Picture::all(),
-         
+        'suppliers'    => Supplier::all(),
      ]);
 
     }
 
-    public function update(Request $request,$id){
+    public function update(ProductRequest $request,$id){
+       
+        $product = Product::find($id);
+        $data = request()->validate([
+            
+            'sku' => [
+                'required',
+                Rule::unique('products')->ignore($product->id),
+            ],
+           
+        ]);
      
+      
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
-        $product = Product::find($id);
-        $sku         = $product->sku;
+      
+        $sku        = $product->sku;
         $url_picture =[];
         if ($request->hasfile('url_picture')) {
             $pictures = $request->file('url_picture');
@@ -170,7 +183,7 @@ class Productcontroller extends Controller
         
          
          $product->sku               = $sku;
-         $product->slug              = $request->input('slug');
+         
          $product->description_short = $request->input('description_short'); 
          $product->description_large = $request->input('description_large'); 
          $product->data_interest     = $request->input('data_interest'); 
@@ -193,8 +206,7 @@ class Productcontroller extends Controller
         $product->colors()->sync($request->get('color_id'));
         $product->pictures()->createMany($url_picture);
         
-        return redirect('admin/products')->with('messages_create_ok','El producto fue editado con exito');
-
+        return back()->with('messages_create_ok',"Los datos del $product->description_short  fueron editado correctamente!");
     }
 
     public function destroy($id){

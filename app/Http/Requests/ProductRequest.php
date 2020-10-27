@@ -28,8 +28,8 @@ class ProductRequest extends FormRequest
 
             //  'visit'              => '',
             //  'count_sale'         => '',
-            'sku'                    => 'required|unique:products,sku|max:20'.$this->product,
-            'slug'                   => 'required|unique:products',
+            'sku'                    => 'required',
+            'slug'                   => 'required',
             // 'color_id'           => 'required',
             // 'pattern_id'         => 'required',
             // 'brand_id'           => 'required',

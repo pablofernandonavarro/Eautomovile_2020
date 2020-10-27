@@ -61,6 +61,6 @@ class PictureController extends Controller
 
     $picture->delete();
 
-    return back()->with('messages_delete','Registro eliminado correctamente!');
+    return back()->with('messages_delete',"La imagen con id: $id  eliminada correctamente!");
     }
 }

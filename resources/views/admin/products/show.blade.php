@@ -47,8 +47,13 @@
 
 
 
+<<<<<<< HEAD
 
    
+=======
+    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+>>>>>>> 330bd1ff5422300306283ecda5652b7ddd2c6678
 
         <!-- Main content -->
         <section class="content">
@@ -335,12 +340,7 @@
                                     </div>
                                     <br>
 
-                                    <br>
-                                    <span id="descuento">
 
-                                        @{{ generardescuento }}
-
-                                    </span>
                                 </div>
                                 <!-- /.form-group -->
 
@@ -365,12 +365,7 @@
                                     </div>
 
                                     <br>
-                                    <div class="progress">
-                                        <div id="barraprogreso" class="progress-bar" role="progressbar"
-                                            v-bind:style="{width: porcentajededescuento+'%'}" aria-valuenow="0"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                            @{{ porcentajededescuento }}%</div>
-                                    </div>
+
                                 </div>
                                 <div class="col-md-12">
                                     {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12"

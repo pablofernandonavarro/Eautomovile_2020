@@ -157,10 +157,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
                 <!-- Brand Logo -->
                 <a href="{{url('index')}}" class="brand-link">
-                    <img src="{{asset('storage/admin_picture/Logotipo.png')}}" alt="AdminLTE Logo"
+                    <img src="{{asset('storage/admin_picture/Logotipo.png')}}" alt="Logo"
                         class="brand-image  elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">.</span>
                 </a>
@@ -194,12 +194,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <!-- /Tareas a realizar-->
-
+                            <button type="button" class="btn btn-secondary">Productos</button>
 
 
                             <!-- /Products nav-bar-->
 
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="{{route('admin.products.index')}}" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -269,6 +269,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /Pattern nav-bar-->
 
 
+                            <p class="btn btn-danger mt-3 mb-0">Proveedores</p>
+                            <!-- Supplier nav-bar-->
+
+                            <li class="nav-item has-treeview bg-danger">
+                                <a href="supplier_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Proveedores
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!-- /Supplier nav-bar-->
+
+                            <!-- Supplier update nav-bar-->
+
+                            <li class="nav-item has-treeview bg-danger">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon active"></i>
+                                    <p>
+                                        Actualizar Precios
+                                        <i class="right fas"></i>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!-- Supplier update nav-bar-->
 
 
 
@@ -326,8 +354,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
     <script src="{{asset('js/app.js')}}"></script>
