@@ -240,15 +240,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- Color nav-bar-->
-<<<<<<< HEAD
-                            <li class="nav-item has-treeview">
-=======
+
                             <li class="nav-item has-treeview btn-secondary">
+                                <a href="/admin/color_crud" class="nav-link active">
+                                    <i class="nav-icon active"></i>
                                     <p>
+                                        Colores
                                         <i class="right fas"></i>
                                     </p>
                                 </a>
                             </li>
+
+                            
                             <!-- /color nav-bar-->
 
 

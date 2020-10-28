@@ -47,13 +47,8 @@
 
 
 
-<<<<<<< HEAD
-
-   
-=======
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
->>>>>>> 330bd1ff5422300306283ecda5652b7ddd2c6678
 
         <!-- Main content -->
         <section class="content">
