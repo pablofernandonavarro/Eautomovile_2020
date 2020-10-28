@@ -212,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /Product nav-bar-->
 
                             <!-- Category nav-bar-->
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="/admin/category_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -226,7 +226,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- Brand nav-bar-->
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="/admin/brand_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -240,11 +240,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <!-- Color nav-bar-->
+<<<<<<< HEAD
                             <li class="nav-item has-treeview">
-                                <a href="/admin/color_crud" class="nav-link active">
-                                    <i class="nav-icon active"></i>
+=======
+                            <li class="nav-item has-treeview btn-secondary">
                                     <p>
-                                        Colores
                                         <i class="right fas"></i>
                                     </p>
                                 </a>
@@ -256,7 +256,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <!-- Pattern nav-bar-->
 
-                            <li class="nav-item has-treeview">
+                            <li class="nav-item has-treeview btn-secondary">
                                 <a href="/admin/pattern_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
@@ -273,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Supplier nav-bar-->
 
                             <li class="nav-item has-treeview bg-danger">
-                                <a href="supplier_crud" class="nav-link active">
+                                <a href="/admin/supplier_crud" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Proveedores

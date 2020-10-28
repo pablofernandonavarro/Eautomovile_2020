@@ -2976,8 +2976,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 /* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_0__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
 //
 //
 //
@@ -3238,6 +3240,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getsupplier();
   },
   methods: {
+    supplier_price: function supplier_price() {
+      this.$router.push('/');
+    },
     getsupplier: function getsupplier() {
       var _this = this;
 
@@ -3247,29 +3252,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     editsupplier: function editsupplier(supplier) {
-      id = supplier.id;
-      supplier_code = supplier.supplier_code;
-      supplier_businessName = supplier.supplier_businessName;
-      supplier_businessName = supplier.supplier_businessName;
-      supplier_address = supplier.supplier_address;
-      supplier_address_location = supplier.supplier_address_location;
-      supplier_address_province = supplier.supplier_address_province;
-      supplier_address_postalCode = supplier.supplier_address_postalCode;
-      supplier_web = supplier.supplier_web;
-      supplier_name = supplier.supplier_name;
-      supplier_cuit = supplier.supplier_cuit;
-      supplier_ivaType = supplier.supplier_ivaType;
-      supplier_ivaExclusion = supplier.supplier_ivaExclusion;
-      supplier_ibRegiment = supplier.supplier_ibRegiment;
-      supplier_ibNumber = supplier.supplier_ibNumber;
-      supplier_ibProvince = supplier.supplier_ibProvince;
-      supplier_delivery_Address = supplier.supplier_delivery_Address;
-      supplier_delivery_AddressLocation = supplier.supplier_delivery_AddressLocation;
-      supplier_name = supplier.supplier_name;
-      supplier_delivery_AddressProvince = supplier.supplier_delivery_AddressProvince;
-      supplier_delivery_AddressPostalCode = supplier.supplier_delivery_AddressPostalCode;
-      supplier_discount = supplier.supplier_discount;
-      supplier_extra_discount = supplier.supplier_extra_discount;
+      this.fillsupplier.id = supplier.id;
+      this.fillsupplier.supplier_code = supplier.supplier_code;
+      this.fillsupplier.supplier_businessName = supplier.supplier_businessName;
+      this.fillsupplier.supplier_email = supplier.supplier_email;
+      this.fillsupplier.supplier_phone = supplier.supplier_phone;
+      this.fillsupplier.supplier_address = supplier.supplier_address;
+      this.fillsupplier.supplier_address_location = supplier.supplier_address_location;
+      this.fillsupplier.supplier_address_province = supplier.supplier_address_province;
+      this.fillsupplier.supplier_address_postalCode = supplier.supplier_address_postalCode;
+      this.fillsupplier.supplier_web = supplier.supplier_web;
+      this.fillsupplier.supplier_name = supplier.supplier_name;
+      this.fillsupplier.supplier_cuit = supplier.supplier_cuit;
+      this.fillsupplier.supplier_ivaType = supplier.supplier_ivaType;
+      this.fillsupplier.supplier_ivaExclusion = supplier.supplier_ivaExclusion;
+      this.fillsupplier.supplier_ibRegiment = supplier.supplier_ibRegiment;
+      this.fillsupplier.supplier_ibNumber = supplier.supplier_ibNumber;
+      this.fillsupplier.supplier_ibProvince = supplier.supplier_ibProvince;
+      this.fillsupplier.supplier_delivery_Address = supplier.supplier_delivery_Address;
+      this.fillsupplier.supplier_delivery_AddressLocation = supplier.supplier_delivery_AddressLocation;
+      this.fillsupplier.supplier_name = supplier.supplier_name;
+      this.fillsupplier.supplier_delivery_AddressProvince = supplier.supplier_delivery_AddressProvince;
+      this.fillsupplier.supplier_delivery_AddressPostalCode = supplier.supplier_delivery_AddressPostalCode;
+      this.fillsupplier.supplier_discount = supplier.supplier_discount;
+      this.fillsupplier.supplier_extra_discount = supplier.supplier_extra_discount;
       $('#editsupplier').modal('show');
     },
     updatesupplier: function updatesupplier(id) {
@@ -3277,15 +3283,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var url = 'suppliers/' + id;
       axios.put(url, this.fillsupplier).then(function (response) {
-        var _this2$fillsupplier;
-
         _this2.getsupplier();
 
-        _this2.fillsupplier = (_this2$fillsupplier = {
+        _this2.fillsupplier = {
           'id': '',
           'supplier_code': '',
-          'supplier_businessName': ''
-        }, _defineProperty(_this2$fillsupplier, "supplier_businessName", ''), _defineProperty(_this2$fillsupplier, 'supplier_phone', ''), _defineProperty(_this2$fillsupplier, 'supplier_address', ''), _defineProperty(_this2$fillsupplier, 'supplier_address_location', ''), _defineProperty(_this2$fillsupplier, 'supplier_address_province', ''), _defineProperty(_this2$fillsupplier, 'supplier_address_postalCode', ''), _defineProperty(_this2$fillsupplier, 'supplier_web', ''), _defineProperty(_this2$fillsupplier, 'supplier_cuit', ''), _defineProperty(_this2$fillsupplier, 'supplier_ivaType', ''), _defineProperty(_this2$fillsupplier, 'supplier_ivaExclusion', ''), _defineProperty(_this2$fillsupplier, 'supplier_ibRegiment', ''), _defineProperty(_this2$fillsupplier, 'supplier_ibNumber', ''), _defineProperty(_this2$fillsupplier, 'supplier_ibProvince', ''), _defineProperty(_this2$fillsupplier, 'supplier_delivery_Address', ''), _defineProperty(_this2$fillsupplier, 'supplier_delivery_AddressLocation', ''), _defineProperty(_this2$fillsupplier, 'supplier_delivery_AddressProvince', ''), _defineProperty(_this2$fillsupplier, 'supplier_delivery_AddressPostalCode', ''), _defineProperty(_this2$fillsupplier, 'supplier_discount', ''), _defineProperty(_this2$fillsupplier, 'supplier_extra_discount', ''), _this2$fillsupplier);
+          'supplier_businessName': '',
+          'supplier_email': '',
+          'supplier_phone': '',
+          'supplier_address': '',
+          'supplier_address_location': '',
+          'supplier_address_province': '',
+          'supplier_address_postalCode': '',
+          'supplier_web': '',
+          'supplier_cuit': '',
+          'supplier_ivaType': '',
+          'supplier_ivaExclusion': '',
+          'supplier_ibRegiment': '',
+          'supplier_ibNumber': '',
+          'supplier_ibProvince': '',
+          'supplier_delivery_Address': '',
+          'supplier_delivery_AddressLocation': '',
+          'supplier_delivery_AddressProvince': '',
+          'supplier_delivery_AddressPostalCode': '',
+          'supplier_discount': '',
+          'supplier_extra_discount': ''
+        };
         _this2.errors = [];
         $('#editsupplier').modal('hide');
         toastr__WEBPACK_IMPORTED_MODULE_0___default.a.success('La edicion fue realizada')["catch"](function (error) {
@@ -41234,6 +41257,17 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { attrs: { width: "10px" } }, [
                     _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success btn btn-sm",
+                        on: { click: _vm.supplier_price }
+                      },
+                      [_vm._v("Precios")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "10px" } }, [
+                    _c(
                       "a",
                       {
                         staticClass: "btn btn-warning btn-sm",
@@ -42059,41 +42093,33 @@ var render = function() {
                         _vm._v("Nombre o Razon social")
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "input",
-                        _vm._b(
+                      _c("input", {
+                        directives: [
                           {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.fillsupplier.supplier_businessName,
-                                expression: "fillsupplier.supplier_businessName"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "text", name: "supplier" },
-                            domProps: {
-                              value: _vm.fillsupplier.supplier_businessName
-                            },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.fillsupplier,
-                                  "supplier_businessName",
-                                  $event.target.value
-                                )
-                              }
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fillsupplier.supplier_businessName,
+                            expression: "fillsupplier.supplier_businessName"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "supplier" },
+                        domProps: {
+                          value: _vm.fillsupplier.supplier_businessName
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
-                          },
-                          "input",
-                          _vm.suppliers.supplier_businessName,
-                          false
-                        )
-                      ),
+                            _vm.$set(
+                              _vm.fillsupplier,
+                              "supplier_businessName",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "supplier" } }, [
                         _vm._v("email")
@@ -42746,7 +42772,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Proveedor")]),
         _vm._v(" "),
-        _c("th", { attrs: { colspan: "2" } }, [_vm._v(" ")])
+        _c("th", { attrs: { colspan: "1" } }, [_vm._v(" ")])
       ])
     ])
   },
