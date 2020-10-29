@@ -34,8 +34,8 @@ class CreateSuppliersTable extends Migration
             $table->string('supplier_delivery_AddressProvince')->nullable();
             $table->string('supplier_delivery_AddressPostalCode')->nullable();
 
-            $table->integer('supplier_discount');
-            $table->integer('supplier_extra_discount');
+            $table->float('supplier_discount');
+            $table->float('supplier_extra_discount');
            
             $table->timestamps();
         });
