@@ -409,7 +409,7 @@
 
                   <label>Utilidad :</label>
                   <div class="input-group">
-                    <input class="form-control" type="number" id="discount_rate" name="discount_rate" step="any" min="0"
+                    <input class="form-control" type="number" id="utility" name="utility" step="any" min="0"
                       max="100" value="0">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
@@ -767,18 +767,27 @@
 </script>
 <script type="text/javascript">
   (function (){
-    var costo ="";
+
+    var costo =0;
+    var utility = 0;
+    
     var fillcost = function(){
-      var costo = (list_price.value * suppier_discount.value);
+    var costo = (list_price.value)-(list_price.value*(supplier_discount.value/100));
       cost.value = costo;
+    };
+    var fillprice = function(){
+      var precio = (price.value+10);
+      price.value = precio;
     };
 
   var list_price = document.getElementById('list_price');
-  var suppier_discount = document.getElementById('supplier_discount');
+  var supplier_discount = document.getElementById('supplier_discount');
+  var utility = document.getElementById('utility');
   var cost = document.getElementById('cost');
-  
+  var price = document.getElementById('price');
+
   list_price.addEventListener('change', fillcost);
- 
+  price.addEventListener('change', fillprice);
 }());
 
 
