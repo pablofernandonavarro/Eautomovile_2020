@@ -86,9 +86,18 @@ class Productcontroller extends Controller
          $product->visit             = $request->input('visit');
          $product->count_sale        = $request->input('count_sale');
          $product->slider            = $request->input('slider');
+         $product->supplier_price_list = $request->input('supplier_price_list');
+         $product->supplier_discount   = $request->input('supplier_discount');
+         $product->cost                = $request->input('cost');
+         $product->utility             = $request->input('utility');
+         $product->price_discount     = $request->input('price_discount');
+         
+
+
          $product->save(); 
-      
         $product->colors()->sync($request->get('color_id'));
+        $product->suppliers()->sync($request->get('supplier_id'));
+       
         $product->pictures()->createMany($url_picture);
 
         return redirect('admin/products')->with('messages_create_ok','El producto fue creado con exito');
@@ -191,7 +200,7 @@ class Productcontroller extends Controller
          $product->brand_id          = $brand->id; 
          $product->pattern_id        = $request->input('pattern_id'); 
          $product->category_id       = $request->input('category_id');
-        
+         
          $product->date_start        = $request->input('date_start');
          $product->date_finish       = $request->input('date_finish');
          $product->quantity          = $request->input('quantity');
@@ -204,6 +213,7 @@ class Productcontroller extends Controller
          $product->update(); 
       
         $product->colors()->sync($request->get('color_id'));
+        $product->supplier()->sync($request->get('supplier_id'));
         $product->pictures()->createMany($url_picture);
         
         return back()->with('messages_create_ok',"Los datos del $product->description_short  fueron editado correctamente!");

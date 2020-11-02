@@ -296,7 +296,7 @@
 
                 <div class="form-group">
                   <label>Proveedor</label>
-                  <select name="suppier" id="suppier" class="form-control " style="width: 100%;">
+                  <select name="supplier_id" id="suppier" class="form-control " style="width: 100%;">
                     @foreach($suppliers as $supplier)
 
                     @if (old('supplier') == $supplier->id)
@@ -321,8 +321,8 @@
 
                 <div class="form-group">
                   <label>Codigo Proveedor</label>
-                  <input type="text" name="supplier_code" id="supplier_code" class="form-control " min="0"
-                    value="{{$supplier->id}}" disabled>
+                  <input type="text" id="supplier_code" class="form-control " min="0" value="{{$supplier->id}}"
+                    disabled>
                 </div>
                 <div class="col-md-12">
                   {!!$errors->first('quantity','<small class="alert alert-danger col-md-12" role="alert">:message
@@ -338,7 +338,8 @@
                   <label>Precio de lista:</label>
                   <div class="input-group">
 
-                    <input class="form-control" type="number" id="list_price" name="" min="0" value="" step="1">
+                    <input class="form-control" type="number" id="supplier_price_list" name="supplier_price_list"
+                      min="0" value="" step="1">
 
                   </div>
                   <br>
@@ -372,7 +373,8 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                  {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('supplier_discount','<small class="alert alert-danger col-md-12"
+                    role="alert">:message
                   </small>')!!}
                 </div>
                 <br>
@@ -409,8 +411,8 @@
 
                   <label>Utilidad :</label>
                   <div class="input-group">
-                    <input class="form-control" type="number" id="utility" name="utility" step="any" min="0"
-                      max="100" value="0">
+                    <input class="form-control" type="number" id="utility" name="utility" step="any" min="0" max="100"
+                      value="0">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -421,7 +423,7 @@
 
                 </div>
                 <div class="col-md-12">
-                  {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('utility','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
                 <br>
@@ -485,8 +487,8 @@
 
                   <label>Porcentaje de descuento</label>
                   <div class="input-group">
-                    <input class="form-control" type="number" id="discount_rate" name="discount_rate" step="any" min="0"
-                      max="100" value="0">
+                    <input class="form-control" type="number" id="price_discount" name="price_discount" step="any"
+                      min="0" max="100" value="0">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -497,7 +499,7 @@
 
                 </div>
                 <div class="col-md-12">
-                  {!!$errors->first('discount_rate','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('price_discount','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
                 <br>

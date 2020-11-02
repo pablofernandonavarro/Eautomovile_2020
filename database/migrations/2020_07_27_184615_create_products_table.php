@@ -34,8 +34,11 @@ class CreateProductsTable extends Migration
             $table->integer('visit')->unsigned()->default(0)->nullable();
             $table->integer('count_sale')->unsigned()->default(0)->nullable();
             $table->char('slider',3)->nullable()->default('on');;
-
-            
+            $table->float('supplier_price_list',3,2)->nullable()->default(0);
+            $table->float('supplier_discount',3,2)->nullable()->default(0);
+            $table->float('cost',12,2)->nullable()->default(0);
+            $table->float('utility',12,2)->nullable()->default(0);
+            $table->float('price_discount',12,2)->nullable()->nullable();
             
             $table->timestamps();
         });
