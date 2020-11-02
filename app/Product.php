@@ -34,15 +34,20 @@ class Product extends Model
         'pattern_id',
         'category_id',
         'colour_id',
+        'supplier_id',
         'date_start',
         'date_finish',
         'quantity',
         'price',
-        'discount_rate',
         'active',
         'visit',
         'count_sale',
         'slider',
+        'supplier_price_list',
+        'supplier_discount',
+        'cost',
+        'utility',
+        'price_discount',
      
     ];
     

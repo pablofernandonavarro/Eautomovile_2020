@@ -25,20 +25,21 @@ class CreateProductsTable extends Migration
             $table->foreignId('brand_id')->nullable()->constrained('brands')->cascadeOnDelete('set null');
             $table->foreignId('pattern_id')->nullable()->constrained('patterns')->cascadeOnDelete('set null');
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete('set null');
+            $table->foreignId('supplier_id')->nullable()->constrained('suppliers')->cascadeOnDelete('set null');
             $table->date('date_start');
             $table->date('date_finish');
             $table->bigInteger('quantity')->unsigned()->default(0);  
             $table->decimal('price',12,2)->default(0);
-            $table->integer('discount_rate')->unsigned()->default(0);
+           
             $table->char('active',3)->nullable()->default('on');
             $table->integer('visit')->unsigned()->default(0)->nullable();
             $table->integer('count_sale')->unsigned()->default(0)->nullable();
             $table->char('slider',3)->nullable()->default('on');;
-            $table->float('supplier_price_list',3,2)->nullable()->default(0);
-            $table->float('supplier_discount',3,2)->nullable()->default(0);
-            $table->float('cost',12,2)->nullable()->default(0);
-            $table->float('utility',12,2)->nullable()->default(0);
-            $table->float('price_discount',12,2)->nullable()->nullable();
+            $table->float('supplier_price_list')->nullable()->default(0);
+            $table->float('supplier_discount')->nullable()->default(0);
+            $table->float('cost')->nullable();
+            $table->float('utility')->nullable()->default(0);
+            $table->float('price_discount')->nullable();
             
             $table->timestamps();
         });

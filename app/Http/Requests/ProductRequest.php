@@ -26,25 +26,23 @@ class ProductRequest extends FormRequest
        
         return [
 
-            //  'visit'              => '',
-            //  'count_sale'         => '',
+            'visit'                  => 'required',
+            'count_sale'             => 'required',
             'sku'                    => 'required',
-            'slug'                   => 'required',
-            // 'color_id'           => 'required',
-            // 'pattern_id'         => 'required',
-            // 'brand_id'           => 'required',
-            // 'category_id'        => 'required',
-            'date_start'         => 'required|before_or_equal:date_finish',
-            'date_finish'        => 'required||after_or_equal:date_start',
-            'quantity'           => 'required|numeric|min:0|not_in:0',
-            'price'              => 'required|numeric|min:0|not_in:0',
-            'discount_rate'      => 'required',
-            'description_short'  => 'required',
-            // 'description_large'  => 'required',
-            // 'data_interest'      => 'required',
-            // 'spec'               => 'required',
-             
-          
+            'sku'                    => 'unique:products,sku',
+             'slug'                   => 'required',
+            'color_id'               => 'required',
+            'pattern_id'             => 'required',
+            // 'brand_id'               => 'required',
+            'category_id'            => 'required',
+            'date_start'             => 'required|before_or_equal:date_finish',
+            'date_finish'            => 'required||after_or_equal:date_start',
+            'quantity'               => 'required|numeric|min:0|not_in:0',
+            'price'                  => 'required|numeric|min:0|not_in:0',
+            'description_short'      => 'required',
+            'supplier_price_list'    => 'required',
+            'supplier_discount'      => 'required|min:0|max:100',
+            'quantity'               => 'required'
             
         ];
     }
@@ -56,7 +54,7 @@ class ProductRequest extends FormRequest
             'sku.max'                      => 'El sku debe tener menos de 21 caracteres',
             'color_id.required'             => 'El color del producto es requerido',
             'pattern_id.required'           => 'El modelo del producto es requerido',
-            'brand_id.required'             => 'La marca del producto es requerida',
+            // 'brand_id.required'             => 'La marca del producto es requerida',
             'category_id.required'          => 'La categoria de producto es requerida',
             'date_start.required'           => 'La fecha de incio de fabricacion del automotor es requerida',
             'date_finish.required'          => 'La fecha de finalizacion de fabricacion del automotor es requerida',
@@ -69,10 +67,10 @@ class ProductRequest extends FormRequest
             'discount_rate.required'        => 'La descuento debe ser un dato numerico y mayor a cero',
             'description_short.required'    => 'La descripcion es requerida',
             'date_finish.after_or_equal'    => 'El dato tiene que ser posterior a la fecha de fabricacion del modelo',
-            'date_start.before_or_equal'   => 'El dato tiene que ser anterior a la fecha de  finalizacion de fabricacion del modelo',
-            
-           
-            
+            'date_start.before_or_equal'    => 'El dato tiene que ser anterior a la fecha de  finalizacion de fabricacion del modelo',
+            'supplier_price_list.required'  => 'El dato es requerido de este depende PRECIO DE COSTO',
+            'supplier_discount.required'    => 'Este valor no pude ser nenor a 0 no mayor a 100',
+            'quantity.required'             => 'La cantidad es necesaria para llevar un stock real'
         ];
     }
 }

@@ -40,8 +40,7 @@ class Productcontroller extends Controller
    
 
     public function store(ProductRequest $request){
-        
-    
+ 
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
         $sku = $request->sku;
@@ -81,11 +80,11 @@ class Productcontroller extends Controller
          $product->date_finish       = $request->input('date_finish');
          $product->quantity          = $request->input('quantity');
          $product->price             = $request->input('price');
-         $product->discount_rate     = $request->input('discount_rate');
+         $product->supplier_id        =$request->input('supplier_id');
          $product->active            = $request->input('active');
          $product->visit             = $request->input('visit');
          $product->count_sale        = $request->input('count_sale');
-         $product->slider            = $request->input('slider');
+         
          $product->supplier_price_list = $request->input('supplier_price_list');
          $product->supplier_discount   = $request->input('supplier_discount');
          $product->cost                = $request->input('cost');
@@ -94,7 +93,7 @@ class Productcontroller extends Controller
          
 
 
-         $product->save(); 
+        $product->save(); 
         $product->colors()->sync($request->get('color_id'));
         $product->suppliers()->sync($request->get('supplier_id'));
        

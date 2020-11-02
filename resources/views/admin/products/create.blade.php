@@ -308,7 +308,7 @@
                   </select>
                 </div>
                 <div class="col-md-12">
-                  {!!$errors->first('date_finish','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('supplier_id','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
 
@@ -325,7 +325,7 @@
                     disabled>
                 </div>
                 <div class="col-md-12">
-                  {!!$errors->first('quantity','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('supplier_code','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
 
@@ -338,13 +338,13 @@
                   <label>Precio de lista:</label>
                   <div class="input-group">
 
-                    <input class="form-control" type="number" id="supplier_price_list" name="supplier_price_list"
-                      min="0" value="" step="1">
+                    <input class="form-control" type="text" id="supplier_price_list" name="supplier_price_list"
+                  value="{{old('supplier_price_list')}}" >
 
                   </div>
                   <br>
                   <div class="col-md-12">
-                    {!!$errors->first('price','<small class="alert alert-danger col-md-12" role="alert">:message
+                    {!!$errors->first('supplier_price_list','<small class="alert alert-danger col-md-12" role="alert">:message
                     </small>')!!}
                   </div>
                   <br>
@@ -386,12 +386,12 @@
                   <label>Costo :</label>
                   <div class="input-group">
 
-                    <input class="form-control" type="number" id="cost" name="cost" min="0" step="1" value="cost">
+                    <input class="form-control"  id="cost" name="cost"  value="{{old('cost')}}" >
 
                   </div>
                   <br>
                   <div class="col-md-12">
-                    {!!$errors->first('price','<small class="alert alert-danger col-md-12" role="alert">:message
+                    {!!$errors->first('cost','<small class="alert alert-danger col-md-12" role="alert">:message
                     </small>')!!}
                   </div>
                   <br>
@@ -412,7 +412,7 @@
                   <label>Utilidad :</label>
                   <div class="input-group">
                     <input class="form-control" type="number" id="utility" name="utility" step="any" min="0" max="100"
-                      value="0">
+                  value="{{old('utility')}}">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -485,10 +485,10 @@
               <div class="col-md-6">
                 <div class="form-group">
 
-                  <label>Porcentaje de descuento</label>
+                  <label>Porcentaje de descuento sobre al Producto :</label>
                   <div class="input-group">
                     <input class="form-control" type="number" id="price_discount" name="price_discount" step="any"
-                      min="0" max="100" value="0">
+                  min="0" max="100" value="{{old('price_discount')}}">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -772,17 +772,16 @@
 
     var costo =0;
     var utility = 0;
+
+  
     
     var fillcost = function(){
-    var costo = (list_price.value)-(list_price.value*(supplier_discount.value/100));
-      cost.value = costo;
+    var costo = parseFloat(supplier_price_list.value)-parseFloat(supplier_price_list.value*parseFloat(supplier_discount.value/100));
+      cost.value = costo.toFixed(2);
     };
-    var fillprice = function(){
-      var precio = (price.value+10);
-      price.value = precio;
-    };
+  
 
-  var list_price = document.getElementById('list_price');
+  var list_price = document.getElementById('supplier_price_list');
   var supplier_discount = document.getElementById('supplier_discount');
   var utility = document.getElementById('utility');
   var cost = document.getElementById('cost');
