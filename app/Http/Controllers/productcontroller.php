@@ -21,11 +21,11 @@ class Productcontroller extends Controller
 { 
      public function show($id){
 
-    $products      = Product::find($id);
+    $products      = Product::with('colors','suppliers')->find($id);
     $users         = Auth::user();
-    
-    return view('admin.products.show',[
-        'products'     => Product::find($id),
+    dd($products->suppliers->supplier_id);
+    return view('admin.products.show',compact('products'),[
+        
         'categories'   => Category::all(),
         'user'         => Auth::user(), 
         'brands'       => Brand::all(),
@@ -40,7 +40,7 @@ class Productcontroller extends Controller
    
 
     public function store(ProductRequest $request){
- 
+        
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
         $sku = $request->sku;

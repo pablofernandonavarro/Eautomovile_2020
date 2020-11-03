@@ -339,12 +339,13 @@
                   <div class="input-group">
 
                     <input class="form-control" type="text" id="supplier_price_list" name="supplier_price_list"
-                  value="{{old('supplier_price_list')}}" >
+                      value="{{old('supplier_price_list')}}">
 
                   </div>
                   <br>
                   <div class="col-md-12">
-                    {!!$errors->first('supplier_price_list','<small class="alert alert-danger col-md-12" role="alert">:message
+                    {!!$errors->first('supplier_price_list','<small class="alert alert-danger col-md-12"
+                      role="alert">:message
                     </small>')!!}
                   </div>
                   <br>
@@ -386,7 +387,7 @@
                   <label>Costo :</label>
                   <div class="input-group">
 
-                    <input class="form-control"  id="cost" name="cost"  value="{{old('cost')}}" >
+                    <input class="form-control" id="cost" name="cost" value="{{old('cost')}}">
 
                   </div>
                   <br>
@@ -412,7 +413,7 @@
                   <label>Utilidad :</label>
                   <div class="input-group">
                     <input class="form-control" type="number" id="utility" name="utility" step="any" min="0" max="100"
-                  value="{{old('utility')}}">
+                      value="{{old('utility')}}">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -461,8 +462,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input class="form-control" type="number" id="price" name="price" min="0" value="{{old('price')}}"
-                      step="1">
+                    <input class="form-control" id="price" name="price" value="{{old('price')}}" step="1">
 
                   </div>
                   <br>
@@ -488,7 +488,7 @@
                   <label>Porcentaje de descuento sobre al Producto :</label>
                   <div class="input-group">
                     <input class="form-control" type="number" id="price_discount" name="price_discount" step="any"
-                  min="0" max="100" value="{{old('price_discount')}}">
+                      min="0" max="100" value="{{old('price_discount')}}">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
@@ -772,12 +772,21 @@
 
     var costo =0;
     var utility = 0;
-
+    var descuento =0;
+    var precio = 0;
   
     
     var fillcost = function(){
     var costo = parseFloat(supplier_price_list.value)-parseFloat(supplier_price_list.value*parseFloat(supplier_discount.value/100));
       cost.value = costo.toFixed(2);
+    };
+
+    var fillprice = function(){
+      var utility = document.getElementById('utility');
+      var cost = document.getElementById('cost');
+      var descuento = cost.value * (utility.value/100);
+       var  precio = parseFloat(cost.value)+parseFloat(descuento);
+      price.value = precio.toFixed(2);
     };
   
 
@@ -788,7 +797,7 @@
   var price = document.getElementById('price');
 
   list_price.addEventListener('change', fillcost);
-  price.addEventListener('change', fillprice);
+  utility.addEventListener('change', fillprice);
 }());
 
 
