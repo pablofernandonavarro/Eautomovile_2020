@@ -23,15 +23,16 @@ class Productcontroller extends Controller
 
     $products      = Product::with('colors','suppliers')->find($id);
     $users         = Auth::user();
-    dd($products->suppliers->supplier_id);
-    return view('admin.products.show',compact('products'),[
+    $colors         = Color::orderBy('color_name')->get();
+  
+    return view('admin.products.show',compact('products','colors'),[
         
         'categories'   => Category::all(),
         'user'         => Auth::user(), 
         'brands'       => Brand::all(),
         'patterns'     => Pattern::all(),
-        'suppliers'    => Supplier::all(),
-        'colors'       => $products->colors,
+        
+        
      ]);
    
     

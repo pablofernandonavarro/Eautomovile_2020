@@ -186,13 +186,17 @@
                                 <label>Color</label>
 
                                 @foreach($colors as $color)
+
                                 <div class="form-check p-3">
                                     <label class="form-check-label p-2 ml-1">
                                         <input type="checkbox" class="form-check-input" name="color_id[]" id=""
-                                            value="{{$color->id}}" checked />
+                                            @if($products->colors->color_id == $color->color_id)
+                                        value='{{ $color->color_name }}' checked
+                                        @else
+                                        value="hola "/>
+
+                                        @endif
                                         {{ $color->color_name }}
-
-
                                     </label>
                                 </div>
                                 @endforeach
@@ -229,7 +233,7 @@
 
                             <label>Categoria</label>
                             <input name="category_id" id="category_id" class="form-control " style="width: 100%;"
-                                value="{{$products->category->category_name}}" disabled>
+                                value="{{$products->category->category_name}}" checked disabled>
 
                         </div>
 
@@ -309,7 +313,7 @@
 
                             <div class="form-group">
                                 <label>Proveedor</label>
-                                <input type="text" class=" form-control" value="{{$products->suppliers->id}}" disabled>
+                                <input type="text" class=" form-control" value="{{$products->suppliers}}" disabled>
                             </div>
 
 
@@ -671,7 +675,7 @@
                         <div class="form-group clearfix">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="activo" name="active"
-                                    @if($product->active=="on")
+                                    @if($products->active=="on")
                                 checked
                                 @endif>
                                 <label class="custom-control-label" for="activo">Activo</label>
@@ -682,7 +686,7 @@
                         <div class="form-group">
                             <div class="custom-control custom-switch">
                                 <input dislable type="checkbox" class="custom-control-input" id="slider" name="slider"
-                                    @if($product->slider == "on")
+                                    @if($products->slider == "on")
                                 checked
                                 @endif>
                                 <label class="custom-control-label" for="slider">Aparece en el Slider
