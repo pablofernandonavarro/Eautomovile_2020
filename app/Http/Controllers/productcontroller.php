@@ -84,6 +84,7 @@ class Productcontroller extends Controller
          $product->price                   = $request->input('price');
          $product->supplier_id             = $request->input('supplier_id');
          $product->active                  = $request->input('active');
+         $product->slider                  = $request->input('slider');
          $product->visit                   = $request->input('visit');
          $product->count_sale              = $request->input('count_sale');
          $product->supplier_product_code   = $request->input('supplier_product_code');
@@ -153,7 +154,7 @@ class Productcontroller extends Controller
     }
 
     public function update(Request $request,$id){
-
+      
         $product = Product::findOrFail($id);
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
@@ -195,6 +196,7 @@ class Productcontroller extends Controller
          $product->price                   = $request->input('price');
          $product->supplier_id             = $request->input('supplier_id');
          $product->active                  = $request->input('active');
+         $product->slider                  = $request->input('slider');
          $product->visit                   = $request->input('visit');
          $product->count_sale              = $request->input('count_sale');
          

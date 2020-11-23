@@ -309,7 +309,7 @@
                                     <label>Codigo producto / Proveedor:</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" id="utility"
-                                            name="supplier_product_code" value="{{old('supplier_product_code')}}">
+                                            name="supplier_product_code" value="{{$product->supplier_product_code}}">
 
 
                                     </div>
@@ -683,42 +683,9 @@
 
 
 
-                <div class="card card-warning">
-                    <div class="card-header">
-                        <h3 class="card-title">Imágenes</h3>
-
-
-                    </div>
+              
                     <!-- /.card-header -->
-                    <div class="card-body">
-
-                        <div class="form-group">
-
-                            <label for="imagenes">Añadir imágenes</label>
-
-                            <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]"
-                                multiple accept="image/*" value="{{old ('url_picture[]')}}">
-
-                            <div class="description">
-                                Un número ilimitado de archivos pueden ser cargados en este campo.
-                                <br>
-                                Límite de 2048 MB por imagen.
-                                <br>
-                                Tipos permitidos: jpeg, png, jpg, gif, svg.
-                                <br>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-
-                    </div>
-                </div>
+              
                 <!-- /.card -->
 
 
@@ -734,7 +701,10 @@
                                 <!-- checkbox -->
                                 <div class="form-group clearfix">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="activo" name="active">
+                                        <input type="checkbox" class="custom-control-input" id="activo" name="active"
+                                            @if($product->active=="on")
+                                        checked
+                                        @endif>
                                         <label class="custom-control-label" for="activo">Activo</label>
                                     </div>
 
@@ -742,7 +712,11 @@
 
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="slider" name="slider">
+                                        <input type="checkbox" class="custom-control-input" id="slider"
+                                            name="slider" @if($product->slider == "on")
+                                        checked
+                                        @else ($product->slider == "off")
+                                        @endif>
                                         <label class="custom-control-label" for="slider">Aparece en el Slider
                                             principal</label>
                                     </div>
@@ -794,8 +768,8 @@
                 </div>
 
                 <!-- /.card -->
-
-                <div class="card card-warning">
+            </form>
+                <div class="card card-warning ">
                     <div class="card-header">
                         <h3 class="card-title">Galeria de Imágenes</h3>
 
@@ -804,14 +778,16 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <div class="form-group">
-
+                        <div class="form-group row">
 
                             @foreach ($product->pictures as $product)
-
-                            <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200"
-                                class="img-fluid mb-2">
-
+                     
+                                <form action="" class="col-md-3">
+                                    <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200"
+                                    class="img-fluid row">
+                                    <input type="submit" class="btn btn-danger btn-sm" value="eliminar">
+                                </form>
+                  
                             @endforeach
                         </div>
 
@@ -835,7 +811,7 @@
 
 
 
-</form>
+
 </div>
 <script type="text/javascript">
     let model = document.getElementById('pattern_id');

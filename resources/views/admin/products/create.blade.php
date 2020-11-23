@@ -296,7 +296,7 @@
 
                   <label>Codigo producto / Proveedor:</label>
                   <div class="input-group">
-                    <input class="form-control" type="number" id="utility" name="supplier_product_code"
+                    <input class="form-control" type="number" id="supplier_product_code" name="supplier_product_code"
                       value="{{old('supplier_product_code')}}">
 
 
@@ -306,7 +306,7 @@
 
                 </div>
                 <div class="col-md-6">
-                  {!!$errors->first('utility','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('supplier_product_code','<small class="alert alert-danger col-md-12" role="alert">:message
                   </small>')!!}
                 </div>
                 <br>
