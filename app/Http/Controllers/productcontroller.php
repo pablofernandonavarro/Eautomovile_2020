@@ -22,15 +22,16 @@ class Productcontroller extends Controller
      public function show($id){
 
     $products      = Product::with('colors','suppliers')->find($id);
-    $users         = Auth::user();
-    $colors         = Color::orderBy('color_name')->get();
   
-    return view('admin.products.show',compact('products','colors'),[
+    $users         = Auth::user();
+    $colors        =  $products->colors;
+    $suppliers     =  $products->suppliers;
+    
+    return view('admin.products.show',compact('products','colors','suppliers','users'),[
         
-        'categories'   => Category::all(),
-        'user'         => Auth::user(), 
-        'brands'       => Brand::all(),
-        'patterns'     => Pattern::all(),
+      
+         'user'         => Auth::user(), 
+        
         
         
      ]);
@@ -70,27 +71,27 @@ class Productcontroller extends Controller
          
          $product->sku               = $request->input('sku'); 
         
-         $product->description_short = $request->input('description_short'); 
-         $product->description_large = $request->input('description_large'); 
-         $product->data_interest     = $request->input('data_interest'); 
-         $product->spec              = $request->input('spec'); 
-         $product->brand_id          = $brand->id; 
-         $product->pattern_id        = $request->input('pattern_id'); 
-         $product->category_id       = $request->input('category_id');
-         $product->date_start        = $request->input('date_start');
-         $product->date_finish       = $request->input('date_finish');
-         $product->quantity          = $request->input('quantity');
-         $product->price             = $request->input('price');
-         $product->supplier_id        =$request->input('supplier_id');
-         $product->active            = $request->input('active');
-         $product->visit             = $request->input('visit');
-         $product->count_sale        = $request->input('count_sale');
-         
-         $product->supplier_price_list = $request->input('supplier_price_list');
-         $product->supplier_discount   = $request->input('supplier_discount');
-         $product->cost                = $request->input('cost');
-         $product->utility             = $request->input('utility');
-         $product->price_discount     = $request->input('price_discount');
+         $product->description_short        = $request->input('description_short'); 
+         $product->description_large       = $request->input('description_large'); 
+         $product->data_interest           = $request->input('data_interest'); 
+         $product->spec                    = $request->input('spec'); 
+         $product->brand_id                = $brand->id; 
+         $product->pattern_id              = $request->input('pattern_id'); 
+         $product->category_id             = $request->input('category_id');
+         $product->date_start              = $request->input('date_start');
+         $product->date_finish             = $request->input('date_finish');
+         $product->quantity                = $request->input('quantity');
+         $product->price                   = $request->input('price');
+         $product->supplier_id             = $request->input('supplier_id');
+         $product->active                  = $request->input('active');
+         $product->visit                   = $request->input('visit');
+         $product->count_sale              = $request->input('count_sale');
+         $product->supplier_product_code   = $request->input('supplier_product_code');
+         $product->supplier_price_list     = $request->input('supplier_price_list');
+         $product->supplier_discount       = $request->input('supplier_discount');
+         $product->cost                    = $request->input('cost');
+         $product->utility                 = $request->input('utility');
+         $product->price_discount          = $request->input('price_discount');
          
 
 
@@ -151,24 +152,13 @@ class Productcontroller extends Controller
 
     }
 
-    public function update(ProductRequest $request,$id){
-       
-        $product = Product::find($id);
-        $data = request()->validate([
-            
-            'sku' => [
-                'required',
-                Rule::unique('products')->ignore($product->id),
-            ],
-           
-        ]);
-     
-      
+    public function update(Request $request,$id){
+
+        $product = Product::findOrFail($id);
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
-      
-        $sku        = $product->sku;
-        $url_picture =[];
+        $sku = $request->sku;
+        $url_picture=[];
         if ($request->hasfile('url_picture')) {
             $pictures = $request->file('url_picture');
 
@@ -186,37 +176,45 @@ class Productcontroller extends Controller
             }
         }
 
-       
+         
+    
         
-         $product = Product::findOrFail($id);;
+         
+          
         
+         $product->description_short       = $request->input('description_short'); 
+         $product->description_large       = $request->input('description_large'); 
+         $product->data_interest           = $request->input('data_interest'); 
+         $product->spec                    = $request->input('spec'); 
+         $product->brand_id                = $brand->id; 
+         $product->pattern_id              = $request->input('pattern_id'); 
+         $product->category_id             = $request->input('category_id');
+         $product->date_start              = $request->input('date_start');
+         $product->date_finish             = $request->input('date_finish');
+         $product->quantity                = $request->input('quantity');
+         $product->price                   = $request->input('price');
+         $product->supplier_id             = $request->input('supplier_id');
+         $product->active                  = $request->input('active');
+         $product->visit                   = $request->input('visit');
+         $product->count_sale              = $request->input('count_sale');
          
-         $product->sku               = $sku;
+         $product->supplier_price_list     = $request->input('supplier_price_list');
+         $product->supplier_discount       = $request->input('supplier_discount');
+         $product->supplier_product_code   = $request->input('supplier_product_code');
+         $product->cost                    = $request->input('cost');
+         $product->utility                 = $request->input('utility');
+         $product->price_discount          = $request->input('price_discount');
          
-         $product->description_short = $request->input('description_short'); 
-         $product->description_large = $request->input('description_large'); 
-         $product->data_interest     = $request->input('data_interest'); 
-         $product->spec              = $request->input('spec'); 
-         $product->brand_id          = $brand->id; 
-         $product->pattern_id        = $request->input('pattern_id'); 
-         $product->category_id       = $request->input('category_id');
-         
-         $product->date_start        = $request->input('date_start');
-         $product->date_finish       = $request->input('date_finish');
-         $product->quantity          = $request->input('quantity');
-         $product->price             = $request->input('price');
-         $product->discount_rate     = $request->input('discount_rate');
-         $product->active            = $request->input('active');
-         $product->visit             = $request->input('visit');
-         $product->count_sale        = $request->input('count_sale');
-         $product->slider            = $request->input('slider');
-         $product->update(); 
-      
+
+
+        $product->save(); 
         $product->colors()->sync($request->get('color_id'));
-        $product->supplier()->sync($request->get('supplier_id'));
+        $product->suppliers()->sync($request->get('supplier_id'));
+       
         $product->pictures()->createMany($url_picture);
-        
-        return back()->with('messages_create_ok',"Los datos del $product->description_short  fueron editado correctamente!");
+
+        return redirect('admin/products')->with('messages_create_ok','El producto fue creado con exito');
+
     }
 
     public function destroy($id){

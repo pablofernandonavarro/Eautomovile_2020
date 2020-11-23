@@ -37,6 +37,7 @@ class CreateProductsTable extends Migration
             $table->char('slider',3)->nullable()->default('on');;
             $table->float('supplier_price_list')->nullable()->default(0);
             $table->float('supplier_discount')->nullable()->default(0);
+            $table->string('supplier_product_code')->nullable();
             $table->float('cost')->nullable();
             $table->float('utility')->nullable()->default(0);
             $table->float('price_discount')->nullable();
