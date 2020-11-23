@@ -747,6 +747,42 @@
 
                     </div>
                 </div>
+                <div class="card card-warning">
+                    <div class="card-header">
+                      <h3 class="card-title">Imágenes</h3>
+            
+            
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+            
+                      <div class="form-group">
+            
+                        <label for="picturenes">Añadir imágenes</label>
+            
+                        <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
+                          accept="picture/*" value="{{old ('url_picture[]')}}">
+            
+                        <div class="description">
+                          Un número ilimitado de archivos pueden ser cargados en este campo.
+                          <br>
+                          Límite de 2048 MB por picturen.
+                          <br>
+                          Tipos permitidos: jpeg, png, jpg, gif, svg.
+                          <br>
+                        </div>
+            
+                      </div>
+            
+            
+                    </div>
+            
+            
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+            
+                    </div>
+                  </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -766,43 +802,43 @@
 
 
                 </div>
+                
 
                 <!-- /.card -->
             </form>
+            <div id="app">
                 <div class="card card-warning ">
                     <div class="card-header">
                         <h3 class="card-title">Galeria de Imágenes</h3>
-
-
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-
-                        <div class="form-group row">
-
-                            @foreach ($product->pictures as $product)
-                     
-                                <form action="" class="col-md-3">
-                                    <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200"
-                                    class="img-fluid row">
-                                    <input type="submit" class="btn btn-danger btn-sm" value="eliminar">
-                                </form>
-                  
-                            @endforeach
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-
+                        <div class="form-group">
+                            <div class="row">
+                                @foreach ($product->pictures as $product)
+                                <div id="idpicture-{{$product->id}}">
+                                    <form action="" class="">
+                                        <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200"
+                                        class="img-fluid">
+                                        <a href="{{ $product->picture_name }}"
+                                        v-on:click.prevent="eliminarpicture">
+                                        <br>
+                                        <i class="fas fa-trash-alt text-black my-2"></i>Eliminar</
+                                    </form>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>  
                     </div>
                 </div>
+                    <!-- /.card-body -->
+                <div class="card-footer">
+
+                </div>
+                
             </div>
 
-
+        </div>
 
 
 </div><!-- /.container-fluid -->
@@ -860,6 +896,33 @@
 
  
  
+</script>
+<script>
+    var app = new Vue({
+        el : '#app',
+        data : '',
+        methods: {
+            eliminarpicture(){
+                  console.log('picture');
+                
+                let url = '/picture/'+picture.id;
+                axios.delete(url).then(response => {
+                console.log(response.data);
+                });
+
+
+
+                   //eliminar el elemento
+                   var elemento = document.getElementById('idpicturen-'+picture.id);
+                   console.log(elemento);
+                   elemento.parentNode.removeChild(elemento);
+                    
+       
+              },
+        
+      }
+});
+    })
 </script>
 
 @endsection
