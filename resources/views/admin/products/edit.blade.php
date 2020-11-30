@@ -818,7 +818,7 @@
                                 @foreach ($product->pictures as $product)
                                 <div id="idpicture-{{$product->id}}">
                                     <form action="" class="">
-                                        <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200"
+                                        <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200" height="200"
                                         class="img-fluid">
                                         <a href="{{ $product->picture_name }}"
                                         v-on:click.prevent="eliminarpicture">

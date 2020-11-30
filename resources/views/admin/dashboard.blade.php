@@ -3,10 +3,51 @@
 @section('content')
 
 
-<div class="card col-3">
-    <div class="card title"> hola</div>
-    <div>adsfasfasfsafasdfasfasdfasdfasdfasfasfasdfasdfasdfsda</div>
-</div>
+<div class="row">
+    <div class="card card-warning mx-3">
+        <div class="card-header">
+            <H4 class="card-title">Actualizacion Precios Proveedor:</h4>
+        </div>
+        <div class="card-body">
+        <form action="{{route('admin.products.import.excel')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @if(Session::has('message'))
+        <p>{{Session::get('message')}}</p>
+        @endif
+        <input type="file" name='file'>
+        <button>Importar lista de Precio</button>
+        </form>
+           
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
 
+
+    <div class="card card-danger mx-3">
+        <div class="card-header">
+            <H4 class="card-title">Actualizacion Precios Proveedor:</h4>
+        </div>
+        <div class="card-body">
+            Subir lista de precios:
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+
+
+    <div class="card card-warning mx-3">
+        <div class="card-header">
+            <H4 class="card-title">Actualizacion Precios Proveedor:</h4>
+        </div>
+        <div class="card-body">
+            Subir lista de precios:
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+</div>
 
 @endsection

@@ -39,7 +39,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('suppliers', 'SupplierController',['except' =>'show','create','edit']);
     Route::resource('pictures', 'PictureController');
     Route::resource('products', 'ProductController');
-   
+    Route::post('import-products-list-cost','ProductController@importExcel')->name('products.import.excel');
     
 });
 
