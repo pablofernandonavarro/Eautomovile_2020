@@ -5,8 +5,8 @@
 var app2 = new Vue({
     el:'#app-2',
     methods: {
-        deletepicture(picture){
-                  // console.log(picture);
+        eliminarpicture(picture){
+                   console.log(picture);
                 
            let url = '/deletepicture/'+ picture.id;
                
