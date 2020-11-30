@@ -54,7 +54,23 @@ class PictureController extends Controller
         
        //return "se va a eliminar el registro ".$id;
     $picture = Picture::find($id);
+    
+    $archivo = substr($picture->url_picture,1);
 
+    $eliminar = File::delete($archivo);
+
+    $picture->delete();
+
+    return back()->with('messages_delete',"La imagen con id: $id  eliminada correctamente!");
+    }
+    
+    public function deleteimage($id)
+
+    { 
+        
+       //return "se va a eliminar el registro ".$id;
+    $picture = Picture::find($id);
+    
     $archivo = substr($picture->url_picture,1);
 
     $eliminar = File::delete($archivo);
