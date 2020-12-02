@@ -362,9 +362,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
     <script src="{{asset('js/app.js')}}"></script>
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 
     @yield('scripts')
+=======
+ <script src="{{asset('js/deletePicture2.js')}}"></script> 
+>>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
 
 </body>
 

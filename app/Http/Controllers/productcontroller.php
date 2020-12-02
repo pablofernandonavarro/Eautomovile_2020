@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Request;
+use Maatwebsite\Excel\Facades\Excel;
 class Productcontroller extends Controller
 { 
      public function show($id){
@@ -247,4 +248,13 @@ public function deletepicture($id)
 
     return "eliminado id:".$id. ' '.$eliminar;
 }
+
+public function importExcel(Request $request){
+
+    $file = $request->file('file');
+    Excel::import(new ProductsImport, $file);
+
+    return back()->with('message', 'importacion exitosa');
+}
+
 }

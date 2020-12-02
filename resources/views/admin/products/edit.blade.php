@@ -18,8 +18,15 @@
 @endsection
 
 @section('scripts')
+<<<<<<< HEAD
 
 <script src="{{asset('js/deletePicture2.js')}}"></script>
+=======
+{{-- <script src="{{asset('js/deletePicture2.js')}}"></script> --}}
+
+
+
+>>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
 
 
 @endsection
@@ -766,14 +773,33 @@
                 <div class="card-footer">
 
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
+                
 
-                        <a class="btn btn-danger" href="#">Cancelar</a>
-                        <input :disabled="deshabilitar_boton==1" type="submit" value="Guardar" class="btn btn-success">
-
+                <!-- /.card -->
+            </form>
+            <div id="app-2">
+                <div class="card card-warning ">
+                    <div class="card-header">
+                        <h3 class="card-title">Galeria de Imágenes</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="row">
+                                @foreach ($product->pictures as $picture)
+                                <div id="idpicture-{{$picture->id}}">
+                                    <form action="" class="">
+                                        <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" height="200"
+                                        class="img-fluid">
+                                        <a href="{{ $picture->url_picture}}"
+                                        v-on:click.prevent="eliminarpicture({{("picture")}}">
+                                        <br>
+                                        <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
+                                    </form>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>  
                     </div>
                     <!-- /.form-group -->
 
@@ -790,6 +816,7 @@
             <!-- /.card -->
 </form>
 
+<<<<<<< HEAD
 <div class="container">
     <div class="card card-warning ">
         <div class="card-header">
@@ -809,14 +836,9 @@
                                 <br>
                                 <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
                             </a>
+=======
+>>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
 
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.card-body -->
         <div class="card-footer">
 
         </div>
