@@ -11,17 +11,15 @@
 
 
 @section('estilos')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
+
+
 <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 @endsection
 
 @section('scripts')
 
-
-
-
+<script src="{{asset('js/deletePicture2.js')}}"></script>
 
 
 @endsection
@@ -178,7 +176,7 @@
                                     value="{{old('$product->patterns')}}">
                                     @foreach($patterns as $pattern)
 
-                                    @if (old('pattern_id') == $pattern->id)
+                                    @if ($product->patterns == $pattern->id)
                                     <option value="{{ $pattern->id }}" selected>{{$product->pattern_name}}
                                     </option>
                                     @else
@@ -798,15 +796,16 @@
             <h3 class="card-title">Galeria de Imágenes</h3>
         </div>
         <!-- /.card-header -->
-        <div id="app-2">
+        <div id="picture">
             <div class="card-body">
                 <div class="form-group">
                     <div class="row">
                         @foreach ($product->pictures as $picture)
                         <div id="id{{$picture->id}}">
-                            <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" class="img-fluid">
+                            <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
+                                alt="foto" width="200" class="img-fluid">
                             <a href="{{ '/storage/'.$picture->url_picture }}"
-                                v-on:click.prevent="deletepicture('{{$picture}}')">
+                                v-on:click.prevent="deletepicture({{$picture}})">
                                 <br>
                                 <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
                             </a>
@@ -834,7 +833,9 @@
 
 
 
+
 </div>
+
 
 
 <script type="text/javascript">
@@ -885,7 +886,6 @@
  
  
 </script>
-
 
 
 

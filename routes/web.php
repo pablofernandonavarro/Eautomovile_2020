@@ -39,7 +39,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('suppliers', 'SupplierController',['except' =>'show','create','edit']);
     Route::resource('pictures', 'PictureController');
     Route::resource('products', 'ProductController');
-  
+    
    
     
 });
@@ -74,4 +74,5 @@ Route::get('/test', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::delete('deletepicture', 'PictureController@deleteimage')->name('deletepicture');
+
+Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepicture');

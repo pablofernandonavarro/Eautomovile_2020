@@ -139,17 +139,20 @@ class Productcontroller extends Controller
     public function edit($id){
         
         $url_picture=[];  
+        $product     = Product::with('pattern','colors')->where('id',$id)->firstOrFail();
+      
+        $categories   = Category::all();
+        $user         = Auth::user();
+        $brands       = Brand::all();
+        $patterns      = Pattern::all();
+        $colors       = Color::all();
+        $pictures     = Picture::all();
+        $suppliers    = Supplier::all();
        
-        return view('admin/products/edit', [
-        'product'      =>  Product::find($id),
-        'categories'   => Category::all(),
-        'user'         => Auth::user(), 
-        'brands'       => Brand::all(),
-        'patterns'     => Pattern::all(),
-        'colors'       => Color::all(),
-        'pictures'     => Picture::all(),
-        'suppliers'    => Supplier::all(),
-     ]);
+        return view('admin/products/edit', compact('product','categories','user','brands','patterns','colors','suppliers','pictures'));
+        
+        
+     
 
     }
 
