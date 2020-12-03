@@ -117,11 +117,12 @@
 
                     </tbody>
                 </table>
-                {{-- {{ $product->appends($_GET)->links() }} --}}
+                
             </div>
+           
             <!-- /.card-body -->
         </div>
-        <!-- /.card -->
+        {!! $products->render() !!}<!-- /.card -->
     </div>
 </div>
 <!-- /.row -->

@@ -18,15 +18,10 @@
 @endsection
 
 @section('scripts')
-<<<<<<< HEAD
-
-<script src="{{asset('js/deletePicture2.js')}}"></script>
-=======
 {{-- <script src="{{asset('js/deletePicture2.js')}}"></script> --}}
 
 
 
->>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
 
 
 @endsection
@@ -816,28 +811,6 @@
             <!-- /.card -->
 </form>
 
-<<<<<<< HEAD
-<div class="container">
-    <div class="card card-warning ">
-        <div class="card-header">
-            <h3 class="card-title">Galeria de Imágenes</h3>
-        </div>
-        <!-- /.card-header -->
-        <div id="picture">
-            <div class="card-body">
-                <div class="form-group">
-                    <div class="row">
-                        @foreach ($product->pictures as $picture)
-                        <div id="id{{$picture->id}}">
-                            <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
-                                alt="foto" width="200" class="img-fluid">
-                            <a href="{{ '/storage/'.$picture->url_picture }}"
-                                v-on:click.prevent="deletepicture({{$picture}})">
-                                <br>
-                                <i class="fas fa-trash-alt" style="color:red"></i> Id:{{ $picture->id }}
-                            </a>
-=======
->>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
 
         <div class="card-footer">
 

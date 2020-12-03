@@ -39,12 +39,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('suppliers', 'SupplierController',['except' =>'show','create','edit']);
     Route::resource('pictures', 'PictureController');
     Route::resource('products', 'ProductController');
-<<<<<<< HEAD
     
-   
-=======
-    Route::post('import-products-list-cost','ProductController@importExcel')->name('products.import.excel');
->>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
     
 });
 
@@ -80,3 +75,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepicture');
+Route::post('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');

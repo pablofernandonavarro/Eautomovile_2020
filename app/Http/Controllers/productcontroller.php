@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ProductsImport;
+
+
+
+
+
 class Productcontroller extends Controller
 { 
      public function show($id){
@@ -129,7 +135,7 @@ class Productcontroller extends Controller
         $brands     = Brand::all();
         $patterns   = Pattern::all();
         $colors     = Color::all();
-        $products   = Product::orderby('id','DESC')->paginate('10');
+        $products   = Product::orderby('id','DESC')->paginate(5);
         $suppliers = Supplier::all();
 
         return view('admin.products.index',compact('products','categories','user','brands','patterns','colors'));
@@ -254,7 +260,7 @@ public function importExcel(Request $request){
     $file = $request->file('file');
     Excel::import(new ProductsImport, $file);
 
-    return back()->with('message', 'importacion exitosa');
+    return back()->with('mensaje', 'importacion exitosa');
 }
 
 }
