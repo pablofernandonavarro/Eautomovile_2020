@@ -290,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Supplier update nav-bar-->
 
                             <li class="nav-item has-treeview bg-danger">
-                                <a href="#" class="nav-link active">
+                                <a href="dashboard" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Actualizar Precios
@@ -362,7 +362,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
     <script src="{{asset('js/app.js')}}"></script>
- <script src="{{asset('js/deletePicture2.js')}}"></script> 
+    <script src="{{asset('js/deletePicture2.js')}}"></script>
 
 </body>
 
