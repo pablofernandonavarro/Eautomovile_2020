@@ -255,12 +255,28 @@ public function deletepicture($id)
     return "eliminado id:".$id. ' '.$eliminar;
 }
 
-public function importExcel(Request $request){
-
+public function importExcel(Request $request,Product $products){
+    
     $file = $request->file('file');
-    Excel::import(new ProductsImport, $file);
+    $products =  Excel::toCollection(new ProductsImport,request()->file('file'));
+    $a = Product::where('sku', $products[0][0][0]);
+   
+    // $sku=Product::orderBy('sku')
+    //     ->where('sku','=',$products)
+    //     ->get();
+    //     dd($sku);
+    foreach($products[0] as $product)
+    {    
+        Product::orderBy('sku')
+        ->where('sku','=',$products)
+        ->update
+        ([
+             'sku' => $product[0],
+             'price' => $product[1]
+        ]);
+    }
 
-    return back()->with('mensaje', 'importacion exitosa');
-}
-
+   
+    return route('products.import.excel');
+    }
 }

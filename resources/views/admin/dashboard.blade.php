@@ -20,6 +20,7 @@
                     {{$error}}
                     @endforeach
                 </div>
+                @endif
                 <input type="file" name='file'>
                 <button>Importar lista de Precio</button>
             </form>
@@ -29,7 +30,7 @@
         </div>
     </div>
 
-
+</div>
 
 
 
