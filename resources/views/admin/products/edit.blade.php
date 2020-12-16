@@ -768,56 +768,57 @@
                 <div class="card-footer">
 
                 </div>
-                
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <br>
 
                 <!-- /.card -->
-            </form>
-            <div id="app-2">
-                <div class="card card-warning ">
-                    <div class="card-header">
-                        <h3 class="card-title">Galeria de Imágenes</h3>
+</form>
+<div id="app-2">
+    <div class="card card-warning ">
+        <div class="card-header">
+            <h3 class="card-title">Galeria de Imágenes</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="form-group">
+                <div class="row">
+                    @foreach ($product->pictures as $picture)
+                    <div id="idpicture-{{$picture->id}}">
+                        <form action="" class="">
+                            <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" height="200"
+                                class="img-fluid">
+                            <a href="{{ $picture->url_picture}}" v-on:click.prevent="eliminarpicture({{("picture")}}">
+                                <br>
+                                <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
+                        </form>
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="form-group">
-                            <div class="row">
-                                @foreach ($product->pictures as $picture)
-                                <div id="idpicture-{{$picture->id}}">
-                                    <form action="" class="">
-                                        <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" height="200"
-                                        class="img-fluid">
-                                        <a href="{{ $picture->url_picture}}"
-                                        v-on:click.prevent="eliminarpicture({{("picture")}}">
-                                        <br>
-                                        <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
-                                    </form>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>  
-                    </div>
-                    <!-- /.form-group -->
-
+                    @endforeach
                 </div>
-                <!-- /.col -->
-
-
-
-
-
             </div>
+        </div>
+        <!-- /.form-group -->
+
+    </div>
+    <!-- /.col -->
 
 
-            <!-- /.card -->
+
+
+
+</div>
+
+
+<!-- /.card -->
 </form>
 
 
-        <div class="card-footer">
+<div class="card-footer">
 
-        </div>
+</div>
 
 
-    </div>
+</div>
 </div>
 
 

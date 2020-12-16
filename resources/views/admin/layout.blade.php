@@ -290,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Supplier update nav-bar-->
 
                             <li class="nav-item has-treeview bg-danger">
-                                <a href="dashboard" class="nav-link active">
+                                <a href="/admin/dashboard" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Actualizar Precios

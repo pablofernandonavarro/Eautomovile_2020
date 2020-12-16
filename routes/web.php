@@ -76,3 +76,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepicture');
 Route::post('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');
+Route::get('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');

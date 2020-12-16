@@ -13,7 +13,7 @@ class PatternSeeder extends Seeder
     public function run()
     {
         DB::table('patterns')->insert([
-            'pattern_name'  => 'Gol',
+            'pattern_name'  => 'Sin Datos',
             'brand_id'      => '1'
         ]);
         DB::table('patterns')->insert([

@@ -13,7 +13,7 @@ class BrandSeeder extends Seeder
     public function run()
     {
         DB::table('brands')->insert([
-            'brand_name'  => 'Volkswagen'
+            'brand_name'  => 'Sin Datos'
         ]);
         DB::table('brands')->insert([
             'brand_name'  => 'Chevrolet'

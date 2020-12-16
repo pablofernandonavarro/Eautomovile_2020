@@ -3,33 +3,34 @@
 namespace App\Imports;
 
 use App\Product;
-use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithValidation;
-use PhpParser\Node\Stmt\Return_;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ProductsImport implements ToModel, WithValidation
+class ProductsImport implements ToCollection, WithHeadingRow
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+    use importable;
+    
+  
+    public function collection(Collection $rows)
     {
-        return new Product([
-            
-            'sku'                  => $row[3],
-            'price'                 => $row[4],
-           
-            
-        ]);
-    }
+        foreach ($rows as $row) {
+            if (!isset($row['sku'])) {
+                return null;
+            }
 
-    public function rules(): array
-
-    {
-        return [
-            'sku' => ['sku','unique:products,sku']
-        ];
+            Product::updateOrCreate([
+                'sku' => $row['sku'],
+                
+            ], [
+                'sku'         => $row['sku'],
+                'price'       => $row['price'],
+                'brand_id'    => $row['marca'],
+                'pattern_id'  => $row['modelo'],
+                'category_id' => $row['categoria'],
+                'supplier_id' => $row['proveedor'],
+            ]);
+        }
     }
 }

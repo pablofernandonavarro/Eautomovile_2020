@@ -12,14 +12,18 @@
             <form action="{{route('products.import.excel')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if(Session::has('message'))
-                <p>{{Session::get('message')}}</p>
+                <div class="alert alert-success">
+                    <p>{{Session::get('message')}}</p>
+                </div>
                 @endif
                 @if(isset($errors) && $errors->any())
                 <div class="alert alert-danger">
-                    @foreach ($erros->all() as $error)
+                    @foreach ($errors->all() as $error)
                     {{$error}}
                     @endforeach
+
                 </div>
+                @endif
                 <input type="file" name='file'>
                 <button>Importar lista de Precio</button>
             </form>
@@ -28,6 +32,7 @@
         <div class="card-footer">
         </div>
     </div>
+</div>
 
 
 
@@ -35,7 +40,7 @@
 
 
 
-    </form>
+</form>
 
 
 
@@ -44,4 +49,4 @@
 
 
 
-    @endsection
+@endsection

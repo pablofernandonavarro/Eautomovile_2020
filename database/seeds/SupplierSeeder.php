@@ -22,7 +22,7 @@ class SupplierSeeder extends Seeder
             'supplier_address_location'          => 'tres de febrero',
             'supplier_address_province'          => 'Buenos Aires',
             'supplier_address_postalCode'        => '1650',
-            'supplier_web'                       => 'varen.com.ar',
+            'supplier_web'                       => 'vapren.com.ar',
 
             'supplier_cuit'                      => '20-12121-1212',
             'supplier_ivaType'                   => 'responsable inscripto',
