@@ -18,6 +18,9 @@
 @endsection
 
 @section('scripts')
+
+
+
 {{-- <script src="{{asset('js/deletePicture2.js')}}"></script> --}}
 
 
@@ -774,7 +777,7 @@
 
                 <!-- /.card -->
 </form>
-<div id="app-2">
+<div id="app">
     <div class="card card-warning ">
         <div class="card-header">
             <h3 class="card-title">Galeria de Imágenes</h3>
@@ -786,8 +789,8 @@
                     @foreach ($product->pictures as $picture)
                     <div id="idpicture-{{$picture->id}}">
                         <form action="" class="">
-                            <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" width="200" height="200"
-                                class="img-fluid">
+                            <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
+                                alt="foto" class="img-fluid">
                             <a href="{{ $picture->url_picture}}" v-on:click.prevent="eliminarpicture({{("picture")}}">
                                 <br>
                                 <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
@@ -810,7 +813,7 @@
 
 
 <!-- /.card -->
-</form>
+
 
 
 <div class="card-footer">
@@ -882,7 +885,33 @@
  
  
 </script>
+<script>
+    var app = new Vue({
+    el:'#app',
+    methods: {
+        eliminarpicture(picture){
+                //    console.log(picture);
+                
+        let url = '/deletepicture/' + picture.id;
+            
+            axios.delete(url).then(response => {
+                console.log(response.data);
+                });
 
+              
+                  
+        //    eliminar el elemento
+                    var elemento = document.getElementById('id'+ picture.id);
+                    console.log(elemento);
+                    elemento.parentNode.removeChild(elemento);
+                   
+                  }        
+       
+            
+            }
+      
+});
 
+</script>
 
 @endsection

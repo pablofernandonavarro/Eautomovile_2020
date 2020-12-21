@@ -39,12 +39,12 @@
                         </tbody>
                     </table>
                 </div>
-           <div class="col-md-5 bg-white">
+           <!-- <div class="col-md-5 bg-white">
                     <pre>
                            {{ $data }}
                     </pre>
-                </div>  
-            </div>
+                </div> -->  
+            </div> 
         </div>
 
                 <!-- FORM CREATE supplier -->

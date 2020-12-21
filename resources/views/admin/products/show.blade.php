@@ -649,7 +649,8 @@
 
                         @foreach ($products->pictures as $product)
 
-                        <img src="{{'/storage/'.$product->url_picture}}" alt="foto" width="200" class="img-fluid mb-2">
+                        <img style="width:150px; height:150px;" src="{{'/storage/'.$product->url_picture}}" alt="foto"
+                            class="img-fluid mb-2">
 
                         @endforeach
                     </div>

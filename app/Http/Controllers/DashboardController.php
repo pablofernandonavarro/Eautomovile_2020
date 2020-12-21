@@ -16,6 +16,7 @@ class DashboardController extends Controller
        return view('admin.dashboard',compact('user'));
        
    }
+ 
    public function view_color(){
 
       $user = Auth::user();

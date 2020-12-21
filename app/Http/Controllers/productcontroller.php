@@ -251,6 +251,6 @@ class Productcontroller extends Controller
         
         Excel::import(new ProductsImport, request()->file('file'));
         
-        return redirect('/admin/dashboard')->with('message', 'Actualizacion de precios Exitosa');
+        return redirect('/admin/importProductExcel')->with('message', 'Actualizacion de precios Exitosa');
     }
 }

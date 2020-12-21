@@ -1,17 +1,8 @@
-
-
-
-
-var picture = new Vue({
-    el:'#picture',
+var app = new Vue({
+    el:'#app',
     methods: {
-<<<<<<< HEAD
-        deletepicture(picture){
-              
-=======
         eliminarpicture(picture){
-                   console.log(picture);
->>>>>>> f120cb4716fe63008e594be8d2e9737c065276ea
+                //    console.log(picture);
                 
         let url = '/deletepicture/' + picture.id;
             

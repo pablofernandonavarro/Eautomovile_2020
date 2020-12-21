@@ -290,7 +290,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- Supplier update nav-bar-->
 
                             <li class="nav-item has-treeview bg-danger">
-                                <a href="/admin/dashboard" class="nav-link active">
+                                <a href="/admin/importProductExcel" class="nav-link active">
                                     <i class="nav-icon active"></i>
                                     <p>
                                         Actualizar Precios
@@ -350,19 +350,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    {{-- <script src="adminlte/plugins/jquery/jquery.min.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
     <!-- Bootstrap 4 -->
     {{-- <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
     <!-- AdminLTE App -->
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
     <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/deletePicture2.js')}}"></script>
+
+    @yield('scripts')
+
 
 </body>
 

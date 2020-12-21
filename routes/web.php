@@ -24,6 +24,8 @@ Route::get('/index','indexController@view_user');
 Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
    
     Route::get('dashboard','DashboardController@index');
+    Route::get('importProductExcel','importProductExcelController@importExcel');
+    Route::post('importProductExcel','importProductExcelController@importExcel');
     Route::get('note_crud','DashboardController@view_note');
     Route::get('color_crud','DashboardController@view_color');
     Route::get('category_crud','DashboardController@view_category');
@@ -46,32 +48,9 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
 Route::resource('users', 'UserController');
 Route::get('/api-brands/{id}', 'ApiController@brand');
 
-Route::get('/test', function(){
-    $pictures =Picture::find(4)->get();
-    return $pictures;
- 
-});
-   
-
-
-
-
-
-
 //  /ROUTE ADMIN
 
-
-
-
-
-
-
-
-
-
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepicture');
