@@ -338,13 +338,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.control-sidebar -->
 
             <!-- Main Footer -->
-            <footer class="main-footer">
-
-
-            </footer>
-        </div>
-
-    </div>
+          
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
@@ -356,17 +350,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 4 -->
     {{-- <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
     <!-- AdminLTE App -->
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script> --}}
+        crossorigin="anonymous"></script> 
 
     <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
     <!-- App js-->
-    <script src="{{asset('js/app.js')}}"></script>
+   
 
     @yield('scripts')
 
 
 </body>
+<footer class="main-footer">
+
+
+</footer>
+</div>
+
+</div>
 
 </html>

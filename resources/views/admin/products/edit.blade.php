@@ -21,7 +21,7 @@
 
 
 
-{{-- <script src="{{asset('js/deletePicture2.js')}}"></script> --}}
+<script src="{{asset('js/deletePicture2.js')}}"></script>
 
 
 
@@ -298,8 +298,8 @@
 
                                 <label>Codigo producto / Proveedor:</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" id="utility" name="supplier_product_code"
-                                        value="{{$product->supplier_product_code}}">
+                                    <input class="form-control" type="number" id="supplier_product_code"
+                                        name="supplier_product_code" value="{{$product->supplier_product_code}}">
 
 
                                 </div>
@@ -441,8 +441,8 @@
 
                                 <label>Utilidad :</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" id="utility" name="utility" step="any"
-                                        min="0" max="100" value="{{$product->utility}}">
+                                    <input class="form-control" type="number" id="utility" name="utility"
+                                        value="{{$product->utility}}" step="any" min="0" max="100">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">%</span>
                                     </div>
@@ -493,8 +493,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">$</span>
                                     </div>
-                                    <input class="form-control" id="price" name="price" value="{{$product->price}}"
-                                        step="1">
+                                    <input class="form-control" id="price" name="price" value="{{$product->price}}">
 
                                 </div>
                                 <br>
@@ -777,40 +776,42 @@
 
                 <!-- /.card -->
 </form>
-<div id="app">
-    <div class="card card-warning ">
-        <div class="card-header">
-            <h3 class="card-title">Galeria de Imágenes</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <div class="form-group">
-                <div class="row">
-                    @foreach ($product->pictures as $picture)
-                    <div id="idpicture-{{$picture->id}}">
-                        <form action="" class="">
-                            <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
-                                alt="foto" class="img-fluid">
-                            <a href="{{ $picture->url_picture}}" v-on:click.prevent="eliminarpicture({{("picture")}}">
-                                <br>
-                                <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
-                        </form>
+<div class="container">
+    <div id="app">
+        <div class="card card-warning ">
+            <div class="card-header">
+                <h3 class="card-title">Galeria de Imágenes</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="row">
+                        @foreach ($product->pictures as $picture)
+                        <div id="idpicture-{{$picture->id}}">
+                            <form action="" class="">
+                                <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
+                                    alt="foto" class="img-fluid">
+                                <a href="{{ $picture->url_picture}}"
+                                    v-on:click.prevent="eliminarpicture({{("picture")}}">
+                                    <br>
+                                    <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
+                            </form>
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
+            <!-- /.form-group -->
+
         </div>
-        <!-- /.form-group -->
+        <!-- /.col -->
+
+
+
+
 
     </div>
-    <!-- /.col -->
-
-
-
-
-
 </div>
-
 
 <!-- /.card -->
 
@@ -885,33 +886,6 @@
  
  
 </script>
-<script>
-    var app = new Vue({
-    el:'#app',
-    methods: {
-        eliminarpicture(picture){
-                //    console.log(picture);
-                
-        let url = '/deletepicture/' + picture.id;
-            
-            axios.delete(url).then(response => {
-                console.log(response.data);
-                });
 
-              
-                  
-        //    eliminar el elemento
-                    var elemento = document.getElementById('id'+ picture.id);
-                    console.log(elemento);
-                    elemento.parentNode.removeChild(elemento);
-                   
-                  }        
-       
-            
-            }
-      
-});
-
-</script>
 
 @endsection

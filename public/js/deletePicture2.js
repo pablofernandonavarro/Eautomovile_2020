@@ -2,13 +2,13 @@ var app = new Vue({
     el:'#app',
     methods: {
         eliminarpicture(picture){
-                //    console.log(picture);
+                   console.log(picture);
                 
-        let url = '/deletepicture/' + picture.id;
+        // let url = '/deletepicture/' + picture.id;
             
-            axios.delete(url).then(response => {
-                console.log(response.data);
-                });
+        //     axios.delete(url).then(response => {
+        //         console.log(response.data);
+        //         });
 
               
                   
