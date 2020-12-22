@@ -24,12 +24,12 @@ class ProductsImport implements ToCollection, WithHeadingRow
                 'sku' => $row['sku'],
                 
             ], [
-                'sku'         => $row['sku'],
-                'price'       => $row['price'],
-                'brand_id'    => $row['marca'],
-                'pattern_id'  => $row['modelo'],
-                'category_id' => $row['categoria'],
-                'supplier_id' => $row['proveedor'],
+                'sku'                   => $row['sku'],
+                'supplier_price_list'   => $row['precio_lista_proveedor'],
+                'brand_id'              => $row['marca'],
+                'pattern_id'            => $row['modelo'],
+                'category_id'           => $row['categoria'],
+                'supplier_id'           => $row['proveedor'],
             ]);
         }
     }

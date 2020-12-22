@@ -1,14 +1,14 @@
-var app = new Vue({
-    el:'#app',
+const app = new Vue({
+    el:'#app999',
     methods: {
-        eliminarpicture(picture){
+        eliminar(picture){
                    console.log(picture);
                 
-        // let url = '/deletepicture/' + picture.id;
+      let url = '/deletepicture/' + picture.id;
             
-        //     axios.delete(url).then(response => {
-        //         console.log(response.data);
-        //         });
+            axios.delete(url).then(response => {
+               console.log(response.data);
+                });
 
               
                   

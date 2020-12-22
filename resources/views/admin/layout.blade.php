@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    <title>{{ config('app.name', 'eautomovile') }}</title>
     <title>E-automovile | administracion</title>
 
     <!-- App -->
@@ -22,6 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 
 
@@ -335,30 +336,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <p>Sidebar content</p>
                 </div>
             </aside>
-            <!-- /.control-sidebar -->
 
-            <!-- Main Footer -->
-          
-    <!-- ./wrapper -->
+            <script src="http://adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            {{-- <script src="http://adminlte/plugins/jquery/jquery.min.js"></script> --}}
+            <!-- Bootstrap 4 -->
 
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <!-- AdminLTE App -->
+            {{-- <script src="http://adminlte/dist/js/adminlte.min.js"></script> --}}
+            <!-- AdminLTE for demo purposes -->
 
 
-    <!-- Bootstrap 4 -->
-    {{-- <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
-    <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script> 
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
-    <!-- App js-->
-   
 
-    @yield('scripts')
+
+            <script type="text/javascript" src="/js/app.js"></script>
+
+
+            @yield('scripts')
 
 
 </body>
@@ -366,8 +361,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 </footer>
-</div>
 
-</div>
 
 </html>

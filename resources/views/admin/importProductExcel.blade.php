@@ -55,7 +55,7 @@
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th>sku</th>
-                        <th>Precio de venta</th>
+                        <th>Precio de lista Proveedor</th>
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Categoria</th>
@@ -64,10 +64,10 @@
                     @foreach($products as $row)
                     <tr>
                         <td>{{ $row->sku }}</td>
-                        <td>{{ $row->price}}</td>
+                        <td>{{ $row->supplier_price_list}}</td>
                         <td>{{ $row->brand->brand_name}}</td>
                         <td>{{ $row->pattern->pattern_name}}</td>
-                        <td>{{ $row->category->category_name }}</td>
+                        <td>{{ $row->category->category_name}}</td>
 
                         <td>{{ $row->supplier_id}}</td>
                     </tr>

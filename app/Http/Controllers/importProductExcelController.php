@@ -15,6 +15,7 @@ class importProductExcelController extends Controller
     public function importExcel(){
        
         $products    = Product::with('brand','pattern','category','suppliers')->get();
+       
   
         $user        = Auth::user();
     

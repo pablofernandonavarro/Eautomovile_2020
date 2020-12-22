@@ -19,34 +19,20 @@
 
 @section('scripts')
 
-
-
-<script src="{{asset('js/deletePicture2.js')}}"></script>
-
-
-
+<script src="{{asset('js/deletePicture2.js')}}"></script> --}}
 
 
 @endsection
 
 
+<section class="content">
 
+    <div class="container-fluid">
+        <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
+            @csrf
 
-
-
-
-
-
-
-<form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
-    @method('PUT')
-    @csrf
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-
-
+            <!-- Main content -->
             <div class="card card-success">
                 <!-- card success-->
                 <div class="card-header">
@@ -774,59 +760,66 @@
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <br>
 
-                <!-- /.card -->
-</form>
-<div class="container">
-    <div id="app">
-        <div class="card card-warning ">
-            <div class="card-header">
-                <h3 class="card-title">Galeria de Imágenes</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                <div class="form-group">
-                    <div class="row">
-                        @foreach ($product->pictures as $picture)
-                        <div id="idpicture-{{$picture->id}}">
-                            <form action="" class="">
-                                <img style="width:150px; height:150px;" src="{{'/storage/'.$picture->url_picture}}"
-                                    alt="foto" class="img-fluid">
-                                <a href="{{ $picture->url_picture}}"
-                                    v-on:click.prevent="eliminarpicture({{("picture")}}">
-                                    <br>
+            </div> <!-- /.card -->
+        </form>
+
+        <div id="app999">
+            <div class="card card-warning ">
+                <div class="card-header">
+                    <h3 class="card-title">Galeria de Imágenes</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="form-group">
+
+                        <div class="row">
+
+                            @foreach ($product->pictures as $picture)
+                            <div id="id{{$picture->id}}">
+
+                                <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" class="img-fluid p-1">
+                                <a href="{{ $picture->url_picture}}" v-on:click.prevent="eliminar({{$picture}})">
+
                                     <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
-                            </form>
+                                </a>
+                            </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
+
+
+            </div>
+
+
+            <div class="card-footer">
+
             </div>
             <!-- /.form-group -->
 
         </div>
         <!-- /.col -->
+    </div>
 
 
 
 
+
+
+
+    <!-- /.card -->
+
+
+
+    <div class="card-footer">
 
     </div>
-</div>
-
-<!-- /.card -->
 
 
 
-<div class="card-footer">
 
-</div>
+    </div><!-- /.container-fluid -->
 
-
-</div>
-</div>
-
-
-</div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 
@@ -834,7 +827,6 @@
 
 
 
-</div>
 
 
 
@@ -886,6 +878,7 @@
  
  
 </script>
+
 
 
 @endsection
