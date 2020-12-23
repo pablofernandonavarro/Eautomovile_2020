@@ -332,10 +332,14 @@
 
             <div class="mt-2 d-flex justify-content-center">
 
-                <img class="col-sm-2 d-flex " src="{{Storage::url($user->url_avatar)}}" alt="" width="50px"
+
+                <img class="col-sm-2 d-flex " src="{{asset('avatars/'.Auth::user()->url_avatar)}}" alt="" width="50px"
                     style="border-radius:100%">
-                <input class="form-control col-sm-4 align-items-end" type="file" name="url_avatar"
-                    value='{{$user->url_avatar}}'>
+                <div class="label">
+                    <h2>Seleccione una foto de perfil</h2>
+                    <input class="col-sm-4 align-items-end" type="file" name="url_avatar" value='{{$user->url_avatar}}'>
+                </div>
+
             </div>
 
             <!-- /IMAGE AVATAR    -->

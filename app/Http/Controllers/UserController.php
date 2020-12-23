@@ -26,10 +26,11 @@ class Usercontroller extends Controller
     
         if ($request->hasFile('url_avatar')) {
             
+            $file = $request->url_avatar;
+            $file->move(public_path().'/avatars',$file->getClientOriginalName());
+            $user->url_avatar = $file->getclientOriginalName();
             
-            $user->url_avatar = $request->file('url_avatar')->store('public/avatars');
-            
-            $user->save($request->all());
+           
         }
         $user->name                           = $request->name;
         $user->user_lastName                  = $request->user_lastName;
