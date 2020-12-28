@@ -5,7 +5,7 @@
             <div class="container">
                 <a href="" class="navbar-brand">
                     <div id="pictue:logo">
-                        <img src="{{ asset('storage/admin_picture/Logotipo.png') }}" alt="" width="200">
+                        <img src="{{ asset('storage/admin_picture/Logotipo.png') }}" alt="" width="350">
                     </div>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#NavBar">
@@ -15,14 +15,18 @@
                 @guest
                 <div class="collapse navbar-collapse" id="NavBar">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">{{ __('Inicio')}}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">{{ __('Nosotros')}}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">{{ __('Preguntas Frecuentes')}}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar')}}</a>
+                        <li class="nav-item"><a class="ITEM nav-link text-white" href="#">{{ __('Inicio')}}</a>
+                        </li>
+                        <li class="nav-item"><a class="ITEM nav-link text-white"
+                                href="#">{{ __('Preguntas Frecuentes')}}</a>
+                        </li>
+                        <li class="nav-item"><a class="ITEM nav-link text-white"
+                                href="{{ route('login') }}">{{ __('Ingresar')}}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item"><a class="nav-link" href="#">{{ __('Carrito')}}</a></li>
-                        <li class="nav-item"><a class="nav-link"
+                        <li class="nav-item "><a class="ITEM nav-link" href="#">{{ __('Carrito')}}</a>
+                        </li>
+                        <li class="nav-item"><a class="ITEM nav-link"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
 
                     </ul>
@@ -32,10 +36,12 @@
                     @else
                     <div class="collapse navbar-collapse" id="NavBar">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="#">{{ __('Inicio')}}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">{{ __('Carrito')}}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">{{ __('Nosotros')}}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">{{ __('Preguntas Frecuentes')}}</a></li>
+                            <li class="nav-item text-white"><a class="ITEM nav-link" href="#">{{ __('Inicio')}}</a></li>
+                            <li class="nav-item fw-bolder"><a class="ITEM nav-link" href="#">{{ __('Carrito')}}</a></li>
+                            <li class="nav-item fw-bolder"><a class=" ITEM nav-link" href="#">{{ __('Nosotros')}}</a>
+                            </li>
+                            <li class="nav-item fw-bolder"><a class="ITEM nav-link"
+                                    href="#">{{ __('Preguntas Frecuentes')}}</a></li>
 
                             <li class="nav-item dropdown col-1">
                                 <a id="navbarDropdown" class="nav-item dropdown-toggle text-light" href="#"

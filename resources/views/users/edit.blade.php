@@ -2,10 +2,16 @@
 @section('content')
 
 <div class="container">
+
     <div class="col-md-12 p-5">
         <div class="card-header mt-4 ">
             <h1 class="d-flex justify-content-center mt-4">Edita tu Perfil</h1>
         </div>
+        @if (session()->has('info'))
+        <div class="alert alert-success">
+            {{ session('info') }}
+        </div>
+        @endif
 
         <form action="/users/{{$user->id}}" enctype="multipart/form-data" method="post">
             @method('PUT')

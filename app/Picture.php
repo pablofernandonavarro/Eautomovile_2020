@@ -8,6 +8,7 @@ class Picture extends Model
 {
     protected $fillable = [
         'url_picture',
+       
     ];
     
     public function pictureable()

@@ -26,7 +26,7 @@
                     <li><i class="fas fa-envelope-open-text mr-2"></i></i>eautmovile@gamil.com</li>
                     <li><i class="fas fa-map-marker-alt mr-2"></i>San vicente 5874 San Martin cp:1650</li>
 
-                </ul>>
+                </ul>
             </div>
 
 

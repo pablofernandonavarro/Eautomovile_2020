@@ -52,7 +52,7 @@ class Usercontroller extends Controller
          $user->save();
           
            
-            return redirect("index");
+            return redirect("index")->with('info','Su perfil a sido editado con exito');
        
     }
 }
