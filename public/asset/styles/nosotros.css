@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+.nosotros_parrafo {
+    background-color: transparent;
+    font-family: "Dancing Script", cursive !important;
+    font-size: 150%;
+}
+.nosotros_imagen {
+}
