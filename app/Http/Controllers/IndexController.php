@@ -27,4 +27,9 @@ class IndexController extends Controller
      
       return view('index',compact('user','products','categories','patterns'));
     }
+
+    public function view_nosotros(){
+      $user = Auth::user(); 
+      return view('nosotros',compact('user'));
+    }
 }
