@@ -1,6 +1,6 @@
 <header>
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top">
             <div class="container">
                 <a href="" class="navbar-brand">
@@ -15,7 +15,7 @@
                 @guest
                 <div class="collapse navbar-collapse" id="NavBar">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="ITEM nav-link text-white" href="#">{{ __('Inicio')}}</a>
+                        <li class="nav-item"><a class="ITEM nav-link text-white" href="/">{{ __('Inicio')}}</a>
                         </li>
                         <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="#">{{ __('Preguntas Frecuentes')}}</a>
@@ -24,9 +24,13 @@
                                 href="{{ route('login') }}">{{ __('Ingresar')}}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item "><a class="ITEM nav-link" href="#">{{ __('Carrito')}}</a>
+                        <li class="nav-item">
+                            <a class="ITEM nav-link text-white" href="#">
+                                <img src="{{asset('storage/admin_picture/shopping_cart_2.png')}}" alt="carrito"
+                                    width="40">
+                            </a>
                         </li>
-                        <li class="nav-item"><a class="ITEM nav-link"
+                        <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
 
                     </ul>
@@ -36,12 +40,19 @@
                     @else
                     <div class="collapse navbar-collapse" id="NavBar">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item text-white"><a class="ITEM nav-link" href="#">{{ __('Inicio')}}</a></li>
-                            <li class="nav-item fw-bolder"><a class="ITEM nav-link" href="#">{{ __('Carrito')}}</a></li>
-                            <li class="nav-item fw-bolder"><a class=" ITEM nav-link" href="#">{{ __('Nosotros')}}</a>
+                            <li class="nav-item text-white"><a class="ITEM nav-link text-white"
+                                    href="/">{{ __('Inicio')}}</a></li>
+
+                            <li class="nav-item fw-bolder"><a class=" ITEM nav-link text-white"
+                                    href="{{asset('/nosotros')}}">{{ __('Nosotros')}}</a>
                             </li>
-                            <li class="nav-item fw-bolder"><a class="ITEM nav-link"
+                            <li class="nav-item fw-bolder"><a class="ITEM nav-link text-white"
                                     href="#">{{ __('Preguntas Frecuentes')}}</a></li>
+                            <li class="nav-item fw-bolder">
+                                <a class="ITEM nav-link" href="#">
+                                        <img src="{{asset('storage/admin_picture/shopping_cart_2.png')}}" alt="carrito" width="40">
+                                    </a>
+                            </li>
 
                             <li class="nav-item dropdown col-1">
                                 <a id="navbarDropdown" class="nav-item dropdown-toggle text-light" href="#"

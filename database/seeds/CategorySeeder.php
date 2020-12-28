@@ -16,10 +16,13 @@ class CategorySeeder extends Seeder
             'category_name'  => 'Sin Datos'
         ]);
         DB::table('categories')->insert([
-            'category_name'  => 'Baul'
+            'category_name'  => 'Cubre alfombra de Baul'
         ]);
         DB::table('categories')->insert([
-            'category_name'  => 'Caja',
+            'category_name'  => 'Cubre alfombra de caja Camioneta',
+        ]);
+        DB::table('categories')->insert([
+            'category_name'  => 'Cubre alfombra de Habitaculo',
         ]);
         
     }

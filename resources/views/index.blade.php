@@ -5,21 +5,10 @@
 <link href="/adminlte/plugins/select2/css/select2.min.css" rel="stylesheet" />
 @endsection
 
-@section('scripts')
 
-<script src="/adminlte/plugins/select2/js/select2.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#utility').select2();
-        $('#patterns').select2();
-        $('#years').select2();
-    });
-</script>
-
-@endsection
 
 @section('content') <br>
+<br>
 <br>
 <br>
 @if (session()->has('info'))
@@ -108,5 +97,19 @@
 </div>
 
 <br>
+
+@endsection
+
+@section('scripts')
+
+<script src="/adminlte/plugins/select2/js/select2.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#utility').select2();
+        $('#patterns').select2();
+        $('#years').select2();
+    });
+</script>
 
 @endsection
