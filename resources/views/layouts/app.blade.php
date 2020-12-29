@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/nav_header.css')}}">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
 
                     <a href="{{'/'}}">
-                        <img src=" {{ asset('storage/admin_picture/Logotipo.png') }}" width="150" alt="">
+                        <img src=" {{ asset('storage/admin_picture/Logotipo.png') }}" width="300" alt="">
                     </a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -48,11 +49,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="ITEM nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+                            <a class="ITEM nav-link text-white" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="ITEM nav-link" href="{{ route('register') }}">{{ __('Registrase') }}</a>
+                            <a class="ITEM nav-link text-white" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                         </li>
                         @endif
                         @else

@@ -1,3 +1,7 @@
+@section('styles')
+<link rel="stylesheet" href="{{asset('css/nav_header.css')}}">
+@endsection
+
 <header>
 
     <div class="container-fluid ">
@@ -5,7 +9,7 @@
             <div class="container">
                 <a href="" class="navbar-brand">
                     <div id="pictue:logo">
-                        <img src="{{ asset('storage/admin_picture/Logotipo.png') }}" alt="" width="350">
+                        <img src="{{ asset('admin_picture/Logotipo.png') }}" alt="" width="350">
                     </div>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#NavBar">
@@ -26,7 +30,7 @@
                         @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="ITEM nav-link text-white" href="#">
-                                <img src="{{asset('storage/admin_picture/shopping_cart_2.png')}}" alt="carrito"
+                                <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito"
                                     width="40">
                             </a>
                         </li>
@@ -50,7 +54,7 @@
                                     href="#">{{ __('Preguntas Frecuentes')}}</a></li>
                             <li class="nav-item fw-bolder">
                                 <a class="ITEM nav-link" href="#">
-                                        <img src="{{asset('storage/admin_picture/shopping_cart_2.png')}}" alt="carrito" width="40">
+                                        <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
                                     </a>
                             </li>
 

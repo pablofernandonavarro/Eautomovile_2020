@@ -121,3 +121,8 @@ a {
 .options{
     font-size: larger;
 }
+.ITEM{
+    font-size: 1.3rem;
+    font-style: italic;
+
+}

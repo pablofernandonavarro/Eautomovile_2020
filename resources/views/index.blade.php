@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('asset/styles/card_index.css')}}">
+<link rel="stylesheet" href="{{asset('css/card_index.css')}}">
+
 <link href="/adminlte/plugins/select2/css/select2.min.css" rel="stylesheet" />
 @endsection
 
