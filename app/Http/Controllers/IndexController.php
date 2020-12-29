@@ -32,4 +32,24 @@ class IndexController extends Controller
       $user = Auth::user(); 
       return view('nosotros',compact('user'));
     }
+   
+    pubLic function productSearch(Request $request){
+
+    
+      $user = Auth::user();
+      $category_id = $request->get('category_id');
+     
+      $categories = Category::all();
+      $patterns   = Pattern::all();
+    
+     
+
+     $products = Product::orderBy('id','DESC')
+                 ->Category('$category_id');
+    
+
+      return view('index',compact('user','products','categories','patterns'));
+    }
+
+
 }

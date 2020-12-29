@@ -74,4 +74,18 @@ class Product extends Model
      public function suppliers() {
         return $this->belongsToMany('App\Supplier')->withTimestamps();
     }
+
+//  ------------------ scopes -------------------------------
+    
+    public function scopeCategory($query,$category_id){
+        dd($category_id);
+        if ($category_id)
+     return $query->where('category_id', 'LIKE' , "%$category_id%");
+    
+ }
+
+
+
+//  ------------------ /scopes ------------------------------
+
 }
