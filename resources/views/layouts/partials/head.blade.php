@@ -11,7 +11,7 @@
     <title>Eautomovile</title>
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('asset/styles/nav_header.css')}}">
+   
     {{-- ------------------- jquery -------------------- --}}
 
 

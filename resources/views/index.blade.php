@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('asset/styles/card_index.css')}}">
+<link rel="stylesheet" href="{{asset('css/card_index.css')}}">
+
 <link href="/adminlte/plugins/select2/css/select2.min.css" rel="stylesheet" />
 @endsection
 
@@ -28,35 +29,37 @@
             <label class="h3 text-white" style="width: 33%;">Año:</label>
         </div>
         <div class="row p-2 justify-content-center">
+            <form action="{{route('productSearch')}}" method="get">
+                @csrf
+                <select class="category bg-white h3" name="category_id" id="utility" selected="hola">
+                    @foreach($categories as $category)
+                    <option class="form-control" value="{{ $category->id }}" selected>
+                        {{$category->category_name}} </option>
+                    @endforeach
 
-            <select class="category bg-white h3" name="usuario" id="utility">
-                @foreach($categories as $category)
-                <option class="form-control">{{$category->category_name}} </option>
-                @endforeach
-
-            </select>
-
-
-            <select class="pattern bg-white h3" name="pattern_id" id="patterns">
-
-                @foreach($patterns as $pattern)
-
-                <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
-                </option>
-                @endforeach
-            </select>
+                </select>
 
 
+                <select class="pattern bg-white h3" name="pattern_id" id="patterns">
 
-            <select class="years bg-white h3" type="text" name="year" id="years" placeholder="Ingrese el año">
-                @for ($i = 1900; $i < 2100; $i++) <option class="h3">{{$i}}</option>
+                    @foreach($patterns as $pattern)
 
-                    @endfor
-            </select>
-            <button class="btn btn-primary mx-lg-5">
-                Buscar
-            </button>
+                    <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
+                    </option>
+                    @endforeach
+                </select>
 
+
+
+                <input class="inputDate mt-2" type="date" name="year" id="years" placeholder="Ingrese el año">
+                {{-- @for ($i = 1900; $i < 2100; $i++) <option class="h3">{{$i}}</option>
+
+                @endfor --}}
+
+                <button type="submit" class="btn btn-primary mx-lg-5">
+                    Buscar
+                </button>
+            </form>
         </div>
     </div>
 </div>
@@ -108,7 +111,7 @@
     $(document).ready(function() {
         $('#utility').select2();
         $('#patterns').select2();
-        $('#years').select2();
+      
     });
 </script>
 

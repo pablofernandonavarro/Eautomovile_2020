@@ -16,7 +16,11 @@ Auth::routes();
 Route::get('/','indexController@view_user');
 
 Route::get('/index','indexController@view_user');
+Route::get('/index','indexController@productSearch')->name('productSearch');
+
+
 Route::get('/nosotros','indexController@view_nosotros')->name('nosotros');
+
 
 //  ROUTE ADMIN
 

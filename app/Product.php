@@ -74,4 +74,35 @@ class Product extends Model
      public function suppliers() {
         return $this->belongsToMany('App\Supplier')->withTimestamps();
     }
+
+//  ------------------ scopes -------------------------------
+    
+    public function scopeCategorysearch($query, $category_id){
+
+        if($category_id);
+
+    return $query->where('category_id', 'LIKE' , $category_id );
+    
+ }
+    public function scopePatternsearch($query, $pattern_id){
+
+        if($pattern_id);
+    
+    return $query->where('pattern_id', 'LIKE' , $pattern_id );
+
+}
+    public function scopeYearearch($query, $year){
+
+         if($year);
+
+   
+
+    return $query::if($year >'date_star' and $year > 'date_finish')            
+}
+
+
+
+
+//  ------------------ /scopes ------------------------------
+
 }
