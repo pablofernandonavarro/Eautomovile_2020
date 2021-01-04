@@ -4,6 +4,12 @@
 <link rel="stylesheet" href="{{asset('css/card_index.css')}}">
 
 <link href="/adminlte/plugins/select2/css/select2.min.css" rel="stylesheet" />
+
+{{-- -----------------   carrousel-card ----------------------- --}}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+{{-- -----------------   /carrousel-card ----------------------- --}}
 @endsection
 
 
@@ -17,7 +23,33 @@
     {{ session('info') }}
 </div>
 @endif
-<br>
+@if (session()->has('messages_search'))
+<div class="alert alert-success">
+    {{ session('messages_search') }}
+</div>
+@endif
+
+{{-- -----------------   carrousel-card ----------------------- --}}
+
+<div class="bodyCard ">
+    <div class="wrapperCard">
+        <div class="carousel owl-carousel">
+            <div class="card card-1">
+                A</div>
+            <div class="card card-2">
+                B</div>
+            <div class="card card-3">
+                C</div>
+            <div class="card card-4">
+                D</div>
+            <div class="card card-5">
+                E</div>
+        </div>
+    </div>
+</div>
+
+
+{{-- -----------------   /carrousel-card ----------------------- --}}
 <div class="firstPhoto">
     <div>
         <h1 class="text-white display-flex text-center mt-2"> Selecione su vehiculo:</h1>
@@ -52,9 +84,7 @@
 
 
                 <input class="inputDate mt-2" type="date" name="year" id="years" placeholder="Ingrese el año">
-                {{-- @for ($i = 1900; $i < 2100; $i++) <option class="h3">{{$i}}</option>
 
-                @endfor --}}
 
                 <button type="submit" class="btn btn-primary mx-lg-5">
                     Buscar
@@ -63,8 +93,15 @@
         </div>
     </div>
 </div>
-
-
+<br>
+@if (session('messages_search'))
+<br>
+<div class="alert alert-danger col-md-10" role="alert">
+    <strong>Aviso :</strong> asfsafasfasfa<button type="button" class="close" data-dismiss="alert" alert-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 
 
 {{-- ---------------------------- Card-products --------------------- --}}
@@ -106,7 +143,8 @@
 @section('scripts')
 
 <script src="/adminlte/plugins/select2/js/select2.min.js"></script>
-
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#utility').select2();
@@ -114,5 +152,31 @@
       
     });
 </script>
+
+
+<script>
+    $(".carousel").owlCarousel({
+        margin: 10,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          0:{
+            items:1,
+            nav: false
+          },
+          600:{
+            items:2,
+            nav: false
+          },
+          1000:{
+            items:3,
+            nav: false
+          }
+        }
+      });
+</script>
+
 
 @endsection

@@ -3,16 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 use Cviebrock\EloquentSluggable\Sluggable;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Picture;
 use PhpParser\Node\Stmt\Return_;
+use carbon\Carbon;
+use DateTime;
 
 class Product extends Model
 {
     use Sluggable;
-    
+
     public function sluggable()
     {
         return [
@@ -22,7 +24,7 @@ class Product extends Model
         ];
     }
     protected $table = 'products';
-    
+
     protected $fillable = [
         'sku',
         'slug',
@@ -48,61 +50,84 @@ class Product extends Model
         'cost',
         'utility',
         'price_discount',
-     
+
     ];
-    
+
     public function pictures()
     {
         return $this->morphMany('App\Picture', 'pictureable');
     }
 
-    public function colors () {
+    public function colors()
+    {
         return $this->belongsToMany('App\Color')->withTimestamps();
     }
 
-    public function pattern(){
+    public function pattern()
+    {
         return $this->belongsTo('App\Pattern');
     }
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo('App\Brand');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo('App\Category');
     }
 
-     public function suppliers() {
+    public function suppliers()
+    {
         return $this->belongsToMany('App\Supplier')->withTimestamps();
     }
 
-//  ------------------ scopes -------------------------------
-    
-    public function scopeCategorysearch($query, $category_id){
+    //  ------------------ scopes -------------------------------
 
-        if($category_id);
+    public function scopeCategorysearch($query, $category_id)
+    {
+        if ($category_id);
 
-    return $query->where('category_id', 'LIKE' , $category_id );
-    
- }
-    public function scopePatternsearch($query, $pattern_id){
+        return $query->where('category_id', 'LIKE', $category_id);
+    }
+    public function scopePatternsearch($query, $pattern_id)
+    {
+        if ($pattern_id);
 
-        if($pattern_id);
-    
-    return $query->where('pattern_id', 'LIKE' , $pattern_id );
+        return $query->where('pattern_id', 'LIKE', $pattern_id);
+    }
 
+     public function scopeStartDate($query, $year){
+
+         if ($year) {
+
+             return $query->whereDate('date_start', '>', $year);
+
+         }
+     }
+     public function scopeFinishDate($query, $year){
+
+         if ($year)
+
+         Date('Y-m-d');
+         $year = date($year);
+        
+             return $query->whereDate('date_finish', '>', $year);  
+             
+               
+           
+
+
+     }
+
+ 
 }
-    public function scopeYearearch($query, $year){
 
-         if($year);
 
-   
-
-    return $query::if($year >'date_star' and $year > 'date_finish')            
-}
 
 
 
 
 //  ------------------ /scopes ------------------------------
 
-}
+

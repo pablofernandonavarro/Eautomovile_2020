@@ -28,13 +28,15 @@ class Productcontroller extends Controller
 {
     public function show($id)
     {
-        $products      = Product::with('colors', 'suppliers')->find($id);
+        $products      = Product::with('colors', 'suppliers','category','pattern')->findOrFail($id);
   
         $users         = Auth::user();
         $colors        =  $products->colors;
         $suppliers     =  $products->suppliers;
+        $categories    = $products->categories;
+        $patterns      = $products->patterns;
     
-        return view('admin.products.show', compact('products', 'colors', 'suppliers', 'users'), [
+        return view('admin.products.show', compact('products', 'colors', 'suppliers', 'users','categories','patterns'), [
         
       
          'user'         => Auth::user(),
