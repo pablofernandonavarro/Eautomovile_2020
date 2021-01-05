@@ -21,21 +21,22 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="ITEM nav-link text-white" href="/">{{ __('Inicio')}}</a>
                         </li>
-                        <li class="nav-item"><a class="ITEM nav-link text-white"
+                        {{-- <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="#">{{ __('Preguntas Frecuentes')}}</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="{{ route('login') }}">{{ __('Ingresar')}}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="ITEM nav-link text-white" href="#">
-                                <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito"
-                                    width="40">
-                            </a>
-                        </li>
+                        
                         <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
+                                <li class="nav-item">
+                                    <a class="ITEM nav-link text-white" href="#">
+                                        <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito"
+                                            width="40">
+                                    </a>
+                                </li>
 
                     </ul>
 

@@ -32,10 +32,13 @@
 {{-- -----------------   carrousel-card ----------------------- --}}
 
 <div class="bodyCard ">
-    <div class="wrapperCard">
+    <div class="wrapperCard bg-primary" >
         <div class="carousel owl-carousel">
-            <div class="card card-1">
-                A</div>
+            <div class="card card-1 h-5">
+            
+                Preguntas frecuentes :
+                
+            </div>
             <div class="card card-2">
                 B</div>
             <div class="card card-3">
@@ -50,9 +53,9 @@
 
 
 {{-- -----------------   /carrousel-card ----------------------- --}}
-<div class="firstPhoto">
+<div class="firstPhoto container-fluid">
     <div>
-        <h1 class="text-white display-flex text-center mt-2"> Selecione su vehiculo:</h1>
+        <h1 class="text-black display-flex text-center mt-2"> Selecione su Cubre alfombra Vapren :</h1>
     </div>
     <div class="centralSearch shadow justify-content-center">
         <div class="text-align-center">
