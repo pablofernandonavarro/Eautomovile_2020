@@ -32,17 +32,11 @@
 {{-- -----------------   carrousel-card ----------------------- --}}
 
 <div class="bodyCard ">
-    <div class="wrapperCard bg-primary" >
+    <div class="wrapperCard bg-primary">
         <div class="carousel owl-carousel">
-            <div class="card card-1 h-5">
-            
-                Preguntas frecuentes :
-                
-            </div>
-            <div class="card card-2">
-                B</div>
-            <div class="card card-3">
-                C</div>
+            <div class="card card-1 "></div>
+            <div class="card card-2"></div>
+            <div class="card card-3"></div>
             <div class="card card-4">
                 D</div>
             <div class="card card-5">
