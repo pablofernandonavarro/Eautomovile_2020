@@ -15,16 +15,22 @@
 
 
 <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-
+<script src="/adminlte/plugins/select2/js/select2.min.js"></script>
 @endsection
 
 @section('scripts')
 
 <script src="{{asset('js/deletePicture2.js')}}"></script>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.pattern_id').select2();
+        $('#').select2();
+      
+    });
+</script>
 
 @endsection
-<section class="content">
+
     <div class="container-fluid">
         <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
@@ -161,12 +167,12 @@
 
                             <div class="form-group">
                                 <label>Modelo</label>
-                                <select name="pattern_id" id="pattern_id" class="form-control " style="width: 100%;"
-                                    value="{{old('$product->patterns')}}">
+                                <select name="pattern_id" id="pattern_id" class="pattern_id form-control  " style="width: 100%;"
+                                    value="{{old($product->pattern->id)}}">
                                     @foreach($patterns as $pattern)
 
-                                    @if ($product->patterns == $pattern->id)
-                                    <option value="{{ $pattern->id }}" selected>{{$product->pattern_name}}
+                                    @if ($product->pattern->id == $pattern->id)
+                                    <option value="{{ $product->pattern->id }}" selected>{{$product->pattern->pattern_name}}
                                     </option>
                                     @else
                                     <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
@@ -194,11 +200,11 @@
                             <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                                 @foreach($categories as $category)
 
-                                @if (old('category_id') == $category->id)
+                                {{-- @if ($product->category->id == $category->id) --}}
                                 <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
-                                @else
-                                <option value="{{ ($category->id) }}">{{$category->category_name}} </option>
-                                @endif
+                                {{-- @else --}}
+                                {{-- <option value="{{ ($product->category->id) }}">{{$product->category->category_name}} </option> --}}
+                                {{-- @endif --}}
                                 @endforeach
                             </select>
                         </div>
@@ -722,19 +728,12 @@
             <div class="card card-warning">
                 <div class="card-header">
                     <h3 class="card-title">Imágenes</h3>
-
-
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
-
                     <div class="form-group">
-
                         <label for="picturenes">Añadir imágenes</label>
-
-                        <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
+                            <input type="file" class="form-control-file" name="url_picture[]" id="url_picture[]" multiple
                             accept="picture/*" value="{{old ('url_picture[]')}}">
-
                         <div class="description">
                             Un número ilimitado de archivos pueden ser cargados en este campo.
                             <br>
@@ -743,83 +742,40 @@
                             Tipos permitidos: jpeg, png, jpg, gif, svg.
                             <br>
                         </div>
-
                     </div>
-
-
                 </div>
-
-
-                <!-- /.card-body -->
                 <div class="card-footer">
-
                 </div>
-                <br>
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <br>
-
-            </div> <!-- /.card -->
+            </div> 
+            <div  class="d-flex  align-items-center">
+                <button type="submit" class="btn btn-success mb-3" style="width: 50%;">Guardar</button>
+            </div>
         </form>
-
-        <div id="app999">
-            <div class="card card-warning ">
+        <div class="card card-secundary">
+            <div id="app999">
                 <div class="card-header">
                     <h3 class="card-title">Galeria de Imágenes</h3>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <div class="form-group">
-
-                        <div class="row">
-
-                            @foreach ($product->pictures as $picture)
-                            <div id="id{{$picture->id}}">
-
-                                <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" class="img-fluid p-1">
+                <div class="card-body row">
+                    @foreach ($product->pictures as $picture)
+                        <div class="col-md-3">
+                            <div id="id{{$picture->id}}" >
+                                <img src="{{'/storage/'.$picture->url_picture}}" alt="foto" >
                                 <a href="{{ $picture->url_picture}}" v-on:click.prevent="eliminar({{$picture}})">
-
-                                    <i class="fas fa-trash-alt text-black my-2">Eliminar</i>
+                                    <i class="fas fa-trash-alt text-black my-2">Eliminar id :{{$picture->id}}</i>
                                 </a>
                             </div>
                         </div>
-                        @endforeach
-                    </div>
+                    @endforeach
                 </div>
-
-
+                <div class="card-footer">
+                </div>
             </div>
-
-
-            <div class="card-footer">
-
-            </div>
-            <!-- /.form-group -->
-
         </div>
-        <!-- /.col -->
     </div>
 
 
 
-
-
-
-
-    <!-- /.card -->
-
-
-
-    <div class="card-footer">
-
-    </div>
-
-
-
-
-    </div><!-- /.container-fluid -->
-
-</section>
-<!-- /.content -->
 
 
 
