@@ -161,8 +161,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
                 <!-- Brand Logo -->
                 <a href="{{url('index')}}" class="brand-link">
-                    <img src="{{asset('admin_picture/Logotipo.png')}}" alt="Logo"
-                        class="brand-image  elevation-3" style="opacity: 1.8">
+                    <img src="{{asset('admin_picture/Logotipo.png')}}" alt="Logo" class="brand-image  elevation-3"
+                        style="opacity: 1.8">
                     <span class="brand-text font-weight-light">.</span>
                 </a>
 
@@ -337,15 +337,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </aside>
 
-            <script src="http://adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            {{-- <script src="http://adminlte/plugins/jquery/jquery.min.js"></script> --}}
+
+            <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+            <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
             <!-- Bootstrap 4 -->
 
             <!-- AdminLTE App -->
-            {{-- <script src="http://adminlte/dist/js/adminlte.min.js"></script> --}}
+            <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
             <!-- AdminLTE for demo purposes -->
 
-
+            <script src="{{asset('adminlte/plugins/ckeditor/config.js')}}"></script>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 

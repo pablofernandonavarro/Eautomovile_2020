@@ -10,6 +10,7 @@
 @endsection
 
 
+
 @section('estilos')
 
 
@@ -19,14 +20,11 @@
 
 @section('scripts')
 
-<script src="{{asset('js/deletePicture2.js')}}"></script> --}}
+<script src="{{asset('js/deletePicture2.js')}}"></script>
 
 
 @endsection
-
-
 <section class="content">
-
     <div class="container-fluid">
         <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
@@ -608,7 +606,7 @@
                             <div class="form-group">
                                 <label>Especificaciones:</label>
 
-                                <textarea class="form-control ckeditor" name="spec" id="epec"
+                                <textarea class="form-control ckeditor" name="spec" id="spec"
                                     rows="3">{{$product->spec}}</textarea>
 
                             </div>

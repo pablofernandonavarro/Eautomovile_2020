@@ -255,4 +255,17 @@ class Productcontroller extends Controller
         
         return redirect('/admin/importProductExcel')->with('message', 'Actualizacion de precios Exitosa');
     }
+    public function productShow($id)
+    {
+     $product = Product::findOrFail($id);
+     $pictures = $product->picture;
+     $users         = Auth::user();
+     return view('productShowApp', compact('product', 'users','pictures'), [
+     
+   
+      'user'         => Auth::user(),]);
+    }
 }
+
+
+
