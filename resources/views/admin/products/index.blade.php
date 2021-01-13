@@ -87,7 +87,7 @@
                                         src="{{ '/storage/'.$product->pictures[0]->url_picture }}" class="img">
                                     @endif
                             </td>
-                            <td> {{$product->description_short}} </td>
+                            <td> {!!$product->description_short!!} </td>
                             <td> {{$product->price}} </td>
                             <td> {{$product->active}} </td>
                             <td> {{$product->slider}} </td>

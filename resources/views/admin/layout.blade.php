@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+
 <html lang="en">
 
 <head>
@@ -22,7 +19,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+    
+    @yield('styles')
 </head>
 
 
@@ -171,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="{{Storage::url($user->url_avatar)}}" class="img-circle elevation-2"
+                            <img src="{{asset('avatars/'.Auth::user()->url_avatar)}}" class="img-circle elevation-2"
                                 alt="User Image">
                         </div>
                         <div class="info">

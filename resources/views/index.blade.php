@@ -123,7 +123,7 @@
                 <div class="card-body bg-light text-center">
                     <div class="mb-2">
                         <h6 class="font-weight-semibold mb-2"> <a href="{{url("productShowApp/".$product->id)}}"
-                                class="text-default mb-2" data-abc="true">{{$product->description_short}}</a> </h6> <a
+                                class="text-default mb-2" data-abc="true">{!!$product->description_large!!}</a> </h6> <a
                             href="#" class="text-muted" data-abc="true">Uso :{{$product->category->category_name}}</a>
                     </div>
                     <h3 class="mb-0 font-weight-semibold">${{$product->price}}</h3>

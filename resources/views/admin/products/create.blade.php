@@ -45,7 +45,7 @@
 
 <div id="apiproduct">
 
-
+  <script src="{{asset('adminlte/plugins/ckeditor/ckeditor.js')}}"></script>
 
 
   <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">

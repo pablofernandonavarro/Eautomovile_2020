@@ -45,7 +45,7 @@
                 <span class="sku text-secondary">Sku{{$product->sku}}</span>
             </div>
             <div class="description">
-                <h2 class="description">{{$product->description_large}}</h2>
+                <h2 class="description">{!!$product->description_large!!}</h2>
             </div>
             <div class="price">
                 <h2 class="price">${{$product->price}}</h2>
@@ -83,9 +83,15 @@
                 <hr>
                 @foreach($product->colors as $color)
                 <div class="ml-2">
-                    <div class="border color">
+                    @if ($color->color_name == "Negro")
+                    <div class="border color bg-pimary">
                         <div>{{$color->color_name}}</div>
                     </div>
+                    @elseif ($color->color_name == "Rojo")
+                    <div class="border color bg-danger">
+                        <div>{{$color->color_name}}</div>
+                    </div>
+                    @endif  
                 </div>
 
                 @endforeach
@@ -115,7 +121,7 @@
         </div>
         <div class="col-md-12 bg-white border mb-3 ">
             <div class="p-3">
-                {{$product->spec}}
+                {!!$product->spec!!}
             </div>
         </div>
     </div>

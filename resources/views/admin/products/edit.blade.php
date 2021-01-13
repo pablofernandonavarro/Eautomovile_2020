@@ -10,31 +10,81 @@
 <li class="breadcrumb-item active">@yield('titulo')</li>
 @endsection
 
-
-
-@section('estilos')
-
-
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2/select2.min.css')}}">
-
-
+@section('styles')
+<script src="{{asset('adminlte/plugins/ckeditor/config.js')}}"></script>
 @endsection
+
+
+
 
 @section('scripts')
 
 <script src="{{asset('js/deletePicture2.js')}}"></script>
 <script src="{{asset('adminlte/plugins/select2/js/select2.js')}}"></script>
 
+<!-- este estilo va aqui siempre  va despues del script para que funciones !-->
+<link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
+
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.pattern_id').select2();
+        // $('.pattern_id').select2();
+        $('#category_id').select2();
         
       
     });
+    
+</script>
+<script type="text/javascript" >
+    let model = document.getElementById('pattern_id');
+  let brand = document.getElementById('brand');
+  model.addEventListener('change',(e) => {
+    fetch(`http://localhost:8000/api-brands/${e.target.value}`)
+    .then(response => response.json())
+    .then(data => brand.value = data.brand_name)
+    
+    .catch(error => console.log(error))
+  });
+</script>
+<script type="text/javascript">
+    (function (){
+
+    var costo =0;
+    var utility = 0;
+    var descuento =0;
+    var precio = 0;
+  
+    
+    var fillcost = function(){
+    var costo = parseFloat(supplier_price_list.value)-parseFloat(supplier_price_list.value*parseFloat(supplier_discount.value/100));
+      cost.value = costo.toFixed(2);
+    };
+
+    var fillprice = function(){
+      var utility = document.getElementById('utility');
+      var cost = document.getElementById('cost');
+      var descuento = cost.value * (utility.value/100);
+       var  precio = parseFloat(cost.value)+parseFloat(descuento);
+      price.value = precio.toFixed(2);
+    };
+  
+
+  var list_price = document.getElementById('supplier_price_list');
+  var supplier_discount = document.getElementById('supplier_discount');
+  var utility = document.getElementById('utility');
+  var cost = document.getElementById('cost');
+  var price = document.getElementById('price');
+
+  list_price.addEventListener('change', fillcost);
+  utility.addEventListener('change', fillprice);
+}());
+
+
+ 
+ 
 </script>
 
 @endsection
-
+<script src="{{asset('adminlte/plugins/ckeditor/ckeditor.js')}}"></script>
 <div class="container-fluid">
     <form action="{{ url('admin/products/'.$product->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
@@ -169,18 +219,19 @@
 
                         <div class="form-group">
                             <label>Modelo</label>
-                            <select name="pattern_id" id="pattern_id" class="pattern_id form-control"
-                                value="{{old($product->pattern->id)}}">
+                            <div>
+                            <select name="pattern_id" id="pattern_id" class="pattern_id form-control">
                                 @foreach($patterns as $pattern)
 
-                                @if ($product->pattern->id == $pattern->id)
+                                @if ($product->pattern->id == $pattern->id) 
                                 <option value="{{ $product->pattern->id }}" selected>{{$product->pattern->pattern_name}}
-                                </option>
+                                </option> 
                                 @else
                                 <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
                                 @endif
                                 @endforeach
                             </select>
+                        </div>
                         </div>
                     </div>
                     <!--pattern -->
@@ -190,7 +241,7 @@
 
                         <label>Marca</label>
                         <input type="text" class="form-control" id="brand" name="brand_id"
-                            value="{{$product->brand->brand_name}} " disabled>
+                            value="{{$product->brand->brand_name}} " >
                     </div>
 
                     <!-- /brand -->
@@ -202,12 +253,12 @@
                         <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                             @foreach($categories as $category)
 
-                            {{-- @if ($product->category->id == $category->id) --}}
+                             @if ($product->category->id == $category->id) --}}
                             <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
-                            {{-- @else --}}
-                            {{-- <option value="{{ ($product->category->id) }}">{{$product->category->category_name}}
-                            </option> --}}
-                            {{-- @endif --}}
+                             @else 
+                            <option value="{{ ($product->category->id) }}">{{$product->category->category_name}}
+                            </option> 
+                             @endif 
                             @endforeach
                         </select>
                     </div>
@@ -775,66 +826,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-    let model = document.getElementById('pattern_id');
-  let brand = document.getElementById('brand');
-  model.addEventListener('change',(e) => {
-    fetch(`http://localhost:8000/api-brands/${e.target.value}`)
-    .then(response => response.json())
-    .then(data => brand.value = data.brand_name)
-    
-    .catch(error => console.log(error))
-  });
-</script>
-<script type="text/javascript">
-    (function (){
-
-    var costo =0;
-    var utility = 0;
-    var descuento =0;
-    var precio = 0;
-  
-    
-    var fillcost = function(){
-    var costo = parseFloat(supplier_price_list.value)-parseFloat(supplier_price_list.value*parseFloat(supplier_discount.value/100));
-      cost.value = costo.toFixed(2);
-    };
-
-    var fillprice = function(){
-      var utility = document.getElementById('utility');
-      var cost = document.getElementById('cost');
-      var descuento = cost.value * (utility.value/100);
-       var  precio = parseFloat(cost.value)+parseFloat(descuento);
-      price.value = precio.toFixed(2);
-    };
-  
-
-  var list_price = document.getElementById('supplier_price_list');
-  var supplier_discount = document.getElementById('supplier_discount');
-  var utility = document.getElementById('utility');
-  var cost = document.getElementById('cost');
-  var price = document.getElementById('price');
-
-  list_price.addEventListener('change', fillcost);
-  utility.addEventListener('change', fillprice);
-}());
-
-
- 
- 
-</script>
-
-
-
 @endsection

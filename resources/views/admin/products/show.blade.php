@@ -9,44 +9,7 @@
 <li class="breadcrumb-item active">@yield('titulo')</li>
 @endsection
 
-
-@section('estilos')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-
-@endsection
-
-@section('scripts')
-
-<!-- Select2 -->
-<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
-
-<script src="{{asset('adminlte/ckeditor/ckeditor.js')}}"></script>
-
-<script>
-    $(function () {
-    //Initialize Select2 Elements
-    $('#category_id').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    });
-  });
-
-</script>
-
-@endsection
-
-
-
-
-
-
-
-
-
+<script src="{{asset('adminlte/plugins/ckeditor/ckeditor.js')}}"></script>
 <form action="{{ route('admin.products.show',$products->id) }}" method="get" enctype="multipart/form-data">
     @csrf
 
@@ -532,8 +495,8 @@
                                 <!-- Descriptin-short -->
 
                                 <label>Descripción corta:</label>
-                                <textarea class="form-control ckeditor" name="description_short" id="description_short"
-                                    rows="3">{{$products->description_short}} </textarea>
+                                <textarea dislable class="form-control ckeditor" name="description_short" id="description_short"
+                                    rows="3">{!!$products->description_short!!} </textarea>
                                 <br>
                                 <div class="col-md-12">
                                     {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
@@ -548,8 +511,8 @@
                                 <!-- Descriptin-large -->
 
                                 <label>Descripción larga:</label>
-                                <textarea class="form-control ckeditor" name="description_large" id="descripcion_larga"
-                                    rows="5">{{$products->description_large}}</textarea>
+                                <textarea dislable class="form-control ckeditor" name="description_large" id="descripcion_larga"
+                                    rows="5">{!!$products->description_large!!}</textarea>
                                 <br>
                                 <div class="col-md-12">
                                     {!!$errors->first('description_large','<small class="alert alert-danger col-md-12"
@@ -587,8 +550,8 @@
                             <div class="form-group">
                                 <label>Especificaciones:</label>
 
-                                <textarea class="form-control ckeditor" name="spec" id="epec"
-                                    rows="3">{{$products->spec}}</textarea>
+                                <textarea dislable class="form-control ckeditor" name="spec" id="epec"
+                                    rows="3">{!!$products->spec!!}</textarea>
 
                             </div>
                             <div class="col-md-12">
@@ -602,8 +565,8 @@
                             <div class="form-group">
                                 <label>Datos de interes:</label>
 
-                                <textarea class="form-control ckeditor" name="data_interest" id="datos_interest"
-                                    rows="5">{{$products->data_interest}}</textarea>
+                                <textarea dislable class="form-control ckeditor" name="data_interest" id="datos_interest"
+                                    rows="5">{!!$products->data_interest!!}</textarea>
 
                             </div>
                             <div class="col-md-12">
