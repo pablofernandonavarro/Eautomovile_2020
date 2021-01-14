@@ -7,7 +7,7 @@
     <div class="container-fluid ">
         <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top">
             <div class="container">
-                <a href="" class="navbar-brand">
+                <a href="/index" class="navbar-brand">
                     <div id="pictue:logo">
                         <img src="{{ asset('admin_picture/Logotipo.png') }}" alt="" width="350">
                     </div>
@@ -28,15 +28,14 @@
                                 href="{{ route('login') }}">{{ __('Ingresar')}}</a>
                         </li>
                         @if (Route::has('register'))
-                        
+
                         <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
-                                <li class="nav-item">
-                                    <a class="ITEM nav-link text-white" href="#">
-                                        <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito"
-                                            width="40">
-                                    </a>
-                                </li>
+                        <li class="nav-item">
+                            <a class="ITEM nav-link text-white" href="#">
+                                <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
+                            </a>
+                        </li>
 
                     </ul>
 
@@ -51,12 +50,12 @@
                             <li class="nav-item fw-bolder"><a class=" ITEM nav-link text-white"
                                     href="{{asset('/nosotros')}}">{{ __('Nosotros')}}</a>
                             </li>
-                            <li class="nav-item fw-bolder"><a class="ITEM nav-link text-white"
-                                    href="#">{{ __('Preguntas Frecuentes')}}</a></li>
+                            {{-- <li class="nav-item fw-bolder"><a class="ITEM nav-link text-white"
+                                    href="#">{{ __('Preguntas Frecuentes')}}</a></li> --}}
                             <li class="nav-item fw-bolder">
                                 <a class="ITEM nav-link" href="#">
-                                        <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
-                                    </a>
+                                    <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
+                                </a>
                             </li>
 
                             <li class="nav-item dropdown col-1">

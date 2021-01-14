@@ -1,6 +1,6 @@
 @include('layouts/partials.head')
 @include('layouts/partials.nav-header')
-
+<title>@yield('titulo')</title>
 
 
 <body>

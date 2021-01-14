@@ -265,6 +265,7 @@ class Productcontroller extends Controller
    
       'user'         => Auth::user(),]);
     }
+   
 }
 
 

@@ -77,6 +77,10 @@ class IndexController extends Controller
 
       return view('index',compact('user','products','categories','patterns','category_id'))->with('messages_search','fjdfkadkfkdafjdkaf');
     }
+  public function view_currier(){
 
+    return view ('currier');
+
+  }
 
 }

@@ -34,7 +34,7 @@
     });
     
 </script>
-<script type="text/javascript" >
+<script type="text/javascript">
     let model = document.getElementById('pattern_id');
   let brand = document.getElementById('brand');
   model.addEventListener('change',(e) => {
@@ -195,11 +195,11 @@
 
                     <div class="color col-md-6">
                         <!-- color -->
-
+                        <label>Color</label>
                         <div class="row ">
-                            <label>Color</label>
+
                             @foreach($colors as $color)
-                            <div class="form-check p-3">
+                            <div class="form-check p-3 col-md-3">
                                 <label class="form-check-label p-2 ml-1">
                                     <input type="checkbox" checked class="form-check-input" name="color_id[]" id=""
                                         value="{{$color->id}} "
@@ -220,18 +220,19 @@
                         <div class="form-group">
                             <label>Modelo</label>
                             <div>
-                            <select name="pattern_id" id="pattern_id" class="pattern_id form-control">
-                                @foreach($patterns as $pattern)
+                                <select name="pattern_id" id="pattern_id" class="pattern_id form-control">
+                                    @foreach($patterns as $pattern)
 
-                                @if ($product->pattern->id == $pattern->id) 
-                                <option value="{{ $product->pattern->id }}" selected>{{$product->pattern->pattern_name}}
-                                </option> 
-                                @else
-                                <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
+                                    @if ($product->pattern->id == $pattern->id)
+                                    <option value="{{ $product->pattern->id }}" selected>
+                                        {{$product->pattern->pattern_name}}
+                                    </option>
+                                    @else
+                                    <option value="{{ ($pattern->id) }}">{{$pattern->pattern_name}} </option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!--pattern -->
@@ -241,7 +242,7 @@
 
                         <label>Marca</label>
                         <input type="text" class="form-control" id="brand" name="brand_id"
-                            value="{{$product->brand->brand_name}} " >
+                            value="{{$product->brand->brand_name}} ">
                     </div>
 
                     <!-- /brand -->
@@ -253,12 +254,12 @@
                         <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                             @foreach($categories as $category)
 
-                             @if ($product->category->id == $category->id) --}}
+                            @if ($product->category->id == $category->id) --}}
                             <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
-                             @else 
+                            @else
                             <option value="{{ ($product->category->id) }}">{{$product->category->category_name}}
-                            </option> 
-                             @endif 
+                            </option>
+                            @endif
                             @endforeach
                         </select>
                     </div>

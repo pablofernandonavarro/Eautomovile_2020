@@ -22,8 +22,20 @@ class ColorSeeder extends Seeder
             'color_name'  => 'Azul',
         ]);
         DB::table('colors')->insert([
-            'color_name'  => 'Beige',
+            'color_name'  => 'Beige claro',
         ]);
+        DB::table('colors')->insert([
+            'color_name'  => 'Beige oscuro',
+        ]);
+        DB::table('colors')->insert([
+            'color_name'  => 'Negro',
+        ]);
+        DB::table('colors')->insert([
+            'color_name'  => 'Gris',
+        ]);
+       
+       
+       
        
     }
 }

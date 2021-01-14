@@ -20,7 +20,7 @@ Route::get('/index','indexController@productSearch')->name('productSearch');
 
 
 Route::get('/nosotros','indexController@view_nosotros')->name('nosotros');
-
+Route::get('/currier','indexController@view_currier')->name('currier');
 
 //  ROUTE ADMIN
 
@@ -61,3 +61,4 @@ Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepic
 Route::post('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');
 Route::get('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');
 Route::get('productShowApp/{id}','ProductController@productShow');
+// Route::get('productShowApp/{id}','ProductController@add')->name('productShowApp.add');

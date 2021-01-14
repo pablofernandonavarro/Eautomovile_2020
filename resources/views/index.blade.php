@@ -51,69 +51,62 @@
 
 
 {{-- -----------------   /carrousel-card ----------------------- --}}
-<div class="firstPhoto container-fluid">
-    <div>
-        <h1 class="text-black display-flex text-center mt-2"> Selecione su Cubre alfombra Vapren :</h1>
+
+<div>
+    <h1 class="text-black display-flex text-center mt-2"> Selecione su Cubre alfombra Vapren :</h1>
+</div>
+<div class="centralSearch shadow justify-content-center">
+    <div class="text-align-center">
+        <label class="h3 text-white" style="width: 13%;">Uso:</label>
+        <label class="h3 text-white" style="width: 43%;">Modelo:</label>
+        <label class="h3 text-white" style="width: 33%;">Año:</label>
     </div>
-    <div class="centralSearch shadow justify-content-center">
-        <div class="text-align-center">
-            <label class="h3 text-white" style="width: 13%;">Uso:</label>
-            <label class="h3 text-white" style="width: 43%;">Modelo:</label>
-            <label class="h3 text-white" style="width: 33%;">Año:</label>
-        </div>
-        <div class="row p-2 justify-content-center">
-            <form action="{{route('productSearch')}}" method="get">
-                @csrf
-                <select class="category bg-white h3" name="category_id" id="utility" selected="hola">
-                    @foreach($categories as $category)
-                    <option class="form-control" value="{{ $category->id }}" selected>
-                        {{$category->category_name}} </option>
-                    @endforeach
+    <div class="row p-2 justify-content-center">
+        <form action="{{route('productSearch')}}" method="get">
+            @csrf
+            <select class="category bg-white h3" name="category_id" id="utility" selected="hola">
+                @foreach($categories as $category)
+                <option class="form-control" value="{{ $category->id }}" selected>
+                    {{$category->category_name}} </option>
+                @endforeach
 
-                </select>
+            </select>
 
 
-                <select class="pattern bg-white h3" name="pattern_id" id="patterns">
+            <select class="pattern bg-white h3" name="pattern_id" id="patterns">
 
-                    @foreach($patterns as $pattern)
+                @foreach($patterns as $pattern)
 
-                    <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
-                    </option>
-                    @endforeach
-                </select>
+                <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
+                </option>
+                @endforeach
+            </select>
 
 
 
-                <input class="inputDate mt-2" type="date" name="year" id="years" placeholder="Ingrese el año">
+            <input class="inputDate mt-2" type="date" name="year" id="years" placeholder="Ingrese el año">
 
 
-                <button type="submit" class="btn btn-primary mx-lg-5">
-                    Buscar
-                </button>
-            </form>
-        </div>
+            <button type="submit" class="btn btn-primary mx-lg-5">
+                Buscar
+            </button>
+        </form>
     </div>
 </div>
-<br>
-@if (session('messages_search'))
-<br>
-<div class="alert alert-danger col-md-10" role="alert">
-    <strong>Aviso :</strong> asfsafasfasfa<button type="button" class="close" data-dismiss="alert" alert-label="close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
 
 
+
+
+<h1 class="d-flex justify-content-center text-danger mt-4">El resultado de tu busquedas es:</h1>
 {{-- ---------------------------- Card-products --------------------- --}}
-<br>
-<div class="container d-flex justify-content-center mt-50 mb-50">
+
+<div class="container d-flex justify-content-center mt-2">
 
     <div class="row">
         @foreach ($products as $product)
 
 
-        <div class="col-md-4 mt-2">
+        <div class="col-md-4 ">
             {{-- <a href="{{route("productShowApp")}}"></a> --}}
             <div class="card shadow-lg">
                 <div class="card-body">

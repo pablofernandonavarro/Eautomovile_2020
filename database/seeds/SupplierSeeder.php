@@ -37,7 +37,7 @@ class SupplierSeeder extends Seeder
             'supplier_delivery_AddressProvince'  => 'buenos aires',
             'supplier_delivery_AddressPostalCode' => '1680',
 
-            'supplier_discount'                   => '0',
+            'supplier_discount'                   => 24.7,
             'supplier_extra_discount'             => '0',
         ]);
     }
