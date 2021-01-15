@@ -12,7 +12,7 @@
 
 
 <div class="container-fluid bg-mid-gray" style="margin-top: 8%;">
-    <form action="" method="get">
+    <form action="{{route('cart.add')}}" method="Post">
         @csrf
 
 
@@ -93,6 +93,8 @@
 
                 <div>
                     <input type="number" class="quantity border mt-4" name="quantity">
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <input type="hidden" name="name" value="{!!$product->description_large!!}">
                     <button type="submit" class="btn btn-primary btn-lg ml-3">Comprar Producto</button>
                 </div>
     </form>

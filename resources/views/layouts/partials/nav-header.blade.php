@@ -19,6 +19,9 @@
                 @guest
                 <div class="collapse navbar-collapse" id="NavBar">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item fw-bolder"><a class=" ITEM nav-link text-white"
+                                href="{{asset('/nosotros')}}">{{ __('Nosotros')}}</a>
+                        </li>
                         <li class="nav-item"><a class="ITEM nav-link text-white" href="/">{{ __('Inicio')}}</a>
                         </li>
                         {{-- <li class="nav-item"><a class="ITEM nav-link text-white"
