@@ -12,7 +12,7 @@
 
 
 <div class="container-fluid bg-mid-gray" style="margin-top: 8%;">
-    <form action="{{route('cart.add')}}" method="Post">
+    <form action="{{route('cart.add')}}" method="post">
         @csrf
 
 
@@ -78,11 +78,11 @@
 
                         @foreach($product->colors as $color)
                         @if($color->color_name == "Negro")
-                        <option value="{{ $color->id }}" selected>
+                        <option value="{{ $color->color_name }}" selected>
                             {{$color->color_name}}
                         </option>
                         @else
-                        <option value="{{ $color->id }}">
+                        <option value="{{ $color->color_name }}">
                             {{$color->color_name}}
                         </option>
                         @endif
@@ -99,6 +99,7 @@
                     <button type="submit" class="btn btn-primary btn-lg ml-3">Comprar Producto</button>
                 </div>
     </form>
+
     <div class="protetedBuy mt-5 row">
 
         <div class="ml-4 mr-2">
@@ -110,7 +111,8 @@
         </div>
     </div>
     <div>
-        <label for="" class="description text-danger mt-5 h3 p-3">Atencion !! El producto que no es color Negro tiene un
+        <label for="" class="description text-danger mt-5 h3 p-3">Atencion !! El producto que no es color Negro
+            tiene un
             recargo
             del
             20%</label>
