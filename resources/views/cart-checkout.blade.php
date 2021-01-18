@@ -78,11 +78,12 @@
             </div>
 
         </div>
-        <div class="row justify-content-end mr-3">
-            <a href="" class="h5 text-primary mt-3 mr-3">Comparar más productos</a>
-            <a href="" class="btn btn-primary mt-3">Continuar</a>
-        </div>
 
+
+    </div>
+    <div class="row justify-content-end mr-3">
+        <a href="/" class="h5 text-primary mt-3 mr-3">Comparar más productos</a>
+        <a href="" class="btn btn-primary mt-3">Continuar</a>
     </div>
 
 

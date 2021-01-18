@@ -122,8 +122,10 @@
                     <h3 class="mb-0 font-weight-semibold">${{$product->price}}</h3>
                     <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
                             class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">{{$product->visit}}</div> <button type="button" class="btn bg-cart"><i
-                            class="fa fa-cart-plus mr-2"></i> Agregar al carrito </button>
+                    <div class="text-muted mb-3">{{$product->visit}}</div>
+                    <a href="/productShowApp/{{$product->id}}" type="button" class="btn bg-cart">
+                        <i class="fa fa-cart-plus mr-2"></i>
+                        Agregar al carrito </a>
                 </div>
             </div>
         </div>

@@ -85,7 +85,7 @@ Route::get('import-products-list-excel','ProductController@importExcel')->name('
 //********   Route Product ********* ///
 
 
-Route::get('productShowApp/{id}','ProductController@productShow');
+Route::get('productShowApp/{id}','ProductController@productShow')->name('productShowApp');
 
 
 //********   Route Product ********* ///
