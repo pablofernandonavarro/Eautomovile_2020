@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "maatwebsite/excel": "^3.1",
+        "mercadopago/dx-php": "^2.2",
         "twom/laravel-axios": "^0.6.0"
     },
     "require-dev": {
