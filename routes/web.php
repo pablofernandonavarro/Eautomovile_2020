@@ -95,6 +95,7 @@ Route::get('productShowApp/{id}','ProductController@productShow')->name('product
 
 Route::post('/cart-add',       'CartController@add')->name('cart.add');
 Route::get('/cart-checkout',  'CartController@cart')->name('cart.checkout');
+Route::post('/MercadoPago',  'CartController@cart')->name('MercadoPago');
 Route::post('/cart-clear',     'CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');
 

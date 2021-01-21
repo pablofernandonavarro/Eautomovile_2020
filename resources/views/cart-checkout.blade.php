@@ -83,9 +83,13 @@
     </div>
     <div class="row justify-content-end mr-3">
         <a href="/" class="h5 text-primary mt-3 mr-3">Comparar más productos</a>
-        <a href="" class="btn btn-primary mt-3">Continuar</a>
+        <form action="{{route('MercadoPago')}}">
+            <button type="submit" class=" btn btn-primary mt-3">Pagar</button>
+        </form>
     </div>
 
-
+    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+        data-preference-id="{{ $preference->id}}">
+    </script>
 
     @endsection
