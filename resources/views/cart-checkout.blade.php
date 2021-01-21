@@ -3,7 +3,28 @@
 
 
 @section('content')
+<?php
 
+
+        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+
+
+       
+
+        // Agrega credenciales  
+        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+
+        // Crea un objeto de preferencia
+        $preference = new MercadoPago\Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Mi producto';
+        $item->quantity = 1;
+        $item->unit_price = 75.56;
+        $preference->items = array($item);
+        $preference->save();
+?>
 
 
 <div class="container mb-3" style="margin-top: 8%;">
@@ -83,13 +104,15 @@
     </div>
     <div class="row justify-content-end mr-3">
         <a href="/" class="h5 text-primary mt-3 mr-3">Comparar más productos</a>
-        <form action="{{route('MercadoPago')}}">
-            <button type="submit" class=" btn btn-primary mt-3">Pagar</button>
+        <form action="/pagar" method="post">
+            @csrf
+            <script
+            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+            data-preference-id="<?php echo $preference->id; ?>">
+          </script>
         </form>
     </div>
 
-    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-        data-preference-id="{{ $preference->id}}">
-    </script>
+   
 
     @endsection

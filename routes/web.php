@@ -99,5 +99,10 @@ Route::post('/MercadoPago',  'CartController@cart')->name('MercadoPago');
 Route::post('/cart-clear',     'CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');
 
-
 //********   /Route cart_shopping ********* ///
+
+
+
+
+Route::post('/pagar',  'CartController@pagar')->name('pagar');
+Route::post('/procesarPago',  'CartController@pagar')->name('procesarPago');
