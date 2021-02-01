@@ -4,7 +4,7 @@
 
 @section('content')
 <?php
-
+        // dd(Cart::getContent());
 
         MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
@@ -14,16 +14,44 @@
         // Agrega credenciales  
         MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
-        // Crea un objeto de preferencia
-        $preference = new MercadoPago\Preference();
+        
+     // Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+$cart= Cart::getContent();
+$cart->toArray();
+// Crea un ítem en la preferencia
+foreach ($cart as $datos){
 
-        // Crea un ítem en la preferencia
-        $item = new MercadoPago\Item();
-        $item->title = 'Mi producto';
-        $item->quantity = 1;
-        $item->unit_price = 75.56;
-        $preference->items = array($item);
-        $preference->save();
+$item = new MercadoPago\Item();
+
+$item->title = $datos->name;
+$item->quantity = $datos->quantity;
+$item->unit_price = $datos->price;
+}
+$preference->items = array($item);
+
+// $item = new MercadoPago\Item();
+// $item->title = 'producto2';
+// $item->quantity = 1;
+// $item->unit_price = 100;
+// $preference->items = array($item);
+
+
+// dd($preference);
+$preference->save();
+      
+
+      
+     
+       
+       
+      
+    
+        // $preference->back_urls = [
+        //     "success" => route('checkout.thanks'),
+        //     "pending" => route('checkout.pending'),
+        //     "failure" => route('checkout.error'), 
+        // ];
 ?>
 
 
@@ -103,16 +131,12 @@
 
     </div>
     <div class="row justify-content-end mr-3">
-        <a href="/" class="h5 text-primary mt-3 mr-3">Comparar más productos</a>
-        <form action="/pagar" method="post">
-            @csrf
-            <script
-            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-            data-preference-id="<?php echo $preference->id; ?>">
-          </script>
-        </form>
+        <a href="<?php echo $preference->init_point ;?>" class="btn btn-primary text-primary mt-3 mr-3">Comparar</a>
+
+
+
     </div>
 
-   
+
 
     @endsection

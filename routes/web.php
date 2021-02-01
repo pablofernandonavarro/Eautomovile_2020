@@ -104,5 +104,5 @@ Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeIt
 
 
 
-Route::post('/pagar',  'CartController@pagar')->name('pagar');
+
 Route::post('/procesarPago',  'CartController@pagar')->name('procesarPago');

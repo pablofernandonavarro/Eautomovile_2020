@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cart;
 use App\Product;
+
 use App\Color;
-// use MercadoPago\SDK;
-// use MercadoPago\Preference;
+use MP;
+
 class CartController extends Controller
 { 
     public function cart(){
@@ -19,7 +20,7 @@ class CartController extends Controller
     $product = Product::find($request->id);
     $picture = $product->pictures[0]->url_picture;
     $rowid = $request->id;
-    // dd($pictures);
+     
   
   
 
@@ -35,6 +36,15 @@ class CartController extends Controller
           )
         
    ));
+
+
+
+
+
+
+
+
+
 
         return view('/cart-checkout');
     }
@@ -53,28 +63,6 @@ class CartController extends Controller
         return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
     }
 
-     public function pagar(){
-       
-
-    //     // MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
 
-       
-
-    //     // // Agrega credenciales  
-    //     // MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
-
-    //     // // Crea un objeto de preferencia
-    //     // $preference = new MercadoPago\Preference();
-
-    //     // // Crea un ítem en la preferencia
-    //     // $item = new MercadoPago\Item();
-    //     // $item->title = 'Mi producto';
-    //     // $item->quantity = 1;
-    //     // $item->unit_price = 75.56;
-    //     // $preference->items = array($item);
-    //     // $preference->save();
-
-         return view('/cart-checkout');
- }
 }
