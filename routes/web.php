@@ -55,8 +55,9 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('suppliers', 'SupplierController',['except' =>'show','create','edit']);
     Route::resource('pictures', 'PictureController');
     Route::resource('products', 'ProductController');
-    
-    
+   
+
+   
 });
 
 
@@ -92,9 +93,10 @@ Route::get('productShowApp/{id}','ProductController@productShow')->name('product
 
 //********   /Route cart_shopping ********* ///
 
+Route::get('/cart-add/{product}',       'CartController@add')->name('cart.add')->middleware('auth');
+Route::post('/cart.index',       'CartController@index')->name('cart.index')->middleware('auth');
 
-Route::post('/cart-add',       'CartController@add')->name('cart.add');
-Route::get('/cart-checkout',  'CartController@cart')->name('cart.checkout');
+
 Route::post('/MercadoPago',  'CartController@cart')->name('MercadoPago');
 Route::post('/cart-clear',     'CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');

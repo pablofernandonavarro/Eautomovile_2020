@@ -35,7 +35,7 @@
                         <li class="nav-item"><a class="ITEM nav-link text-white"
                                 href="{{ route('register') }}">{{ __('Registrarme')}}</a></li>
                         <li class="nav-item">
-                            <a class="ITEM nav-link text-white" href="{{route('cart.checkout')}}">
+                            <a class="ITEM nav-link text-white" href="{{route('cart.index')}}">
                                 <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
                             </a>
                         </li>
@@ -56,7 +56,7 @@
                             {{-- <li class="nav-item fw-bolder"><a class="ITEM nav-link text-white"
                                     href="#">{{ __('Preguntas Frecuentes')}}</a></li> --}}
                             <li class="nav-item fw-bolder">
-                                <a class="ITEM nav-link" href="{{route('cart.checkout')}}">
+                                <a class="ITEM nav-link" href="{{route('cart.index')}}">
                                     <img src="{{ asset('admin_picture/shopping_cart.png')}}" alt="carrito" width="40">
                                 </a>
                             </li>

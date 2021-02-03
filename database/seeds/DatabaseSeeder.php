@@ -16,11 +16,12 @@ class DatabaseSeeder extends Seeder
          $this->call(PatternSeeder::class);
          $this->call(CategorySeeder::class);
          $this->call(ColorSeeder::class);
-        //  $this->call(ProductSeeder::class);
+       
          $this->call(NoteSeeder::class);
          $this->call(UserSeeder::class);
         //  $this->call(Color_ProductSeeder::class);
          $this->call(SupplierSeeder::class);
+        //  $this->call(ProductSeeder::class);
         
     }
 }

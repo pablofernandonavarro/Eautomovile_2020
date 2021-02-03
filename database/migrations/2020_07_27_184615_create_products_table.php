@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique()->nullable();
             $table->string('description_short',100)->nullable();
             $table->string('description_large')->nullable();
-            $table->string('data_interest')->nullable();
+            $table->string('data_interest',1000)->nullable();
             $table->string('spec',1500)->nullable();
             $table->foreignId('brand_id')->nullable()->constrained('brands')->cascadeOnDelete('set null');
             $table->foreignId('pattern_id')->nullable()->constrained('patterns')->cascadeOnDelete('set null');

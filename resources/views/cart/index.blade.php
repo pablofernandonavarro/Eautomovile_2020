@@ -17,32 +17,27 @@
         
      // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
-$cart= Cart::getContent();
-$cart->toArray();
-// Crea un ítem en la preferencia
-foreach ($cart as $datos){
-
-$item = new MercadoPago\Item();
-
-$item->title = $datos->name;
-$item->quantity = $datos->quantity;
-$item->unit_price = $datos->price;
-}
-$preference->items = array($item);
-
-// $item = new MercadoPago\Item();
-// $item->title = 'producto2';
-// $item->quantity = 1;
-// $item->unit_price = 100;
-// $preference->items = array($item);
 
 
-// dd($preference);
-$preference->save();
-      
 
-      
-     
+    
+
+  # Crea ítems en la preferencia
+  $preference = new MercadoPago\Preference();
+  # Crea ítems en la preferencia
+  $item1 = new MercadoPago\Item;
+  $item1->title = "Item de Prueba 1";
+  $item1->quantity = 2;
+  $item1->unit_price = 10;
+
+  $item2= new MercadoPago\Item;
+  $item2->title = "Item de Prueba 2";
+  $item2->quantity = 1;
+  $item2->unit_price = 10;
+
+  $preference->items = array($item1,$item2);
+  # Guardar y postear la preferencia
+  $preference->save();
        
        
       

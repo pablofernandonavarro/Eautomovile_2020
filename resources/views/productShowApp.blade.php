@@ -12,7 +12,7 @@
 
 
 <div class="container-fluid bg-mid-gray" style="margin-top: 8%;">
-    <form action="{{route('cart.add')}}" method="post">
+    <form action="{{route('cart.add',$product->id)}}" method="POST">
         @csrf
 
 
