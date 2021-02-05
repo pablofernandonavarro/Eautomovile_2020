@@ -47,8 +47,8 @@
                 <div class="text-uppercase font-weight-bold">web:</div>
                 <hr class="bg-warning mb-4 mt-0  d-inline-block mx-0 " style="width: 125px ; heigth: 2px">
                 <ul class="list-unstyled">
-                    <li><i class="fas fa-home mr-2"></i></i>Home</li>
-                    <li><i class="fas fa-house-user mr-2"></i></i>Ingreso:</li>
+                    <li><i class="fas fa-home mr-2"></i></i><a href="/" class="text-dark">Inicio</a></li>
+                    <li><i class="fas fa-house-user mr-2"></i></i><a href="/login" class="text-dark">Ingreso:</a></li>
                     <li><i class="fas fa-search mr-2"></i></i>Buscador:</li>
                     <li><i class="fas fa-truck mr-2"></i></i>Lista de articulos</li>
                 </ul>

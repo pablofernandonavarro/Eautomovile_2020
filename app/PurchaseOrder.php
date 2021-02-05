@@ -11,6 +11,8 @@ class PurchaseOrder extends Model
     protected $fillable = [
         'status', 
         'product_id',
+        'color_id',
+        'picture_url',
         'quantity',
         'user_id',
         'guide_number',
@@ -19,6 +21,9 @@ class PurchaseOrder extends Model
     ];
     public function products () {
         return $this->belongsToMany('App\Product')->withTimestamps();
+    }
+    public function colors () {
+        return $this->belongsToMany('App\Color')->withTimestamps();
     }
 
 }

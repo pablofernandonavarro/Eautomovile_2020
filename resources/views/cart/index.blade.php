@@ -2,9 +2,12 @@
 
 
 
-@section('content')
+
 <?php
-        // dd(Cart::getContent());
+
+        if (count(Cart::getContent()) > 0) {
+         
+        
 
         MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
@@ -19,37 +22,36 @@
 $preference = new MercadoPago\Preference();
 
 
+$cart = Cart::session(auth()->id())->getContent();
 
+$item=array();
+foreach ( $cart as  $carts) {
+
+    $item = new MercadoPago\Item();
+    $item->title = $carts->large_description;
+    $item->quantity = $carts->quantity;
+    $item->unit_price = Cart::getTotal();
     
+}
 
-  # Crea ítems en la preferencia
-  $preference = new MercadoPago\Preference();
-  # Crea ítems en la preferencia
-  $item1 = new MercadoPago\Item;
-  $item1->title = "Item de Prueba 1";
-  $item1->quantity = 2;
-  $item1->unit_price = 10;
+$preference->items = array($item); 
 
-  $item2= new MercadoPago\Item;
-  $item2->title = "Item de Prueba 2";
-  $item2->quantity = 1;
-  $item2->unit_price = 10;
+ $preference->back_urls = array(
+    "success" => "http://localhost:8000/checkoutthanks",
+    // "failure" => "http://www.tu-sitio/failure",
+    // "pending" => "http://www.tu-sitio/pending"
+);
+$preference->auto_return = "approved";
 
-  $preference->items = array($item1,$item2);
-  # Guardar y postear la preferencia
-  $preference->save();
-       
+$preference->save();
+}     
        
       
     
-        // $preference->back_urls = [
-        //     "success" => route('checkout.thanks'),
-        //     "pending" => route('checkout.pending'),
-        //     "failure" => route('checkout.error'), 
-        // ];
+      
 ?>
 
-
+@section('content')
 <div class="container mb-3" style="margin-top: 8%;">
 
     <h3>Mi carrito</h3>
@@ -57,8 +59,8 @@ $preference = new MercadoPago\Preference();
     <div class="row">
 
 
-        <div class="shoppingCart col-md-8 bg-light border ml-3 mr-1">
-            @if (count(Cart::getContent()))
+        <div class="shoppingCart col-md-7 bg-light border ml-3 ">
+            @if (count(Cart::getContent())>0)
             <table class="table table-striped ">
                 <thead>
                     <th>Item</th>
@@ -83,33 +85,48 @@ $preference = new MercadoPago\Preference();
                             <form action="{{route('cart.removeItem')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$item->id}}">
-                                <button type="submit" class="btn btn-link btn-sm text-danger">eliminar</button>
+                                <button type="submit" class="btn btn-link btn-sm text-danger">eliminar item</button>
+
                             </form>
+
+
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div>
+                <form action="{{route('cart.clear')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$item->id}}">
+                    <button type="submit" class="btn btn-link btn-sm text-danger">Eliminar todos los item del
+                        carrito</button>
 
-            @else
-            <p>Carrito vacio</p>
-            @endif
+                </form>
+            </div>
+
+
+
 
         </div>
 
 
-        <div class="purchaseSummary col-md-3 ml-5 bg-light border p-3">
+        <div class="purchaseSummary col-md-4 ml-5 bg-light border p-3">
             <h6>RESUMEN DE COMPRA:</h6>
             <table class="table table-striped ">
                 <thead>
                     <th>Item</th>
+                    <th>Precio</th>
+                    <th>adicional 20% color</th>
                     <th>subtotal</th>
                 </thead>
                 <tbody>
                     @foreach (Cart::getContent() as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{ $item->getPriceSum()}}</td>
+                        <td>{{ $item->price}}</td>
+                        <td>{{ $item->getPriceWithConditions()-$item->price}}</td>
+                        <td>{{$item->quantity*($item->price+$item->getPriceWithConditions()-$item->price)}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -126,12 +143,16 @@ $preference = new MercadoPago\Preference();
 
     </div>
     <div class="row justify-content-end mr-3">
-        <a href="<?php echo $preference->init_point ;?>" class="btn btn-primary text-primary mt-3 mr-3">Comparar</a>
+        <a href="/index" class="btn btn-success mt-3 mr-3">seguir comprando</a>
+        <a href="<?php echo $preference->init_point ;?>" class="btn btn-primary mt-3 mr-3">Pagar</a>
 
 
 
     </div>
-
+    @else
+    <p>Carrito vacio</p>
+    <a href="/index" class="btn btn-link btn-sm text-danger">Empezando Comprar</a>
+    @endif
 
 
     @endsection

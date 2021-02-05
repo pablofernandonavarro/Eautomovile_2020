@@ -77,7 +77,7 @@
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Salir') }}
                                     </a>
-                                    <a class="dropdown-item" href=" {{'users/'.Auth::user()->id.'/edit'}}">
+                                    <a class="dropdown-item" href=" {{'/users/'.Auth::user()->id.'/edit'}}">
                                         {{ __('Editar Perfil') }}
                                     </a>
 

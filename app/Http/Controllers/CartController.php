@@ -8,6 +8,7 @@ use App\Product;
 use App\PurchaseOrder;
 use Illuminate\Support\Facades\Auth;
 use App\Color;
+use Maatwebsite\Excel\Concerns\ToArray;
 use MercadoPago\Item;
 use MP;
 
@@ -15,74 +16,104 @@ class CartController extends Controller
 { 
     public function index(){
 
-        $cart = Cart::getContent();
-        
+        $cart = Cart::session(auth()->id())->getContent();
+       
         return view('cart.index',compact('cart'));
     }
 
-    public function add(Product $product){
-
-    
+    public function add(Product $product,Request $request){
+   
     $picture = $product->pictures[0]->url_picture;
-     
-     
-  
-  
+    
+    if ($request->color != 'Negro') {
+         
+        $saleCondition = new \Darryldecode\Cart\CartCondition(array(
+        'name' => '20% adicional color',
+        'type' => 'tax',
+        'value' => '20%',
+        ));
+ 
+        Cart::session(auth()->id())->add(array(
 
-    Cart::session(auth()->id())->add ( array (
-        'id'            => $product->id,
-        'name'          => $product->name,
-        'price'         => $product->price,
-        'quantity'      => $product->quantity,
-        'associateModel'=> $product,
-        'attributes' => array(
-           
-            'color' => $request->color,
-            'picture'=> $picture,
-          )
-        
-   ));
-   $cart= Cart::getContent();
+            'id'            => $product->id,
+            'name'          => $product->description_large,
+            'price'         => $product->price,
+            'quantity'      => $request->quantity,
+            'conditions'    => $saleCondition,
+            'attributes' => array(
+                'color' => $request->color,
+                'picture'=> $picture,
+            ),
+            'associatedModel' => 'Product',
+        ));
   
-   $purchase_order = new PurchaseOrder;
-  
-   foreach ($cart as $item) {
-       $purchase_order = new PurchaseOrder;
-
-       $purchase_order->status = $item->name;
-       $purchase_order->product_id = 1;
-       //    $purchase_order->price = $item->price;
-       $purchase_order->quantity= $item->quantity;
-       $purchase_order->user_id = 1;
+       
+    }
+    else{
+        Cart::session(auth()->id())->add(array(
+            'id'            => $product->id,
+            'name'          => $product->description_large,
+            'price'         => $product->price,
+            'quantity'      => $request->quantity,
+            'attributes' => array(
+                'color' => $request->color,
+                'picture'=> $picture,
+            ),
+            'associatedModel' => 'Product'
+        ));
       
-       $purchase_order->save();
-   }  
-   // Crea un ítem en la preferenc
-
-
-
-
-
-
-
-
+    }
+  
         return redirect()->route('cart.index');
     }
     
     public function removeItem(Request $request) {
 
        
-        Cart::remove([
+        Cart::session(auth()->id())->remove([
         'id' => $request->id,
         ]);
         return view('/cart.index');
     }
 
     public function clear(){
-        Cart::clear();
+        Cart::session(auth()->id())->clear();
         return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
     }
 
 
+    public function checkoutThanks(Request $request,Product $product){
 
+       
+       
+        $cart = Cart::session(auth()->id())->getContent();
+      
+        $user = Auth::user();
+       
+        
+        // $purchase_order= new PurchaseOrder;
+        // $purchase_order->user_id = $user->id;
+        // $purchase_order->product()->sync($item->id);
+      
+        foreach (Cart::getContent() as $row) {
+            dd($row); 
+
+
+            $colorId = Color::where('color_name',$item->attributes->color)->first()->id;
+            
+            $purchase_order->product_id = array(
+                'product_id'=> $item->id,
+                 
+            );
+            
+         
+            
+        }
+        $purchase_order->save();
+    
+    dd($purchase_order);
+        Cart::session(auth()->id())->clear();
+
+        return view('checkoutMercadoPago.checkoutSuccess');
+    }
 }

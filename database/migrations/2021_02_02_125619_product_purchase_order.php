@@ -17,6 +17,7 @@ class ProductPurchaseOrder extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('purchaseOrder_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
+            
             $table
                 ->foreign('purchaseOrder_id')
                 ->references('id')
@@ -29,6 +30,7 @@ class ProductPurchaseOrder extends Migration
                 ->on('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+               
             $table->timestamps();
         });
    
