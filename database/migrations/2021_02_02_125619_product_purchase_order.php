@@ -15,11 +15,11 @@ class ProductPurchaseOrder extends Migration
     {
         Schema::create('product_purchase_order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('purchaseOrder_id')->unsigned();
+            $table->bigInteger('purchase_order_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
             
             $table
-                ->foreign('purchaseOrder_id')
+                ->foreign('purchase_order_id')
                 ->references('id')
                 ->on('purchase_orders')
                 ->onDelete('cascade')

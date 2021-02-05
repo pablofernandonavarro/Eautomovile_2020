@@ -40,9 +40,11 @@ class CartController extends Controller
             'price'         => $product->price,
             'quantity'      => $request->quantity,
             'conditions'    => $saleCondition,
+            
             'attributes' => array(
                 'color' => $request->color,
                 'picture'=> $picture,
+                
             ),
             'associatedModel' => $product,
         ));
@@ -55,9 +57,11 @@ class CartController extends Controller
             'name'          => $product->description_large,
             'price'         => $product->price,
             'quantity'      => $request->quantity,
+            
             'attributes' => array(
                 'color' => $request->color,
                 'picture'=> $picture,
+                
             ),
             'associatedModel' => $product
         ));
@@ -88,24 +92,18 @@ class CartController extends Controller
        
      
         $cart = Cart::session(auth()->id())->getContent();
-      
+        $cartTotal = Cart::getTotal();
+        
         $user = Auth::user();
        
         
          $purchase_order= new PurchaseOrder;
          $purchase_order->user_id = $user->id;
          $purchase_order->color_id = 1;
-        dd($purchase_order);
+         $purchase_order->total =$cartTotal;
+        
         foreach (Cart::getContent() as $item) {
-             
-
-
-            $product_id[]= $item->id;
-            
-           
-            
-         
-            
+             $product_id[]= $item->id;
         }
        
         $purchase_order->save();

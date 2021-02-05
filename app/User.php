@@ -59,4 +59,8 @@ class User extends Authenticatable
     {
         return $this->user_role;
     }
+
+    public function PurchaseOrders(){
+        return $this->hasMany('App\PurchaseOrder');
+    }
 }

@@ -18,6 +18,7 @@ class CreatePurchaseOrdersTable extends Migration
             $table->bigInteger('quantity')->unsigned()->default(0)->nullable();  
             $table->bigInteger('user_id')->unsigned();
             $table->string('picture_url')->nullable();
+           
             $table->bigInteger('color_id')->unsigned();
             $table
             ->foreign('user_id')
@@ -30,7 +31,8 @@ class CreatePurchaseOrdersTable extends Migration
             ->references('id')
             ->on('colors')
             ->onDelete('cascade')
-            ->onUpdate('cascade');    
+            ->onUpdate('cascade'); 
+           
             $table->string('guide_number')->nullable();
             $table->string('status')->nullable();
             $table->integer('total')->nullable();

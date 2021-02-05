@@ -25,5 +25,8 @@ class PurchaseOrder extends Model
     public function colors () {
         return $this->belongsToMany('App\Color')->withTimestamps();
     }
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 
 }
