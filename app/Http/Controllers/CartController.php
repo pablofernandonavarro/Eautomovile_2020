@@ -34,8 +34,8 @@ class CartController extends Controller
         ));
  
         Cart::session(auth()->id())->add(array(
-
             'id'            => $product->id,
+            'product_id'    => $product->id,
             'name'          => $product->description_large,
             'price'         => $product->price,
             'quantity'      => $request->quantity,
@@ -44,7 +44,7 @@ class CartController extends Controller
                 'color' => $request->color,
                 'picture'=> $picture,
             ),
-            'associatedModel' => 'Product',
+            'associatedModel' => $product,
         ));
   
        
@@ -59,8 +59,9 @@ class CartController extends Controller
                 'color' => $request->color,
                 'picture'=> $picture,
             ),
-            'associatedModel' => 'Product'
+            'associatedModel' => $product
         ));
+        
       
     }
   
@@ -85,33 +86,31 @@ class CartController extends Controller
     public function checkoutThanks(Request $request,Product $product){
 
        
-       
+     
         $cart = Cart::session(auth()->id())->getContent();
       
         $user = Auth::user();
        
         
-        // $purchase_order= new PurchaseOrder;
-        // $purchase_order->user_id = $user->id;
-        // $purchase_order->product()->sync($item->id);
-      
-        foreach (Cart::getContent() as $row) {
-            dd($row); 
+         $purchase_order= new PurchaseOrder;
+         $purchase_order->user_id = $user->id;
+         $purchase_order->color_id = 1;
+        dd($purchase_order);
+        foreach (Cart::getContent() as $item) {
+             
 
 
-            $colorId = Color::where('color_name',$item->attributes->color)->first()->id;
+            $product_id[]= $item->id;
             
-            $purchase_order->product_id = array(
-                'product_id'=> $item->id,
-                 
-            );
+           
             
          
             
         }
+       
         $purchase_order->save();
-    
-    dd($purchase_order);
+        $purchase_order->products()->sync($product_id);
+   
         Cart::session(auth()->id())->clear();
 
         return view('checkoutMercadoPago.checkoutSuccess');
