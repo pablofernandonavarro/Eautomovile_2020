@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\PurchaseOrder;
 use Illuminate\Http\Request;
+use App\PurchaseOrderDetail;
 
 
 class PurchaseOrderController extends Controller
@@ -15,9 +17,9 @@ class PurchaseOrderController extends Controller
      */
     public function index()
     {
-          $purchaseOrders = PurchaseOrder::with('user')->get();
-           
-            return view('admin.orders.index',compact('purchaseOrders'));
+         $purchaseOrders = PurchaseOrder::with('user')->get();
+          
+             return view('admin.orders.index',compact('purchaseOrders'));
       
     }
 
@@ -34,14 +36,7 @@ class PurchaseOrderController extends Controller
     }
 
   
-    public function show($id)
-    {   
-        
-        $purchaseOrders = PurchaseOrder::with('user')->findOrFail($id);
-
-        return view('admin.orders.show',compact('purchaseOrders'));
-    }
-
+   
     
     public function edit(PurchaseOrder $purchaseOrder)
     {
@@ -57,6 +52,7 @@ class PurchaseOrderController extends Controller
   
     public function destroy(PurchaseOrder $purchaseOrder)
     {
-        //
+        $purchaseOrder->delete();
+        return  back();
     }
 }

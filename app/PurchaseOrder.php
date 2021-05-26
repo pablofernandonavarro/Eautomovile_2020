@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\PurchaseOrderDetail;
 
 class PurchaseOrder extends Model
 {
@@ -28,5 +29,7 @@ class PurchaseOrder extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
-
+    public function purchaseOrderDetails() {
+        return $this->belongsToMany('App\PurchaseOrderDetail')->withPivot('id');
+    }
 }

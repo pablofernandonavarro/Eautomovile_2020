@@ -56,6 +56,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('pictures', 'PictureController');
     Route::resource('products', 'ProductController');
     Route::resource('purchaseOrder','PurchaseOrdercontroller');
+    Route::resource('purchaseOrderDetail', 'PurchaseOrderDetailcontroller');
 
    
 });

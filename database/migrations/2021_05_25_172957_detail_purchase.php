@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductPurchaseOrder extends Migration
+class DetailPurchase extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,36 @@ class ProductPurchaseOrder extends Migration
      */
     public function up()
     {
-        Schema::create('product_purchase_order', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('detail_purchase', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('purchase_order_id')->unsigned();
+            $table->bigInteger('detail_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
-            
+            $table->string('color')->nulable();
+            $table->integer('quantity');
+            $table->integer('price_unit');
             $table
                 ->foreign('purchase_order_id')
                 ->references('id')
                 ->on('purchase_orders')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table
+                $table
                 ->foreign('product_id')
                 ->references('id')
                 ->on('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-               
+                $table 
+                ->foreign('detail_purchase_id')
+                ->references('id')
+                ->on('detail_purchase')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+          
             $table->timestamps();
         });
-   
+      
     }
 
     /**
@@ -43,6 +52,6 @@ class ProductPurchaseOrder extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('detail_purchase');
     }
 }

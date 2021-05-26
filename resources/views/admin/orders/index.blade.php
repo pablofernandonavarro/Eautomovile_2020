@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<h1 class="h1 text-center">Ordenes de compras</h1>
 <table class="table table-striped ml-lg-auto">
     <thead>
         <th>Id</th>
@@ -22,9 +22,17 @@
             <td>{{$purchaseOrder->status}}</td>
             <td>${{$purchaseOrder->total}}</td>
             <td>{{$purchaseOrder->guide_number}}</td>
-            <td><a href="/admin/purchaseOrder/{{$purchaseOrder->id}}" class="btn btn-warning btn-small">ver</a>
+            <td><a href="{{route('admin.purchaseOrderDetail.show',$purchaseOrder->id)}}"
+                    class="btn btn-warning btn-small">Detalle
+                    :</a>
                 <a href="" class="btn btn-primary btn-small">editar</a>
-                <a href="" class="btn btn-danger btn-small">eliminar</a>
+                <form action="{{route('admin.purchaseOrder.destroy',$purchaseOrder->id)}}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                </form>
+
             </td>
 
         </tr>
