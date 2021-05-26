@@ -106,7 +106,7 @@ class CartController extends Controller
         $purchase_order_all = PurchaseOrder::all();
 
         $purchase_order_detail = new PurchaseOrderDetail;
-        $purchase_order_detail->purchase_order_id =1;
+        $purchase_order_detail->purchase_orders_id =1;
         $purchase_order_detail->product_id= 1;
         $purchase_order_detail->color = "negro" ;
         $purchase_order_detail->quantity= 1;
@@ -119,7 +119,7 @@ class CartController extends Controller
 
              $purchase_order_detail= new PurchaseOrderDetail;
 
-             $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
+             $purchase_order_detail->purchase_orders_id = $purchase_order_all->last()->id;
              $purchase_order_detail->product_id        = $item->model->id;
              $purchase_order_detail->color             = $item->attributes->color;
              $purchase_order_detail->quantity          = $item->quantity;

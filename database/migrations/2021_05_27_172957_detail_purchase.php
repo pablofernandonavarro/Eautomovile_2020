@@ -15,14 +15,15 @@ class DetailPurchase extends Migration
     {
         Schema::create('detail_purchase', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('purchase_order_id')->unsigned();
-            $table->bigInteger('detail_id')->unsigned();
+            $table->bigInteger('purchase_orders_id')->unsigned();
+            // $table->bigInteger('detail_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
             $table->string('color')->nulable();
             $table->integer('quantity');
             $table->integer('price_unit');
+            $table->bigInteger('purchase_ordres_details_id')->unsigned();
             $table
-                ->foreign('purchase_order_id')
+                ->foreign('purchase_orders_id')
                 ->references('id')
                 ->on('purchase_orders')
                 ->onDelete('cascade')
@@ -34,9 +35,9 @@ class DetailPurchase extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
                 $table 
-                ->foreign('detail_purchase_id')
+                ->foreign('purchase_ordres_details_id')
                 ->references('id')
-                ->on('detail_purchase')
+                ->on('purchase_orders_details')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
           
