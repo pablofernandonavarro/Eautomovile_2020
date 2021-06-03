@@ -17,16 +17,16 @@
         @foreach ($purchaseOrders as $purchaseOrder)
         <tr>
             <td>{{$purchaseOrder->id}}</td>
-            <td>{{Str::limit($purchaseOrder->created_at,10)}}</td>
+            <td>{{Str::limit($purchaseOrder->created_at,15)}}</td>
             <td>{{$purchaseOrder->user->name}}</td>
             <td>{{$purchaseOrder->status}}</td>
             <td>${{$purchaseOrder->total}}</td>
             <td>{{$purchaseOrder->guide_number}}</td>
-            <td><a href="{{route('admin.purchaseOrderDetail.show',$purchaseOrder->id)}}"
+            <td><a href="{{route('admin.purchaseorderdetails.show',$purchaseOrder->id)}}"
                     class="btn btn-warning btn-small">Detalle
                     :</a>
                 <a href="" class="btn btn-primary btn-small">editar</a>
-                <form action="{{route('admin.purchaseOrder.destroy',$purchaseOrder->id)}}" method="POST"
+                <form action="{{route('admin.purchaseorders.destroy',$purchaseOrder->id)}}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('delete')

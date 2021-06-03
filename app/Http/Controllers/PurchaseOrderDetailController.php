@@ -2,26 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\PurchaseOrderDetail;
 use Illuminate\Http\Request;
 use App\PurchaseOrder;
+use Illuminate\Support\Facades\Auth;
 use App\User;
-use DetailPurchase;
+
 
 class PurchaseOrderDetailController extends Controller
 {
     public function show($id)
-    {   
-        $Purchase    = PurchaseOrder::findOrfail($id)->with('purchaseOrderDetails');
-        // $detailPurchase = PurchaseOrderDetail::findOrfail($Purchase);
-        // dd($detailPurchase);
-        // $purchaseOrder    = $detailPurchase->purchase_order_id;
 
-        // $purchaseOrder = PurchaseOrder::find($purchaseOrder);
-        dd($Purchase);
+    {   
+
+        $i=0;
+        $purchaseTotal=0;
+        $purchaseTotalFinal=0;
+        $product         = Product::all();
+        $purchaseOrders  = PurchaseOrder::find($id);
+        $user = User::find($purchaseOrders->user_id);
         
-        // dd($purchaseOrder);
-        return view('admin.ordersDetail.show',compact('purchaseOrders','detailPurchase'));
+        // $user = User::findOrFail('$purchaseOrders->user_id');
+        // dd($user);
+        $purchaseOrderDetails = $purchaseOrders->purchaseOrderDetails;
+        // $product         = Product::find($purchaseOrderDetails->id);
+        
+        // dd($purchaseOrderDetails);
+       
+        return view('admin.purchaseorderdetails.show',compact('purchaseOrders','purchaseOrderDetails','user','product','i','purchaseTotal','purchaseTotalFinal'));
         
        
         

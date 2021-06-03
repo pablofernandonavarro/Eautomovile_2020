@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    
+
     @yield('styles')
 </head>
 
@@ -37,7 +37,7 @@
                                 class="fas fa-bars"></i></a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="/home" class="nav-link">Home</a>
+                        <a href="/admin/dashboard" class="nav-link">Panel Control</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="#" class="nav-link">Contact</a>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PurchaseOrderDetails extends Migration
+class CreatePurchaseOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class PurchaseOrderDetails extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_orders_details', function (Blueprint $table) {
-
+        Schema::create('purchase_orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('purchase_orders_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+           
             $table
-            ->foreign('purchase_orders_id')
+            ->foreign('user_id')
             ->references('id')
-            ->on('purchase_orders')
+            ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->string('color')->nullable();
-            $table->string('quantity')->nullable();
-            $table->integer('price_unit')->nullable();
+          
+            $table->string('guide_number')->nullable();
+            $table->string('status')->nullable();
+            $table->integer('total')->nullable();
             $table->timestamps();
         });
-       
     }
 
     /**
@@ -38,6 +38,6 @@ class PurchaseOrderDetails extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('purchase_orders');
     }
 }

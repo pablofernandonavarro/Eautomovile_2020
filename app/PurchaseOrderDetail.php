@@ -7,16 +7,21 @@ use App\PurchaseOrder;
 
 class PurchaseOrderDetail extends Model
 {
-    protected $table = 'detail_purchase';
+    protected $table = 'purchase_order_details';
     
     protected $fillable = [
         'purchase_orders_id',
+        'product_id',
         'color',
         'quantity',
         'price_unit',
         
     ];
-    public function purchaseOrders(){
-        return $this->belongsToMany('App\PurchaseOrder');
+    public function purchaseOrder(){
+        return $this->belongsTo('App\PurchaseOrder');
     }
+    public function user() {
+        return $this->belongsToMany('App\User');
+    }
+   
 }

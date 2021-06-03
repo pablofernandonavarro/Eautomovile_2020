@@ -23,13 +23,13 @@
                 </div>
                 <div class="col-sm-6 ">
                     <h5 class="mb-3">To:</h5>
-                    <h3 class="text-dark mb-1">{{$purchaseOrders->user->name}}</h3>
-                    <div>Direccion de entrega:{{$purchaseOrders->user->user_deliveryAddress}}</div>
-                    <div>Codigo localidad:{{$purchaseOrders->user->user_deliveryAddressLocation}}</div>
-                    <div>Provincia :{{$purchaseOrders->user->user_deliveryAddressProvince}}</div>
-                    <div>Codigo Postal:{{$purchaseOrders->user->user_deliveryAddressPostalCode}}</div>
-                    <div>Telefono:{{$purchaseOrders->user->user_phone}}</div>
-                    <div>Email:{{$purchaseOrders->user->email}}</div>
+                    <h3 class="text-dark mb-1">{{$user->name}}</h3>
+                    <div>Direccion de entrega:{{$user->user_deliveryAddress}}</div>
+                    <div>Codigo localidad:{{$user->user_deliveryAddressLocation}}</div>
+                    <div>Provincia :{{$user->user_deliveryAddressProvince}}</div>
+                    <div>Codigo Postal:{{$user->user_deliveryAddressPostalCode}}</div>
+                    <div>Telefono:{{$user->user_phone}}</div>
+                    <div>Email:{{$user->email}}</div>
                 </div>
             </div>
             <div class="table-responsive-sm">
@@ -39,28 +39,36 @@
                     <thead>
                         <tr>
                             <th class="center">#</th>
-                            <th>Color</th>
-                            <th>Description</th>
-                            <th class="right">Precio</th>
                             <th class="center">Cantidad</th>
-                            <th class="right">Total</th>
+                            <th class="center">Sku</th>
+                            <th>Description</th>
+                            <th>Color</th>
+                            <th class="right">Precio</th>
+                            <th class="right">SubTotal</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($detalle as $item)
+
+                        @foreach ($purchaseOrderDetails as $item )
+
+                        {{$i = $i+1}}
 
                         <tr>
-                            <td class="center">1</td>
-                            <td class="left strong">{{$item->color}}</td>
-                            <td class="left">{{$item->product_id}}</td>
-                            <td class="right">{{$item->price_unit}}</td>
+                            <td class="center">{{$i}}</td>
                             <td class="center">{{$item->quantity}}</td>
+                            <td class="center">{!!$product->find($item->product_id)->sku!!}</td>
+                            <td class="left">{!!$product->find($item->product_id)->description_large!!}</td>
+                            <td class="left strong">{{$item->color}}</td>
+                            <td class="right">{{$item->price_unit}}</td>
                             <td class="right">{{$item->price_unit*$item->quantity}}</td>
+                            {{$purchaseTotal =  $item->price_unit*$item->quantity}}
+                            {{$purchaseTotalFinal = $purchaseTotalFinal+$purchaseTotal}}
                         </tr>
 
                     </tbody>
+                    @endforeach
                 </table>
-                @endforeach
+
             </div>
 
             <div class="row">
@@ -71,29 +79,29 @@
                         <tbody>
                             <tr>
                                 <td class="left">
-                                    <strong class="text-dark">Subtotal</strong>
+                                    <strong class="text-dark">Total</strong>
                                 </td>
-                                <td class="right">$28,809,00</td>
+                                <td class="right">{{$purchaseTotalFinal}}</td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <td class="left">
                                     <strong class="text-dark">Discount (20%)</strong>
                                 </td>
-                                <td class="right">$5,761,00</td>
-                            </tr>
-                            <tr>
+                                <td class="right">{{$item->price_unit*$item->quantity}}</td>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td class="left">
-                                    <strong class="text-dark">VAT (10%)</strong>
+                                    <strong class="text-dark">I.V.A. (21%)</strong>
                                 </td>
-                                <td class="right">$2,304,00</td>
-                            </tr>
-                            <tr>
+                                <td class="right">{{}}</td>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td class="left">
                                     <strong class="text-dark">Total</strong> </td>
                                 <td class="right">
                                     <strong class="text-dark">$20,744,00</strong>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

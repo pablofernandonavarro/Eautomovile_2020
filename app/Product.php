@@ -85,8 +85,10 @@ class Product extends Model
     
     public function purchaseOrders()
     {
-        return $this->belongsToMany('App\PurcheseOrder')->withTimestamps();
+        return $this->belongsToMany('App\PurchaseOrder')->withTimestamps();
     }
+  
+
 
     //  ------------------ scopes -------------------------------
 

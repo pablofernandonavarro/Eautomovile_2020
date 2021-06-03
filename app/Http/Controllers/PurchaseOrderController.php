@@ -19,7 +19,7 @@ class PurchaseOrderController extends Controller
     {
          $purchaseOrders = PurchaseOrder::with('user')->get();
           
-             return view('admin.orders.index',compact('purchaseOrders'));
+             return view('admin.purchaseorders.index',compact('purchaseOrders'));
       
     }
 
@@ -50,8 +50,9 @@ class PurchaseOrderController extends Controller
     }
 
   
-    public function destroy(PurchaseOrder $purchaseOrder)
-    {
+    public function destroy($id)
+    { 
+        $purchaseOrder = PurchaseOrder::find($id);
         $purchaseOrder->delete();
         return  back();
     }

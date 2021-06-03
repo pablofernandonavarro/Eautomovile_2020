@@ -10,7 +10,7 @@ class PurchaseOrder extends Model
     protected $table = 'purchase_orders';
     
     protected $fillable = [
-        'status', 
+        'status',
         'product_id',
         'color_id',
         'picture_url',
@@ -20,16 +20,20 @@ class PurchaseOrder extends Model
         'status',
         'total'
     ];
-    public function products () {
+    public function products()
+    {
         return $this->belongsToMany('App\Product')->withTimestamps();
     }
-    public function colors () {
+    public function colors()
+    {
         return $this->belongsToMany('App\Color')->withTimestamps();
     }
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
-    public function purchaseOrderDetails() {
-        return $this->belongsToMany('App\PurchaseOrderDetail')->withPivot('id');
+    public function purchaseOrderDetails()
+    {
+        return $this->hasMany('App\PurchaseOrderDetail');
     }
 }

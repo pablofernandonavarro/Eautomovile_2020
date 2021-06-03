@@ -11,7 +11,7 @@
             <h3 class="card-title">Ordenes de compras</h3>
         </div>
         <div class="card-body ml-4">
-            <a href="{{route('admin.purchaseOrder.index')}}">Listado ordenes de compras</a>
+            <a href="{{url('admin/purchaseorders')}}">Listado ordenes de compras</a>
         </div>
     </div>
 
