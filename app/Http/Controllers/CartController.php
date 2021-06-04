@@ -17,10 +17,11 @@ use MP;
 class CartController extends Controller
 { 
     public function index(){
-
+        $user = Auth()->user();
+      
         $cart = Cart::session(auth()->id())->getContent();
        
-        return view('cart.index',compact('cart'));
+        return view('cart.index',compact('cart','user'));
     }
 
     public function add(Product $product,Request $request){
@@ -134,5 +135,13 @@ class CartController extends Controller
         Cart::session(auth()->id())->clear();
 
         return view('checkoutMercadoPago.checkoutSuccess');
+    }
+    public function checkout(){
+
+        $user = Auth()->user();
+      
+        $cart = Cart::session(auth()->id())->getContent();
+       
+        return view('checkoutMercadoPago/checkout',compact('cart','user'));
     }
 }

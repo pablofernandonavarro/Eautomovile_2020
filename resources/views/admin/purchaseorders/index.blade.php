@@ -11,28 +11,35 @@
         <th>Estado</th>
         <th>Total compra</th>
         <th>Observaciones</th>
+        <th></th>
         <th>Accion</th>
+        <th></th>
+
     </thead>
     <tbody>
         @foreach ($purchaseOrders as $purchaseOrder)
         <tr>
             <td>{{$purchaseOrder->id}}</td>
-            <td>{{Str::limit($purchaseOrder->created_at,15)}}</td>
+            <td>{{Str::limit($purchaseOrder->created_at->format('d-m-y H:i'))}}</td>
             <td>{{$purchaseOrder->user->name}}</td>
             <td>{{$purchaseOrder->status}}</td>
             <td>${{$purchaseOrder->total}}</td>
             <td>{{$purchaseOrder->guide_number}}</td>
-            <td><a href="{{route('admin.purchaseorderdetails.show',$purchaseOrder->id)}}"
-                    class="btn btn-warning btn-small">Detalle
+            <td>
+                <a href="{{route('admin.purchaseorderdetails.show',$purchaseOrder->id)}}"
+                    class="btn btn-warning btn-sm">Detalle
                     :</a>
-                <a href="" class="btn btn-primary btn-small">editar</a>
+            </td>
+            <td>
+                <a href="" class="btn btn-primary btn-sm">editar</a>
+            </td>
+            <td>
                 <form action="{{route('admin.purchaseorders.destroy',$purchaseOrder->id)}}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                 </form>
-
             </td>
 
         </tr>

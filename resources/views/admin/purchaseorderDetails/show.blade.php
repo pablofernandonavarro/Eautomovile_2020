@@ -2,19 +2,19 @@
 
 @section('content')
 
-<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding mt-1">
     <div class="card">
-        <div class="card-header p-4">
-            <a class="pt-2 d-inline-block" href="index.html" data-abc="true">E-automovile.com.ar</a>
-            <div class="float-right">
-                <h3 class="mb-0">E-automovile.com.ar</h3>
-                Date: 12 Jun,2019
-            </div>
+        {{-- <div class="card-header p-4">
+            <a class="pt-2 d-inline-block" href="index.html" data-abc="true">E-automovile.com.ar</a> --}}
+        <div class="float-left">
+            {{-- <h3 class="mb-0">E-automovile.com.ar</h3> --}}
+            Fecha:{{$purchaseOrders->created_at->format('d-m-y H:i')}}
         </div>
+        {{-- </div>  --}}
         <div class="card-body">
             <div class="row mb-4">
                 <div class="col-sm-6">
-                    <h5 class="mb-3">From:</h5>
+
                     <h3 class="text-dark mb-1">e-AUTOMOVILE</h3>
                     <div>Direccion:</div>
                     <div>Localidad:</div>
@@ -22,14 +22,14 @@
                     <div>Telefono :</div>
                 </div>
                 <div class="col-sm-6 ">
-                    <h5 class="mb-3">To:</h5>
+
                     <h3 class="text-dark mb-1">{{$user->name}}</h3>
-                    <div>Direccion de entrega:{{$user->user_deliveryAddress}}</div>
-                    <div>Codigo localidad:{{$user->user_deliveryAddressLocation}}</div>
-                    <div>Provincia :{{$user->user_deliveryAddressProvince}}</div>
-                    <div>Codigo Postal:{{$user->user_deliveryAddressPostalCode}}</div>
-                    <div>Telefono:{{$user->user_phone}}</div>
-                    <div>Email:{{$user->email}}</div>
+                    <div>Direccion de entrega: {{$user->user_deliveryAddress}}</div>
+                    <div>Codigo localidad: {{$user->user_deliveryAddressLocation}}</div>
+                    <div>Provincia : {{$user->user_deliveryAddressProvince}}</div>
+                    <div>Codigo Postal: {{$user->user_deliveryAddressPostalCode}}</div>
+                    <div>Telefono: {{$user->user_phone}}</div>
+                    <div>Email: {{$user->email}}</div>
                 </div>
             </div>
             <div class="table-responsive-sm">
@@ -108,8 +108,11 @@
             </div>
         </div>
         <div class="card-footer bg-white">
-            <p class="mb-0">BBBootstrap.com, Sounth Block, New delhi, 110034</p>
+            <p class="mb-0"></p>
         </div>
     </div>
+    <a href="/admin/purchaseorders" class="btn btn-block btn-primary mt-4 mb-3">Regresar al listado
+        de ordenes de compra</a>
 </div>
+
 @endsection

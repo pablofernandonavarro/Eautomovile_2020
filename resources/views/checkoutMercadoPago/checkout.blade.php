@@ -1,10 +1,57 @@
 @extends('master')
 
+<?php
+
+        if (count(Cart::getContent()) > 0) {
+         
+        
+
+        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+
+
+       
+
+        // Agrega credenciales  
+        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+
+        
+     // Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+
+$cart = Cart::session(auth()->id())->getContent();
+
+$item=array();
+foreach ( $cart as  $carts) {
+
+    $item = new MercadoPago\Item();
+    $item->title = $carts->large_description;
+    $item->quantity = $carts->quantity;
+    $item->unit_price = Cart::getTotal();
+    
+}
+
+$preference->items = array($item); 
+
+ $preference->back_urls = array(
+    "success" => "http://localhost:8000/checkoutthanks",
+    // "failure" => "http://www.tu-sitio/failure",
+    // "pending" => "http://www.tu-sitio/pending"
+);
+$preference->auto_return = "approved";
+
+$preference->save();
+}     
+       
+      
+    
+      
+?>
 
 @section('content')
 <div class="container mb-3" style="margin-top: 8%;">
 
-    <h3>Mi carrito</h3>
+    <h3>Mi Compra</h3>
     <hr>
     <div class="row">
 
@@ -93,8 +140,8 @@
 
     </div>
     <div class="row justify-content-end mr-3">
-        <a href="/index" class="btn btn-success mt-3 mr-3">seguir comprando</a>
-        <a href="{{route('users.basicDataUsers',$user)}}" class="btn btn-success mt-3 mr-3">Pagar</a>
+        <a href="<?php echo $preference->init_point ;?>" class="btn btn-primary mt-3 mr-3">Pagar</a>
+
     </div>
     @else
     <p>Carrito vacio</p>

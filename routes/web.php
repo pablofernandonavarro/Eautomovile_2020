@@ -16,7 +16,10 @@ Auth::routes();
 
 //********   Route App ********* ///
 
-Route::resource('users', 'UserController');
+
+Route::get('users/{id}/basicDataUsers','userController@Edit_basicdata')->name('users.basicDataUsers');
+Route::put('users/{id}/basicDataUsers','userController@Update_basicdata')->name('users.Update_basicdata');
+Route::resource('users', 'UserController',['except' =>'show']);
 
 Route::get('/api-brands/{id}', 'ApiController@brand');
 
@@ -28,6 +31,7 @@ Route::get('/currier','indexController@view_currier')->name('currier');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 //********   /Route App ********* ///
 
@@ -109,3 +113,4 @@ Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.t
 
 
 Route::post('/procesarPago',  'CartController@pagar')->name('procesarPago');
+Route::get('checkoutMercadoPago/checkout','CartController@checkout')->name('checkoutMercadoPago.checkout')->middleware('auth');;

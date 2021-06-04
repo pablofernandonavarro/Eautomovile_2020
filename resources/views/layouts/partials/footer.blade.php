@@ -22,8 +22,8 @@
                 <div class="text-uppercase font-weight-bold">Contacto :</div>
                 <hr class="bg-warning mb-4 mt-0  d-inline-block mx-0 " style="width: 125px ; heigth: 2px">
                 <ul class="list-unstyled">
-                    <li><i class="fas fa-phone-volume mr-2"></i></i>156-997-5132</li>
-                    <li><i class="fas fa-envelope-open-text mr-2"></i></i>eautmovile@gamil.com</li>
+                    {{-- <li><i class="fas fa-phone-volume mr-2"></i></i>156-997-5132</li> --}}
+                    <li><i class="fas fa-envelope-open-text mr-2"></i></i>eautmovile@gmail.com</li>
                     <li><i class="fas fa-map-marker-alt mr-2"></i>San vicente 5874 San Martin cp:1650</li>
 
                 </ul>
