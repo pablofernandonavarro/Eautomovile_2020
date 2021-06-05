@@ -306,7 +306,8 @@
 
                 </div>
                 <div class="col-md-6">
-                  {!!$errors->first('supplier_product_code','<small class="alert alert-danger col-md-12" role="alert">:message
+                  {!!$errors->first('supplier_product_code','<small class="alert alert-danger col-md-12"
+                    role="alert">:message
                   </small>')!!}
                 </div>
                 <br>
@@ -779,8 +780,10 @@
 </form>
 </div>
 <script type="text/javascript">
-  let model = document.getElementById('pattern_id');
-  let brand = document.getElementById('brand');
+  let model             = document.getElementById('pattern_id');
+  let brand             = document.getElementById('brand');
+  let description_short = document.getElementById('description_short');
+
   model.addEventListener('change',(e) => {
     fetch(`http://localhost:8000/api-brands/${e.target.value}`)
     .then(response => response.json())

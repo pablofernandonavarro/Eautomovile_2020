@@ -90,7 +90,7 @@ class Product extends Model
   
 
 
-    //  ------------------ scopes -------------------------------
+    //   ------------------ scopes -------------------------------
 
     public function scopeCategorysearch($query, $category_id)
     {
@@ -105,28 +105,28 @@ class Product extends Model
         return $query->where('pattern_id', 'LIKE', $pattern_id);
     }
 
-     public function scopeStartDate($query, $year){
+      public function scopeStartDate($query, $year)
+      {
+          if ($year) {
 
-         if ($year) {
+            //    dd($year,$query->product);
+              return $query->whereDate('date_start', '<', $year);
+          }
+      }  
+      public function scopeFinishDate($query, $year){
 
-             return $query->whereDate('date_start', '>', $year);
+          if ($year)
 
-         }
-     }
-     public function scopeFinishDate($query, $year){
-
-         if ($year)
-
-         Date('Y-m-d');
-         $year = date($year);
+          Date('Y-m-d');
+          $year = date($year);
         
-             return $query->whereDate('date_finish', '>', $year);  
+              return $query->whereDate('date_finish', '>', $year);  
              
                
            
 
 
-     }
+      }
 
  
 }
@@ -136,6 +136,6 @@ class Product extends Model
 
 
 
-//  ------------------ /scopes ------------------------------
+//   ------------------ scopes ------------------------------
 
 

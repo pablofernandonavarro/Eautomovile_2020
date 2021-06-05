@@ -67,9 +67,12 @@ class IndexController extends Controller
                     ->categorysearch($category_id)
                     ->patternsearch($pattern_id)
                    
-                    // ->StartDate($year)
+                    ->StartDate($year)
                     ->FinishDate($year)
                     ->get();
+                 
+                    
+                    
                 
   
     
