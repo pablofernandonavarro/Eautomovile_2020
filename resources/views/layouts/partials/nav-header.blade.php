@@ -4,8 +4,8 @@
 
 <header>
 
-    <div class="container-fluid ">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top">
+    <div class="container-fluid mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top mb-5">
             <div class="container">
                 <a href="/index" class="navbar-brand">
                     <div id="pictue:logo">

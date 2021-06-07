@@ -144,4 +144,12 @@ class CartController extends Controller
        
         return view('checkoutMercadoPago/checkout',compact('cart','user'));
     }
+    public function checkoutSuceess(){
+
+        $user = Auth()->user();
+      
+        $cart = Cart::session(auth()->id())->getContent();
+       
+        return view('checkoutMercadoPago/checkoutSuccess',compact('cart','user'));
+    }
 }

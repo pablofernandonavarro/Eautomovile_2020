@@ -103,7 +103,7 @@ Route::get('/cart.index','CartController@index')->name('cart.index')->middleware
 Route::post('/cart-clear','CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');
 Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.thanks');
-    
+   
 
 
 //********   /Route cart_shopping ********* ///
@@ -113,4 +113,6 @@ Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.t
 
 
 Route::post('/procesarPago',  'CartController@pagar')->name('procesarPago');
-Route::get('checkoutMercadoPago/checkout','CartController@checkout')->name('checkoutMercadoPago.checkout')->middleware('auth');;
+Route::get('checkoutMercadoPago/checkout','CartController@checkout')->name('checkoutMercadoPago.checkout')->middleware('auth');
+Route::get('checkoutMercadoPago/checkoutSuccess','CartController@checkoutSuccess')->name('checkoutMercadoPago.checkoutSuccess')->middleware('auth');;
+
