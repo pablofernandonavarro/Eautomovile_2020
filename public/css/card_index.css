@@ -82,7 +82,7 @@ a {
     height: 35%;
     margin-left :auto;
     margin-right:auto;
-    margin-top: 6%;
+    border-radius : 2em;
     background: linear-gradient(0deg, rgba(52,61,85,1) 0%, rgba(52,144,220,1) 48%)!important;
     text-align: center;
     /* opacity: .9; */
@@ -100,21 +100,21 @@ a {
 
 }
 .category{
-    border: 1px solid black;
+    /* border: 1px solid black;
     border: 1px grey 1 ;
-    width: 25% !important;
-    height: 25% ;
+    width: 35% !important;
+    height: 50% ;
     background-color: rgb(253, 253, 251);
-    text-align: center;
+    text-align: center; */
    
 
 }
 .pattern{
-    border: 1px solid black;
-    width: 27%;
+    /* border: 1px solid black;
+    width: 35%;
     height: 50%;
     background-color: rgb(253, 253, 251);
-    text-align: center;
+    text-align: center; */
 
 }
 
@@ -128,9 +128,22 @@ a {
 }
 .inputDate{
     
-    border-radius: 0.5em;
-    height: 77%;
-   
+    /* border-radius: 0.5em;
+    justify-content: center;
+    border: 1px solid black;
+    width: 20%;
+    height: 40%;
+    */
+}
+input[type=date] {
+
+  
+  /* width: 20%;
+ 
+  padding-top: 1%;
+  font-size: 130%;
+  align-content: center; */
+ 
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 

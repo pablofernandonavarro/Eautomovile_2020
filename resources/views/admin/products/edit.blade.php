@@ -5,10 +5,7 @@
 
 <h1 class="h1 text-center col-md-12"> Editar Producto:</h1>
 
-@section('breadcrumb')
-<li class="breadcrumb-item"><a href="#">Productos</a></li>
-<li class="breadcrumb-item active">@yield('titulo')</li>
-@endsection
+
 
 @section('styles')
 <script src="{{asset('adminlte/plugins/ckeditor/config.js')}}"></script>

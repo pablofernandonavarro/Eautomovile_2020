@@ -6,11 +6,12 @@
 
 <body>
     <div class="container">
-        <div class="mt-5" id="app">
+        <div id="app">
             @yield('content')
+
+            <script src="{{asset('js/app.js')}}"></script>
+            @yield('scripts')
         </div>
-        <script src="{{asset('js/app.js')}}"></script>
-        @yield('scripts')
     </div>
 </body>
 

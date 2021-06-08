@@ -55,43 +55,47 @@
 {{-- -----------------   /carrousel-card ----------------------- --}}
 
 <div>
-    <h1 class="text-black display-flex text-center mt-2"> Selecione su Cubre alfombra Vapren :</h1>
+    <h1 class="text-black display-flex text-center"> Selecione su Cubre alfombra Vapren :</h1>
 </div>
 <div class="centralSearch shadow justify-content-center">
-    <div class="text-align-center">
-        <label class="h3 text-white" style="width: 13%;">Uso:</label>
-        <label class="h3 text-white" style="width: 43%;">Modelo:</label>
-        <label class="h3 text-white" style="width: 33%;">Año:</label>
-    </div>
-    <div class="row p-2 justify-content-center">
-        <form action="{{route('productSearch')}}" method="get">
+
+    <div class="row justify-content-center container col-md-12">
+        <form class="row " action="{{route('productSearch')}}" method="get">
             @csrf
-            <select class="category bg-white h3" name="category_id" id="utility" selected="hola">
-                @foreach($categories as $category)
-                <option class="form-control" value="{{ $category->id }}" selected>
-                    {{$category->category_name}} </option>
-                @endforeach
-
-            </select>
 
 
-            <select class="pattern bg-white h3" name="pattern_id" id="patterns">
+            <div class="p-2">
+                <label class="h3 text-white">Uso:</label>
+                <select class="form-select form-select-lg" name="category_id" id="utility"
+                    aria-label="Default select example">
+                    @foreach($categories as $category)
+                    <option class="form-control" value="{{ $category->id }}" selected>
+                        {{$category->category_name}} </option>
+                    @endforeach
 
-                @foreach($patterns as $pattern)
+                </select>
+            </div>
+            <div class="p-2">
+                <label class="h3 text-white">Modelo:</label>
+                <select class="form-select form-select-lg" name="pattern_id" id="patterns">
 
-                <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
-                </option>
-                @endforeach
-            </select>
+                    @foreach($patterns as $pattern)
 
+                    <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="p-2 mr-5">
+                <label class="h3 text-white form-select-lg">Año:</label>
+                <input class="form-select" type="date" name="year" id="years" placeholder="Ingrese el año">
 
-
-            <input class="inputDate mt-2" type="date" name="year" id="years" placeholder="Ingrese el año">
-
-
-            <button type="submit" class="btn btn-primary mx-lg-5">
-                Buscar
-            </button>
+            </div>
+            <div class="p-2 ml-5">
+                <button type="submit" class="btn btn-success">
+                    Buscar
+                </button>
+            </div>
         </form>
     </div>
 </div>

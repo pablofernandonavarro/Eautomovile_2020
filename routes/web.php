@@ -114,5 +114,5 @@ Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.t
 
 Route::post('/procesarPago',  'CartController@pagar')->name('procesarPago');
 Route::get('checkoutMercadoPago/checkout','CartController@checkout')->name('checkoutMercadoPago.checkout')->middleware('auth');
-Route::get('checkoutMercadoPago/checkoutSuccess','CartController@checkoutSuccess')->name('checkoutMercadoPago.checkoutSuccess')->middleware('auth');;
+Route::get('checkoutMercadoPago/checkoutSuccess','CartController@checkoutsuccess')->name('checkoutMercadoPago.checkoutSuccess')->middleware('auth');;
 

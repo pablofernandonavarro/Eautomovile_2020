@@ -6,7 +6,7 @@ use App\Product;
 use App\PurchaseOrder;
 use Illuminate\Http\Request;
 use App\PurchaseOrderDetail;
-
+use App\User;
 
 class PurchaseOrderController extends Controller
 {
@@ -38,15 +38,22 @@ class PurchaseOrderController extends Controller
   
    
     
-    public function edit(PurchaseOrder $purchaseOrder)
-    {
-        //
+    public function edit(PurchaseOrder $purchaseOrder,$id)
+
+    {  
+        // $purchaseOrder = PurchaseOrder::find($id);
+        $purchaseOrder = PurchaseOrder::find($id)->with('user')->get()->first();
+    //  dd($purchaseOrder->total);
+        $user = PurchaseOrder::find($id)->user->name;
+       
+             return view('admin.purchaseorders.edit',compact('user','purchaseOrder'));
+            
     }
 
   
     public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
-        //
+        
     }
 
   

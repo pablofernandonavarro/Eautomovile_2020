@@ -6,9 +6,6 @@
 
 @section('titulo', 'Administración de productos')
 
-@section('breadcrumb')
-<li class="breadcrumb-item active">@yield('titulo')</li>
-@endsection
 
 
 
@@ -117,12 +114,13 @@
 
                     </tbody>
                 </table>
-                
+
             </div>
-           
+
             <!-- /.card-body -->
         </div>
-        {!! $products->render() !!}<!-- /.card -->
+        {!! $products->render() !!}
+        <!-- /.card -->
     </div>
 </div>
 <!-- /.row -->
