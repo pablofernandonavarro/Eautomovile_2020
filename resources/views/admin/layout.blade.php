@@ -62,18 +62,42 @@
 
 
 
-                <div class="dropdown ml-auto">
-                    <button class="btn btn-primary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="far fa-bell"></i>
-                    </button>
-                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+              
+                    <div class="btn-group dropstart">
+                        <button class="btn btn-default dropdown-toggle" id='notification' type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-bell"></i>
+                            <span class="badge badge-warning navbar-badge">155</span>
+                        </button>
 
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                        <ul class="dropdown-menu" aria-labelledby="notification">
+
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+             
+                    {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                            <span class="dropdown-header">15 Notifications</span>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                                <span class="float-right text-muted text-sm">3 mins</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-users mr-2"></i> 8 friend requests
+                                <span class="float-right text-muted text-sm">12 hours</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-file mr-2"></i> 3 new reports
+                                <span class="float-right text-muted text-sm">2 days</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        </div> --}}
                 </div>
+
         </div>
         </nav>
         <!-- /.navbar -->
