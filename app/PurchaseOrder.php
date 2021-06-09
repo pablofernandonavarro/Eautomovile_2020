@@ -18,7 +18,8 @@ class PurchaseOrder extends Model
         'user_id',
         'guide_number',
         'status',
-        'total'
+        'total',
+        'observation'
     ];
     public function products()
     {

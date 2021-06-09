@@ -26,13 +26,13 @@ class PurchaseOrderController extends Controller
 
     public function create()
     {
-        //
+        
     }
 
    
     public function store(Request $request)
     {
-        //
+        
     }
 
   
@@ -41,18 +41,33 @@ class PurchaseOrderController extends Controller
     public function edit(PurchaseOrder $purchaseOrder,$id)
 
     {  
-        // $purchaseOrder = PurchaseOrder::find($id);
-        $purchaseOrder = PurchaseOrder::find($id)->with('user')->get()->first();
-    //  dd($purchaseOrder->total);
-        $user = PurchaseOrder::find($id)->user->name;
+       
+        $purchaseOrder = PurchaseOrder::find($id);
+        
+       
+        $user = PurchaseOrder::find($id)->with('user')->get()->first();
        
              return view('admin.purchaseorders.edit',compact('user','purchaseOrder'));
             
     }
 
   
-    public function update(Request $request, PurchaseOrder $purchaseOrder)
-    {
+    public function update(Request $request, PurchaseOrder $purchaseOrder,$id)
+    {   
+        $user = PurchaseOrder::find($id)->with('user')->get()->first();
+        // dd($user->id);
+        $purchaseOrder = PurchaseOrder::findOrFail($id);
+       
+       
+        
+         $purchaseOrder->guide_number  = $request->input('guide_number');
+         $purchaseOrder->status        = $request->input('status');
+         $purchaseOrder->observation   = $request->input('observation');
+         $purchaseOrder->total         = $request->input('total');
+         $purchaseOrder->user_id       = $request->input('user_id');
+         $purchaseOrder->save();
+
+        return redirect('admin/purchaseorders');
         
     }
 

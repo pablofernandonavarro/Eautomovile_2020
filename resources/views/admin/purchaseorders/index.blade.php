@@ -24,15 +24,15 @@
             <td>{{$purchaseOrder->user->name}}</td>
             <td>{{$purchaseOrder->status}}</td>
             <td>${{$purchaseOrder->total}}</td>
-            <td>{{$purchaseOrder->guide_number}}</td>
+            <td>{{$purchaseOrder->observation}}</td>
             <td>
                 <a href="{{route('admin.purchaseorderdetails.show',$purchaseOrder->id)}}"
                     class="btn btn-warning btn-sm">Detalle
-                    :</a>
+                </a>
             </td>
             <td>
                 <a href="{{route('admin.purchaseorders.edit',$purchaseOrder->id)}}"
-                    class="btn btn-primary btn-sm">editar:</a>
+                    class="btn btn-primary btn-sm">editar</a>
             </td>
             <td>
                 <form action="{{route('admin.purchaseorders.destroy',$purchaseOrder->id)}}" method="POST"
