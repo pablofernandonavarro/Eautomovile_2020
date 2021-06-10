@@ -101,5 +101,5 @@
     <a href="/index" class="btn btn-link btn-sm text-danger">Empezando Comprar</a>
     @endif
 
-
+</div>
     @endsection

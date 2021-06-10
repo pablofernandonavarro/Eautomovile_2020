@@ -28,9 +28,9 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
 
-                    <a href="{{'/'}}">
-                        <img src=" {{ asset('storage/admin_picture/Logotipo.png') }}" width="300" alt="">
-                    </a>
+                    <div id="pictue:logo">
+                        <img src="{{ asset('admin_picture/Logotipo.png') }}" alt="" width="350">
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -86,5 +86,6 @@
         </main>
     </div>
 </body>
+
 
 </html>

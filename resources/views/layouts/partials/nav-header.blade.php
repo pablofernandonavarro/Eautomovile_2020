@@ -1,6 +1,4 @@
-@section('styles')
-<link rel="stylesheet" href="{{asset('css/nav_header.css')}}">
-@endsection
+
 
 <header>
 
@@ -96,7 +94,7 @@
                 <a href="/admin/dashboard" class="btn btn-warning btn-sm">Administracion</a>
                 @endif
                 @endguest
-
+            </div>
         </nav>
     </div>
 </header>
