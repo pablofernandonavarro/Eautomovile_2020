@@ -29,7 +29,7 @@
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light d-flex JustifyRight">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -45,9 +45,9 @@
                 </ul>
 
                 <!-- SEARCH FORM -->
-                <form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                <form class="form-inline ml-3 col-7">
+                    <div class="input-group input-group-sm col-10">
+                        <input class="form-control form-control-navbar " type="search" placeholder="Search"
                             aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
@@ -62,20 +62,21 @@
 
 
 
-              
-                    <div class="btn-group dropstart">
-                        <button class="btn btn-default dropdown-toggle" id='notification' type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="far fa-bell"></i>
-                            <span class="badge badge-warning navbar-badge">155</span>
-                        </button>
 
-                        <ul class="dropdown-menu" aria-labelledby="notification">
+                <div class="dropdown">
+                    <p class="dropdown-toggle" id='notification' type="
+                        button" data-bs-toggle="dropdown" aria-expanded="true">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">155</span>
+                    </p>
 
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-             
+                    <ul class="dropdown-menu" aria-labelledby="notification">
+
+                        <li><a class="dropdown-item" href=" #">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href=" #">Something else here</a></li>
+                    </ul>
+
                     {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <span class="dropdown-header">15 Notifications</span>
                             <div class="dropdown-divider"></div>
@@ -98,8 +99,9 @@
                         </div> --}}
                 </div>
 
+
+            </nav>
         </div>
-        </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
