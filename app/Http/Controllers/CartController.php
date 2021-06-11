@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Cart;
 use App\Product;
@@ -11,16 +9,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Color;
 use Maatwebsite\Excel\Concerns\ToArray;
 use MercadoPago\Item;
-
 use MP;
-
 class CartController extends Controller
 { 
     public function index(){
+
         $user = Auth()->user();
-      
+
         $cart = Cart::session(auth()->id())->getContent();
-       
+
+        
         return view('cart.index',compact('cart','user'));
     }
 
@@ -76,28 +74,23 @@ class CartController extends Controller
     }
     
     public function removeItem(Request $request) {
-
        
         Cart::session(auth()->id())->remove([
         'id' => $request->id,
         ]);
         return view('/cart.index');
     }
-
     public function clear(){
         Cart::session(auth()->id())->clear();
         return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
     }
-
-
     public function checkoutThanks(Request $request,Product $product){
-
        
      
         $cart = Cart::session(auth()->id())->getContent();
         $cartTotal = Cart::getTotal();
         $user = Auth::user();
-
+        
         $purchase_order= new PurchaseOrder;
         $purchase_order->user_id = $user->id;
         $purchase_order->total =$cartTotal;
@@ -106,7 +99,6 @@ class CartController extends Controller
         $purchase_order->save();
         
         $purchase_order_all = PurchaseOrder::all();
-
         
         
         foreach (Cart::getContent() as $item) {
@@ -115,7 +107,6 @@ class CartController extends Controller
            
             
              $purchase_order_detail= new PurchaseOrderDetail;
-
              $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
              $purchase_order_detail->product_id        = $item->model->id;
              $purchase_order_detail->color             = $item->attributes->color;
@@ -139,15 +130,9 @@ class CartController extends Controller
     public function checkout(){
 
         $user = Auth()->user();
-      
-        $cart = Cart::session(auth()->id())->getContent();
-       
-        return view('checkoutMercadoPago/checkout',compact('cart','user'));
-    }
-    public function checkoutsuccess(){
 
-          
-       
-        return view('checkoutMercadoPago/checkoutSuccess',compact('cart','user'));
+        $cart = Cart::session(auth()->id())->getContent();
+
+        return view('checkoutMercadoPago/checkout',compact('cart','user'));
     }
 }

@@ -5,7 +5,7 @@
          
         
 
-        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+        // MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
 
        
@@ -211,6 +211,6 @@ $preference->save();
             <!-- /BUTTON SUBMIT    -->
         </form>
 
-
-
-        @endsection
+    </div>
+</div>
+@endsection

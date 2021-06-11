@@ -122,7 +122,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Pablo navarro</a>
+                        <a href="/users/{{Auth::user()->id}}/edit" class="d-block">Pablo navarro</a>
                     </div>
                 </div>
 
@@ -132,12 +132,13 @@
                         data-accordion="false">
 
                         <!-- Tareas a realizar-->
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview ">
                             <a href="note_crud" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-th bg-grenn"></i>
                                 <p>
                                     Tareas a Realizar
-                                    <span class="right badge badge-danger">New</span>
+
+
                                 </p>
                             </a>
                         </li>

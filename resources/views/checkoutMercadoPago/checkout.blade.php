@@ -148,5 +148,5 @@ $preference->save();
     <a href="/index" class="btn btn-link btn-sm text-danger">Empezando Comprar</a>
     @endif
 
-
-    @endsection
+</div>
+@endsection
