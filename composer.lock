@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e1e030be19e28c2f1137c69be9bf5fe",
+    "content-hash": "2a9a813ea92c81d4efc850d43ba5d9db",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2320,6 +2320,9 @@
             ],
             "description": "Mercado Pago PHP SDK",
             "homepage": "https://github.com/mercadopago/sdk-php",
+            "support": {
+                "source": "https://github.com/mercadopago/sdk-php/tree/2.3.0"
+            },
             "time": "2021-05-19T21:01:47+00:00"
         },
         {
@@ -7405,5 +7408,6 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

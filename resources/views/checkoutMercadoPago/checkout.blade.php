@@ -1,52 +1,75 @@
 @extends('master')
+@php
 
-<?php
 
-        if (count(Cart::getContent()) > 0) {
+// SDK de Mercado Pago
+require  base_path('/vendor/autoload.php');
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+
+
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = 'Mi producto';
+$item->quantity = 1;
+$item->unit_price = 75.56;
+$preference->items = array($item);
+$preference->save();
+
+
+
+
+
+
+//         if (count(Cart::getContent()) > 0) {
          
         
 
-        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+//         MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
 
        
 
-        // Agrega credenciales  
-        MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
+//         // Agrega credenciales  
+//         MercadoPago\SDK::setAccessToken('TEST-3259208657251687-012011-776d3f76fad5986008ff10512342639d-182897662');
 
         
-     // Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
+//      // Crea un objeto de preferencia
+// $preference = new MercadoPago\Preference();
 
 
-$cart = Cart::session(auth()->id())->getContent();
+// $cart = Cart::session(auth()->id())->getContent();
 
-$item=array();
-foreach ( $cart as  $carts) {
+// $item=array();
 
-    $item = new MercadoPago\Item();
-    $item->title = $carts->large_description;
-    $item->quantity = $carts->quantity;
-    $item->unit_price = Cart::getTotal();
+
+// foreach ( $cart as  $carts) {
+
+//     $item = new MercadoPago\Item();
+//     $item->title = $carts->large_description;
+//     $item->quantity = $carts->quantity;
+//     $item->unit_price = Cart::getTotal();
     
-}
+// }
 
-$preference->items = array($item); 
+// $preference->items = array($item); 
 
- $preference->back_urls = array(
-    "success" => "http://localhost:8000/checkoutthanks",
-    // "failure" => "http://www.tu-sitio/failure",
-    // "pending" => "http://www.tu-sitio/pending"
-);
-$preference->auto_return = "approved";
+//  $preference->back_urls = array(
+//     "success" => "http://localhost:8000/checkoutthanks",
+//     // "failure" => "http://www.tu-sitio/failure",
+//     // "pending" => "http://www.tu-sitio/pending"
+// );
+// $preference->auto_return = "approved";
 
-$preference->save();
-}     
+// $preference->save();
+// }     
        
       
     
       
-?>
+@endphp
 
 @section('content')
 <div class="container mb-3" style="margin-top: 8%;">
@@ -140,7 +163,10 @@ $preference->save();
 
     </div>
     <div class="row justify-content-end mr-3">
-        <a href="<?php echo $preference->init_point ;?>" class="btn btn-primary mt-3 mr-3">Pagar</a>
+        <div class="cho-container">
+
+        </div>
+       
 
     </div>
     @else
@@ -149,4 +175,23 @@ $preference->save();
     @endif
 
 </div>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+          
+<script>
+    // Agrega credenciales de SDK
+      const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+            locale: 'es-AR'
+      });
+    
+      // Inicializa el checkout
+      mp.checkout({
+          preference: {
+              id: '{{$preference->id}}'
+          },
+          render: {
+                container: '.cho-container', // Indica dónde se mostrará el botón de pago
+                label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+          }
+    });
+    </script>
 @endsection
