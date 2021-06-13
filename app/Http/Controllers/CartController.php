@@ -12,6 +12,8 @@ use MercadoPago\Item;
 use MP;
 class CartController extends Controller
 { 
+
+
     public function index(){
 
         $user = Auth()->user();
@@ -21,6 +23,8 @@ class CartController extends Controller
         
         return view('cart.index',compact('cart','user'));
     }
+
+
 
     public function add(Product $product,Request $request){
    
@@ -72,6 +76,8 @@ class CartController extends Controller
   
         return redirect()->route('cart.index');
     }
+
+    
     
     public function removeItem(Request $request) {
        
@@ -80,10 +86,17 @@ class CartController extends Controller
         ]);
         return view('/cart.index');
     }
+
+
+
     public function clear(){
         Cart::session(auth()->id())->clear();
         return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
     }
+
+
+
+
     public function checkoutThanks(Request $request,Product $product){
        
      
@@ -127,11 +140,51 @@ class CartController extends Controller
 
         return view('checkoutMercadoPago.checkoutSuccess');
     }
-    public function checkout(){
 
-        $user = Auth()->user();
 
+    public function checkout(Cart $cart){
+
+       
         $cart = Cart::session(auth()->id())->getContent();
+        $cartTotal = Cart::getTotal();
+        $user = Auth::user();
+        
+        $purchase_order= new PurchaseOrder;
+        $purchase_order->user_id = $user->id;
+        $purchase_order->total =$cartTotal;
+        
+       
+        $purchase_order->save();
+        
+        $purchase_order_all = PurchaseOrder::all();
+        
+        
+        foreach (Cart::getContent() as $item) {
+           
+             $product_id[]= $item->id;
+           
+            
+             $purchase_order_detail= new PurchaseOrderDetail;
+             $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
+             $purchase_order_detail->product_id        = $item->model->id;
+             $purchase_order_detail->color             = $item->attributes->color;
+             $purchase_order_detail->quantity          = $item->quantity;
+             $purchase_order_detail->price_unit         = $item->getPriceWithConditions();
+            
+             
+             $purchase_order_detail->save();
+             $purchase_order_detail->purchaseOrder()->associate($purchase_order_all->last()->id);
+            
+        }
+       
+        
+      
+        
+   
+        Cart::session(auth()->id())->clear();
+
+
+      
 
         return view('checkoutMercadoPago/checkout',compact('cart','user'));
     }

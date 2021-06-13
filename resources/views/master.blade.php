@@ -13,6 +13,7 @@
             @yield('scripts')
         </div>
     </div>
-</body>
 
+    @yield('script')
+</body>
 @include('layouts/partials.footer')

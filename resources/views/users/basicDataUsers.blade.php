@@ -1,5 +1,6 @@
 @extends('master')
-<?php
+{{-- 
+    
 
         if (count(Cart::getContent()) == 0) {
          
@@ -45,7 +46,7 @@ $preference->save();
       
     
       
-?>
+?> --}}
 @section('content')
 
 <div class="container">

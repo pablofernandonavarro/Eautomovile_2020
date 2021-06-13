@@ -102,7 +102,7 @@ Route::get('/cart-add/{product}','CartController@add')->name('cart.add')->middle
 Route::get('/cart.index','CartController@index')->name('cart.index')->middleware('auth');
 Route::post('/cart-clear','CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');
-Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.thanks');
+Route::get('/checkoutthanks', 'Cartcontroller@checkoutThanks')->name('checkout.thanks')->middleware('auth');;
    
 
 
