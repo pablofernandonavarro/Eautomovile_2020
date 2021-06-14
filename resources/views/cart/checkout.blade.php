@@ -1,4 +1,4 @@
-@extends('master')
+@extends('master') 
 @php
 
 
@@ -9,7 +9,7 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
 $preference = new MercadoPago\Preference();
 
-// Crea un ítem en la preferencia
+
 // $item = new MercadoPago\Item();
 // $item->title = 'Mi producto';
 // $item->quantity = 1;
@@ -20,35 +20,30 @@ $preference = new MercadoPago\Preference();
 
 
 
+ if (count(Cart::getContent()) > 0) {
+
+ $cart = Cart::session(auth()->id())->getContent();
+
+ $item=array();
 
 
-if (count(Cart::getContent()) > 0) {
+ foreach ( $cart as $carts) {
 
-$cart = Cart::session(auth()->id())->getContent();
+ $item = new MercadoPago\Item();
+ $item->title = $carts->large_description; $item->quantity = $carts->quantity;
+ $item->unit_price = Cart::getTotal();
+ }
 
-$item=array();
+ $preference->items = array($item);
 
+ $preference->back_urls = array(
+ "success" => "http:localhost:8000/checkoutthanks",
+ "failure" => "http:www.tu-sitio/failure",
+ "pending" => "http:www.tu-sitio/pending"
+ ); $preference->auto_return = "approved";
 
-foreach ( $cart as $carts) {
-
-$item = new MercadoPago\Item();
-$item->title = $carts->large_description;
-$item->quantity = $carts->quantity;
-$item->unit_price = Cart::getTotal();
-
-}
-
-$preference->items = array($item);
-
-$preference->back_urls = array(
-"success" => "http:localhost:8000/checkoutthanks",
-"failure" => "http:www.tu-sitio/failure",
-"pending" => "http:www.tu-sitio/pending"
-);
-$preference->auto_return = "approved";
-
-$preference->save();
-}
+ $preference->save();
+ }
 
 
 
@@ -148,7 +143,7 @@ $preference->save();
     </div>
     <div class="row justify-content-end mr-3">
         <div class="cho-container mt-3">
-
+            
         </div>
 
 
@@ -159,26 +154,34 @@ $preference->save();
     @endif
 
 </div>
-@section('script')
+@endsection
+
+
+
+@section('scripts')
+    
+
 <script src="https:sdk.mercadopago.com/js/v2"></script>
 
+
+
+
+
 <script>
-    Agrega credenciales de SDK
+   
       const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
             locale: 'es-AR'
       });
     
-       Inicializa el checkout
       mp.checkout({
           preference: {
               id: '{{$preference->id}}'
           },
           render: {
-                container: '.cho-container',  Indica dónde se mostrará el botón de pago
-                label: 'Pagar',  Cambia el texto del botón de pago (opcional)
+                container: '.cho-container',  
+                label: 'Pagar',  
           }
     });
 </script>
-@endsection
 
 @endsection

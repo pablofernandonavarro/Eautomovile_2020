@@ -8,12 +8,13 @@
     <div class="container">
         <div id="app">
             @yield('content')
-
-            <script src="{{asset('js/app.js')}}"></script>
-            @yield('scripts')
         </div>
+            
+         {{-- @yield('scripts')  --}}
+       
     </div>
-
-    @yield('script')
+    <script src="{{asset('js/app.js')}}"></script> 
+     @yield('scripts') 
+    
 </body>
 @include('layouts/partials.footer')

@@ -91,7 +91,7 @@ class Usercontroller extends Controller
         $user->save();
           
            
-        return redirect("checkoutMercadoPago/checkout");
+        return redirect("cart.checkout");
     }
 }
 
