@@ -10,39 +10,36 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 $preference = new MercadoPago\Preference();
 
 
-// $item = new MercadoPago\Item();
-// $item->title = 'Mi producto';
-// $item->quantity = 1;
-// $item->unit_price = 75.56;
-// $preference->items = array($item);
-// $preference->save();
-
-
-
-
  if (count(Cart::getContent()) > 0) {
 
- $cart = Cart::session(auth()->id())->getContent();
+//  $cart = Cart::session(auth()->id())->getContent();
+ 
+ foreach ( $cart as $cart_product) {
+     
+   
+    $item = new MercadoPago\item();
+  
+    $item->title      = $cart_product->name;
+    $item->quantity   = $cart_product->quantity;
+    $item->unit_price = round($cart_product->getPriceWithConditions ());
 
- $item=array();
-
-
- foreach ( $cart as $carts) {
-
- $item = new MercadoPago\Item();
- $item->title = $carts->large_description; $item->quantity = $carts->quantity;
- $item->unit_price = Cart::getTotal();
+    $cart_products[]=$item;
+    
  }
 
- $preference->items = array($item);
+
 
  $preference->back_urls = array(
- "success" => "http:localhost:8000/checkoutthanks",
- "failure" => "http:www.tu-sitio/failure",
- "pending" => "http:www.tu-sitio/pending"
- ); $preference->auto_return = "approved";
+    "success" => "http://localhost:8000/cart/checkoutSuccess",
+    "failure" => "http://www.tu-sitio/failure",
+    "pending" => "http://www.tu-sitio/pending"
+);
+$preference->auto_return = "approved";
 
- $preference->save();
+
+$preference->items = $cart_products;
+$preference->save();
+
  }
 
 
@@ -134,7 +131,7 @@ $preference = new MercadoPago\Preference();
             <hr>
             <div class="row">
                 <h4 class="ml-1">Total:</h4>
-                <h2 class="text-danger ml-5"> ${{Cart::getTotal()}}</h2>
+                <h2 class="text-danger ml-5"> ${{round(Cart::getTotal())}}</h2>
             </div>
 
         </div>

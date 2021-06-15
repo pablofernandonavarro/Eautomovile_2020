@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\PurchaseOrderDetail;
 use App\User;
 
+
 class PurchaseOrderController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class PurchaseOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {    
+      
          $purchaseOrders = PurchaseOrder::with('user')->get();
           
              return view('admin.purchaseorders.index',compact('purchaseOrders'));
@@ -55,7 +57,7 @@ class PurchaseOrderController extends Controller
     public function update(Request $request, PurchaseOrder $purchaseOrder,$id)
     {   
         $user = PurchaseOrder::find($id)->with('user')->get()->first();
-        // dd($user->id);
+     
         $purchaseOrder = PurchaseOrder::findOrFail($id);
        
        

@@ -31,7 +31,7 @@
 
 {{-- -----------------   carrousel-card ----------------------- --}}
 
-<div class="bodyCard">
+<div class="bodyCard ">
     <div class="wrapperCard bg-primary">
         <div class="carousel owl-carousel">
             <div class="card card-1 "></div>
@@ -57,41 +57,46 @@
 <div>
     <h1 class="text-black display-flex text-center"> Selecione su Cubre alfombra Vapren :</h1>
 </div>
-<div class="centralSearch shadow justify-content-center">
+<div class="centralSearch shadow col-12 col-md-12 d-flex justify-content-center">
 
-    <div class="row justify-content-center container col-md-12">
+    <div class="row d-flex justify-content-center">
         <form class="row " action="{{route('productSearch')}}" method="get">
             @csrf
 
 
-            <div class="p-2">
-                <label class="h3 text-white">Uso:</label>
-                <select class="form-select form-select-lg" name="category_id" id="utility"
-                    aria-label="Default select example">
-                    @foreach($categories as $category)
-                    <option class="form-control" value="{{ $category->id }}" selected>
-                        {{$category->category_name}} </option>
-                    @endforeach
+            <div class="col-12 col-md-4 p-2 container">
+                <div class="row">
+                    <label class="h3 text-white col-md-12">Uso:</label>
+                    <select class="form-select col-md-12" name="category_id" id="utility"
+                        aria-label="Default select example">
+                        @foreach($categories as $category)
+                        <option class="form-control" value="{{ $category->id }}" selected>
+                            {{$category->category_name}} </option>
+                        @endforeach
 
-                </select>
+                    </select>
+                </div>
             </div>
-            <div class="p-2">
-                <label class="h3 text-white">Modelo:</label>
-                <select class="form-select form-select-lg" name="pattern_id" id="patterns">
+            <div class="col-12 col-md-4 p-2 container">
+                <div class="row">
+                    <label class="h3 text-white col-md-12">Modelo:</label>
+                    <select class="form-select col-md-12" name="pattern_id" id="patterns">
 
-                    @foreach($patterns as $pattern)
+                        @foreach($patterns as $pattern)
 
-                    <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
-                    </option>
-                    @endforeach
-                </select>
+                        <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
-            <div class="p-2 mr-5">
-                <label class="h3 text-white form-select-lg">Año:</label>
-                <input class="form-select" type="date" name="year" id="years" placeholder="Ingrese el año">
-
+            <div class="col-12 col-md-4 p-2 container">
+                <div class="row">
+                    <label class="h3 text-white col-md-12">Año:</label>
+                    <input class="form-select col-md-12" type="date" name="year" id="years" placeholder="Ingrese el año">
+                </div>
             </div>
-            <div class="p-2 ml-5">
+            <div class="col-12 col-md-12 p-2 ml-5 d-flex justify-content-center ">
                 <button type="submit" class="btn btn-success">
                     Buscar
                 </button>
@@ -131,8 +136,8 @@
                             class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
                     <div class="text-muted mb-3">{{$product->visit}}</div>
                     <a href="/productShowApp/{{$product->id}}" type="button" class="btn bg-cart">
-                        <i class="fa fa-cart-plus mr-2"></i>
-                        Agregar al carrito </a>
+                        <i class="fas fa-eye"></i>
+                        Ver</a>
                 </div>
             </div>
         </div>

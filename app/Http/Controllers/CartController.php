@@ -87,6 +87,14 @@ class CartController extends Controller
         return view('/cart.index');
     }
 
+    public function checkoutSuccess(){
+
+        Cart::session(auth()->id())->clear();
+        
+        return view('cart.checkoutSuccess');
+
+    }
+
 
 
     public function clear(){
@@ -94,52 +102,6 @@ class CartController extends Controller
         return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");
     }
 
-
-
-
-    public function checkoutThanks(Request $request,Product $product){
-       
-     
-        $cart = Cart::session(auth()->id())->getContent();
-        $cartTotal = Cart::getTotal();
-        $user = Auth::user();
-        
-        $purchase_order= new PurchaseOrder;
-        $purchase_order->user_id = $user->id;
-        $purchase_order->total =$cartTotal;
-        
-       
-        $purchase_order->save();
-        
-        $purchase_order_all = PurchaseOrder::all();
-        
-        
-        foreach (Cart::getContent() as $item) {
-           
-             $product_id[]= $item->id;
-           
-            
-             $purchase_order_detail= new PurchaseOrderDetail;
-             $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
-             $purchase_order_detail->product_id        = $item->model->id;
-             $purchase_order_detail->color             = $item->attributes->color;
-             $purchase_order_detail->quantity          = $item->quantity;
-             $purchase_order_detail->price_unit         = $item->getPriceWithConditions();
-            
-             
-             $purchase_order_detail->save();
-             $purchase_order_detail->purchaseOrder()->associate($purchase_order_all->last()->id);
-            
-        }
-       
-        
-      
-        
-   
-        Cart::session(auth()->id())->clear();
-
-        return view('checkoutMercadoPago.checkoutSuccess');
-    }
 
 
     public function checkout(Cart $cart){
@@ -152,36 +114,36 @@ class CartController extends Controller
         $cartTotal = Cart::getTotal();
     
         
-        // $purchase_order= new PurchaseOrder;
-        // $purchase_order->user_id = $user->id;
-        // $purchase_order->total =$cartTotal;
+         $purchase_order= new PurchaseOrder;
+     $purchase_order->user_id = $user->id;
+     $purchase_order->total =$cartTotal;
         
        
-        // $purchase_order->save();
+         $purchase_order->save();
         
-        // $purchase_order_all = PurchaseOrder::all();
+         $purchase_order_all = PurchaseOrder::all();
         
         
-        // foreach (Cart::getContent() as $item) {
+         foreach (Cart::getContent() as $item) {
            
-        //      $product_id[]= $item->id;
+              $product_id[]= $item->id;
            
             
-        //      $purchase_order_detail= new PurchaseOrderDetail;
-        //      $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
-        //      $purchase_order_detail->product_id        = $item->model->id;
-        //      $purchase_order_detail->color             = $item->attributes->color;
-        //      $purchase_order_detail->quantity          = $item->quantity;
-        //      $purchase_order_detail->price_unit         = $item->getPriceWithConditions();
+              $purchase_order_detail= new PurchaseOrderDetail;
+              $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
+              $purchase_order_detail->product_id        = $item->model->id;
+              $purchase_order_detail->color             = $item->attributes->color;
+              $purchase_order_detail->quantity          = $item->quantity;
+              $purchase_order_detail->price_unit         = $item->getPriceWithConditions();
             
              
-        //      $purchase_order_detail->save();
-        //      $purchase_order_detail->purchaseOrder()->associate($purchase_order_all->last()->id);
+              $purchase_order_detail->save();
+              $purchase_order_detail->purchaseOrder()->associate($purchase_order_all->last()->id);
             
-        // }
+         }
        
         
-      
+       
         
    
       

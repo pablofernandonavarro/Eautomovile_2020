@@ -97,7 +97,7 @@
                     <input type="hidden" name="name" value="{!!$product->description_large!!}">
                     <input type="hidden" name="price" value="{{$product->price}}">
 
-                    <button type="submit" class="btn btn-primary btn-lg ml-3">Comprar Producto</button>
+                    <button type="submit" class="btn btn-primary btn-lg ml-3">Agregar a carrito</button>
                 </div>
     </form>
 

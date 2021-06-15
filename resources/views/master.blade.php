@@ -1,16 +1,12 @@
 @include('layouts/partials.head')
 @include('layouts/partials.nav-header')
-
-<title>@yield('titulo')</title>
-
-
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div id="app">
             @yield('content')
         </div>
             
-         {{-- @yield('scripts')  --}}
+        
        
     </div>
     <script src="{{asset('js/app.js')}}"></script> 

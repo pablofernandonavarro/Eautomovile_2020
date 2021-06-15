@@ -23,7 +23,7 @@
                 <tbody>
                     @foreach (Cart::getContent() as $item)
                     <tr>
-                        <td>{{$item->id}}</td>
+                        <td>{{$loop->iteration}}</td>
                         <td>
                             <img src="{{'/storage/'.$item->attributes->picture}}" alt="foto" width="50px">
                         </td>
@@ -72,8 +72,10 @@
                 </thead>
                 <tbody>
                     @foreach (Cart::getContent() as $item)
+                   
                     <tr>
-                        <td>{{$item->id}}</td>
+                        <td>{{$loop->iteration}}</td>
+                       
                         <td>{{ $item->price}}</td>
                         <td>{{ $item->getPriceWithConditions()-$item->price}}</td>
                         <td>{{$item->quantity*($item->price+$item->getPriceWithConditions()-$item->price)}}</td>
@@ -85,7 +87,7 @@
             <hr>
             <div class="row">
                 <h4 class="ml-1">Total:</h4>
-                <h2 class="text-danger ml-5"> ${{Cart::getTotal()}}</h2>
+                <h2 class="text-danger ml-5"> ${{c(Cart::getTotal())}}</h2>
             </div>
 
         </div>
@@ -94,7 +96,7 @@
     </div>
     <div class="row justify-content-end mr-3">
         <a href="/index" class="btn btn-success mt-3 mr-3">seguir comprando</a>
-        <a href="{{route('users.basicDataUsers',$user)}}" class="btn btn-success mt-3 mr-3">Pagar</a>
+        <a href="{{route('users.basicDataUsers',$user)}}" class="btn btn-primary mt-3 mr-3">Pagar</a>
     </div>
     @else
     <p>Carrito vacio</p>

@@ -42,10 +42,12 @@
                     <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                 </form>
             </td>
-
-        </tr>
+           
 
         @endforeach
+       
+    </tr>
     </tbody>
 </table>
+
 @endsection
