@@ -87,7 +87,7 @@
             <hr>
             <div class="row">
                 <h4 class="ml-1">Total:</h4>
-                <h2 class="text-danger ml-5"> ${{c(Cart::getTotal())}}</h2>
+                <h2 class="text-danger ml-5"> ${{(Cart::getTotal())}}</h2>
             </div>
 
         </div>
