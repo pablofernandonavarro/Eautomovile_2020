@@ -31,6 +31,6 @@ class PurchaseOrderListener
     {
         
        
-        Notification::send(User::find(1), new PurchaseOrderNotification($event->purchase_order));
+        Notification::send(User::find(1), new PurchaseOrderNotification($event->purchaseorder));
     }
 }

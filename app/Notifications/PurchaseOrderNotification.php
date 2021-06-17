@@ -19,9 +19,9 @@ class PurchaseOrderNotification extends Notification
      * @return void
      */
      
-    public function __construct(PurchaseOrder $purchase_order)
+    public function __construct(PurchaseOrder $purchaseorder)
     {
-        $this->PurchaseOrder = $purchase_order;
+        $this->purchaseorder = $purchaseorder;
        
     }
 
@@ -60,9 +60,10 @@ class PurchaseOrderNotification extends Notification
     {
         return [
             
-             'user_id'       => $this->purchase_order->user_id,
-            // 'total'         => $this->purchase_order->total,
-            // 'time'          => Carbon::now()->diffForHumans(),
+             'user_id'        => $this->purchaseorder->user_id,
+             'total'          => $this->purchaseorder->total,
+             'time'          => Carbon::now()->diffForHumans(),
+             'status'        => $this->purchaseorder->status,
         ];
     }
 }

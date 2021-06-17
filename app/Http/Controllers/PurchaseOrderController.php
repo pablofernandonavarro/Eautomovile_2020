@@ -79,7 +79,7 @@ class PurchaseOrderController extends Controller
          $data['user_id'] =  $user->id;
          $data['total']   = $cartTotal;
          $purchase_order = PurchaseOrder::create($data);
-        
+         event(new PurchaseOrderEvent($purchase_order));
        
         
         
@@ -106,7 +106,6 @@ class PurchaseOrderController extends Controller
         Cart::session(auth()->id())->clear();
 
       
-        User::find(1)->notify(new PurchaseOrderNotification($purchase_order));
 
         return view('checkoutSuccess');
 

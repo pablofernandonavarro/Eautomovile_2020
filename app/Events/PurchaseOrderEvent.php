@@ -14,7 +14,7 @@ use App\Notifications\PurchaseOrderNotification;
 
 class PurchaseOrderEvent
 {    
-    public $purchase_order;
+    public $purchaseorder;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -23,9 +23,9 @@ class PurchaseOrderEvent
      *
      * @return void
      */
-    public function __construct($purchase_order)
+    public function __construct($purchaseorder)
     {
-        $this->purchaseorder = $purchase_order; 
+        $this->purchaseorder = $purchaseorder; 
     }
 
     /**
