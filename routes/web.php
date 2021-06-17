@@ -103,8 +103,8 @@ Route::get('/cart-add/{product}','CartController@add')->name('cart.add')->middle
 Route::get('/cart.index','CartController@index')->name('cart.index')->middleware('auth');
 Route::post('/cart-clear','CartController@clear')->name('cart.clear');
 Route::post('/cart-removeItem','CartController@removeItem')->name('cart.removeItem');
-Route::get('/cart.checkout','CartController@checkout')->name('cart.checkout')->middleware('auth');
-Route::get('/cart/checkoutSuccess','CartController@checkoutSuccess')->name('cart.checkoutSuccess');
+Route::get('/cart.checkout','PurchaseOrdercontroller@checkout')->name('cart.checkout')->middleware('auth');
+Route::get('/checkoutSuccess','PurchaseOrdercontroller@store')->name('checkoutSuccess')->middleware('auth');
 
 //********   /Route cart_shopping ********* ///
 

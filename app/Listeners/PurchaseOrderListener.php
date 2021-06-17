@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Notifications\PurchaseOrderNotification;
+use App\PurchaseOrder;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Notification;
@@ -28,6 +29,8 @@ class PurchaseOrderListener
      */
     public function handle($event)
     {
-        Notification::send(User::find(1), new PurchaseOrderNotification($event->purchaseOrder));
+        
+       
+        Notification::send(User::find(1), new PurchaseOrderNotification($event->purchase_order));
     }
 }

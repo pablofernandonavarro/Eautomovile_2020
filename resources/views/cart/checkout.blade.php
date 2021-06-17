@@ -1,4 +1,4 @@
-@extends('master') 
+@extends('master')
 @php
 
 
@@ -10,29 +10,29 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 $preference = new MercadoPago\Preference();
 
 
- if (count(Cart::getContent()) > 0) {
+if (count(Cart::getContent()) > 0) {
 
-//  $cart = Cart::session(auth()->id())->getContent();
- 
- foreach ( $cart as $cart_product) {
-     
-   
-    $item = new MercadoPago\item();
-  
-    $item->title      = $cart_product->name;
-    $item->quantity   = $cart_product->quantity;
-    $item->unit_price = round($cart_product->getPriceWithConditions ());
+// $cart = Cart::session(auth()->id())->getContent();
 
-    $cart_products[]=$item;
-    
- }
+foreach ( $cart as $cart_product) {
 
 
+$item = new MercadoPago\item();
 
- $preference->back_urls = array(
-    "success" => "http://localhost:8000/cart/checkoutSuccess",
-    "failure" => "http://www.tu-sitio/failure",
-    "pending" => "http://www.tu-sitio/pending"
+$item->title = $cart_product->name;
+$item->quantity = $cart_product->quantity;
+$item->unit_price = round($cart_product->getPriceWithConditions ());
+
+$cart_products[]=$item;
+
+}
+
+
+
+$preference->back_urls = array(
+"success" => "http://localhost:8000/checkoutSuccess",
+"failure" => "http://www.tu-sitio/failure",
+"pending" => "http://www.tu-sitio/pending"
 );
 $preference->auto_return = "approved";
 
@@ -40,7 +40,7 @@ $preference->auto_return = "approved";
 $preference->items = $cart_products;
 $preference->save();
 
- }
+}
 
 
 
@@ -140,7 +140,7 @@ $preference->save();
     </div>
     <div class="row justify-content-end mr-3">
         <div class="cho-container mt-3">
-            
+
         </div>
 
 
@@ -156,7 +156,7 @@ $preference->save();
 
 
 @section('scripts')
-    
+
 
 <script src="https:sdk.mercadopago.com/js/v2"></script>
 
@@ -165,8 +165,7 @@ $preference->save();
 
 
 <script>
-   
-      const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+    const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
             locale: 'es-AR'
       });
     

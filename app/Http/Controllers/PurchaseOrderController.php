@@ -7,49 +7,27 @@ use App\PurchaseOrder;
 use Illuminate\Http\Request;
 use App\PurchaseOrderDetail;
 use App\User;
-
+use Cart;
+use App\Events\PurchaseOrderEvent;
+use App\Notifications\PurchaseOrderNotification;
 
 class PurchaseOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.p
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {    
-      
-         $purchaseOrders = PurchaseOrder::with('user')->get();
-          
-             return view('admin.purchaseorders.index',compact('purchaseOrders'));
+        $purchaseOrders = PurchaseOrder::with('user')->get();
+           return view('admin.purchaseorders.index',compact('purchaseOrders'));
       
     }
 
 
-    public function create()
-    {
-        
-    }
-
-   
-    public function store(Request $request)
-    {
-        
-    }
-
-  
-   
-    
-    public function edit(PurchaseOrder $purchaseOrder,$id)
-
-    {  
+    public function edit(PurchaseOrder $purchaseOrder,$id){  
        
         $purchaseOrder = PurchaseOrder::find($id);
-        
-       
         $user = PurchaseOrder::find($id)->with('user')->get()->first();
        
-             return view('admin.purchaseorders.edit',compact('user','purchaseOrder'));
+            return view('admin.purchaseorders.edit',compact('user','purchaseOrder'));
             
     }
 
@@ -59,15 +37,12 @@ class PurchaseOrderController extends Controller
         $user = PurchaseOrder::find($id)->with('user')->get()->first();
      
         $purchaseOrder = PurchaseOrder::findOrFail($id);
-       
-       
-        
-         $purchaseOrder->guide_number  = $request->input('guide_number');
-         $purchaseOrder->status        = $request->input('status');
-         $purchaseOrder->observation   = $request->input('observation');
-         $purchaseOrder->total         = $request->input('total');
-         $purchaseOrder->user_id       = $request->input('user_id');
-         $purchaseOrder->save();
+        $purchaseOrder->guide_number  = $request->input('guide_number');
+        $purchaseOrder->status        = $request->input('status');
+        $purchaseOrder->observation   = $request->input('observation');
+        $purchaseOrder->total         = $request->input('total');
+        $purchaseOrder->user_id       = $request->input('user_id');
+        $purchaseOrder->save();
 
         return redirect('admin/purchaseorders');
         
@@ -78,6 +53,63 @@ class PurchaseOrderController extends Controller
     { 
         $purchaseOrder = PurchaseOrder::find($id);
         $purchaseOrder->delete();
+
         return  back();
     }
+
+    public function checkout(Cart $cart){
+       
+        $user = Auth()->user();
+        $cart = Cart::session(auth()->id())->getContent();
+        
+        return view('cart.checkout',compact('cart','user'));
+    }
+
+    public function store(Cart $cart){
+
+        $user = Auth()->user();
+
+        $cart = Cart::session(auth()->id())->getContent();
+    
+        
+        $cartTotal = Cart::getTotal();
+    
+        
+     
+         $data['user_id'] =  $user->id;
+         $data['total']   = $cartTotal;
+         $purchase_order = PurchaseOrder::create($data);
+        
+       
+        
+        
+         $purchase_order_all = PurchaseOrder::all();
+        
+        
+         foreach (Cart::getContent() as $item) {
+           
+              $product_id[]= $item->id;
+           
+            
+              $purchase_order_detail= new PurchaseOrderDetail;
+              $purchase_order_detail->purchase_order_id = $purchase_order_all->last()->id;
+              $purchase_order_detail->product_id        = $item->model->id;
+              $purchase_order_detail->color             = $item->attributes->color;
+              $purchase_order_detail->quantity          = $item->quantity;
+              $purchase_order_detail->price_unit         = $item->getPriceWithConditions();
+            
+             
+              $purchase_order_detail->save();
+              $purchase_order_detail->purchaseOrder()->associate($purchase_order_all->last()->id);
+            
+         }
+        Cart::session(auth()->id())->clear();
+
+      
+        User::find(1)->notify(new PurchaseOrderNotification($purchase_order));
+
+        return view('checkoutSuccess');
+
+    }
+
 }

@@ -9,10 +9,13 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\PurchaseOrder;
+use App\Notifications\PurchaseOrderNotification;
 
 class PurchaseOrderEvent
 {    
-    public $purchaseorder;
+    public $purchase_order;
+
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
@@ -20,9 +23,9 @@ class PurchaseOrderEvent
      *
      * @return void
      */
-    public function __construct($purchaseorder)
+    public function __construct($purchase_order)
     {
-        $this->purchaseorder = $purchaseorder; 
+        $this->purchaseorder = $purchase_order; 
     }
 
     /**
