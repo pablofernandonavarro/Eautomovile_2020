@@ -62,42 +62,33 @@
 
 
 
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <i class="fas fa-bell"></i>
+                            @if(count(auth()->user()->unreadNotifications))
+                            <span class="badge badge-warning">
+                                {{count(auth()->user()->unreadNotifications)}}
+                            </span>
+                            @endif
+                            </span>
+                        </a>
 
-                <div class="dropdown">
-                    <p class="dropdown-toggle" id='notification' type="
-                        button" data-bs-toggle="dropdown" aria-expanded="true">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">155</span>
-                    </p>
-
-                    <ul class="dropdown-menu" aria-labelledby="notification">
-
-                        <li><a class="dropdown-item" href=" #">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href=" #">Something else here</a></li>
-                    </ul>
-
-                    {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <span class="dropdown-header">15 Notifications</span>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                                <span class="float-right text-muted text-sm">3 mins</span>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth">
+                            @foreach (auth()->user()->unreadNotifications as $notification )
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-envelope mr-2">hola</i>hola
                             </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-users mr-2"></i> 8 friend requests
-                                <span class="float-right text-muted text-sm">12 hours</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-file mr-2"></i> 3 new reports
-                                <span class="float-right text-muted text-sm">2 days</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                        </div> --}}
-                </div>
+
+                            @endforeach
+                            <span class="dropdown-header"></span>
+
+                        </div>
+                    </li>
+
+
+                </ul>
+
 
 
             </nav>

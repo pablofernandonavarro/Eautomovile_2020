@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Product;
 
+
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller

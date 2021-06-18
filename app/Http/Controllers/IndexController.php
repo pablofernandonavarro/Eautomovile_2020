@@ -12,6 +12,7 @@ use App\Product;
 use App\Category;
 use App\Pattern;
 use Illuminate\Support\Facades\DB;
+
 class IndexController extends Controller
 {
 

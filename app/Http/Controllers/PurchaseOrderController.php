@@ -10,6 +10,7 @@ use App\User;
 use Cart;
 use App\Events\PurchaseOrderEvent;
 use App\Notifications\PurchaseOrderNotification;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseOrderController extends Controller
 {
@@ -65,7 +66,7 @@ class PurchaseOrderController extends Controller
         return view('cart.checkout',compact('cart','user'));
     }
 
-    public function store(Cart $cart){
+    public function store(Cart $cart, Request $request){
 
         $user = Auth()->user();
 
@@ -75,7 +76,7 @@ class PurchaseOrderController extends Controller
         $cartTotal = Cart::getTotal();
     
         
-     
+         $data =  $request->all();
          $data['user_id'] =  $user->id;
          $data['total']   = $cartTotal;
          $purchase_order = PurchaseOrder::create($data);
