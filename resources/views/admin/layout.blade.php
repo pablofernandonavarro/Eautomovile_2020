@@ -64,25 +64,60 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
+
                         <a class="nav-link" data-toggle="dropdown" href="#">
                             <i class="fas fa-bell"></i>
                             @if(count(auth()->user()->unreadNotifications))
                             <span class="badge badge-warning">
                                 {{count(auth()->user()->unreadNotifications)}}
-                            </span>
+                           </span> 
                             @endif
-                            </span>
+                             
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth">
-                            @foreach (auth()->user()->unreadNotifications as $notification )
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth" aria-labelledby="dropdownMenuButton">
+
+                            <div class="dropdown-header">Notificaiones No Leidas:</div>
+                            <div class="dropdown-divider"></div>
+                            @forelse (auth()->user()->unreadNotifications as $notification )
                             <a class="dropdown-item" href="#">
-                                <i class="fas fa-envelope mr-2">hola</i>hola
+                                <div class="row bg-light">
+                                    <i class="fas fa-envelope mr-2 col-12 ">
+                                        Order de compra del usuario :
+                                        {{$notification->data['user_id']}}
+                                    </i>
+                                    <i class="col-12 col-lg-11 ml-auto "> Total${{$notification->data['total']}}</i>
+                                    <i class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
+                                </div>
                             </a>
+                            @empty
+                               <span class="ml-3 pull-right text-muted text-sm"> Sin notificaciones no leidas</span>
+                            
+                            @endforelse
+                                <div class="dropdown-divider"></div>
+                                <div class="dropdown-header">Notificaiones Leidas:</div>
+                                <div class="dropdown-divider"></div>
+                                
 
-                            @endforeach
-                            <span class="dropdown-header"></span>
-
+                            @forelse (auth()->user()->readNotifications as $notification)
+                                <a class="dropdown-item" href="#">
+                                    <div class="row bg-light">
+                                        <i class="fas fa-envelope mr-2 col-12 "></i>
+                                        <i> Order de compra del usuario :{{$notification->data['user_id']}}</i>
+                                        <i class="col-12 col-lg-11 ml-auto ">Total${{$notification->data['total']}}</i>
+                                        <i class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
+                                         
+                                    </div>
+                                </a>
+                            @empty
+                                <span class="ml-3 pull-right text-muted text-sm">Sin notificaiones leidas</span>
+                            @endforelse
+                            <div class="dropdown-divider"></div>
+                                <div class="dropdown-header">
+                                    <a href="/markasreadall">Marcar todas las notificaiones como leidas</a>
+                                </div> 
+                            <div class="dropdown-footer"></div>
+                              
                         </div>
                     </li>
 
@@ -239,11 +274,27 @@
                             </a>
                         </li>
 
-                        <!-- Supplier update nav-bar-->
 
+                        <!-- Notifications update nav-bar-->
+
+
+
+                        <button type="button" class="btn btn-secondary mt-2">Notificaiones</button>
+                        <li class="nav-item has-treeview bg-success">
+
+                            <a href="{{route('admin.markasread')}}" class="nav-link active">
+                                <i class="fas fa-bell"></i>
+                                <p>Notificaciones</p>
+                            </a>
+                        </li>
+
+                        <!-- notifications update nav-bar--
 
 
                     </ul>
+
+                >
+
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -297,6 +348,15 @@
             integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
         </script>
 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
         @yield('scripts')
 
 

@@ -111,5 +111,13 @@ class PurchaseOrderController extends Controller
         return view('checkoutSuccess');
 
     }
+    public function markNotification(){
+
+        $purchaseOrderNotifications= auth()->user()->unreadNotifications;
+       
+        return view('admin.markasread', compact('purchaseOrderNotifications'));
+    }
+
+
 
 }

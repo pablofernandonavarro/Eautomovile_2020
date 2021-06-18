@@ -8,6 +8,7 @@ use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
 use App\Brand;
 use App\Http\Controllers\Productcontroller;
+use App\Http\Controllers\PurchaseOrderController;
 use Doctrine\Inflector\Rules\Patterns;
 use App\Picture;
 use App\Product;
@@ -61,11 +62,16 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::resource('products', 'ProductController');
     Route::resource('purchaseorders','PurchaseOrdercontroller');
     Route::resource('purchaseorderdetails', 'PurchaseOrderDetailcontroller');
+  
 
    
 });
 
-
+Route::get('/admin/markasread', 'PurchaseOrderController@markNotification')->name('admin.markasread');
+Route::get('markasreadall', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+});
 
 //********   /Route Admin ********* ///
 
