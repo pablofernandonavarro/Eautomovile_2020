@@ -70,12 +70,13 @@
                             @if(count(auth()->user()->unreadNotifications))
                             <span class="badge badge-warning">
                                 {{count(auth()->user()->unreadNotifications)}}
-                           </span> 
+                            </span>
                             @endif
-                             
+
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-rigth"
+                            aria-labelledby="dropdownMenuButton">
 
                             <div class="dropdown-header">Notificaiones No Leidas:</div>
                             <div class="dropdown-divider"></div>
@@ -87,37 +88,39 @@
                                         {{$notification->data['user_id']}}
                                     </i>
                                     <i class="col-12 col-lg-11 ml-auto "> Total${{$notification->data['total']}}</i>
-                                    <i class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
+                                    <i
+                                        class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
                                 </div>
                             </a>
                             @empty
-                               <span class="ml-3 pull-right text-muted text-sm"> Sin notificaciones no leidas</span>
-                            
-                            @endforelse
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">Notificaiones Leidas:</div>
-                                <div class="dropdown-divider"></div>
-                                
+                            <span class="ml-3 pull-right text-muted text-sm"> Sin notificaciones no leidas</span>
 
-                            @forelse (auth()->user()->readNotifications as $notification)
-                                <a class="dropdown-item" href="#">
-                                    <div class="row bg-light">
-                                        <i class="fas fa-envelope mr-2 col-12 "></i>
-                                        <i> Order de compra del usuario :{{$notification->data['user_id']}}</i>
-                                        <i class="col-12 col-lg-11 ml-auto ">Total${{$notification->data['total']}}</i>
-                                        <i class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
-                                         
-                                    </div>
-                                </a>
-                            @empty
-                                <span class="ml-3 pull-right text-muted text-sm">Sin notificaiones leidas</span>
                             @endforelse
                             <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">
-                                    <a href="/markasreadall">Marcar todas las notificaiones como leidas</a>
-                                </div> 
+                            <div class="dropdown-header">Notificaiones Leidas:</div>
+                            <div class="dropdown-divider"></div>
+
+
+                            @forelse (auth()->user()->readNotifications as $notification)
+                            <a class="dropdown-item" href="#">
+                                <div class="row bg-light">
+                                    <i class="fas fa-envelope mr-2 col-12 "></i>
+                                    <i> Order de compra del usuario :{{$notification->data['user_id']}}</i>
+                                    <i class="col-12 col-lg-11 ml-auto ">Total${{$notification->data['total']}}</i>
+                                    <i
+                                        class="col-12 col-lg-11 ml-auto">{{$notification->created_at->diffForHumans()}}</i>
+
+                                </div>
+                            </a>
+                            @empty
+                            <span class="ml-3 pull-right text-muted text-sm">Sin notificaiones leidas</span>
+                            @endforelse
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">
+                                <a href="/markasreadall">Marcar todas las notificaiones como leidas</a>
+                            </div>
                             <div class="dropdown-footer"></div>
-                              
+
                         </div>
                     </li>
 
@@ -131,7 +134,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{url('index')}}" class="brand-link">
                 <img src="{{asset('admin_picture/Logotipo.png')}}" alt="Logo" class="brand-image  elevation-3"
@@ -288,12 +291,12 @@
                             </a>
                         </li>
 
-                        <!-- notifications update nav-bar--
+                        <!-- notifications update nav-bar-->
 
 
                     </ul>
 
-                >
+
 
                 </nav>
                 <!-- /.sidebar-menu -->

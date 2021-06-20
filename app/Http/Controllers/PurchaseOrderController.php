@@ -11,7 +11,7 @@ use Cart;
 use App\Events\PurchaseOrderEvent;
 use App\Notifications\PurchaseOrderNotification;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class PurchaseOrderController extends Controller
 {
    
@@ -72,14 +72,16 @@ class PurchaseOrderController extends Controller
 
         $cart = Cart::session(auth()->id())->getContent();
     
-        
+       
         $cartTotal = Cart::getTotal();
     
         
          $data =  $request->all();
          $data['user_id'] =  $user->id;
          $data['total']   = $cartTotal;
+         $data['payment_id'] = $request->payment_id;
          $purchase_order = PurchaseOrder::create($data);
+        
          event(new PurchaseOrderEvent($purchase_order));
        
         
@@ -112,10 +114,14 @@ class PurchaseOrderController extends Controller
 
     }
     public function markNotification(){
+        
+        $user= User::all();
 
-        $purchaseOrderNotifications= auth()->user()->unreadNotifications;
-       
-        return view('admin.markasread', compact('purchaseOrderNotifications'));
+        $purchaseOrderNotifications= auth()->user()->readNotifications;
+        $notificationsAll= DB::table('notifications')->select('*')->where('notifiable_id',1)->paginate(5);
+        
+      
+        return view('admin.markasread', compact('purchaseOrderNotifications','user','notificationsAll'));
     }
 
 
