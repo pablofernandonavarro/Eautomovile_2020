@@ -27,7 +27,7 @@
 <script>
   $(function () {
     //Initialize Select2 Elements
-    $('#category_id').select2()
+    // $('#category_id').select2()
 
     //Initialize Select2 Elements
     $('.select2bs4').select2({
@@ -207,19 +207,20 @@
               <div class="category col-md-6">
                 <!-- cayegory -->
 
-                <label>Categoria</label>
-                <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
-                  @foreach($categories as $category)
+                <div class="form-group">
+                  <label>Categoria</label>
+                  <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
+                    @foreach($categories as $category)
 
-                  @if (old('category_id') == $category->id)
-                  <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
-                  @else
-                  <option value="{{ ($category->id) }}">{{$category->category_name}} </option>
-                  @endif
-                  @endforeach
-                </select>
+                    @if (old('category_id') == $category->id)
+                    <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
+                    @else
+                    <option value="{{ ($category->id) }}">{{$category->category_name}} </option>
+                    @endif
+                    @endforeach
+                  </select>
+                </div>
               </div>
-
               <!-- /category -->
 
               <div class="date_start col-md-6">
@@ -557,8 +558,8 @@
                 <!-- Descriptin-short -->
 
                 <label>Descripción corta:</label>
-                <textarea class="form-control " name="description_short" id="description_short"
-                  rows="3">{{old('description_short')}}</textarea>
+                <textarea class="form-control mb-3" name="description_short" id="description_short"
+                  rows="13">{{old('description_short')}}</textarea>
                 <br>
                 <div class="col-md-12">
                   {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"

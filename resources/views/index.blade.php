@@ -57,16 +57,16 @@
 <div>
     <h1 class="text-black display-flex text-center"> Selecione su Cubre alfombra Vapren :</h1>
 </div>
-<div class="centralSearch shadow col-12 col-lg-12 d-flex justify-content-center">
+<div class="centralSearch shadow col-12 col-lg-12 d-flex justify-content-center ">
 
-    <div class="row d-flex justify-content-center">
-        <form class="row " action="{{route('productSearch')}}" method="get">
+    <div class="d-flex justify-content-center">
+        <form class="row p-3"action="{{route('productSearch')}}" method="get">
             @csrf
 
 
-            <div class="col-12 col-md-3 p-2">
+            <div class="col-12 col-lg-3">
                 <div class="row">
-                    <label class="h3 text-white col-md-12 col-lg-3">Uso:</label>
+                    <label class="h3 text-white col-md-12 col-lg-4">Uso:</label>
                     <select class="form-select col-md-12" name="category_id" id="utility"
                         aria-label="Default select example">
                         @foreach($categories as $category)
@@ -77,9 +77,9 @@
                     </select>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 p-2 container">
+            <div class="col-12 col-lg-4">
                 <div class="row">
-                    <label class="h3 text-white col-md-12">Modelo:</label>
+                    <label class="h3 text-white col-md-12 ">Modelo:</label>
                     <select class="form-select col-md-12" name="pattern_id" id="patterns">
 
                         @foreach($patterns as $pattern)
@@ -90,20 +90,24 @@
                     </select>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 p-2 ">
+            <div class="col-12 col-lg-2">
                 <div class="row">
                     <label class="h3 text-white col-md-12">Año:</label>
-                    <input class="form-select col-md-12" type="number" name="year" id="years" max="2025" min="1960"
+                    <input class="form-select col-12 col-md-12" type="number" name="year" id="years" max="2025" min="1960"
                         placeholder="Ingrese el año">
                 </div>
             </div>
-            <div class="col-12 col-md-12 p-2 d-flex justify-content-center ">
+            <div class="col-12 col-lg-2 mt-4 ml-auto">
                 <button type="submit" class="btn btn-success">
+                    <i class="fas fa-search ml-1"></i>
+                  
                     Buscar
                 </button>
             </div>
-        </form>
     </div>
+   
+
+    </form>
 </div>
 
 
@@ -162,6 +166,7 @@
     $(document).ready(function() {
         $('#utility').select2();
         $('#patterns').select2();
+       
       
     });
 </script>
