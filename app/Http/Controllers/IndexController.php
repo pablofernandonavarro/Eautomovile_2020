@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\Storage;
 use App\Product;
 use App\Category;
 use App\Pattern;
+use DateTime;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+use PDO;
 
 class IndexController extends Controller
 {
@@ -59,10 +62,11 @@ class IndexController extends Controller
       $category_id = $request->get('category_id');
       $pattern_id  = $request->get('pattern_id');
     
-     
-      $year      = Date('Y-m-d');
       $year        = $request->get('year');
-
+      $year = strtotime($year."-01-01");
+      $year = date('Y-m-d',$year);
+      
+   
 
      $products = Product::orderBy('id', 'DESC')
                     ->categorysearch($category_id)
@@ -85,6 +89,14 @@ class IndexController extends Controller
 
     return view ('currier');
 
+  }
+  public function product_list_all(){
+
+    $products_all = Product::paginate(1);
+    $products = Product::with('pictures','category')->get();
+    
+    
+    return view('productListAll',compact('products','products_all'));
   }
 
 }

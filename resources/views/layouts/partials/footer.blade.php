@@ -50,7 +50,8 @@
                     <li><i class="fas fa-home mr-2"></i></i><a href="/" class="text-dark">Inicio</a></li>
                     <li><i class="fas fa-house-user mr-2"></i></i><a href="/login" class="text-dark">Ingreso:</a></li>
                     <li><i class="fas fa-search mr-2"></i></i>Buscador:</li>
-                    <li><i class="fas fa-truck mr-2"></i></i>Lista de articulos</li>
+                    <li><a href="{{route('productListAll')}}"><i class="fas fa-truck mr-2"></a></i>Listado de productos
+                    </li>
                 </ul>
             </div>
 

@@ -557,7 +557,7 @@
                 <!-- Descriptin-short -->
 
                 <label>Descripción corta:</label>
-                <textarea class="form-control ckeditor" name="description_short" id="description_short"
+                <textarea class="form-control " name="description_short" id="description_short"
                   rows="3">{{old('description_short')}}</textarea>
                 <br>
                 <div class="col-md-12">

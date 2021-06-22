@@ -30,6 +30,7 @@ Route::get('/index','indexController@view_user');
 Route::get('/index','indexController@productSearch')->name('productSearch');
 Route::get('/nosotros','indexController@view_nosotros')->name('nosotros');
 Route::get('/currier','indexController@view_currier')->name('currier');
+Route::get('/productListAll','indexcontroller@product_list_all')->name('productListAll');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -102,7 +103,7 @@ Route::get('import-products-list-excel','ProductController@importExcel')->name('
 //********   Route Product ********* ///
 
 
-Route::get('productShowApp/{id}','ProductController@productShow')->name('productShowApp');
+Route::get('/productShowApp/{slug}','ProductController@productShow')->name('productShowApp');
 
 
 //********   Route Product ********* ///

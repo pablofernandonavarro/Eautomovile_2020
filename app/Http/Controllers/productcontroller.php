@@ -21,7 +21,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ProductsImport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
-
+use App\User;
 
 
 class Productcontroller extends Controller
@@ -255,11 +255,14 @@ class Productcontroller extends Controller
         
         return redirect('/admin/importProductExcel')->with('message', 'Actualizacion de precios Exitosa');
     }
-    public function productShow($id)
+    public function productShow($slug)
+
     {
-     $product = Product::findOrFail($id);
+        
+     $product = Product::where('slug', $slug)->first();
      $pictures = $product->picture;
-     $users         = Auth::user();
+     $users         =  User::all();
+
      return view('productShowApp', compact('product', 'users','pictures'), [
      
    

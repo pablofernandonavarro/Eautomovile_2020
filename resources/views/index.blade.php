@@ -32,7 +32,7 @@
 {{-- -----------------   carrousel-card ----------------------- --}}
 
 <div class="bodyCard ">
-    <div class="wrapperCard bg-primary">
+    <div class="wrapperCard ">
         <div class="carousel owl-carousel">
             <div class="card card-1 "></div>
             <div class="card card-2"></div>
@@ -93,7 +93,7 @@
             <div class="col-12 col-lg-3 p-2 ">
                 <div class="row">
                     <label class="h3 text-white col-md-12">Año:</label>
-                    <input class="form-select col-md-12" type="date" name="year" id="years"
+                    <input class="form-select col-md-12" type="number" name="year" id="years" max="2025" min="1960"
                         placeholder="Ingrese el año">
                 </div>
             </div>
@@ -112,38 +112,40 @@
 <h1 class="d-flex justify-content-center text-danger mt-4">El resultado de tu busquedas es:</h1>
 {{-- ---------------------------- Card-products --------------------- --}}
 
-<div class="container d-flex justify-content-center mt-2">
+<div>
+    <div class="container d-flex justify-content-center mt-2">
 
-    <div class="row">
-        @foreach ($products as $product)
+        <div class="row">
+            @foreach ($products as $product)
 
 
-        <div class="col-md-4 ">
-            {{-- <a href="{{route("productShowApp")}}"></a> --}}
-            <div class="card shadow-lg">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="{{'/storage/'.$product->pictures[0]->url_picture}}"
-                            class="card-img img-fluid" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="{{url("productShowApp/".$product->id)}}"
-                                class="text-default mb-2" data-abc="true">{!!$product->description_large!!}</a>
-                        </h6> <a href="#" class="text-muted" data-abc="true">Uso
-                            :{{$product->category->category_name}}</a>
+            <div class="col-md-4 ">
+                {{-- <a href="{{route("productShowApp")}}"></a> --}}
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img src="{{'/storage/'.$product->pictures[0]->url_picture}}"
+                                class="card-img img-fluid img-thumbnail" alt=""> </div>
                     </div>
-                    <h3 class="mb-0 font-weight-semibold">${{$product->price}}</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
-                            class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">{{$product->visit}}</div>
-                    <a href="/productShowApp/{{$product->id}}" type="button" class="btn bg-cart">
-                        <i class="fas fa-eye"></i>
-                        Ver</a>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="{{url("productShowApp/".$product->id)}}"
+                                    class="text-default mb-2" data-abc="true">{!!$product->description_large!!}</a>
+                            </h6> <a href="#" class="text-muted" data-abc="true">Uso
+                                :{{$product->category->category_name}}</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">${{$product->price}}</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">{{$product->visit}}</div>
+                        <a href="/productShowApp/{{$product->slug}}" type="button" class="btn bg-cart">
+                            <i class="fas fa-eye"></i>
+                            Ver</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+            @endforeach
 
+        </div>
     </div>
 </div>
 
