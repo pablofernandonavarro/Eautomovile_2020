@@ -59,55 +59,65 @@
 </div>
 <div class="centralSearch shadow col-12 col-lg-12 d-flex justify-content-center ">
 
-    <div class="d-flex justify-content-center">
-        <form class="row p-3"action="{{route('productSearch')}}" method="get">
+    <div class="d-flex justify-content-center ml-4 ">
+        <form class="row" action="{{route('productSearch')}}" method="get">
             @csrf
 
 
-            <div class="col-12 col-lg-3">
-                <div class="row">
-                    <label class="h3 text-white col-md-12 col-lg-4">Uso:</label>
-                    <select class="form-select col-md-12" name="category_id" id="utility"
-                        aria-label="Default select example">
-                        @foreach($categories as $category)
-                        <option class="form-control" value="{{ $category->id }}" selected>
-                            {{$category->category_name}} </option>
-                        @endforeach
 
-                    </select>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="row">
-                    <label class="h3 text-white col-md-12 ">Modelo:</label>
-                    <select class="form-select col-md-12" name="pattern_id" id="patterns">
+            <div class="col-12 col-lg-5 row">
+                <label class="h4 text-white col-md-12 col-lg-4">Uso:</label>
+                <select class="form-select col-xs-4 col-md-12" name="category_id" id="utility"
+                    aria-label="Default select example">
+                    <option disabled="disabled" selected>Escoger un valor</option>
+                    @foreach($categories as $category)
 
-                        @foreach($patterns as $pattern)
+                    <option class="form-control" value="{{ $category->id }}">
+                        {{$category->category_name}} </option>
+                    @endforeach
 
-                        <option class="options" value="{{ $pattern->id }}" selected>{{$pattern->pattern_name}}
-                        </option>
-                        @endforeach
-                    </select>
-                </div>
+                </select>
+                {!!$errors->first('category_id','<small class="alert alert-danger col-md-12" role="alert">:message
+                </small>')!!}
             </div>
-            <div class="col-12 col-lg-2">
-                <div class="row">
-                    <label class="h3 text-white col-md-12">Año:</label>
-                    <input class="form-select col-12 col-md-12" type="number" name="year" id="years" max="2025" min="1960"
-                        placeholder="Ingrese el año">
-                </div>
+
+
+            <div class="col-12 col-lg-4 row">
+                <label class="h4 text-white col-md-12 col-lg-4">Modelo:</label>
+                <select class="form-select col-xs-4 col-md-12" name="pattern_id" id="patterns">
+                    <option disabled="disabled" selected>Escoger un valor</option>
+                    @foreach($patterns as $pattern)
+
+                    <option class="options" value="{{ $pattern->id }}">{{$pattern->pattern_name}}
+                    </option>
+                    @endforeach
+                </select>
+                {!!$errors->first('pattern_id','<small class="alert alert-danger col-md-12" role="alert">:message
+                </small>')!!}
             </div>
-            <div class="col-12 col-lg-2 mt-4 ml-auto">
-                <button type="submit" class="btn btn-success">
+
+
+            <div class="col-12 col-lg-3 row">
+                <label class="h4 text-white col-md-12">Año:</label>
+                <input class="form-select col-md-12" type="number" name="year" id="years" max="2025" min="1960"
+                    placeholder="Ingrese el año">
+
+
+                {!!$errors->first('year','<small class="alert alert-danger " role="alert">:message
+                </small>')!!}
+            </div>
+            <div class="col mt-2 mb-2">
+                <button type="submit" class="btn  btn-success">
                     <i class="fas fa-search ml-1"></i>
-                  
+
                     Buscar
                 </button>
             </div>
-    </div>
-   
 
-    </form>
+
+
+        </form>
+    </div>
 </div>
 
 

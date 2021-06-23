@@ -15,7 +15,7 @@ use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use PDO;
-
+use App\Http\Requests\productSearchRequest;
 class IndexController extends Controller
 {
 
@@ -53,9 +53,9 @@ class IndexController extends Controller
         return 0;
         }
 
-    pubLic function productSearch(Request $request){
+    pubLic function productSearch(productSearchRequest $request){
 
-  
+   
       $user = Auth::user();
       $categories = Category::all();
       $patterns   = Pattern::all();
