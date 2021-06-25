@@ -250,48 +250,53 @@
                         <!-- /Pattern nav-bar-->
 
 
-                        <p class="btn btn-danger mt-3 mb-0">Proveedores</p>
-                        <!-- Supplier nav-bar-->
 
-                        <li class="nav-item has-treeview bg-danger">
-                            <a href="/admin/supplier_crud" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Proveedores
-                                    <i class="right fas"></i>
-                                </p>
+
+
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                                <i class="fas fa-chevron-circle-down"></i>
+                                <span> Proveedores </span>
+                                
                             </a>
+                            <div class="collapse" id="sidebarEcommerce">
+                                <ul class="side-nav-second-level">
+                                    <li class="nav-item ">
+                                        <a href="/admin/supplier_crud" class="nav-link active">Proveedores ABM</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/importProductExcel" class="nav-link active">Importar Precios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/exportProductExcel" class="nav-link active">Exportar Precios</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </li>
 
-                        <!-- /Supplier nav-bar-->
 
-                        <!-- Supplier update nav-bar-->
 
-                        <li class="nav-item has-treeview bg-danger">
-                            <a href="/admin/importProductExcel" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Actualizar Precios
-                                    <i class="right fas"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarNotification" aria-expanded="false" aria-controls="sidebarNotification" class="side-nav-link">
+                                <i class="fas fa-chevron-circle-down"></i>
+                                <span> Notificaiones </span>
+                                
                             </a>
+                            <div class="collapse" id="sidebarNotification">
+                                <ul class="side-nav-second-level">
+                                    <li class="nav-item ">
+                                        <a href="{{route('admin.markasread')}}" class="nav-link active">
+                                            <i class="fas fa-bell"></i>
+                                            Notificaiones
+                                        </a>
+                                    </li>
+                                   
+                                    
+                                </ul>
+                            </div>
                         </li>
 
-
-                        <!-- Notifications update nav-bar-->
-
-
-
-                        <button type="button" class="btn btn-secondary mt-2">Notificaiones</button>
-                        <li class="nav-item has-treeview bg-success">
-
-                            <a href="{{route('admin.markasread')}}" class="nav-link active">
-                                <i class="fas fa-bell"></i>
-                                <p>Notificaciones</p>
-                            </a>
-                        </li>
-
-                        <!-- notifications update nav-bar-->
 
 
                     </ul>

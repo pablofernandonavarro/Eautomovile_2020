@@ -414,8 +414,7 @@
 
                   <label>Utilidad :</label>
                   <div class="input-group">
-                    <input class="form-control" type="number" id="utility" name="utility" step="any" min="0" max="100"
-                      value="{{old('utility')}}">
+                    <input class="form-control" type="number" id="utility" name="utility">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>

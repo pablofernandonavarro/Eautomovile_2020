@@ -23,14 +23,15 @@ class ProductRequest extends FormRequest
 
     public function rules(Product $product)
     {  
+        
        
         return [
 
-            'visit'                  => 'required',
-            'count_sale'             => 'required',
-            'sku'                    => 'required',
-            'sku'                    => 'unique:products,sku',
-             'slug'                   => 'required',
+            // 'visit'                  => 'required',
+            // 'count_sale'             => 'required',
+            // 'sku'                    => 'required',
+            // 'sku'                    => 'unique:products,sku',
+            //  'slug'                   => 'required',
             'color_id'               => 'required',
             'pattern_id'             => 'required',
             // 'brand_id'               => 'required',
@@ -39,11 +40,11 @@ class ProductRequest extends FormRequest
             'date_finish'            => 'required||after_or_equal:date_start',
             'quantity'               => 'required|numeric|min:0|not_in:0',
             'price'                  => 'required|numeric|min:0|not_in:0',
-            'description_short'      => 'required',
+            // 'description_short'      => 'required',
             'supplier_price_list'    => 'required',
-            'supplier_discount'      => 'required|min:0|max:100',
-            'quantity'               => 'required'
-            
+            // 'supplier_discount'      => 'required|min:0|max:100',
+            'quantity'               => 'required',
+            'utility'               => 'required',
         ];
     }
     public function messages()
@@ -70,7 +71,8 @@ class ProductRequest extends FormRequest
             'date_start.before_or_equal'    => 'El dato tiene que ser anterior a la fecha de  finalizacion de fabricacion del modelo',
             'supplier_price_list.required'  => 'El dato es requerido de este depende PRECIO DE COSTO',
             'supplier_discount.required'    => 'Este valor no pude ser nenor a 0 no mayor a 100',
-            'quantity.required'             => 'La cantidad es necesaria para llevar un stock real'
+            'quantity.required'             => 'La cantidad es necesaria para llevar un stock real',
+            'quantity.utilty'               => 'La utilidad es necesaria para publicar el articulo'
         ];
     }
 }

@@ -42,43 +42,7 @@
     .catch(error => console.log(error))
   });
 </script>
-<script type="text/javascript">
-    (function (){
 
-    var costo =0;
-    var utility = 0;
-    var descuento =0;
-    var precio = 0;
-  
-    
-    var fillcost = function(){
-    var costo = parseFloat(supplier_price_list.value)-parseFloat(supplier_price_list.value*parseFloat(supplier_discount.value/100));
-      cost.value = costo.toFixed(2);
-    };
-
-    var fillprice = function(){
-      var utility = document.getElementById('utility');
-      var cost = document.getElementById('cost');
-      var descuento = cost.value * (utility.value/100);
-       var  precio = parseFloat(cost.value)+parseFloat(descuento);
-      price.value = precio.toFixed(2);
-    };
-  
-
-  var list_price = document.getElementById('supplier_price_list');
-  var supplier_discount = document.getElementById('supplier_discount');
-  var utility = document.getElementById('utility');
-  var cost = document.getElementById('cost');
-  var price = document.getElementById('price');
-
-  list_price.addEventListener('change', fillcost);
-  utility.addEventListener('change', fillprice);
-}());
-
-
- 
- 
-</script>
 
 @endsection
 <script src="{{asset('adminlte/plugins/ckeditor/ckeditor.js')}}"></script>
@@ -251,10 +215,10 @@
                         <select name="category_id" id="category_id" class="form-control " style="width: 100%;">
                             @foreach($categories as $category)
 
-                            @if ($product->category->id == $category->id) --}}
+                            @if ($product->category->id == $category->id) 
                             <option value="{{ $category->id }}" selected>{{$category->category_name}} </option>
                             @else
-                            <option value="{{ ($product->category->id) }}">{{$product->category->category_name}}
+                            <option value="{{ ($category->id) }}">{{$category->category_name}}
                             </option>
                             @endif
                             @endforeach
@@ -457,7 +421,7 @@
                             <label>Costo :</label>
                             <div class="input-group">
 
-                                <input class="form-control" id="cost" name="cost" value="{{$product->cost}}">
+                                <input class="form-control" id="cost" name="cost" value="{{$product->supplier_price_list - $product->supplier_price_list*(($product->supplier_discount)/100)}}" >
 
                             </div>
                             <br>
@@ -483,8 +447,7 @@
 
                             <label>Utilidad :</label>
                             <div class="input-group">
-                                <input class="form-control" type="number" id="utility" name="utility"
-                                    value="{{$product->utility}}" step="any" min="0" max="100">
+                                <input class="form-control" type="number" id="utility" name="utility" value="{{$product->utility}}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -609,13 +572,13 @@
                             <!-- Descriptin-short -->
 
                             <label>Descripción corta:</label>
-                            <textarea class="form-control ckeditor" name="description_short" id="description_short"
-                                rows="3">{{$product->description_short}}</textarea>
+                            <textarea class="form-control mb-3" name="description_short" id="description_short"
+                              rows="13" value="{{$product->description_short}}">{{$product->description_short}}</textarea>
                             <br>
                             <div class="col-md-12">
-                                {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
-                                    role="alert">:message
-                                </small>')!!}
+                              {!!$errors->first('description_short','<small class="alert alert-danger col-md-12"
+                                role="alert">:message
+                              </small>')!!}
                             </div>
 
                         </div>
@@ -824,4 +787,22 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    let model             = document.getElementById('pattern_id');
+    let brand             = document.getElementById('brand');
+    let description_short = document.getElementById('description_short');
+  
+    model.addEventListener('change',(e) => {
+      fetch(`http://localhost:8000/api-brands/${e.target.value}`)
+      .then(response => response.json())
+      .then(data => brand.value = data.brand_name)
+      
+      .catch(error => console.log(error))
+    });
+  </script>
+ 
+  
+  
+   
+
 @endsection

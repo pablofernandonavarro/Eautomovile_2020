@@ -47,6 +47,7 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group( function(){
     Route::get('dashboard','DashboardController@index');
     Route::get('importProductExcel','importProductExcelController@importExcel');
     Route::post('importProductExcel','importProductExcelController@importExcel');
+    Route::get('exportProductExcel','ExportProductExcelController@exportExcel');
     Route::get('note_crud','DashboardController@view_note');
     Route::get('color_crud','DashboardController@view_color');
     Route::get('category_crud','DashboardController@view_category');
@@ -96,6 +97,7 @@ Route::delete('/deletepicture/{id}', 'PictureController@image')->name('deletepic
 
 Route::post('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');
 Route::get('import-products-list-excel','ProductController@importExcel')->name('products.import.excel');
+Route::get('export-products-list-excel','ProductController@exportExcel')->name('products.export.excel');
 
 //********   /Route Import/excel ********* ///
 

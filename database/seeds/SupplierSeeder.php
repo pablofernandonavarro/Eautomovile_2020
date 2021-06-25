@@ -14,7 +14,7 @@ class SupplierSeeder extends Seeder
         DB::table('suppliers')->insert([
 
             
-            'supplier_code'                      =>'100000',
+            'supplier_code'                      =>'1',
             'supplier_businessName'              =>'Vapren',
             'supplier_email'                     => 'vapren@vapren.com',
             'supplier_phone'                     => '1213124412',

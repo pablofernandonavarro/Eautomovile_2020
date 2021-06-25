@@ -19,6 +19,7 @@ use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ProductsImport;
+use App\Exports\ProductsExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use App\User;
@@ -156,8 +157,9 @@ class Productcontroller extends Controller
         return view('admin/products/edit', compact('product', 'categories', 'user', 'brands', 'patterns', 'colors', 'suppliers', 'pictures'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
+        
         $product = Product::findOrFail($id);
         $pattern = Pattern::find($request->input('pattern_id'));
         $brand = $pattern->brand;
@@ -247,14 +249,30 @@ class Productcontroller extends Controller
         return "eliminado id:".$id. ' '.$eliminar;
     }
 
-    public function importExcel(Request $request)
+    public function importExcel(Request $request, Product $product)
 
     {
         
         Excel::import(new ProductsImport, request()->file('file'));
         
+        
+        $products = Product::all();
+        
+       
+
+        
         return redirect('/admin/importProductExcel')->with('message', 'Actualizacion de precios Exitosa');
     }
+
+
+    public function exportExcel() 
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+
+
+
     public function productShow($slug)
 
     {
