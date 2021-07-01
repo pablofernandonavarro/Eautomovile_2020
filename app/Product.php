@@ -26,6 +26,7 @@ class Product extends Model
     protected $table = 'products';
 
     protected $fillable = [
+
         'sku',
         'slug',
         'description_short',
@@ -82,12 +83,12 @@ class Product extends Model
         return $this->belongsToMany('App\Supplier')->withTimestamps();
     }
 
-    
+
     public function purchaseOrders()
     {
         return $this->belongsToMany('App\PurchaseOrder')->withTimestamps();
     }
-  
+
 
 
     //   ------------------ scopes -------------------------------
@@ -112,23 +113,23 @@ class Product extends Model
             //    dd($year,$query->product);
               return $query->whereDate('date_start', '<', $year);
           }
-      }  
+      }
       public function scopeFinishDate($query, $year){
 
           if ($year)
 
           Date('Y-m-d');
           $year = date($year);
-        
-              return $query->whereDate('date_finish', '>', $year);  
-             
-               
-           
+
+              return $query->whereDate('date_finish', '>', $year);
+
+
+
 
 
       }
 
- 
+
 }
 
 

@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class ProductsExport implements FromCollection, WithHeadings
 {
+
     public function headings(): array
     {
         return [
@@ -25,7 +26,7 @@ class ProductsExport implements FromCollection, WithHeadings
             'pattern_id',
             'category_id',
             'colour_id',
-            'supplier_id',
+            // 'supplier_id',
             'date_start',
             'date_finish',
             'quantity',
@@ -41,9 +42,10 @@ class ProductsExport implements FromCollection, WithHeadings
             'price_discount',
         ];
     }
-    
+
     public function collection()
     {
+
         return Product::all();
     }
 }
