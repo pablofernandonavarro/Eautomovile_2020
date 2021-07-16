@@ -48,6 +48,7 @@ class Product extends Model
         'slider',
         'supplier_price_list',
         'supplier_discount',
+        'supplier_product_code',
         'cost',
         'utility',
         'price_discount',

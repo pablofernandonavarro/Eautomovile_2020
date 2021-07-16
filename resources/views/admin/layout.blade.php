@@ -171,95 +171,47 @@
                                 </p>
                             </a>
                         </li>
-                        <!-- /Tareas a realizar-->
-                        <button type="button" class="btn btn-secondary">Productos</button>
-
-
-                        <!-- /Products nav-bar-->
-
-                        <li class="nav-item has-treeview btn-secondary">
-                            <a href="{{route('admin.products.index')}}" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Productos
-                                    <i class="right fas"></i>
-                                </p>
-                            </a>
-                        </li>
-
-                        <!-- /Product nav-bar-->
-
-                        <!-- Category nav-bar-->
-                        <li class="nav-item has-treeview btn-secondary">
-                            <a href="/admin/category_crud" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Categorias
-                                    <i class="right fas"></i>
-                                </p>
-                            </a>
-                        </li>
-                        <!-- /Category nav-bar-->
-
-
-
-                        <!-- Brand nav-bar-->
-                        <li class="nav-item has-treeview btn-secondary">
-                            <a href="/admin/brand_crud" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Marca automotor
-                                    <i class="right fas"></i>
-                                </p>
-                            </a>
-                        </li>
-
-                        <!-- Brand nav-bar-->
-
-
-                        <!-- Color nav-bar-->
-
-                        <li class="nav-item has-treeview btn-secondary">
-                            <a href="/admin/color_crud" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Colores
-                                    <i class="right fas"></i>
-                                </p>
-                            </a>
-                        </li>
-
-
-                        <!-- /color nav-bar-->
-
-
-
-
-                        <!-- Pattern nav-bar-->
-
-                        <li class="nav-item has-treeview btn-secondary">
-                            <a href="/admin/pattern_crud" class="nav-link active">
-                                <i class="nav-icon active"></i>
-                                <p>
-                                    Modelos
-                                    <i class="right fas"></i>
-                                </p>
-                            </a>
-                        </li>
-
-                        <!-- /Pattern nav-bar-->
-
-
-
-
 
                         <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false"
+                                aria-controls="sidebarEcommerce" class="side-nav-link">
                                 <i class="fas fa-chevron-circle-down"></i>
-                                <span> Proveedores </span>
-                                
+                                <span> A.B.M. </span>
+
                             </a>
                             <div class="collapse" id="sidebarEcommerce">
+                                <ul class="side-nav-second-level">
+                                    <li class="nav-item">
+                                        <a href="{{route('admin.products.index')}}" class="nav-link active">A.B.M.
+                                            Productos</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a href="/admin/category_crud" class="nav-link active">Catgorias</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="/admin/brand_crud" class="nav-link active">Marca</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/color_crud" class="nav-link active">Colores</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/pattern_crud" class="nav-link active">Modelos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#supplierEcommerce" aria-expanded="false"
+                                aria-controls="sidebarEcommerce" class="side-nav-link">
+                                <i class="fas fa-chevron-circle-down"></i>
+                                <span> Proveedores </span>
+
+                            </a>
+                            <div class="collapse" id="supplierEcommerce">
                                 <ul class="side-nav-second-level">
                                     <li class="nav-item ">
                                         <a href="/admin/supplier_crud" class="nav-link active">Proveedores ABM</a>
@@ -270,7 +222,7 @@
                                     <li class="nav-item">
                                         <a href="/admin/exportProductExcel" class="nav-link active">Exportar Precios</a>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </li>
@@ -278,10 +230,11 @@
 
 
                         <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarNotification" aria-expanded="false" aria-controls="sidebarNotification" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarNotification" aria-expanded="false"
+                                aria-controls="sidebarNotification" class="side-nav-link">
                                 <i class="fas fa-chevron-circle-down"></i>
                                 <span> Notificaiones </span>
-                                
+
                             </a>
                             <div class="collapse" id="sidebarNotification">
                                 <ul class="side-nav-second-level">
@@ -291,8 +244,8 @@
                                             Notificaiones
                                         </a>
                                     </li>
-                                   
-                                    
+
+
                                 </ul>
                             </div>
                         </li>
